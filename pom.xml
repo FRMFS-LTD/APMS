@@ -14,6 +14,7 @@
     </properties>
 
     <dependencies>
+        <!--GUI LIBS-->
         <dependency>
             <groupId>org.kordamp.bootstrapfx</groupId>
             <artifactId>bootstrapfx-core</artifactId>
@@ -31,6 +32,13 @@
             <version>11</version>
         </dependency>
 
+        <!-- JDBC -->
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.23</version>
+        </dependency>
 
     </dependencies>
 </project>
