@@ -1,21 +1,27 @@
-package sample;
-
 import dao.DbConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
+import java.awt.*;
 import java.sql.Connection;
+
+import static javafx.scene.paint.Color.TRANSPARENT;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/LogIn.fxml"));
+        Scene scene = new Scene(root);
+        scene.setFill(TRANSPARENT);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("LoginForm");
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
+        primaryStage.setOpacity(0.95);
         primaryStage.show();
 
         testConnetion();

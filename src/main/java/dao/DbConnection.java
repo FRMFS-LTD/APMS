@@ -23,6 +23,7 @@ public class DbConnection {
         catch(SQLException E){
             E.printStackTrace();
         }
+
         return connection;
     }
 
