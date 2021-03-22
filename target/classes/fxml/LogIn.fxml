@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXPasswordField?>
-<?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane id="Container" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LogIn">
+<AnchorPane id="Container" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LogIn">
    <children>
-      <JFXTextField alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" layoutX="150.0" layoutY="149.0" prefHeight="26.0" prefWidth="300.0" promptText="UserName" style="-fx-text-fill: white;" unFocusColor="#828d9e" />
-      <JFXButton layoutX="150.0" layoutY="262.0" prefHeight="26.0" prefWidth="300.0" style="-fx-background-color: #2FBBBA;" text="LogIn" textFill="WHITE" />
+      <JFXTextField alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" layoutX="150.0" layoutY="149.0" prefHeight="26.0" prefWidth="300.0" promptText="UserName" styleClass="textField" stylesheets="@../css/style.css" unFocusColor="#828d9e" />
+      <JFXButton id="primBtn" layoutX="150.0" layoutY="262.0" prefHeight="26.0" prefWidth="300.0" styleClass="primBtn" stylesheets="@../css/style.css" text="LogIn" textFill="WHITE" />
       <ImageView fitHeight="121.0" fitWidth="125.0" layoutX="235.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/flag.png" />
@@ -22,6 +19,6 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </JFXButton>
-      <JFXPasswordField focusColor="WHITE" labelFloat="true" layoutX="150.0" layoutY="199.0" prefHeight="26.0" prefWidth="300.0" promptText="Password" style="-fx-text-fill: white;" unFocusColor="#828e9f" />
+      <JFXPasswordField focusColor="WHITE" labelFloat="true" layoutX="150.0" layoutY="199.0" prefHeight="26.0" prefWidth="300.0" promptText="Password" styleClass="textField" stylesheets="@../css/style.css" unFocusColor="#828e9f" />
    </children>
 </AnchorPane>

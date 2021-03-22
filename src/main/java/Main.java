@@ -8,6 +8,9 @@ import javafx.stage.StageStyle;
 
 import java.awt.*;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import static javafx.scene.paint.Color.TRANSPARENT;
 
@@ -40,7 +43,22 @@ public class Main extends Application {
         }
         else{
             System.out.println("Connection Succeeded");
+            String query = "select * from client";
 
+            Statement stmt = null;
+            try {
+                stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(query);
+                while (rs.next()) {
+                    String name = rs.getString("id_client");
+                    System.out.println(name);
+                }
+
+            } catch (SQLException throwables) {
+
+                throwables.printStackTrace();
+
+            }
         }
     }
 }
