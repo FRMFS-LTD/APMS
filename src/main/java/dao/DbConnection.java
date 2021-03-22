@@ -5,11 +5,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DbConnection {
-    private static final String Host = "sql11.freesqldatabase.com";
+    private static final String Host = "remotemysql.com";
     private static final int port = 3306;
-    private static final String DB_NAME = "sql11400341";
-    private static final String USERNAME = "sql11400341";
-    private static final String PASSWORD = "35y1EppCEt";
+    private static final String DB_NAME = "nZXG3ajglr";
+    private static final String USERNAME = "nZXG3ajglr";
+    private static final String PASSWORD = "8qowjF0omo";
 
 
     private static Connection connection ;
