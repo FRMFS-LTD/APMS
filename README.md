@@ -50,7 +50,7 @@ capable of:
 
 ### Conception
 - Class diagram (Diagramme de classes)<br>
-  <img src="readMeAssets/diagramme-class.png" alt="Logo" >
+  <img src="readMeAssets/diagramme class.png" alt="Logo" >
   
 - Entrance State diagram (Diagramme états-transitions)<br>
   <img src="readMeAssets/etat-transition-entrence.png" alt="Logo" >
