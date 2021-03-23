@@ -6,11 +6,17 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.awt.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+
+import model.utilisateur;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 
 import static javafx.scene.paint.Color.TRANSPARENT;
 
@@ -27,7 +33,8 @@ public class Main extends Application {
         primaryStage.setOpacity(0.95);
         primaryStage.show();
 
-        testConnetion();
+        //estConnetion();
+        testHiberante();
     }
 
     public static void main(String[] args) {
@@ -60,5 +67,35 @@ public class Main extends Application {
 
             }
         }
-    }
+
+
+        }
+
+        public void testHiberante(){
+
+
+            utilisateur user1 = new utilisateur();
+            user1.setNom("rachid");
+            user1.setPrenom("boufofus");
+            user1.setCin("UB970");
+            user1.setTel("+2123351268978");
+            user1.setMail("racidbounfoffus@gmail.com");
+            user1.setUsername("leffionn12");
+            user1.setPassword("ffg");
+            user1.setIs_admin(true);
+
+            saveUser(user1);
+
+
+
+        }
+
+        public void saveUser(utilisateur user){
+            Configuration conf =  new Configuration().configure("utils/hibernate.cfg.xml").addAnnotatedClass(utilisateur.class);
+            SessionFactory sf = conf.buildSessionFactory();
+            Session session = sf.openSession();
+            Transaction tx = session.beginTransaction();
+            session.save(user);
+            tx.commit();
+        }
 }

@@ -46,6 +46,14 @@
             <version>8.0.23</version>
         </dependency>
 
+
+        <!--hibernate framework -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.4.30.Final</version>
+        </dependency>
+
     </dependencies>
 
     <build>
