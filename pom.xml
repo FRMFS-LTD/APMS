@@ -13,6 +13,15 @@
         <maven.compiler.target>15</maven.compiler.target>
     </properties>
 
+    <repositories>
+        <!--ikonli-->
+        <repository>
+            <id>central</id>
+            <name>jcenter</name>
+            <url>http://jcenter.bintray.com</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <!--GUI LIBS-->
         <dependency>
@@ -33,11 +42,29 @@
         </dependency>
 
 
+        <!-- ikonli -->
+        <dependency>
+                <groupId>org.kordamp.ikonli</groupId>
+                <artifactId>ikonli-javafx</artifactId>
+                <version>2.4.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.kordamp.ikonli</groupId>
+            <artifactId>ikonli-fontawesome5-pack</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+
+        <!--- jfeonix -->
         <dependency>
             <groupId>com.jfoenix</groupId>
             <artifactId>jfoenix</artifactId>
             <version>9.0.10</version>
         </dependency>
+
+
+
+
         <!-- JDBC -->
 
         <dependency>

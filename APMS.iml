@@ -3,7 +3,9 @@
   <component name="FacetManager">
     <facet type="hibernate" name="Hibernate">
       <configuration>
-        <datasource-map />
+        <datasource-map>
+          <unit-entry name="utils:hibernate.cfg.xml" />
+        </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/utils/hibernate.cfg.xml" />
       </configuration>
@@ -12,7 +14,9 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="APMS" />
+        </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>
@@ -50,6 +54,9 @@
     <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:win:11" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:11" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:win:11" level="project" />
+    <orderEntry type="library" name="Maven: org.kordamp.ikonli:ikonli-javafx:2.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.kordamp.ikonli:ikonli-core:2.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.kordamp.ikonli:ikonli-fontawesome5-pack:2.4.0" level="project" />
     <orderEntry type="library" name="Maven: com.jfoenix:jfoenix:9.0.10" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.23" level="project" />
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.11.4" level="project" />

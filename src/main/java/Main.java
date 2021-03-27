@@ -33,8 +33,8 @@ public class Main extends Application {
         primaryStage.setOpacity(0.95);
         primaryStage.show();
 
-        //estConnetion();
-        testHiberante();
+        //testConnetion();
+        // testHiberante();
     }
 
     public static void main(String[] args) {
@@ -50,14 +50,14 @@ public class Main extends Application {
         }
         else{
             System.out.println("Connection Succeeded");
-            String query = "select * from client";
+            String query = "select * from utilisateur";
 
             Statement stmt = null;
             try {
                 stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(query);
                 while (rs.next()) {
-                    String name = rs.getString("id_client");
+                    String name = rs.getString("nom");
                     System.out.println(name);
                 }
 
@@ -76,12 +76,12 @@ public class Main extends Application {
 
             utilisateur user1 = new utilisateur();
             user1.setNom("rachid");
-            user1.setPrenom("boufofus");
-            user1.setCin("UB970");
-            user1.setTel("+2123351268978");
-            user1.setMail("racidbounfoffus@gmail.com");
-            user1.setUsername("leffionn12");
-            user1.setPassword("ffg");
+            user1.setPrenom("boufous");
+            user1.setCin("UB97460");
+            user1.setTel("+212633128978");
+            user1.setMail("rachidboufous32@gmail.com");
+            user1.setUsername("legion11");
+            user1.setPassword("123456789");
             user1.setIs_admin(true);
 
             saveUser(user1);
