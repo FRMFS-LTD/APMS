@@ -64,6 +64,24 @@
 
 
 
+        <!-- font awesome -->
+        <!-- https://mvnrepository.com/artifact/de.jensd/fontawesomefx -->
+        <!-- https://mvnrepository.com/artifact/de.jensd/fontawesomefx-fontawesome -->
+        <dependency>
+            <groupId>de.jensd</groupId>
+            <artifactId>fontawesomefx-fontawesome</artifactId>
+            <version>4.7.0-9.1.2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/de.jensd/fontawesomefx-common -->
+        <dependency>
+            <groupId>de.jensd</groupId>
+            <artifactId>fontawesomefx-common</artifactId>
+            <version>8.10</version>
+            <scope>runtime</scope>
+        </dependency>
+
+
 
         <!-- JDBC -->
 

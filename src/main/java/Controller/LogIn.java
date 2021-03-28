@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
@@ -35,6 +36,8 @@ public class LogIn {
     @FXML
     private JFXPasswordField passwordField;
 
+    @FXML
+    private FontAwesomeIconView closeBtn;
 
 
 
@@ -72,4 +75,11 @@ public class LogIn {
 
 
 
+
+
+    public void Exit_onClick(MouseEvent mouseEvent) {
+        Stage stage = (Stage) closeBtn.getScene().getWindow();
+        // do what you have to do
+        stage.close();
+    }
 }
