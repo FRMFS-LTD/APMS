@@ -12,6 +12,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
+import com.sun.tools.javac.Main;
 import dao.Services.UserService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
@@ -20,6 +21,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.utilisateur;
 import org.hibernate.SQLQuery;
@@ -46,6 +48,8 @@ public class LogIn {
     @FXML
     private FontAwesomeIconView closeBtn;
 
+    @FXML
+    private AnchorPane win_pan;
 
 
     String userName;
@@ -107,4 +111,26 @@ public class LogIn {
         // do what you have to do
         stage.close();
     }
+
+
+    Double xOffset = 0.0;
+    Double yOffset = 0.0;
+    /*
+    @FXML
+    void win_mouse_pressed(MouseEvent event) {
+
+        xOffset = stage.getX() - event.getScreenX();
+        yOffset = stage.getY() - event.getScreenY();
+    }
+    @FXML
+    void win_mouse_dragged(MouseEvent event) {
+
+        stage.setX(event.getScreenX() + xOffset);
+        stage.setY(event.getScreenY() + yOffset);
+
+    }
+
+
+     */
+
 }

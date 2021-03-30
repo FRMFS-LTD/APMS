@@ -33,8 +33,7 @@ public class Main extends Application {
         primaryStage.setOpacity(0.95);
         primaryStage.show();
         new RotateInDownRight(root).play();
-        //testConnetion();
-        // testHiberante();
+
     }
 
     public static void main(String[] args) {
