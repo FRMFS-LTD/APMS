@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="Container" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LogIn">
    <children>
-      <JFXTextField alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" layoutX="150.0" layoutY="149.0" prefHeight="26.0" prefWidth="300.0" promptText="UserName" styleClass="textField" stylesheets="@../css/style.css" unFocusColor="#828d9e" />
-      <JFXButton id="primBtn" layoutX="150.0" layoutY="262.0" prefHeight="26.0" prefWidth="300.0" styleClass="primBtn" stylesheets="@../css/style.css" text="LogIn" textFill="WHITE" />
       <ImageView fitHeight="121.0" fitWidth="125.0" layoutX="235.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/flag.png" />
          </image>
       </ImageView>
+
+      <JFXTextField fx:id="usernameField" alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" layoutX="150.0" layoutY="149.0" prefHeight="26.0" prefWidth="300.0" promptText="UserName" styleClass="textField" stylesheets="@../css/style.css" unFocusColor="#828d9e" />
+      <JFXPasswordField fx:id="passwordField" focusColor="WHITE" labelFloat="true" layoutX="150.0" layoutY="199.0" prefHeight="26.0" prefWidth="300.0" promptText="Password" styleClass="textField" stylesheets="@../css/style.css" unFocusColor="#828e9f" />
+
+      <JFXButton id="primBtn" fx:id="loginBtn" layoutX="150.0" layoutY="262.0" onAction="#loginClick" prefHeight="26.0" prefWidth="300.0" styleClass="primBtn" stylesheets="@../css/style.css" text="LogIn" textFill="WHITE" />
+
+
       <JFXButton layoutX="239.0" layoutY="299.0" text="Forgot your password ?" textFill="#828e9f">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </JFXButton>
-      <JFXPasswordField focusColor="WHITE" labelFloat="true" layoutX="150.0" layoutY="199.0" prefHeight="26.0" prefWidth="300.0" promptText="Password" styleClass="textField" stylesheets="@../css/style.css" unFocusColor="#828e9f" />
+      <FontAwesomeIconView fx:id="closeBtn" fill="#e74856" glyphName="CLOSE" layoutX="574.0" layoutY="23.0" onMouseClicked="#Exit_onClick" size="20" />
    </children>
 </AnchorPane>
