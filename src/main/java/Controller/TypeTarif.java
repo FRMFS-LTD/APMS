@@ -1,2 +1,4 @@
-package Controller;public class TypeTarif {
+package Controller;
+
+public class TypeTarif {
 }
