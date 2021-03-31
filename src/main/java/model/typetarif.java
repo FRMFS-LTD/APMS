@@ -10,8 +10,9 @@ public class typetarif {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for generating the id
     protected  int id_typetarif;
-
+    @Column
     protected String typetarif;
+    @Column
     protected float prix;
 
     public typetarif(){ }
