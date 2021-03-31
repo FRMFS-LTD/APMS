@@ -1,2 +1,5 @@
-package Controller;public class typetarifC {
+package Controller;
+
+public class typetarifC {
+
 }
