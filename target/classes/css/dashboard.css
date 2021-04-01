@@ -1,0 +1,19 @@
+
+/*styling the side bar*/
+
+.sidebar{
+    -fx-background-color:#23314B;
+    -fx-border-radius: 0px 50px 50px 0px ;
+
+}
+
+.sideBtn{
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+
+}
+.sideBtn:hover{
+    -fx-background-color:#2FBBBA;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+}

@@ -3,6 +3,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -24,16 +26,24 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("fxml/LogIn.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/MainWindow.fxml"));
         Scene scene = new Scene(root);
-        scene.setFill(TRANSPARENT);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("LoginForm");
-        primaryStage.initStyle(StageStyle.TRANSPARENT);
-        primaryStage.setOpacity(0.95);
-        primaryStage.show();
-        new RotateInDownRight(root).play();
 
+        UpdateStage(primaryStage, root, scene);
+
+        primaryStage.show();
+
+
+    }
+
+    public static void UpdateStage(Stage primaryStage, Parent root, Scene scene) {
+        //customize this scene
+        scene.setFill(TRANSPARENT);
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
+        primaryStage.setOpacity(0.98);
+        // animation using animateFX
+        new RotateInDownRight(root).play();
     }
 
     public static void main(String[] args) {
@@ -42,5 +52,12 @@ public class Main extends Application {
 
 
 
-
+    public void createStage2(){
+        Stage stg = new Stage();
+        AnchorPane an = new AnchorPane();
+        Scene scene = new Scene(an);
+        scene.setFill(Color.BLACK);
+        stg.setScene(scene);
+        stg.show();
+    }
 }
