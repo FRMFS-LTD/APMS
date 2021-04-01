@@ -2,7 +2,9 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.effect.SepiaTone?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,7 +19,7 @@
          <bottom>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1050.0" styleClass="bottomPane" BorderPane.alignment="CENTER">
                <children>
-                  <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="617.0" layoutY="28.0" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
+                  <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="617.0" layoutY="28.0" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text="Statistics" textFill="#797979">
                      <graphic>
                         <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" styleClass="navBtn">
                            <image>
@@ -35,6 +37,15 @@
                      <padding>
                         <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                      </padding>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <SepiaTone />
+                     </effect>
                   </JFXButton>
                   <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="144.0" layoutY="28.0" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
                      <graphic>
@@ -54,6 +65,12 @@
                      <padding>
                         <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                      </padding>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <SepiaTone />
+                     </effect>
                   </JFXButton>
                   <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="219.0" layoutY="28.0" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
                      <graphic>
@@ -73,6 +90,12 @@
                      <padding>
                         <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                      </padding>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <SepiaTone />
+                     </effect>
                   </JFXButton>
                   <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="293.0" layoutY="28.0" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
                      <graphic>
@@ -92,6 +115,12 @@
                      <padding>
                         <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                      </padding>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <SepiaTone />
+                     </effect>
                   </JFXButton>
                   <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="400.0" layoutY="28.0" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
                      <graphic>
@@ -114,6 +143,12 @@
                      <padding>
                         <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                      </padding>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <SepiaTone />
+                     </effect>
                   </JFXButton>
                   <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="724.0" layoutY="28.0" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
                      <graphic>
@@ -133,6 +168,12 @@
                      <padding>
                         <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                      </padding>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <SepiaTone />
+                     </effect>
                   </JFXButton>
                   <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="798.0" layoutY="28.0" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
                      <graphic>
@@ -152,6 +193,12 @@
                      <padding>
                         <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                      </padding>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <SepiaTone />
+                     </effect>
                   </JFXButton>
                   <JFXButton alignment="CENTER" contentDisplay="CENTER" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
                      <graphic>
@@ -171,6 +218,12 @@
                      <padding>
                         <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                      </padding>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <SepiaTone />
+                     </effect>
                   </JFXButton>
                   <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="872.0" layoutY="28.0" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
                      <graphic>
@@ -190,16 +243,22 @@
                      <padding>
                         <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                      </padding>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <SepiaTone />
+                     </effect>
                   </JFXButton>
                </children>
             </HBox>
          </bottom>
          <top>
-            <HBox alignment="TOP_RIGHT" prefHeight="33.0" prefWidth="1050.0" BorderPane.alignment="CENTER" />
+            <HBox alignment="TOP_RIGHT" prefHeight="33.0" prefWidth="1050.0" BorderPane.alignment="CENTER">
+               <children>
+                  <StackPane style="-fx-border-radius: 50;" styleClass="Container" />
+               </children></HBox>
          </top>
-         <center>
-            <StackPane style="-fx-border-radius: 50;" styleClass="Container" BorderPane.alignment="CENTER" />
-         </center>
       </BorderPane>
    </children>
 </AnchorPane>
