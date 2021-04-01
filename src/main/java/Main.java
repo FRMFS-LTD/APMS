@@ -37,9 +37,9 @@ public class Main extends Application {
         //primaryStage.show();
         new RotateInDownRight(root).play();
 
+
         //test();
         getDate();
-        supprimer();
         getDate();
     }
 
@@ -67,15 +67,9 @@ public class Main extends Application {
 
         }
 
-        public void supprimer (){
-           //use SRT to gain access to the function
-            // i dare u to write  the delete funtion in one single line
-               //SRT.findById(2);
-               //typetarif t = (typetarif) SRT.findById(1);
-            SRT.findByObject(SRT);
-            SRT.deleteByObject(SRT);
-            
-        }
+
+
+
 
 
 }

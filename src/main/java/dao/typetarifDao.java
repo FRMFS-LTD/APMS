@@ -18,8 +18,8 @@ public class typetarifDao extends MainDao implements typetarifdaointerface<typet
         getCurrentSession().save(tyt);
     }
     public typetarif findById(int id){
-        typetarif tYt = (typetarif)getCurrentSession().get(typetarif.class, (Serializable) id);
-        return tYt;
+        typetarif SRT = (typetarif)getCurrentSession().get(typetarif.class, (Serializable) id);
+        return SRT;
     }
 
     @Override

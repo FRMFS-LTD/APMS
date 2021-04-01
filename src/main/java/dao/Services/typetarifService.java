@@ -16,9 +16,9 @@ public class typetarifService {
         typetarifDao = new typetarifDao();
     }
 
-    public void persist(typetarif entity){
+    public void persist(typetarif tyt){
         typetarifDao.openCurrentSessionWithTransaction();
-        typetarifDao.persist(entity);
+        typetarifDao.persist(tyt);
         typetarifDao.closeCurrentSessionWithTransaction();
     }
 
