@@ -11,6 +11,7 @@ public class typetarif {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for generating the id
     protected  int id_typetarif;
 
+
     @Column(unique = true, nullable = false)
     protected String typetarif;
 
