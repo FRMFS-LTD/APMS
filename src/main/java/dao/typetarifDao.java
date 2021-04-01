@@ -14,6 +14,7 @@ public class typetarifDao extends MainDao implements typetarifdaointerface<typet
 
     }
 
+    @Override
     public void persist(typetarif tyt){
         getCurrentSession().save(tyt);
     }
