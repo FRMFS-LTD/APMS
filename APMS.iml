@@ -35,6 +35,16 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
+
+          <root url="file://$MODULE_DIR$/../../downloads/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../../downloads/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/../../downloads/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../../downloads/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib" recursive="false" type="SOURCES" />
+
           <root url="file://$MODULE_DIR$/../downloads/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib" />
         </CLASSES>
         <JAVADOC />
@@ -43,6 +53,7 @@
         </SOURCES>
         <jarDirectory url="file://$MODULE_DIR$/../downloads/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib" recursive="false" />
         <jarDirectory url="file://$MODULE_DIR$/../downloads/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib" recursive="false" type="SOURCES" />
+
       </library>
     </orderEntry>
     <orderEntry type="library" name="Maven: org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0" level="project" />

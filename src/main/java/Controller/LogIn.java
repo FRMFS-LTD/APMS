@@ -72,7 +72,7 @@ public class LogIn {
         else{
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Empty Fields Error");
-            alert.setHeaderText("Username or Password are not supplied");
+              alert.setHeaderText("Username or Password are not supplied");
             alert.setContentText("fill in the fields and try again!!");
 
             alert.showAndWait();
