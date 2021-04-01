@@ -10,9 +10,10 @@ public class typetarif {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for generating the id
     protected  int id_typetarif;
-    @Column
+
+    @Column(unique = true, nullable = false)
     protected String typetarif;
-    @Column
+
     protected float prix;
 
     public typetarif(){ }
@@ -42,14 +43,15 @@ public class typetarif {
         return prix;
     }
 
-    public void setPrix(float prix) {
+    public void setPrix(int prix) {
         this.prix = prix;
     }
 
     @Override
     public String toString() {
         return "typetarif{" +
-                "typetarif='" + typetarif + '\'' +
+                "id_typetarif=" + id_typetarif +
+                ", typetarif='" + typetarif + '\'' +
                 ", prix=" + prix +
                 '}';
     }

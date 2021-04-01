@@ -1,5 +1,7 @@
 package dao.interfaces;
 
+import model.typetarif;
+
 import java.util.List;
 
 public interface typetarifdaointerface<F, F1> {
@@ -11,6 +13,8 @@ public interface typetarifdaointerface<F, F1> {
     public F findById(int id);
 
     public void delete(F tyt);
+
+    public void deleteByObject(typetarif tyt);
 
     public List<F> findAll();
 

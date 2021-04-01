@@ -14,7 +14,6 @@ public class typetarifDao extends MainDao implements typetarifdaointerface<typet
 
     }
 
-    @Override
     public void persist(typetarif tyt){
         getCurrentSession().save(tyt);
     }
@@ -30,6 +29,11 @@ public class typetarifDao extends MainDao implements typetarifdaointerface<typet
     }
 
     public void delete(typetarif tyt){
+        getCurrentSession().delete(tyt);
+    }
+
+    @Override
+    public void deleteByObject(typetarif tyt) {
         getCurrentSession().delete(tyt);
     }
 
