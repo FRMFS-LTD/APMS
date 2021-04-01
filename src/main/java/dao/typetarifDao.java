@@ -22,6 +22,11 @@ public class typetarifDao extends MainDao implements typetarifdaointerface<typet
         return tYt;
     }
 
+    @Override
+    public typetarif findByObject(typetarif tyt) {
+        return tyt;
+    }
+
 
     public void update(typetarif tyt){
         getCurrentSession().update(tyt);

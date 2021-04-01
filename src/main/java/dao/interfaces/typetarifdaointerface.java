@@ -12,6 +12,8 @@ public interface typetarifdaointerface<F, F1> {
 
     public F findById(int id);
 
+    public F findByObject(F tyt);
+
     public void delete(F tyt);
 
     public void deleteByObject(typetarif tyt);

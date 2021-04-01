@@ -34,7 +34,12 @@ public class typetarifService {
         typetarifDao.closeCurrentSession();
         return typetarif;
     }
-
+    public typetarif findByObject(typetarif tyt){
+        typetarifDao.openCurrentSession();
+        typetarif typetarif = typetarifDao.findByObject(tyt);
+        typetarifDao.closeCurrentSession();
+        return typetarif;
+    }
     public void delete(int id){
         typetarifDao.openCurrentSessionWithTransaction();
         typetarif typetarif = typetarifDao.findById(id);

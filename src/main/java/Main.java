@@ -72,7 +72,10 @@ public class Main extends Application {
             // i dare u to write  the delete funtion in one single line
                //SRT.findById(2);
                //typetarif t = (typetarif) SRT.findById(1);
-            SRT.delete(2);
+            SRT.findByObject(SRT);
+            SRT.deleteByObject(SRT);
+            
         }
+
 
 }
