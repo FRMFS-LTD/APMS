@@ -1,12 +1,19 @@
 package Controller;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-public class abonnement {
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.ResourceBundle;
+
+public class abonnement  implements Initializable {
 
     @FXML
     private AnchorPane menu;
@@ -51,32 +58,48 @@ public class abonnement {
     private TextField tf_periode;
 
     @FXML
-    private TableView<?> tableAbonn;
+    private TableView<model.abonnement> tableAbonn;
 
     @FXML
-    private TableColumn<?, ?> id_abonn_t;
+    private TableColumn<model.abonnement, Integer> id_abonn_t;
 
     @FXML
-    private TableColumn<?, ?> Intitule_t;
+    private TableColumn<model.abonnement, String> Intitule_t;
 
     @FXML
-    private TableColumn<?, ?> prix_t;
+    private TableColumn<model.abonnement, Float> prix_t;
 
     @FXML
-    private TableColumn<?, ?> Periode_t;
+    private TableColumn<model.abonnement, Integer> Periode_t;
 
     @FXML
-    void AjouterAbonn() {
+    void AjouterAbonn(ActionEvent event) {
+
 
     }
 
     @FXML
-    void ModifierAbonn() {
+    void ModifierAbonn(ActionEvent event) {
 
     }
 
     @FXML
-    void SupprimerAbonn() {
+    void SupprimerAbonn(ActionEvent event) {
 
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
+
+    public Connection getConnection(){
+        Connection cnx ;
+        try{
+            cnx = DriverManager.getConnection("","","");
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return null ;
     }
 }
