@@ -5,8 +5,9 @@ import model.*;
 
 import javax.persistence.*;
 
+
 @Entity
-public class Vehicule {
+public class Vehicule  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,19 +23,22 @@ public class Vehicule {
     private client client;
 
 
+    /*
     @ManyToOne
     @JoinColumn(name = "idAbonnement", nullable = true)
     private abonnement abonnement;
-
+*/
 
     public Vehicule() {
     }
 
-    public Vehicule(int id, String matriucle, model.client client, model.abonnement abonnement) {
-        this.id = id;
+    public Vehicule( String matriucle, client client /*, abonnement abonnement*/) {
         this.matriucle = matriucle;
+
         this.client = client;
+         /*
         this.abonnement = abonnement;
+        */
     }
 
 
@@ -55,6 +59,7 @@ public class Vehicule {
         this.matriucle = matriucle;
     }
 
+
     public client getClient() {
         return client;
     }
@@ -62,7 +67,7 @@ public class Vehicule {
     public void setClient(client client) {
         this.client = client;
     }
-
+/*
     public abonnement getAbonnement() {
         return abonnement;
     }
@@ -70,6 +75,8 @@ public class Vehicule {
     public void setAbonnement(abonnement abonnement) {
         this.abonnement = abonnement;
     }
+
+     */
 
 
 }

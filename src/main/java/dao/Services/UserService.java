@@ -58,7 +58,6 @@ public class UserService {
         userdao.openCurrentSessionWithTransaction();
         userdao.deleteAll();
         userdao.closeCurrentSessionWithTransaction();
-
     }
 
     public ArrayList<utilisateur> loggedUser(String username, String password){

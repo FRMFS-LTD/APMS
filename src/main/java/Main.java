@@ -1,4 +1,7 @@
 import animatefx.animation.RotateInDownRight;
+import dao.Services.AbonnementService;
+import dao.Services.VehiculeService;
+import dao.Services.clientService;
 import dao.Services.typetarifService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +28,7 @@ import model.*;
 
 import static javafx.scene.paint.Color.TRANSPARENT;
 
+
 public class Main extends Application {
 
     @Override
@@ -41,6 +45,9 @@ public class Main extends Application {
         //test();
         //getDate();
         //getDate();
+
+        testVehicle();
+
     }
 
     public static void UpdateStage(Stage primaryStage, Parent root, Scene scene) {
@@ -51,11 +58,18 @@ public class Main extends Application {
         primaryStage.setOpacity(0.98);
         // animation using animateFX
         new RotateInDownRight(root).play();
+
+
+
     }
 
     public static void main(String[] args) {
         launch(args);
     }
+
+
+
+
     typetarifService SRT = new typetarifService();
         public void test (){
            typetarif tf = new typetarif();
@@ -63,11 +77,34 @@ public class Main extends Application {
            tf.setPrix(134);
            SRT.persist(tf);
         }
+
         public void getDate(){
             ArrayList<typetarif> list = new ArrayList<>();
             list = (ArrayList<typetarif>) SRT.findAll();
             for(typetarif t : list){
                 System.out.println(t.toString());
             }
+
+
+
         }
+
+    public void testVehicle(){
+        VehiculeService vs = new VehiculeService();
+
+
+        // ajouter
+        //abonnement ab = new abonnement(2,"weekly",7,30);
+        client cl = new client(2,"jhon","DOE","UDX55");
+
+        Vehicule v1 = new Vehicule();
+        v1.setMatriucle("MFZ154");
+        v1.setClient(cl);
+        //v1.setAbonnement(ab);
+        //v1.setClient(cl);
+
+        vs.persist(v1);
+        System.out.println(v1.toString());
+    }
+
 }
