@@ -12,6 +12,7 @@ import java.util.List;
 public class UserDao extends MainDao implements UserDaoInterface<utilisateur, Id> {
 
     public UserDao() {
+
     }
 
 
@@ -26,6 +27,7 @@ public class UserDao extends MainDao implements UserDaoInterface<utilisateur, Id
         utilisateur user = (utilisateur) getCurrentSession().get(utilisateur.class, (Serializable) id);
         return user;
     }
+
 
 
     public void update(utilisateur entity){
