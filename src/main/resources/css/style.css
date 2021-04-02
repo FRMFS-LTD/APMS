@@ -1,6 +1,6 @@
-#Container{
+.Container{
     -fx-background-radius:20;
-    -fx-background-color: #23314B;
+    -fx-background-color: #0b132b;
     -fx-text-fill: white;
     
 }
@@ -18,3 +18,4 @@
     text-fill:white;
 
 }
+

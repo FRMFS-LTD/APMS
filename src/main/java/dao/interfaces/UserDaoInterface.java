@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface UserDaoInterface<T, T1> {
+
     public void persist(T entity);
 
     public void update(T entity);
@@ -19,4 +20,5 @@ public interface UserDaoInterface<T, T1> {
     public void deleteAll();
 
     public ArrayList<utilisateur> loggedUser(String userName, String password);
+
 }

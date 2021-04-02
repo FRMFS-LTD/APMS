@@ -24,7 +24,6 @@ public class MainDao {
         currentSession = getSessionFactory().openSession();
         currentTransaction = currentSession.beginTransaction();
         return currentSession;
-
     }
 
     public void closeCurrentSession(){
@@ -48,6 +47,7 @@ public class MainDao {
 
         Configuration configuration = new Configuration().configure("utils/hibernate.cfg.xml");
         configuration.addAnnotatedClass(model.utilisateur.class);
+        configuration.addAnnotatedClass(model.typetarif.class);
 
 
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()

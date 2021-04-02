@@ -19,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -56,18 +57,36 @@ public class LogIn {
     String password;
 
     @FXML
-    public void loginClick(ActionEvent event) {
-        System.out.println("hello world");
+    public void loginClick(ActionEvent event) throws Exception {
         setControllerVal();
     }
 
-    public void setControllerVal(){
+    public void setControllerVal() throws Exception {
         userName = usernameField.getText();
         password = passwordField.getText();
+
         if (!password.isEmpty() || !userName.isEmpty()){
-            UserService u_service = new UserService();
-            utilisateur loggedUser = u_service.loggedUser(userName,password).get(0);
-            System.out.println("welcome: " +  loggedUser.getNom() + " " + loggedUser.getPrenom());
+            try{
+                UserService u_service = new UserService();
+
+                utilisateur loggedUser = u_service.loggedUser(userName,password).get(0);
+                System.out.println("welcome: " +  loggedUser.getNom() + " " + loggedUser.getPrenom());
+
+                //StartMainWindow();
+
+
+            }catch(IndexOutOfBoundsException e){
+                e.printStackTrace();
+
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("USER does not exist");
+                alert.setHeaderText("invalid Username or Password");
+                alert.setContentText("try again!!");
+
+                alert.showAndWait();
+            }
+
+
         }
         else{
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -79,6 +98,14 @@ public class LogIn {
         }
 
 
+    }
+
+    private void StartMainWindow() throws  Exception {
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/MainWindow.fxml"));
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 /*
     private utilisateur getLoggedUser(String username,String pwd){

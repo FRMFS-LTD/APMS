@@ -40,6 +40,7 @@ public class UserService {
         userdao.closeCurrentSessionWithTransaction();
     }
 
+
     public List<utilisateur> findAll(){
         userdao.openCurrentSession();
         List<utilisateur> tests = userdao.findAll();
@@ -52,6 +53,7 @@ public class UserService {
         userdao.deleteAll();
         userdao.closeCurrentSession();
     }
+
     public void deleteAllWithTransaction(){
         userdao.openCurrentSessionWithTransaction();
         userdao.deleteAll();
@@ -67,7 +69,4 @@ public class UserService {
     }
 
 
-    public UserDao userDao(){
-        return userdao;
-    }
 }
