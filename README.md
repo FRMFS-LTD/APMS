@@ -61,10 +61,10 @@ capable of:
 - Functional dependency diagram ( Diagramme de Dépendance fonctionnelle)<br>
   <img src="readMeAssets/schéma-de-dependance-fonctionnelle.png" alt="Logo" >
 
-- conceptual data model (Modèle conceptuel de données)<br>
+- conceptual data Model (Modèle conceptuel de données)<br>
   <img src="readMeAssets/MCD.png" alt="Logo" >
 
-- logical data model (modèle logique des données / simplified)<br>
+- logical data Model (modèle logique des données / simplified)<br>
   <img src="readMeAssets/MLD.png" alt="Logo" >
 
 ### Built With

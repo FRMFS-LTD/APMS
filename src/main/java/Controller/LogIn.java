@@ -2,18 +2,12 @@ package Controller;
 
 
 
-import animatefx.animation.FadeOut;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-
-import com.sun.tools.javac.Main;
-import dao.Services.UserService;
+import Ddao.Services.UserService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,16 +18,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.utilisateur;
-import org.hibernate.SQLQuery;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-
-
-import java.util.ArrayList;
-import java.util.List;
+import Model.Utilisateur;
 
 public class LogIn {
 
@@ -69,7 +54,7 @@ public class LogIn {
             try{
                 UserService u_service = new UserService();
 
-                utilisateur loggedUser = u_service.loggedUser(userName,password).get(0);
+                Utilisateur loggedUser = u_service.loggedUser(userName,password).get(0);
                 System.out.println("welcome: " +  loggedUser.getNom() + " " + loggedUser.getPrenom());
 
                 //StartMainWindow();

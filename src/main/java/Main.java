@@ -1,5 +1,5 @@
 import animatefx.animation.RotateInDownRight;
-import dao.Services.typetarifService;
+import Ddao.Services.typetarifService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,19 +9,10 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 
-import model.utilisateur;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-import model.*;
+import Model.*;
 
 import static javafx.scene.paint.Color.TRANSPARENT;
 
@@ -68,7 +59,7 @@ public class Main extends Application {
     typetarifService SRT = new typetarifService();
         public void test (){
 
-           typetarif tf = new typetarif();
+           Typetarif tf = new Typetarif();
            tf.setTypetarif("by week");
            tf.setPrix(134);
 
@@ -78,9 +69,9 @@ public class Main extends Application {
 
         public void getDate(){
 
-            ArrayList<typetarif> list = new ArrayList<>();
-            list = (ArrayList<typetarif>) SRT.findAll();
-            for(typetarif t : list){
+            ArrayList<Typetarif> list = new ArrayList<>();
+            list = (ArrayList<Typetarif>) SRT.findAll();
+            for(Typetarif t : list){
                 System.out.println(t.toString());
             }
 
