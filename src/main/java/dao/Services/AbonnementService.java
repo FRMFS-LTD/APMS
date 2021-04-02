@@ -11,13 +11,13 @@ public class AbonnementService {
     public AbonnementService (){
         abonnementDao = new AbonnementDao() ;
     }
-    public void add (abonnement entite){
-        abonnementDao.add(entite);
+    public void persist (abonnement entite){
+        abonnementDao.persist(entite);
         abonnementDao.openCurrentSessionWithTransaction();
         abonnementDao.closeCurrentSessionWithTransaction();
     }
-    public void modifier (abonnement entite){
-        abonnementDao.modifier(entite);
+    public void update (abonnement entite){
+        abonnementDao.update(entite);
         abonnementDao.openCurrentSessionWithTransaction();
         abonnementDao.closeCurrentSessionWithTransaction();
     }
@@ -28,10 +28,10 @@ public class AbonnementService {
         return abonne ;
 
     }
-    public void remove(int id ){
+    public void delete(int id ){
         abonnementDao.openCurrentSessionWithTransaction();
         abonnement abonn = abonnementDao.findById(id);
-        abonnementDao.remove(abonn);
+        abonnementDao.delete(abonn);
         abonnementDao.closeCurrentSessionWithTransaction();
     }
     public List<abonnement> findAll(){
@@ -40,14 +40,14 @@ public class AbonnementService {
         abonnementDao.closeCurrentSession();
         return liste ;
     }
-    public void removeAll(){
+    public void deleteAll(){
         abonnementDao.openCurrentSession();
-        abonnementDao.removeAll();
+        abonnementDao.deleteAll();
         abonnementDao.closeCurrentSession();
     }
-    public void removeallwithTransaction(){
+    public void deleteallwithTransaction(){
         abonnementDao.openCurrentSessionWithTransaction();
-        abonnementDao.removeAll();
+        abonnementDao.deleteAll();
         abonnementDao.closeCurrentSessionWithTransaction();
     }
 }

@@ -14,12 +14,12 @@ public class AbonnementDao extends MainDao implements AbonnementDaoInterface<abo
     }
 
     @Override
-    public void add(abonnement entite) {
+    public void persist(abonnement entite) {
         getCurrentSession().save(entite);
     }
 
     @Override
-    public void modifier(abonnement entite) {
+    public void update(abonnement entite) {
         getCurrentSession().update(entite);
     }
 
@@ -30,7 +30,7 @@ public class AbonnementDao extends MainDao implements AbonnementDaoInterface<abo
     }
 
     @Override
-    public void remove(abonnement entite) {
+    public void delete(abonnement entite) {
         getCurrentSession().delete(entite);
     }
 
@@ -41,10 +41,10 @@ public class AbonnementDao extends MainDao implements AbonnementDaoInterface<abo
     }
 
     @Override
-    public void removeAll() {
+    public void deleteAll() {
         List<abonnement> entiteList =findAll() ;
         for (abonnement entite : entiteList){
-            remove(entite);
+            delete(entite);
         }
     }
 
