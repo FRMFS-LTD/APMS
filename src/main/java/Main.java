@@ -29,34 +29,25 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("fxml/abonnement.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/LogIn.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-
-
-        primaryStage.setTitle("LoginForm");
-
+        scene.setFill(Color.TRANSPARENT);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
-        primaryStage.setOpacity(0.95);
-        //primaryStage.show();
-        new RotateInDownRight(root).play();
-
-
-        UpdateStage(primaryStage, root, scene);
+        //UpdateStage(primaryStage, root, scene);
 
         primaryStage.show();
-        
-
 
         //test();
-        getDate();
-        getDate();
+        //getDate();
+        //getDate();
     }
 
     public static void UpdateStage(Stage primaryStage, Parent root, Scene scene) {
         //customize this scene
         scene.setFill(TRANSPARENT);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
+        scene.setFill(Color.TRANSPARENT);
         primaryStage.setOpacity(0.98);
         // animation using animateFX
         new RotateInDownRight(root).play();
@@ -67,35 +58,16 @@ public class Main extends Application {
     }
     typetarifService SRT = new typetarifService();
         public void test (){
-
            typetarif tf = new typetarif();
            tf.setTypetarif("by week");
            tf.setPrix(134);
-
            SRT.persist(tf);
-
         }
-
         public void getDate(){
-
             ArrayList<typetarif> list = new ArrayList<>();
             list = (ArrayList<typetarif>) SRT.findAll();
             for(typetarif t : list){
                 System.out.println(t.toString());
             }
-
         }
-
-
-
-
-
-    public void createStage2(){
-        Stage stg = new Stage();
-        AnchorPane an = new AnchorPane();
-        Scene scene = new Scene(an);
-        scene.setFill(Color.BLACK);
-        stg.setScene(scene);
-        stg.show();
-    }
 }
