@@ -53,6 +53,7 @@ public class UserService {
         userdao.deleteAll();
         userdao.closeCurrentSession();
     }
+
     public void deleteAllWithTransaction(){
         userdao.openCurrentSessionWithTransaction();
         userdao.deleteAll();

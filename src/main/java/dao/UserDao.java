@@ -15,6 +15,7 @@ public class UserDao extends MainDao implements UserDaoInterface<utilisateur, Id
     }
 
 
+
     @Override
     public void persist(utilisateur entity) {
         getCurrentSession().save(entity);
@@ -22,7 +23,7 @@ public class UserDao extends MainDao implements UserDaoInterface<utilisateur, Id
 
 
     public  utilisateur findById(int id){
-        utilisateur user = (utilisateur)getCurrentSession().get(utilisateur.class, (Serializable) id);
+        utilisateur user = (utilisateur) getCurrentSession().get(utilisateur.class, (Serializable) id);
         return user;
     }
 
@@ -49,14 +50,19 @@ public class UserDao extends MainDao implements UserDaoInterface<utilisateur, Id
         }
     }
 
-    public ArrayList<utilisateur> loggedUser(String username,String password){
+    public ArrayList<utilisateur> loggedUser(String username, String password){
+
         String sql = "SELECT * FROM utilisateur WHERE username = :username and password = :password";
+
         SQLQuery query = getCurrentSession().createSQLQuery(sql);
+
         query.addEntity(utilisateur.class);
+
         query.setParameter("username", username);
         query.setParameter("password", password);
 
         ArrayList<utilisateur> results = (ArrayList<utilisateur>) query.list();
+
         return results;
     }
 
