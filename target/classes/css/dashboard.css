@@ -1,0 +1,29 @@
+
+/*styling the side bar*/
+
+.sidebar{
+    -fx-background-color:#0b132b;
+    -fx-border-radius: 0px 50px 50px 0px ;
+
+}
+
+.sideBtn{
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+
+}
+
+
+.navBtn:hover{
+     -fx-background-color: #355C7D;
+
+}
+
+/* styling the tooltips  */ 
+
+.bottomPane{
+    -fx-border-color:#3A506B;
+    -fx-background-fill:#3A506B;
+    -fx-border-radius: 50 50 20 20;
+
+}
