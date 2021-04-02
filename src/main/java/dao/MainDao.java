@@ -48,6 +48,8 @@ public class MainDao {
 
         Configuration configuration = new Configuration().configure("utils/hibernate.cfg.xml");
         configuration.addAnnotatedClass(model.utilisateur.class);
+        configuration.addAnnotatedClass(model.parking.class);
+
 
 
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
