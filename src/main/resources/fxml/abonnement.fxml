@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane layoutX="-2.0" layoutY="-7.0" prefHeight="462.0" prefWidth="935.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+        <Button fx:id="ajouterAbonn" layoutX="48.0" layoutY="311.0" mnemonicParsing="false" onAction="#AjouterAbonn" prefHeight="25.0" prefWidth="72.0" text="Ajouter" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" />
+
+        <Button fx:id="suppAbonn" layoutX="241.0" layoutY="311.0" mnemonicParsing="false" onAction="#SupprimerAbonn" prefHeight="25.0" prefWidth="90.0" text="Supprimer" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" />
+
+        <Button fx:id="ModifierAbonn" layoutX="142.0" layoutY="311.0" mnemonicParsing="false" onAction="#ModifierAbonn" prefHeight="25.0" prefWidth="72.0" text="Modifier" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" />
+
+        <Label layoutX="62.0" layoutY="96.0" prefHeight="25.0" prefWidth="99.0" text="Id_Abonnement" />
+        <Label layoutX="62.0" layoutY="146.0" prefHeight="25.0" prefWidth="72.0" text="Intitule  :" />
+        <Label layoutX="62.0" layoutY="200.0" prefHeight="25.0" prefWidth="72.0" text="Prix    ;" />
+        <Label layoutX="62.0" layoutY="246.0" prefHeight="25.0" prefWidth="116.0" text="Periode  :" />
+        <TextField fx:id="tf_id_abonn" layoutX="179.0" layoutY="96.0" />
+        <TextField fx:id="tf_Intitule" layoutX="179.0" layoutY="146.0" />
+        <TextField fx:id="tf_prix" layoutX="180.0" layoutY="200.0" />
+        <TextField fx:id="tf_periode" layoutX="178.0" layoutY="246.0" />
+        <TableView fx:id="tableAbonn" layoutX="405.0" layoutY="79.0" prefHeight="353.0" prefWidth="468.0">
+            <columns>
+                <TableColumn fx:id="id_abonn_t" prefWidth="126.0" text="Id_Abonnemnt" />
+                <TableColumn fx:id="Intitule_t" prefWidth="95.0" text="Intitule" />
+                <TableColumn fx:id="prix_t" prefWidth="84.0" text="Prix" />
+                <TableColumn fx:id="Periode_t" prefWidth="162.0" text="Periode" />
+            </columns>
+        </TableView>
+        <Label layoutX="451.0" layoutY="24.0" prefHeight="38.0" prefWidth="361.0" text="      Liste Des Abonnement">
+            <font>
+                <Font name="Baskerville Old Face" size="32.0" />
+            </font>
+            <textFill>
+                <LinearGradient endX="0.5714285714285714" endY="0.9904761904761905" startX="0.8952380952380953" startY="0.5809523809523809">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.6315789222717285" opacity="0.6000000238418579" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="0.08698830753564835" green="0.11701998114585876" blue="0.44736841320991516" opacity="0.6000000238418579" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </textFill>
+        </Label>
+</AnchorPane>
