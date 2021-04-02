@@ -14,7 +14,7 @@ public class MainDao {
     public MainDao() {
     }
 
-    public Session openCurrentSession(){µ
+    public Session openCurrentSession(){
         currentSession = getSessionFactory().openSession();
         return currentSession;
     }
