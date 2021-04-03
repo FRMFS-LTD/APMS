@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TypeTarif">
+<AnchorPane prefHeight="475.0" prefWidth="668.0" style="-fx-background-color: #E0EAF5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TypeTarif">
    <children>
-      <TableView layoutX="82.0" layoutY="52.0" prefHeight="274.0" prefWidth="437.0">
+      <TableView layoutX="27.0" layoutY="118.0" prefHeight="258.0" prefWidth="457.0">
         <columns>
-          <TableColumn prefWidth="219.0" text="Type Tarif" />
-          <TableColumn prefWidth="217.0" text="Prix" />
+          <TableColumn fx:id="typetarif" prefWidth="230.0" text="                     Type de Tarif" />
+          <TableColumn fx:id="prix" prefWidth="226.0" text="                               Prix" />
         </columns>
       </TableView>
+      <AnchorPane layoutY="73.0" prefHeight="4.0" prefWidth="671.0" style="-fx-background-color: #FF8E2B;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="73.0" />
+      <AnchorPane layoutX="492.0" layoutY="188.0" prefHeight="131.0" prefWidth="172.0">
+         <children>
+            <Button layoutX="33.0" layoutY="20.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="106.0" style="-fx-background-color: #0d2137;" text="Ajouter" textFill="#fffbfb" />
+            <Button layoutX="33.0" layoutY="84.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="106.0" style="-fx-background-color: #0d2137;" text="Modifier" textFill="#f5efef" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="442.0" prefHeight="72.0" prefWidth="671.0" style="-fx-background-color: #2E77AE;" />
+      <AnchorPane layoutY="439.0" prefHeight="4.0" prefWidth="671.0" style="-fx-background-color: #FF8E2B;" />
+      <Text layoutX="170.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="les differents Types de tarif :" textAlignment="CENTER" wrappingWidth="330.728515625">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
