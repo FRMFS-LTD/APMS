@@ -11,9 +11,10 @@ public class AbonnementService {
     public AbonnementService (){
         abonnementDao = new AbonnementDao() ;
     }
+
     public void persist (abonnement entite){
-        abonnementDao.persist(entite);
         abonnementDao.openCurrentSessionWithTransaction();
+        abonnementDao.persist(entite);
         abonnementDao.closeCurrentSessionWithTransaction();
     }
     public void update (abonnement entite){
