@@ -21,11 +21,9 @@ public class client {
     @NotNull @Column(unique = true, nullable = false)
     private String cin;
 
-    public client(int id, String nom, String prenom, String cin) {
-        this.id = id;
+    public client( String nom, String prenom, String cin) {
         this.nom = nom;
         this.prenom = prenom;
-
         this.cin = cin;
     }
 

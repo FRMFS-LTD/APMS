@@ -8,13 +8,13 @@ import javax.persistence.*;
 public class abonnement {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY )
-    private int id_abonnement ;
+    private int id ;
+
     private String intitule ;
     private  int periode ;
     private float prix ;
 
-    public abonnement(int id_abonnement, String intitule, int periode, float prix) {
-        this.id_abonnement = id_abonnement;
+    public abonnement( String intitule, int periode, float prix) {
         this.intitule = intitule;
         this.periode = periode;
         this.prix = prix;
@@ -25,11 +25,11 @@ public class abonnement {
     }
 
     public int getId_abonnement() {
-        return id_abonnement;
+        return id;
     }
 
-    public void setId_abonnement(int id_abonnement) {
-        this.id_abonnement = id_abonnement;
+    public void setId_abonnement(int id) {
+        this.id = id;
     }
 
     public String getIntitule() {
@@ -59,7 +59,7 @@ public class abonnement {
     @Override
     public String toString() {
         return "abonnement{" +
-                "id_abonnement=" + id_abonnement +
+                "id_abonnement=" + id +
                 ", intitule='" + intitule + '\'' +
                 ", periode=" + periode +
                 ", prix=" + prix +

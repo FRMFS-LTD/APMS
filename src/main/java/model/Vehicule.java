@@ -18,31 +18,30 @@ public class Vehicule  {
     private String matriucle;
 
 
+
+    //     @JoinColumn(name = "idClient", nullable = true)
+
     @ManyToOne
-    @JoinColumn(name = "idClient", nullable = true)
     private client client;
 
 
-    /*
+
     @ManyToOne
-    @JoinColumn(name = "idAbonnement", nullable = true)
     private abonnement abonnement;
-*/
+
 
     public Vehicule() {
     }
 
-    public Vehicule( String matriucle, client client /*, abonnement abonnement*/) {
+    public Vehicule( String matriucle, client client , abonnement abonnement) {
         this.matriucle = matriucle;
 
-        this.client = client;
-         /*
+       this.client = client;
+
         this.abonnement = abonnement;
-        */
+
     }
 
-
-    @Id
     public int getId() {
         return id;
     }
@@ -59,7 +58,6 @@ public class Vehicule  {
         this.matriucle = matriucle;
     }
 
-
     public client getClient() {
         return client;
     }
@@ -67,7 +65,7 @@ public class Vehicule  {
     public void setClient(client client) {
         this.client = client;
     }
-/*
+
     public abonnement getAbonnement() {
         return abonnement;
     }
@@ -76,7 +74,14 @@ public class Vehicule  {
         this.abonnement = abonnement;
     }
 
-     */
 
 
+    @Override
+    public String toString() {
+        return "Vehicule{" +
+                "id=" + id +
+                ", matriucle='" + matriucle + '\'' +
+                ", client=" + client +
+                '}';
+    }
 }

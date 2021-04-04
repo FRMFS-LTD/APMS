@@ -42,13 +42,32 @@ public class Main extends Application {
 
         primaryStage.show();
 
-        //test();
-        //getDate();
-        //getDate();
+
 
         testVehicle();
-
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public static void UpdateStage(Stage primaryStage, Parent root, Scene scene) {
         //customize this scene
@@ -90,21 +109,27 @@ public class Main extends Application {
         }
 
     public void testVehicle(){
-        VehiculeService vs = new VehiculeService();
+
+            clientService cs = new clientService();
+            VehiculeService vs = new VehiculeService();
+            AbonnementService as = new AbonnementService();
+
+            client cl = new client("jhon","doe","UK7989");
+            abonnement ab = new abonnement("weekly",7,35);
+            Vehicule vc = new Vehicule( "A4987",cl,ab);
+
+            System.out.println(cl.toString());
+            System.out.println(vc.toString());
 
 
-        // ajouter
-        //abonnement ab = new abonnement(2,"weekly",7,30);
-        client cl = new client(2,"jhon","DOE","UDX55");
+            cs.persist(cl);
+            as.persist(ab);
+            vs.persist(vc);
 
-        Vehicule v1 = new Vehicule();
-        v1.setMatriucle("MFZ154");
-        v1.setClient(cl);
-        //v1.setAbonnement(ab);
-        //v1.setClient(cl);
 
-        vs.persist(v1);
-        System.out.println(v1.toString());
+
+
+
     }
 
 }
