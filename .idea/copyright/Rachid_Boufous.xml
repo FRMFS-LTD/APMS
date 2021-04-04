@@ -1,6 +1,7 @@
 <component name="CopyrightManager">
   <copyright>
-    <option name="notice" value="Copyright (c) &amp;#36;today.year // programmed by Rachid Boufous" />
+    <option name="allowReplaceRegexp" value="true" />
+    <option name="notice" value="Copyright (c) &amp;#36;today.year.&#10;programmed by Rachid Boufous.&#10;for FRMFS-ltd organisation&#10;" />
     <option name="myName" value="Rachid Boufous" />
   </copyright>
 </component>

@@ -6,8 +6,13 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
+
+
 <!--
-  ~ Copyright (c) 2021 // programmed by Rachid Boufous
+  ~ Copyright (c) 2021.
+  ~ programmed by Rachid Boufous.
+  ~ for FRMFS-ltd organisation
+  ~
   -->
 
 <AnchorPane fx:id="win_pan" prefHeight="455.0" prefWidth="789.0" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LogIn">

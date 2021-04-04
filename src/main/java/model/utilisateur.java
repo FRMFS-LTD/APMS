@@ -1,11 +1,16 @@
+/*
+ * Copyright (c) 2021.
+ * programmed by Rachid Boufous.
+ * for FRMFS-ltd organisation
+ *
+ */
+
 package model;
 
 import com.sun.istack.NotNull;
 import javax.persistence.*;
 
-/*
- * Copyright (c) 2021 // programmed by Rachid Boufous
- */
+
 
 @Entity
 public class utilisateur {

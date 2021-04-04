@@ -13,8 +13,13 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
+
+
 <!--
-  ~ Copyright (c) 2021 // programmed by Rachid Boufous
+  ~ Copyright (c) 2021.
+  ~ programmed by Rachid Boufous.
+  ~ for FRMFS-ltd organisation
+  ~
   -->
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1050.0" styleClass="Container" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
