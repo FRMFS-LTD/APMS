@@ -1,3 +1,11 @@
+
+/*
+ * Copyright (c) 2021.
+ * programmed by Rachid Boufous.
+ * for FRMFS-ltd organisation
+ *
+ */
+
 package model;
 
 import com.sun.istack.NotNull;
@@ -19,7 +27,7 @@ public class Vehicule  {
 
 
 
-    //     @JoinColumn(name = "idClient", nullable = true)
+
 
     @ManyToOne
     private client client;
@@ -75,13 +83,13 @@ public class Vehicule  {
     }
 
 
-
     @Override
     public String toString() {
         return "Vehicule{" +
                 "id=" + id +
                 ", matriucle='" + matriucle + '\'' +
                 ", client=" + client +
+                ", abonnement=" + abonnement +
                 '}';
     }
 }

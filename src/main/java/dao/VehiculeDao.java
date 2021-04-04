@@ -1,3 +1,12 @@
+
+
+/*
+ * Copyright (c) 2021.
+ * programmed by Rachid Boufous.
+ * for FRMFS-ltd organisation
+ *
+ */
+
 package dao;
 
 import dao.interfaces.VehiculeDaoInterface;
@@ -8,6 +17,8 @@ import org.jboss.jandex.Main;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.List;
+
+
 
 
 public class VehiculeDao extends MainDao implements VehiculeDaoInterface<Vehicule, Id> {

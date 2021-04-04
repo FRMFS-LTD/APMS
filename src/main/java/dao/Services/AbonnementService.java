@@ -18,8 +18,8 @@ public class AbonnementService {
         abonnementDao.closeCurrentSessionWithTransaction();
     }
     public void update (abonnement entite){
-        abonnementDao.update(entite);
         abonnementDao.openCurrentSessionWithTransaction();
+        abonnementDao.update(entite);
         abonnementDao.closeCurrentSessionWithTransaction();
     }
     public abonnement findbyId(int id){

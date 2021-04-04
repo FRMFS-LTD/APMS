@@ -9,7 +9,6 @@ public class abonnement {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY )
     private int id ;
-
     private String intitule ;
     private  int periode ;
     private float prix ;

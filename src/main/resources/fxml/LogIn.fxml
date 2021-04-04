@@ -6,6 +6,15 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
+
+
+<!--
+  ~ Copyright (c) 2021.
+  ~ programmed by Rachid Boufous.
+  ~ for FRMFS-ltd organisation
+  ~
+  -->
+
 <AnchorPane fx:id="win_pan" prefHeight="455.0" prefWidth="789.0" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LogIn">
    <children>
       <ImageView fitHeight="121.0" fitWidth="125.0" layoutX="333.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="332.4" AnchorPane.rightAnchor="333.0" AnchorPane.topAnchor="26.0">
