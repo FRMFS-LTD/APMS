@@ -1,8 +1,5 @@
 import animatefx.animation.RotateInDownRight;
-import dao.Services.AbonnementService;
-import dao.Services.VehiculeService;
-import dao.Services.clientService;
-import dao.Services.typetarifService;
+import dao.Services.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +13,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 import model.utilisateur;
@@ -44,7 +44,9 @@ public class Main extends Application {
 
 
 
-        testVehicle();
+        //testVehicle();
+
+        testStationnement();
     }
 
 
@@ -129,6 +131,30 @@ public class Main extends Application {
 
 
 
+
+    }
+
+    public void testStationnement() throws ParseException {
+
+        StationnementService ss = new StationnementService();
+        parkingService ps = new parkingService();
+        typetarifService ts = new typetarifService();
+
+        parking p = new parking("21ST",22,22,"LA");
+        typetarif tt = new typetarif("daily",22);
+
+        Vehicule v = new Vehicule("AX4565");
+
+
+
+        Date d1 = new SimpleDateFormat("dd/MM/yyyy").parse("11/11/2015");
+        Date d2 = new SimpleDateFormat("dd/MM/yyyy").parse("12/11/2015");
+
+        Stationnement st = new Stationnement(d1,d2,p,v,tt);
+
+        ps.persist(p);
+        ts.persist(tt);
+        ss.persist(st);
 
     }
 
