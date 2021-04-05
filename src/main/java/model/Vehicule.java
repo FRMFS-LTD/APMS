@@ -41,7 +41,12 @@ public class Vehicule  {
     public Vehicule() {
     }
 
-    public Vehicule( String matriucle, client client , abonnement abonnement) {
+
+    public Vehicule(String matriucle) {
+        this.matriucle = matriucle;
+    }
+
+    public Vehicule(String matriucle, client client , abonnement abonnement) {
         this.matriucle = matriucle;
 
        this.client = client;

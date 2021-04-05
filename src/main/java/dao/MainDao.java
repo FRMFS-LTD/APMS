@@ -24,7 +24,7 @@ public class MainDao {
     }
 
 
-    public Session openCurrentSessionWithTransaction(){
+    public  Session openCurrentSessionWithTransaction(){
         currentSession = getSessionFactory().openSession();
         currentTransaction = currentSession.beginTransaction();
         return currentSession;
@@ -57,6 +57,8 @@ public class MainDao {
         configuration.addAnnotatedClass(model.parking.class);
         configuration.addAnnotatedClass(model.abonnement.class);
         configuration.addAnnotatedClass(model.Vehicule.class);
+        configuration.addAnnotatedClass(model.Stationnement.class);
+
 
 
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
