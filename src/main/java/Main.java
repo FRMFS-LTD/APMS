@@ -33,7 +33,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("fxml/LogIn.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/pwdReset.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         scene.setFill(Color.TRANSPARENT);
@@ -44,9 +44,7 @@ public class Main extends Application {
 
 
 
-        //testVehicle();
 
-        testStationnement();
     }
 
 
