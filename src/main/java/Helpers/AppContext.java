@@ -33,5 +33,20 @@ public class AppContext {
         new RotateInDownRight(root).play();
     }
 
+    public static void DragScene(Stage primaryStage, Parent root) {
+        final double[] x = new double[1];
+        final double[] y = new double[1];
+        root.setOnMousePressed(event2 -> {
+            x[0] = event2.getSceneX();
+            y[0] = event2.getSceneY();
+        });
+        root.setOnMouseDragged(event3 -> {
+
+            primaryStage.setX(event3.getScreenX() - x[0]);
+            primaryStage.setY(event3.getScreenY() - y[0]);
+
+        });
+    }
+
 
 }

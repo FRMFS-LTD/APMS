@@ -7,18 +7,26 @@
 
 package Controller.UserControllers;
 
+import Helpers.AppContext;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableView;
 import dao.Services.UserService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import model.utilisateur;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,6 +34,10 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class UserCrudController implements Initializable {
+
+    @FXML
+    private JFXButton AddUserGui;
+
 
     @FXML
     private TableView<utilisateur> UsersTable;
@@ -66,7 +78,7 @@ public class UserCrudController implements Initializable {
 
     }
 
-    private void LoadData() {
+    public void LoadData() {
         ArrayList<utilisateur> e = (ArrayList<utilisateur>) uService.findAll();
         for (utilisateur u : e){
             UsersList.add(u);
@@ -84,5 +96,21 @@ public class UserCrudController implements Initializable {
 
         UsersTable.setItems(UsersList);
     }
+
+
+
+    @FXML
+    void AddUserGui_click(ActionEvent event) throws IOException {
+
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/AddUser.fxml"));
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        AppContext.UpdateStage(primaryStage, root, scene);
+        AppContext.DragScene(primaryStage, root);
+
+        primaryStage.show();
+    }
+
 
 }

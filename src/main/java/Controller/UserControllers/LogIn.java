@@ -118,7 +118,7 @@ public class LogIn {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        //AppContext.UpdateStage(primaryStage,root,scene);
+        AppContext.UpdateStage(primaryStage,root,scene);
 
         Stage stage = (Stage) closeBtn.getScene().getWindow();
         // do what you have to do

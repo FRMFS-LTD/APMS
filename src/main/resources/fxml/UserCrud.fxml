@@ -18,8 +18,8 @@
    <children>
       <Label layoutX="74.0" layoutY="37.0" styleClass="title" text="User CRUD" />
       <JFXTextField labelFloat="true" layoutX="74.0" layoutY="96.0" prefHeight="26.0" prefWidth="268.0" promptText="search" styleClass="textField" />
-      <JFXButton layoutX="74.0" layoutY="570.0" prefHeight="26.0" prefWidth="117.0" styleClass="primBtn" text="Add" />
-      <TableView fx:id="UsersTable" layoutX="74.0" layoutY="145.0" prefHeight="407.0" prefWidth="811.0">
+      <JFXButton fx:id="AddUserGui" layoutX="74.0" layoutY="562.0" onAction="#AddUserGui_click" prefHeight="26.0" prefWidth="117.0" styleClass="primBtn" text="Add" />
+      <TableView fx:id="UsersTable" layoutX="74.0" layoutY="145.0" prefHeight="393.0" prefWidth="811.0">
         <columns>
           <TableColumn fx:id="idCol" prefWidth="55.0" text="User Id" />
             <TableColumn fx:id="firstNameCOl" prefWidth="100.0" text="First Name" />

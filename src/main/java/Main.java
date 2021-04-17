@@ -15,7 +15,7 @@ public class Main extends Application {
 
         primaryStage.setScene(scene);
         AppContext.UpdateStage(primaryStage, root, scene);
-
+        AppContext.DragScene(primaryStage,root);
         primaryStage.show();
     }
 

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 
 <!--
   ~ Copyright (c) 2021.
@@ -13,9 +17,111 @@
   ~
   -->
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="fxml.AddUser"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserControllers.AddUserController">
+   <children>
+      <Label layoutX="38.0" layoutY="29.0" styleClass="title" text="Create new User" />
+      <HBox alignment="TOP_CENTER" layoutX="38.0" layoutY="83.0" prefHeight="40.0">
+         <children>
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/UserIco/icons8_name_64px_1.png" />
+               </image>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </ImageView>
+            <JFXTextField fx:id="firstNameField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="First Name" styleClass="textField" unFocusColor="#494949" />
+         </children>
+      </HBox>
+      <HBox alignment="TOP_CENTER" layoutX="315.0" layoutY="83.0">
+         <children>
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/UserIco/icons8_name_64px_1.png" />
+               </image>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </ImageView>
+            <JFXTextField fx:id="LastNameField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Last Name" styleClass="textField" />
+         </children>
+      </HBox>
+      <HBox alignment="TOP_CENTER" layoutX="38.0" layoutY="137.0">
+         <children>
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/UserIco/icons8_contact_details_64px.png" />
+               </image>
+            </ImageView>
+            <JFXTextField fx:id="CinField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Identity" styleClass="textField" />
+         </children>
+      </HBox>
+      <HBox layoutX="315.0" layoutY="137.0">
+         <children>
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/UserIco/icons8_phone_64px.png" />
+               </image>
+            </ImageView>
+            <JFXTextField fx:id="telField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Phone" styleClass="textField" />
+         </children>
+      </HBox>
+      <HBox layoutX="38.0" layoutY="193.0">
+         <children>
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/UserIco/icons8_email_64px.png" />
+               </image>
+            </ImageView>
+            <JFXTextField fx:id="MailField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Mail" styleClass="textField" />
+         </children>
+      </HBox>
+      <HBox layoutX="314.0" layoutY="193.0">
+         <children>
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/UserIco/icons8_crown_64px.png" />
+               </image>
+            </ImageView>
+            <JFXComboBox fx:id="isAdminField" focusColor="WHITE" prefHeight="26.0" prefWidth="218.0" promptText="Is Admin?" styleClass="comboBox" stylesheets="@../css/style.css" />
+         </children>
+      </HBox>
+      <HBox layoutX="38.0" layoutY="247.0">
+         <children>
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/UserIco/icons8_user_64px.png" />
+               </image>
+            </ImageView>
+            <JFXTextField fx:id="UserNameField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="UserName" styleClass="textField" />
+         </children>
+      </HBox>
+      <HBox layoutX="315.0" layoutY="247.0">
+         <children>
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/UserIco/icons8_password_64px.png" />
+               </image>
+            </ImageView>
+            <JFXTextField fx:id="pwdField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Password" styleClass="textField" />
+         </children>
+      </HBox>
+      <JFXButton fx:id="addNewUser" layoutX="38.0" layoutY="315.0" onAction="#addNewUser_click" prefHeight="26.0" prefWidth="218.0" styleClass="primBtn" text="Save Changes">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/UserIco/icons8_save_64px.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
+      <JFXButton fx:id="Cancel" layoutX="314.0" layoutY="315.0" onAction="#Cancel_click" prefHeight="26.0" prefWidth="218.0" styleClass="SecBtn" stylesheets="@../css/style.css" text="Cancel">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/UserIco/icons8_rollback_64px_1.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
+      <HBox layoutX="326.0" layoutY="31.0" />
+   </children>
 </AnchorPane>
