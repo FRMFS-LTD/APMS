@@ -5,7 +5,7 @@
  *
  */
 
-package Controller;
+package Controller.UserControllers;
 
 import com.jfoenix.controls.JFXTreeTableView;
 import dao.Services.UserService;
