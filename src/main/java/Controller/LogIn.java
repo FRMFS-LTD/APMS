@@ -24,6 +24,10 @@ import java.util.ResourceBundle;
 import com.sun.tools.javac.Main;
 import dao.Services.UserService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,7 +36,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.utilisateur;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -45,6 +51,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LogIn {
+
+    @FXML
+    private StackPane MainContainer;
+
+    @FXML
+    private JFXButton pwdResetButton;
 
     @FXML
     private JFXTextField usernameField;
@@ -168,5 +180,25 @@ public class LogIn {
 
 
      */
+
+    @FXML
+    void pwdResetButton_click(ActionEvent event) throws IOException {
+        System.out.println("hello there");
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/pwdReset.fxml"));
+        Scene scene =  pwdResetButton.getScene();
+
+        root.translateYProperty().set(scene.getHeight());
+        MainContainer.getChildren().add(root);
+
+        Timeline tl = new Timeline();
+        KeyValue kv = new KeyValue(root.translateYProperty(),0, Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1),kv);
+        tl.getKeyFrames().add(kf);
+        tl.setOnFinished(event1 ->{
+            MainContainer.getChildren().remove(win_pan);
+        } );
+        tl.play();
+
+    }
 
 }

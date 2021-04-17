@@ -4,17 +4,27 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dao.Services.UserService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.utilisateur;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;
 
@@ -24,6 +34,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class PwdResetController {
+
+    @FXML
+    private StackPane MainContainer;
 
     @FXML
     private AnchorPane win_pan;
@@ -79,9 +92,25 @@ public class PwdResetController {
 
     }
 
-    public void Exit_onClick(javafx.scene.input.MouseEvent mouseEvent) {
-        Stage stage = (Stage) closeBtn.getScene().getWindow();
-        stage.close();
+    public void Exit_onClick(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/LogIn.fxml"));
+        Scene scene =  ResetPwdBtn.getScene();
+
+        root.translateYProperty().set(scene.getHeight());
+        MainContainer.getChildren().add(root);
+
+        Timeline tl = new Timeline();
+        KeyValue kv = new KeyValue(root.translateYProperty(),0, Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1),kv);
+        tl.getKeyFrames().add(kf);
+        tl.setOnFinished(event1 ->{
+            MainContainer.getChildren().remove(win_pan);
+        } );
+        tl.play();
+
+
+
     }
 
     public utilisateur getVerifiedUserMail(String newPwd,String mail, String cin){
