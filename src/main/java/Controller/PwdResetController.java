@@ -95,21 +95,19 @@ public class PwdResetController {
     public void Exit_onClick(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/LogIn.fxml"));
-        Scene scene =  ResetPwdBtn.getScene();
+        Scene scene = ResetPwdBtn.getScene();
 
         root.translateYProperty().set(scene.getHeight());
         MainContainer.getChildren().add(root);
 
         Timeline tl = new Timeline();
-        KeyValue kv = new KeyValue(root.translateYProperty(),0, Interpolator.EASE_IN);
-        KeyFrame kf = new KeyFrame(Duration.seconds(1),kv);
+        KeyValue kv = new KeyValue(root.translateYProperty(), 0, Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
         tl.getKeyFrames().add(kf);
-        tl.setOnFinished(event1 ->{
+        tl.setOnFinished(event1 -> {
             MainContainer.getChildren().remove(win_pan);
-        } );
+        });
         tl.play();
-
-
 
     }
 
@@ -163,6 +161,10 @@ public class PwdResetController {
 
         });
 
+        SendMail(user, pwd, to, from, session);
+    }
+
+    private void SendMail(utilisateur user, String pwd, String to, String from, Session session) {
         // Used to debug SMTP issues
         session.setDebug(true);
 
