@@ -77,4 +77,23 @@ public class UserDao extends MainDao implements UserDaoInterface<utilisateur, Id
         return results;
     }
 
+    public utilisateur getUserByEmail(String mail,String Cin){
+        String sql = "SELECT * FROM utilisateur WHERE mail = :mail and cin = :cin";
+
+        SQLQuery query = getCurrentSession().createSQLQuery(sql);
+
+        query.addEntity(utilisateur.class);
+
+        query.setParameter("mail", mail);
+        query.setParameter("cin", Cin);
+
+        utilisateur results = (utilisateur) query.list().get(0);
+
+        return results;
+    }
+
+
+
+
+
 }
