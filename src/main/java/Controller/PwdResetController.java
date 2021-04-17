@@ -60,11 +60,15 @@ public class PwdResetController {
     void ResetPwdBtn_click(ActionEvent event) {
         String mail = emailResetField.getText();
         String cin = CinResetField.getText();
+
         if (!mail.isEmpty() || !cin.isEmpty()){
+
             try {
+
                 String newPwd = String.valueOf(generatePassword(12));
                 utilisateur user = getVerifiedUserMail(newPwd,mail,cin);
                 SendMail(user,newPwd);
+
             }catch (IndexOutOfBoundsException e){
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("USER does not exist");
@@ -120,9 +124,11 @@ public class PwdResetController {
         utilisateur verifieduser =  us.getUserByEmail(mail,cin);
 
 
-        // update userpwd
+
 
         verifieduser.setPassword(newPwd);
+        us.update(verifieduser);
+
         return verifieduser;
     }
 

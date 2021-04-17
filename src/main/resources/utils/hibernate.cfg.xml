@@ -12,5 +12,10 @@
     <!-- DB schema will be updated if needed -->
     <property name="hibernate.hbm2ddl.auto">update</property>
     <property name="show_sql">true</property>
+
+    <!-- for performance improvement -->
+    <property name="hibernate.generate_statistics">true</property>
+
+
   </session-factory>
 </hibernate-configuration>

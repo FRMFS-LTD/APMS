@@ -76,9 +76,9 @@ public class UserService {
     }
 
     public utilisateur getUserByEmail(String mail,String Cin){
-        userdao.openCurrentSession();
+        userdao.openCurrentSessionWithTransaction();
         utilisateur user = userdao.getUserByEmail(mail,Cin);
-        userdao.closeCurrentSession();
+        userdao.closeCurrentSessionWithTransaction();
         return user;
     }
 
