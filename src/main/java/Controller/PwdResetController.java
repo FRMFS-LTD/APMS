@@ -6,6 +6,7 @@ import dao.Services.UserService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.utilisateur;
@@ -44,9 +45,38 @@ public class PwdResetController {
 
     @FXML
     void ResetPwdBtn_click(ActionEvent event) {
-        String newPwd = String.valueOf(generatePassword(12));
-        utilisateur user = getVerifiedUserMail(newPwd);
-        SendMail(user,newPwd);
+        String mail = emailResetField.getText();
+        String cin = CinResetField.getText();
+        if (!mail.isEmpty() || !cin.isEmpty()){
+            try {
+                String newPwd = String.valueOf(generatePassword(12));
+                utilisateur user = getVerifiedUserMail(newPwd,mail,cin);
+                SendMail(user,newPwd);
+            }catch (IndexOutOfBoundsException e){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("USER does not exist");
+                alert.setHeaderText("invalid Username or Password");
+                alert.setContentText("try again!!");
+
+                alert.showAndWait();
+            }catch (Exception E){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle(E.getCause().toString());
+                alert.setHeaderText(E.getMessage().toString());
+                alert.setContentText("try again!!");
+            }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Empty Fields Error");
+            alert.setHeaderText("Mail or Cin are not supplied");
+            alert.setContentText("fill in the fields and try again!!");
+
+            alert.showAndWait();
+        }
+
+
+
+
     }
 
     public void Exit_onClick(javafx.scene.input.MouseEvent mouseEvent) {
@@ -54,11 +84,13 @@ public class PwdResetController {
         stage.close();
     }
 
-    public utilisateur getVerifiedUserMail(String newPwd){
+    public utilisateur getVerifiedUserMail(String newPwd,String mail, String cin){
+
+
         UserService us = new UserService();
 
         //get user
-        utilisateur verifieduser =  us.getUserByEmail(emailResetField.getText(),CinResetField.getText());
+        utilisateur verifieduser =  us.getUserByEmail(mail,cin);
 
 
         // update userpwd
