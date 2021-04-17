@@ -11,6 +11,14 @@
 
 .primBtn{
     -fx-background-color: #2FBBBA;
+    -fx-text-fill: #000000;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+.SecBtn{
+    -fx-border-color: #009ba0;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-radius: 5;
 }
 
 
@@ -19,3 +27,14 @@
 
 }
 
+.title{
+    -fx-text-fill: #b0aeae;
+    -fx-font-size: 20px;
+
+    -fx-border-style: hidden hidden hidden solid;
+    -fx-border-width: 5;
+    -fx-border-color: #009ba0;
+
+
+    -fx-padding: 0 0 0 20
+}
