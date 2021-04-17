@@ -14,6 +14,7 @@ import model.utilisateur;
 import org.hibernate.SQLQuery;
 
 import javax.persistence.Id;
+import javax.persistence.Query;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -63,33 +64,28 @@ public class UserDao extends MainDao implements UserDaoInterface<utilisateur, Id
 
     public ArrayList<utilisateur> loggedUser(String username, String password){
 
-        String sql = "SELECT * FROM utilisateur WHERE username = :username and password = :password";
-
-        SQLQuery query = getCurrentSession().createSQLQuery(sql);
-
-        query.addEntity(utilisateur.class);
+        Query query = getCurrentSession().getNamedQuery("logUser");
 
         query.setParameter("username", username);
         query.setParameter("password", password);
 
-        ArrayList<utilisateur> results = (ArrayList<utilisateur>) query.list();
+        List Result = query.getResultList();
+        ArrayList<utilisateur> results = (ArrayList<utilisateur>) Result;
 
         return results;
     }
 
     public utilisateur getUserByEmail(String mail,String Cin){
-        String sql = "SELECT * FROM utilisateur WHERE mail = :mail and cin = :cin";
 
-        SQLQuery query = getCurrentSession().createSQLQuery(sql);
-
-        query.addEntity(utilisateur.class);
-
+        Query query = getCurrentSession().getNamedQuery("FindUserToReset");
         query.setParameter("mail", mail);
         query.setParameter("cin", Cin);
 
-        utilisateur results = (utilisateur) query.list().get(0);
+        List Result = query.getResultList();
+        utilisateur user = (utilisateur) Result.get(0);
 
-        return results;
+
+        return user;
     }
 
 
