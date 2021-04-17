@@ -14,11 +14,10 @@
   ~
   -->
 
-
 <AnchorPane prefHeight="617.0" prefWidth="933.0" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserControllers.UserCrudController">
    <children>
       <Label layoutX="74.0" layoutY="64.0" text="User CRUD" />
-      <JFXTextField layoutX="74.0" layoutY="96.0" prefHeight="26.0" prefWidth="268.0" promptText="search" styleClass="textField" />
+      <JFXTextField labelFloat="true" layoutX="74.0" layoutY="96.0" prefHeight="26.0" prefWidth="268.0" promptText="search" styleClass="textField" />
       <JFXButton layoutX="74.0" layoutY="570.0" prefHeight="26.0" prefWidth="117.0" styleClass="primBtn" text="Add" />
       <TableView fx:id="UsersTable" layoutX="74.0" layoutY="145.0" prefHeight="407.0" prefWidth="811.0">
         <columns>
@@ -29,7 +28,7 @@
             <TableColumn fx:id="idNumberCol" prefWidth="100.0" text="Identity Number" />
             <TableColumn fx:id="MailCol" prefWidth="180.0" text="Email" />
             <TableColumn fx:id="phoneCol" prefWidth="115.0" text="Phone" />
-            <TableColumn fx:id="RoleCol" prefWidth="58.4000244140625" text="Role" />
+            <TableColumn fx:id="RoleCol" prefWidth="58.4000244140625" text="is Admin" />
         </columns>
       </TableView>
    </children>

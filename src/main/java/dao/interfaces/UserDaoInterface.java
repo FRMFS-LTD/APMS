@@ -11,6 +11,7 @@ package dao.interfaces;
 
 import model.utilisateur;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,5 +32,7 @@ public interface UserDaoInterface<T, T1> {
     public ArrayList<utilisateur> loggedUser(String userName, String password);
 
     public utilisateur getUserByEmail(String mail,String Cin);
+
+
 
 }

@@ -11,6 +11,7 @@ package dao.Services;
 import dao.UserDao;
 import model.utilisateur;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,6 +82,8 @@ public class UserService {
         userdao.closeCurrentSessionWithTransaction();
         return user;
     }
+
+
 
 
 }

@@ -20,6 +20,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.utilisateur;
 
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -59,7 +61,28 @@ public class UserCrudController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
+        LoadData();
+
     }
 
+    private void LoadData() {
+        ArrayList<utilisateur> e = (ArrayList<utilisateur>) uService.findAll();
+        for (utilisateur u : e){
+            UsersList.add(u);
+        }
+
+
+        idCol.setCellValueFactory(new PropertyValueFactory<>("id_user"));
+        firstNameCOl.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        LastNameCol.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+        userNameCol.setCellValueFactory(new PropertyValueFactory<>("username"));
+        idNumberCol.setCellValueFactory(new PropertyValueFactory<>("cin"));
+        MailCol.setCellValueFactory(new PropertyValueFactory<>("mail"));
+        phoneCol.setCellValueFactory(new PropertyValueFactory<>("tel"));
+        RoleCol.setCellValueFactory(new PropertyValueFactory<>("is_admin"));
+
+        UsersTable.setItems(UsersList);
+    }
 
 }
