@@ -15,7 +15,9 @@ import org.hibernate.SQLQuery;
 
 import javax.persistence.Id;
 import javax.persistence.Query;
+import javax.xml.transform.Result;
 import java.io.Serializable;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,6 +56,8 @@ public class UserDao extends MainDao implements UserDaoInterface<utilisateur, Id
         List<utilisateur> users_list = (List<utilisateur>) getCurrentSession().createQuery("from utilisateur").list();
         return users_list;
     }
+
+
 
     public void deleteAll() {
         List<utilisateur> entityList = findAll();

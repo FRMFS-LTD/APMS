@@ -7,21 +7,18 @@
  *
  */
 
-package Controller;
+package Controller.UserControllers;
 
 
 
-import animatefx.animation.FadeOut;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 
-import com.sun.tools.javac.Main;
 import dao.Services.UserService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.animation.Interpolator;
@@ -40,15 +37,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.utilisateur;
-import org.hibernate.SQLQuery;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-
-
-import java.util.ArrayList;
-import java.util.List;
+import Helpers.AppContext;
 
 public class LogIn {
 
@@ -94,7 +83,7 @@ public class LogIn {
                 utilisateur loggedUser = u_service.loggedUser(userName,password).get(0);
                 System.out.println("welcome: " +  loggedUser.getNom() + " " + loggedUser.getPrenom());
 
-                //StartMainWindow();
+                StartMainWindow();
 
 
             }catch(IndexOutOfBoundsException e){
@@ -124,10 +113,17 @@ public class LogIn {
 
     private void StartMainWindow() throws  Exception {
         Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("fxml/MainWindow.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainWindow.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        AppContext.UpdateStage(primaryStage,root,scene);
+
+        Stage stage = (Stage) closeBtn.getScene().getWindow();
+        // do what you have to do
+        stage.close();
+
     }
 
     public void Exit_onClick(MouseEvent mouseEvent)  {
@@ -156,5 +152,8 @@ public class LogIn {
         tl.play();
 
     }
+
+
+
 
 }

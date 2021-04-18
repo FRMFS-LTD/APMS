@@ -13,8 +13,6 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-
-
 <!--
   ~ Copyright (c) 2021.
   ~ programmed by Rachid Boufous.
@@ -22,11 +20,11 @@
   ~
   -->
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1050.0" styleClass="Container" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" styleClass="Container" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainWindowController">
    <children>
       <BorderPane prefHeight="576.0" prefWidth="1050.0" styleClass="Container" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <bottom>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1050.0" styleClass="bottomPane" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1340.0" styleClass="bottomPane" BorderPane.alignment="CENTER">
                <children>
                   <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="617.0" layoutY="28.0" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text="Statistics" textFill="#797979">
                      <graphic>
@@ -209,7 +207,7 @@
                         <SepiaTone />
                      </effect>
                   </JFXButton>
-                  <JFXButton alignment="CENTER" contentDisplay="CENTER" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
+                  <JFXButton fx:id="UsersCrudBtn" alignment="CENTER" contentDisplay="CENTER" onAction="#HandleCLicks" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
                      <graphic>
                         <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -268,6 +266,9 @@
                   <StackPane style="-fx-border-radius: 50;" styleClass="Container" />
                </children></HBox>
          </top>
+         <center>
+            <StackPane fx:id="mainPane" prefHeight="800.0" prefWidth="1200.0" BorderPane.alignment="CENTER" />
+         </center>
       </BorderPane>
    </children>
 </AnchorPane>

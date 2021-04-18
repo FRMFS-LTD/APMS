@@ -13,6 +13,7 @@ import dao.VehiculeDao;
 import model.Vehicule;
 
 import java.io.Serializable;
+import java.sql.ResultSet;
 import java.util.List;
 
 
@@ -65,6 +66,7 @@ public class VehiculeService {
         vehiculedao.deleteAll();
         vehiculedao.closeCurrentSession();
     }
+
 
 
 

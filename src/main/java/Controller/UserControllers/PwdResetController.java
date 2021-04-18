@@ -1,4 +1,11 @@
-package Controller;
+/*
+ * Copyright (c) 2021.
+ * programmed by Rachid Boufous.
+ * for FRMFS-ltd organisation
+ *
+ */
+
+package Controller.UserControllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
