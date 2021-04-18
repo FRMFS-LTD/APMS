@@ -10,23 +10,29 @@ package Controller.UserControllers;
 import Helpers.AppContext;
 import com.jfoenix.controls.JFXButton;
 import dao.Services.UserService;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import model.utilisateur;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class UserCrudController implements Initializable {
@@ -88,8 +94,11 @@ public class UserCrudController implements Initializable {
     }
 
     private void refreshDataSet() {
+
         UsersList.clear();
+
         ArrayList<utilisateur> e = (ArrayList<utilisateur>) uService.findAll();
+
         for (utilisateur u : e){
             UsersList.add(u);
         }
@@ -122,15 +131,44 @@ public class UserCrudController implements Initializable {
     }
 
 
-
-
-
-
     @FXML
     void RefreshBtn_click(ActionEvent event) {
         refreshDataSet();
 
     }
 
+   public void CreateIcons(){
+        Callback<TableColumn<utilisateur,String>,TableCell<utilisateur,String>> cellFactory = (param) ->{
 
+
+            // creating a new cell
+            final TableCell<utilisateur, String> cell =  new TableCell<utilisateur,String>(){
+
+                @Override
+                protected void updateItem(String s, boolean b) {
+                    super.updateItem(s, b);
+                    //check for the cell creation
+                     if(b){
+                         setGraphic(null);
+                         setText(null);
+                     }else{
+                         // if cell is created we can create button
+
+                         final JFXButton Editbtn = new JFXButton("Edit");
+
+                         // create a listener on the button
+
+                         Editbtn.setOnAction(eventEditCell -> {
+                             // get the user we just click on
+
+                             //utilisateur userTo
+                         });
+
+                     }
+                }
+            };
+
+            return cell;
+        };
+   }
 }
