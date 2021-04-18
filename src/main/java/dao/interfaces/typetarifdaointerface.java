@@ -1,5 +1,10 @@
 package dao.interfaces;
-
+/*
+ * Copyright (c) 2021.
+ * programmed by Fadoua Abdoulmoulah.
+ * for FRMFS-ltd organisation
+ *
+ */
 import model.typetarif;
 
 import java.util.List;
