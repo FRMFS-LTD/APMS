@@ -120,8 +120,8 @@
         <!-- password reset api -->
         <dependency>
             <groupId>com.sun.mail</groupId>
-            <artifactId>jakarta.mail</artifactId>
-            <version>1.6.3</version>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.0</version>
         </dependency>
     </dependencies>
 
