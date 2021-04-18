@@ -1,5 +1,12 @@
 package dao;
 
+/*
+ * Copyright (c) 2021.
+ * programmed by Fadoua Abdoulmoulah.
+ * for FRMFS-ltd organisation
+ *
+ */
+
 import dao.interfaces.typetarifdaointerface;
 import model.typetarif;
 import model.utilisateur;
