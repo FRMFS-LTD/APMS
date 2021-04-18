@@ -121,9 +121,7 @@ public class LogIn {
         AppContext.UpdateStage(primaryStage,root,scene);
 
         Stage stage = (Stage) closeBtn.getScene().getWindow();
-        // do what you have to do
-        stage.close();
-
+        AppContext.closeForm(stage);
     }
 
     public void Exit_onClick(MouseEvent mouseEvent)  {
