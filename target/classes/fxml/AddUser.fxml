@@ -131,5 +131,6 @@
       <Label fx:id="isAdminErrpr" layoutX="343.0" layoutY="313.0" prefHeight="18.0" prefWidth="218.0" />
       <Label fx:id="UserNameError" layoutX="67.0" layoutY="392.0" prefHeight="18.0" prefWidth="218.0" />
       <Label fx:id="passwordErrpr" layoutX="343.0" layoutY="392.0" prefHeight="18.0" prefWidth="218.0" />
+      <Label fx:id="GlobalError" layoutX="42.0" layoutY="76.0" prefHeight="26.0" prefWidth="527.0" />
    </children>
 </AnchorPane>
