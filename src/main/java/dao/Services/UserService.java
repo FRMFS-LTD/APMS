@@ -69,10 +69,17 @@ public class UserService {
     }
 
     public ArrayList<utilisateur> loggedUser(String username, String password){
-        userdao.openCurrentSessionWithTransaction();
+        userdao.openCurrentSession();
         ArrayList<utilisateur> loggedUser = userdao.loggedUser(username,password);
-        userdao.closeCurrentSessionWithTransaction();
+        userdao.closeCurrentSession();
         return loggedUser;
+    }
+
+    public utilisateur getUserByEmail(String mail,String Cin){
+        userdao.openCurrentSessionWithTransaction();
+        utilisateur user = userdao.getUserByEmail(mail,Cin);
+        userdao.closeCurrentSessionWithTransaction();
+        return user;
     }
 
 

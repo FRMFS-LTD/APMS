@@ -24,6 +24,10 @@ import java.util.ResourceBundle;
 import com.sun.tools.javac.Main;
 import dao.Services.UserService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,7 +36,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.utilisateur;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -45,6 +51,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LogIn {
+
+    @FXML
+    private StackPane MainContainer;
+
+    @FXML
+    private JFXButton pwdResetButton;
 
     @FXML
     private JFXTextField usernameField;
@@ -68,6 +80,7 @@ public class LogIn {
     @FXML
     public void loginClick(ActionEvent event) throws Exception {
         setControllerVal();
+
     }
 
     public void setControllerVal() throws Exception {
@@ -116,31 +129,6 @@ public class LogIn {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-/*
-    private utilisateur getLoggedUser(String username,String pwd){
-        Configuration conf =  new Configuration().configure("utils/hibernate.cfg.xml").addAnnotatedClass(utilisateur.class);
-        SessionFactory sf = conf.buildSessionFactory();
-        Session session = sf.openSession();
-        Transaction tx = session.beginTransaction();
-
-        String sql = "SELECT * FROM utilisateur WHERE username = :username and password = :password";
-        SQLQuery query = session.createSQLQuery(sql);
-
-        query.addEntity(utilisateur.class);
-        query.setParameter("username", username);
-        query.setParameter("password", pwd);
-
-        ArrayList<utilisateur> results = (ArrayList<utilisateur>) query.list();
-        tx.commit();
-
-
-
-        System.out.println(results.get(0).getPassword());
-        return results.get(0);
-    }
-
-
- */
 
     public void Exit_onClick(MouseEvent mouseEvent)  {
         Stage stage = (Stage) closeBtn.getScene().getWindow();
@@ -149,24 +137,24 @@ public class LogIn {
     }
 
 
-    Double xOffset = 0.0;
-    Double yOffset = 0.0;
-    /*
     @FXML
-    void win_mouse_pressed(MouseEvent event) {
+    void pwdResetButton_click(ActionEvent event) throws IOException {
 
-        xOffset = stage.getX() - event.getScreenX();
-        yOffset = stage.getY() - event.getScreenY();
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/pwdReset.fxml"));
+        Scene scene =  pwdResetButton.getScene();
+
+        root.translateYProperty().set(scene.getHeight());
+        MainContainer.getChildren().add(root);
+
+        Timeline tl = new Timeline();
+        KeyValue kv = new KeyValue(root.translateYProperty(),0, Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1),kv);
+        tl.getKeyFrames().add(kf);
+        tl.setOnFinished(event1 ->{
+            MainContainer.getChildren().remove(win_pan);
+        } );
+        tl.play();
+
     }
-    @FXML
-    void win_mouse_dragged(MouseEvent event) {
-
-        stage.setX(event.getScreenX() + xOffset);
-        stage.setY(event.getScreenY() + yOffset);
-
-    }
-
-
-     */
 
 }

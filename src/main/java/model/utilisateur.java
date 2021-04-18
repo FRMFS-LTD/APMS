@@ -11,6 +11,28 @@ import com.sun.istack.NotNull;
 import javax.persistence.*;
 
 
+@NamedNativeQueries(
+        {
+
+                // we use stored procedure to let database hold the search for us
+                @NamedNativeQuery(
+                        name = "FindUserToReset",
+                        query = "SELECT * FROM utilisateur WHERE mail = :mail and cin = :cin",
+                        resultClass = utilisateur.class
+
+                ),
+
+                @NamedNativeQuery(
+                        name = "logUser",
+                        query = "SELECT * FROM utilisateur WHERE username = :username and password = :password",
+                        resultClass = utilisateur.class
+
+                )
+        }
+)
+
+
+
 
 @Entity
 public class utilisateur {
@@ -144,4 +166,7 @@ public class utilisateur {
 
 
 
+
+
 }
+

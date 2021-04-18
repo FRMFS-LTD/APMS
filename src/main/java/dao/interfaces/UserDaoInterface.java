@@ -30,4 +30,6 @@ public interface UserDaoInterface<T, T1> {
 
     public ArrayList<utilisateur> loggedUser(String userName, String password);
 
+    public utilisateur getUserByEmail(String mail,String Cin);
+
 }
