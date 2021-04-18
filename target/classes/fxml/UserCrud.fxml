@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <!--
@@ -18,7 +20,14 @@
    <children>
       <Label layoutX="74.0" layoutY="37.0" styleClass="title" text="User CRUD" />
       <JFXTextField labelFloat="true" layoutX="74.0" layoutY="96.0" prefHeight="26.0" prefWidth="268.0" promptText="search" styleClass="textField" />
-      <JFXButton fx:id="AddUserGui" layoutX="74.0" layoutY="562.0" onAction="#AddUserGui_click" prefHeight="26.0" prefWidth="117.0" styleClass="primBtn" text="Add" />
+      <JFXButton fx:id="AddUserGui" layoutX="74.0" layoutY="562.0" onAction="#AddUserGui_click" prefHeight="38.0" prefWidth="199.0" styleClass="primBtn" text="Add">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/UserIco/icons8_create_64px_1.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
       <TableView fx:id="UsersTable" layoutX="74.0" layoutY="145.0" prefHeight="394.0" prefWidth="868.0" stylesheets="@../css/style.css">
         <columns>
           <TableColumn fx:id="idCol" prefWidth="55.0" text="User Id" />
@@ -31,5 +40,14 @@
             <TableColumn fx:id="RoleCol" prefWidth="84.7999267578125" text="is Admin" />
         </columns>
       </TableView>
+      <JFXButton fx:id="RefreshBtn" layoutX="308.0" layoutY="561.0" onAction="#RefreshBtn_click" prefHeight="38.0" prefWidth="199.0" styleClass="SecBtn" text="Refresh">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/UserIco/icons8_refresh_64px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>

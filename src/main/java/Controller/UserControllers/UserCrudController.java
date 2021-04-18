@@ -9,10 +9,8 @@ package Controller.UserControllers;
 
 import Helpers.AppContext;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTreeTableView;
 import dao.Services.UserService;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,8 +26,6 @@ import model.utilisateur;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -67,6 +63,10 @@ public class UserCrudController implements Initializable {
     private TableColumn<utilisateur, String> RoleCol;
 
 
+    @FXML
+    private JFXButton RefreshBtn;
+
+
     ObservableList<utilisateur> UsersList = FXCollections.observableArrayList();
     UserService uService = new UserService();
 
@@ -79,12 +79,24 @@ public class UserCrudController implements Initializable {
     }
 
     public void LoadData() {
+
+
+
+        DefineCols();
+
+        refreshDataSet();
+    }
+
+    private void refreshDataSet() {
+        UsersList.clear();
         ArrayList<utilisateur> e = (ArrayList<utilisateur>) uService.findAll();
         for (utilisateur u : e){
             UsersList.add(u);
         }
+        UsersTable.setItems(UsersList);
+    }
 
-
+    private void DefineCols() {
         idCol.setCellValueFactory(new PropertyValueFactory<>("id_user"));
         firstNameCOl.setCellValueFactory(new PropertyValueFactory<>("nom"));
         LastNameCol.setCellValueFactory(new PropertyValueFactory<>("prenom"));
@@ -93,10 +105,7 @@ public class UserCrudController implements Initializable {
         MailCol.setCellValueFactory(new PropertyValueFactory<>("mail"));
         phoneCol.setCellValueFactory(new PropertyValueFactory<>("tel"));
         RoleCol.setCellValueFactory(new PropertyValueFactory<>("is_admin"));
-
-        UsersTable.setItems(UsersList);
     }
-
 
 
     @FXML
@@ -110,6 +119,17 @@ public class UserCrudController implements Initializable {
         AppContext.DragScene(primaryStage, root);
 
         primaryStage.show();
+    }
+
+
+
+
+
+
+    @FXML
+    void RefreshBtn_click(ActionEvent event) {
+        refreshDataSet();
+
     }
 
 

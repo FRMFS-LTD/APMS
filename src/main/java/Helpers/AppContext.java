@@ -48,5 +48,9 @@ public class AppContext {
         });
     }
 
+    public static void closeForm(Stage stage){
+        stage.close();
+    }
+
 
 }

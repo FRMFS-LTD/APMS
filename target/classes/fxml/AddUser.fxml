@@ -17,7 +17,7 @@
   ~
   -->
 
-<AnchorPane prefHeight="523.0" prefWidth="602.0" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserControllers.AddUserController">
+<AnchorPane prefHeight="523.0" prefWidth="602.0" style="-fx-border-color: white;" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserControllers.AddUserController">
    <children>
       <Label layoutX="38.0" layoutY="29.0" styleClass="title" text="Create new User" />
       <HBox alignment="TOP_CENTER" layoutX="40.0" layoutY="114.0" prefHeight="40.0">
@@ -122,7 +122,6 @@
                </image>
             </ImageView>
          </graphic></JFXButton>
-      <HBox layoutX="326.0" layoutY="31.0" />
       <Label fx:id="firstNameError" layoutX="66.0" layoutY="154.0" prefHeight="18.0" prefWidth="218.0" />
       <Label fx:id="LastNameError" layoutX="343.0" layoutY="154.0" prefHeight="18.0" prefWidth="218.0" />
       <Label fx:id="IdError" layoutX="69.0" layoutY="233.0" prefHeight="18.0" prefWidth="218.0" />

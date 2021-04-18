@@ -109,6 +109,7 @@ public class AddUserController implements Initializable {
         UserService us = new UserService();
         utilisateur new_user = createNewUser();
         us.persist(new_user);
+
         CloseForm();
     }
 
