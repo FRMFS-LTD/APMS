@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="420.0" prefWidth="542.0" style="-fx-background-color: #E0EAF5;" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TypeTarif">
+   <children>
+      <AnchorPane layoutY="73.0" prefHeight="5.0" prefWidth="542.0" style="-fx-background-color: #FF8E2B;" />
+      <Text layoutX="56.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter un tarif" wrappingWidth="201.14453125">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="2.0" layoutY="366.0" prefHeight="52.0" prefWidth="542.0" style="-fx-background-color: #2E77AE;" />
+      <AnchorPane layoutX="2.0" layoutY="360.0" prefHeight="5.0" prefWidth="542.0" style="-fx-background-color: #FF8E2B;" />
+      <JFXButton layoutX="56.0" layoutY="268.0" prefHeight="36.0" prefWidth="79.0" styleClass="primBtn" />
+      <HBox layoutX="56.0" layoutY="121.0">
+         <children>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/parking.png" />
+               </image>
+            </ImageView>
+            <JFXTextField prefHeight="25.0" prefWidth="187.0" promptText="Type de tarif" />
+         </children>
+      </HBox>
+      <HBox layoutX="56.0" layoutY="185.0">
+         <children>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/parking.png" />
+               </image>
+            </ImageView>
+            <JFXTextField prefHeight="25.0" prefWidth="187.0" promptText="Type de tarif" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+   </padding>
+</AnchorPane>
