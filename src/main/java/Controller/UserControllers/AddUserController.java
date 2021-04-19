@@ -32,6 +32,9 @@ import javafx.scene.control.Label;
 public class AddUserController implements Initializable {
 
     @FXML
+    private Label titleLab;
+
+    @FXML
     private JFXTextField firstNameField;
 
     @FXML
@@ -87,58 +90,78 @@ public class AddUserController implements Initializable {
     private Label passwordErrpr;
 
 
+    private boolean update ;
+    private int userid;
+    UserService us = new UserService();
 
-
-
-
-
-
-
-    @FXML
-    void Cancel_click(ActionEvent event) {
-        CloseForm();
+    public void setUpdate(boolean b) {
+        this.update = b;
     }
+
+
+
 
     private void CloseForm() {
         Stage stage = (Stage) Cancel.getScene().getWindow();
         stage.close();
     }
 
+
+
     @FXML
     void addNewUser_click(ActionEvent event) {
-        UserService us = new UserService();
-        utilisateur new_user = createNewUser();
-        us.persist(new_user);
+
+        if(this.update == false){
+            utilisateur user = new utilisateur();
+            utilisateur new_user = createOrupdateNewUser(user);
+            us.persist(new_user);
+        }else{
+            
+            utilisateur userE = us.findById(userid);
+            utilisateur userRe = createOrupdateNewUser(userE);
+            us.update(userRe);
+
+        }
+
 
         CloseForm();
     }
 
-    private utilisateur createNewUser() {
-        utilisateur new_user = new utilisateur();
+    private utilisateur createOrupdateNewUser(utilisateur user) {
 
-        new_user.setNom(firstNameField.getText());
-        new_user.setPrenom(LastNameField.getText());
-        new_user.setCin(CinField.getText());
-        new_user.setTel(telField.getText());
-        new_user.setMail(MailField.getText());
-        new_user.setUsername(UserNameField.getText());
-        new_user.setPassword(pwdField.getText());
-        new_user.setIs_admin(Boolean.getBoolean(isAdminField.getSelectionModel().getSelectedItem()));
-        return new_user;
+
+        user.setNom(firstNameField.getText());
+        user.setPrenom(LastNameField.getText());
+        user.setCin(CinField.getText());
+        user.setTel(telField.getText());
+        user.setMail(MailField.getText());
+        user.setUsername(UserNameField.getText());
+        user.setPassword(pwdField.getText());
+        user.setIs_admin(Boolean.getBoolean(isAdminField.getSelectionModel().getSelectedItem()));
+        return user;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        isAdminField.getItems().add(0,"False");
-        isAdminField.getItems().add(1,"True");
+        System.out.println(update);
+        if (update) {
+
+            titleLab.setText("Update User");
+
+        } else {
+            isAdminField.getItems().add(0, "False");
+            isAdminField.getItems().add(1, "True");
+        }
     }
+
+
 
 
 
 
     @FXML
     void CinField_textChanged(KeyEvent event) {
-
+        System.out.println(update);
         if(!(Pattern.matches("^\\w\\w\\d*$", CinField.getText()))){
             IdError.setText("Incorrect Id Format (eg: AA111111)");
             IdError.setTextFill(Color.web("#E53935", 0.8));
@@ -229,7 +252,30 @@ public class AddUserController implements Initializable {
         }
     }
 
+    public void initTextFieldForUpdate(int id,String firstname,String lastName,String cin,String tel,
+                                       String mail,String Userame,String password,boolean is_admin){
+        userid = id;
+        firstNameField.setText(firstname);
+        LastNameField.setText(lastName);
+        CinField.setText(cin);
+        telField.setText(tel);
+        MailField.setText(mail);
+        UserNameField.setText(Userame);
+        pwdField.setText(password);
+        isAdminField.getSelectionModel().select(is_admin ? 1 : 0);
+        }
 
+
+
+    @FXML
+    void Cancel_click(ActionEvent event) {
+        CloseForm();
+    }
 
 
 }
+
+
+
+
+

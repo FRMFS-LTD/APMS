@@ -35,6 +35,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import model.utilisateur;
 
@@ -42,6 +43,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class UserCrudController implements Initializable {
 
@@ -169,52 +172,70 @@ public class UserCrudController implements Initializable {
                         FontAwesomeIconView  DeleteIco = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
                         FontAwesomeIconView EditIco = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE_ALT);
 
-                        DeleteIco.setGlyphSize(26);
-                        DeleteIco.setFill(Color.rgb(251, 62, 56));
-                        DeleteIco.setCursor(Cursor.HAND);
-
-
-                        EditIco.setGlyphSize(26);
-                        EditIco.setFill(Color.rgb(66, 66, 66));
-                        EditIco.setCursor(Cursor.HAND);
-
+                        StyleIcons(DeleteIco, EditIco);
 
 
                         // create the event handler for each btn
-                        DeleteIco.setOnMouseClicked((MouseEvent event)->{
+                        // create the event handler for DeleteBtn
+                        DeleteIco.setOnMouseClicked((MouseEvent event)->
+                        {
+                            DeleteUserConfirmation();
+                        });
 
-                            // get the selected user to be deleted
+                        // create the event handler for EditBtn
+                        EditIco.setOnMouseClicked((MouseEvent EditEvent)->
+                        {
                             utilisateur user = UsersTable.getSelectionModel().getSelectedItem();
-                            System.out.println(user.toString());
 
-                            // create an alert to make the user verify that he really want ot delete this item
-                            Dialog dialog = new Dialog(
-                                    DialogType.CONFIRMATION,
-                                    "Delete User action",
-                                    "Confirm Action",
-                                    "Are you sure you want to delete " + user.getNom() + " " + user.getPrenom() + "?");
-
-                            dialog.showAndWait();
-
-                            if (dialog.getResponse() == DialogResponse.YES) {
-                                System.out.println("test delete");
-                                uService.delete(user.getId_user());
-                                refreshDataSet();
+                            FXMLLoader loader = new FXMLLoader ();
+                            loader.setLocation(getClass().getResource("/fxml/addUser.fxml"));
+                            try {
+                                loader.load();
+                            } catch (IOException ex) {
+                                Logger.getLogger(AddUserController.class.getName()).log(Level.SEVERE, null, ex);
                             }
+
+                            AddUserController addUserController = loader.getController();
+                            addUserController.setUpdate(true);
+                            addUserController.initTextFieldForUpdate(user.getId_user(),
+                                    user.getNom(),user.getPrenom(),user.getCin(),
+                                    user.getTel(),user.getMail(),user.getUsername(),user.getPassword(),user.getIs_admin()
+
+                                    );
+
+                            Parent parent = loader.getRoot();
+                            Stage stage = new Stage();
+                            stage.setScene(new Scene(parent));
+                            stage.initStyle(StageStyle.UTILITY);
+                            stage.show();
                         });
 
 
-
-                        HBox managebtn = new HBox(DeleteIco, EditIco);
-                        managebtn.setStyle("-fx-alignment:center");
-
-                        HBox.setMargin(DeleteIco, new Insets(2, 2, 0, 3));
-                        HBox.setMargin(EditIco, new Insets(2, 3, 0, 2));
-
-                        setGraphic(managebtn);
+                        SetIconsToTabViewCell(DeleteIco, EditIco);
 
                     }
 
+                }
+
+                private void SetIconsToTabViewCell(FontAwesomeIconView DeleteIco, FontAwesomeIconView EditIco) {
+                    HBox managebtn = new HBox(DeleteIco, EditIco);
+                    managebtn.setStyle("-fx-alignment:center");
+
+                    HBox.setMargin(DeleteIco, new Insets(2, 2, 0, 3));
+                    HBox.setMargin(EditIco, new Insets(2, 3, 0, 2));
+
+                    setGraphic(managebtn);
+                }
+
+                private void StyleIcons(FontAwesomeIconView DeleteIco, FontAwesomeIconView EditIco) {
+                    DeleteIco.setGlyphSize(26);
+                    DeleteIco.setFill(Color.rgb(251, 62, 56));
+                    DeleteIco.setCursor(Cursor.HAND);
+
+
+                    EditIco.setGlyphSize(26);
+                    EditIco.setFill(Color.rgb(66, 66, 66));
+                    EditIco.setCursor(Cursor.HAND);
                 }
             };
 
@@ -224,4 +245,25 @@ public class UserCrudController implements Initializable {
 
        }
 
+    private void DeleteUserConfirmation() {
+        // get the selected user to be deleted
+        utilisateur user = UsersTable.getSelectionModel().getSelectedItem();
+        System.out.println(user.toString());
+
+        // create an alert to make the user verify that he really want ot delete this item
+        Dialog dialog = new Dialog(
+                DialogType.CONFIRMATION,
+                "Delete User action",
+                "Confirm Action",
+                "Are you sure you want to delete " + user.getNom() + " " + user.getPrenom() + "?");
+
+        dialog.showAndWait();
+
+        if (dialog.getResponse() == DialogResponse.YES) {
+            System.out.println("test delete");
+            uService.delete(user.getId_user());
+            refreshDataSet();
+        }
     }
+
+}
