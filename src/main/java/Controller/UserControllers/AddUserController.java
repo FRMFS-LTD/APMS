@@ -91,9 +91,6 @@ public class AddUserController implements Initializable {
 
 
 
-
-
-
     @FXML
     void Cancel_click(ActionEvent event) {
         CloseForm();

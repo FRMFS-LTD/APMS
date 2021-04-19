@@ -11,16 +11,15 @@
 
 <!--
   ~ Copyright (c) 2021.
-  ~ programmed by Rachid Boufous.
+  ~ programmed by Fadoua Abdoulmoulah.
   ~ for FRMFS-ltd organisation
   ~
   -->
 
-
-<AnchorPane prefHeight="523.0" prefWidth="602.0" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Parking">
+<AnchorPane prefHeight="358.0" prefWidth="602.0" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ParkingAdd">
    <children>
-      <Label layoutX="31.0" layoutY="39.0" styleClass="title" text="Create new parking" />
-      <HBox alignment="TOP_CENTER" layoutX="195.0" layoutY="138.0" prefHeight="40.0">
+      <Label layoutX="62.0" layoutY="46.0" styleClass="title" text="Create new parking" />
+      <HBox alignment="TOP_CENTER" layoutX="64.0" layoutY="142.0" prefHeight="40.0">
          <children>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -30,10 +29,10 @@
                   <Insets />
                </HBox.margin>
             </ImageView>
-            <JFXTextField fx:id="NomPField" labelFloat="true" onKeyPressed="#firstNameField_TextChanged" prefHeight="26.0" prefWidth="217.0" promptText="Nom de parking" styleClass="textField" unFocusColor="#494949" />
+            <JFXTextField fx:id="VillePField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Ville de parking" styleClass="textField" unFocusColor="#494949" />
          </children>
       </HBox>
-      <HBox alignment="TOP_CENTER" layoutX="195.0" layoutY="233.0" prefHeight="40.0">
+      <HBox alignment="TOP_CENTER" layoutX="331.0" layoutY="142.0" prefHeight="40.0">
          <children>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -43,10 +42,10 @@
                   <Insets />
                </HBox.margin>
             </ImageView>
-            <JFXTextField fx:id="AdrssField" labelFloat="true" onKeyPressed="#firstNameField_TextChanged" prefHeight="26.0" prefWidth="217.0" promptText="Adresse du parking" styleClass="textField" unFocusColor="#494949" />
+            <JFXTextField fx:id="AdrssField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Adresse du parking" styleClass="textField" unFocusColor="#494949" />
          </children>
       </HBox>
-      <HBox alignment="TOP_CENTER" layoutX="195.0" layoutY="324.0" prefHeight="40.0">
+      <HBox alignment="TOP_CENTER" layoutX="64.0" layoutY="207.0" prefHeight="40.0">
          <children>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -56,10 +55,10 @@
                   <Insets />
                </HBox.margin>
             </ImageView>
-            <JFXTextField fx:id="NBField" labelFloat="true" onKeyPressed="#firstNameField_TextChanged" prefHeight="26.0" prefWidth="217.0" promptText="Nombre de place" styleClass="textField" unFocusColor="#494949" />
+            <JFXTextField fx:id="NBField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Nombre de place" styleClass="textField" unFocusColor="#494949" />
          </children>
       </HBox>
-      <JFXButton fx:id="addNewUser" layoutX="64.0" layoutY="425.0" onAction="#addNewParking_click" prefHeight="26.0" prefWidth="218.0" styleClass="primBtn" text="Save Changes">
+      <JFXButton fx:id="addNewUser" layoutX="62.0" layoutY="286.0" onAction="#addNewParking_click" prefHeight="26.0" prefWidth="218.0" styleClass="primBtn" text="Save Changes">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -68,7 +67,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="Cancel" layoutX="337.0" layoutY="423.0" onAction="#Cancel_click" prefHeight="26.0" prefWidth="218.0" styleClass="SecBtn" stylesheets="@../css/style.css" text="Cancel">
+      <JFXButton fx:id="Cancel" layoutX="335.0" layoutY="284.0" onAction="#Cancel_click" prefHeight="26.0" prefWidth="218.0" styleClass="SecBtn" stylesheets="@../css/style.css" text="Cancel">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
