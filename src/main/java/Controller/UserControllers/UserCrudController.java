@@ -8,6 +8,13 @@
 package Controller.UserControllers;
 
 import Helpers.AppContext;
+
+import com.github.daytron.simpledialogfx.data.DialogResponse;
+import com.github.daytron.simpledialogfx.data.DialogStyle;
+import com.github.daytron.simpledialogfx.dialog.Dialog;
+import com.github.daytron.simpledialogfx.dialog.DialogType;
+
+
 import com.jfoenix.controls.JFXButton;
 import dao.Services.UserService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
@@ -18,12 +25,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -32,7 +41,6 @@ import model.utilisateur;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class UserCrudController implements Initializable {
@@ -70,6 +78,10 @@ public class UserCrudController implements Initializable {
 
 
     @FXML
+    private TableColumn<utilisateur, String> OptionsCol;
+
+
+    @FXML
     private JFXButton RefreshBtn;
 
 
@@ -81,6 +93,7 @@ public class UserCrudController implements Initializable {
 
 
         LoadData();
+        CreateIcons();
 
     }
 
@@ -138,37 +151,77 @@ public class UserCrudController implements Initializable {
     }
 
    public void CreateIcons(){
-        Callback<TableColumn<utilisateur,String>,TableCell<utilisateur,String>> cellFactory = (param) ->{
 
+        Callback<TableColumn<utilisateur,String>,TableCell<utilisateur,String>> cellFactory = (
+                TableColumn<utilisateur,String> param) ->{
 
-            // creating a new cell
-            final TableCell<utilisateur, String> cell =  new TableCell<utilisateur,String>(){
+            final TableCell<utilisateur,String> cell = new TableCell<utilisateur,String>(){
 
                 @Override
-                protected void updateItem(String s, boolean b) {
-                    super.updateItem(s, b);
-                    //check for the cell creation
-                     if(b){
-                         setGraphic(null);
-                         setText(null);
-                     }else{
-                         // if cell is created we can create button
+                protected void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
 
-                         final JFXButton Editbtn = new JFXButton("Edit");
+                    if(empty){
+                        setGraphic(null);
+                        setText(null);
+                    }else{
 
-                         // create a listener on the button
+                        FontAwesomeIconView  DeleteIco = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
+                        FontAwesomeIconView EditIco = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE_ALT);
 
-                         Editbtn.setOnAction(eventEditCell -> {
-                             // get the user we just click on
+                        DeleteIco.setGlyphSize(26);
+                        DeleteIco.setFill(Color.rgb(251, 62, 56));
+                        DeleteIco.setCursor(Cursor.HAND);
 
-                             //utilisateur userTo
-                         });
 
-                     }
+                        EditIco.setGlyphSize(26);
+                        EditIco.setFill(Color.rgb(66, 66, 66));
+                        EditIco.setCursor(Cursor.HAND);
+
+
+
+                        // create the event handler for each btn
+                        DeleteIco.setOnMouseClicked((MouseEvent event)->{
+
+                            // get the selected user to be deleted
+                            utilisateur user = UsersTable.getSelectionModel().getSelectedItem();
+                            System.out.println(user.toString());
+
+                            // create an alert to make the user verify that he really want ot delete this item
+                            Dialog dialog = new Dialog(
+                                    DialogType.CONFIRMATION,
+                                    "Delete User action",
+                                    "Confirm Action",
+                                    "Are you sure you want to delete " + user.getNom() + " " + user.getPrenom() + "?");
+
+                            dialog.showAndWait();
+
+                            if (dialog.getResponse() == DialogResponse.YES) {
+                                System.out.println("test delete");
+                                uService.delete(user.getId_user());
+                                refreshDataSet();
+                            }
+                        });
+
+
+
+                        HBox managebtn = new HBox(DeleteIco, EditIco);
+                        managebtn.setStyle("-fx-alignment:center");
+
+                        HBox.setMargin(DeleteIco, new Insets(2, 2, 0, 3));
+                        HBox.setMargin(EditIco, new Insets(2, 3, 0, 2));
+
+                        setGraphic(managebtn);
+
+                    }
+
                 }
             };
 
             return cell;
         };
-   }
-}
+       OptionsCol.setCellFactory(cellFactory);
+
+       }
+
+    }

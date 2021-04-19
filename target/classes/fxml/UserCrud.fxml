@@ -16,7 +16,7 @@
   ~
   -->
 
-<AnchorPane prefHeight="620.0" prefWidth="1000.0" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserControllers.UserCrudController">
+<AnchorPane prefHeight="620.0" prefWidth="1100.0" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserControllers.UserCrudController">
    <children>
       <Label layoutX="74.0" layoutY="37.0" styleClass="title" text="User CRUD" />
       <JFXTextField labelFloat="true" layoutX="74.0" layoutY="96.0" prefHeight="26.0" prefWidth="268.0" promptText="search" styleClass="textField" />
@@ -28,16 +28,17 @@
                </image>
             </ImageView>
          </graphic></JFXButton>
-      <TableView fx:id="UsersTable" layoutX="74.0" layoutY="145.0" prefHeight="394.0" prefWidth="868.0" stylesheets="@../css/style.css">
+      <TableView fx:id="UsersTable" layoutX="74.0" layoutY="145.0" prefHeight="394.0" prefWidth="968.0" stylesheets="@../css/style.css">
         <columns>
           <TableColumn fx:id="idCol" prefWidth="55.0" text="User Id" />
             <TableColumn fx:id="firstNameCOl" prefWidth="100.0" text="First Name" />
           <TableColumn fx:id="LastNameCol" prefWidth="100.0" text="Last Name" />
             <TableColumn fx:id="userNameCol" prefWidth="100.0" text="UserName" />
             <TableColumn fx:id="idNumberCol" prefWidth="103.20004272460938" text="Identity Number" />
-            <TableColumn fx:id="MailCol" prefWidth="168.0" text="Email" />
-            <TableColumn fx:id="phoneCol" prefWidth="122.4000244140625" text="Phone" />
-            <TableColumn fx:id="RoleCol" prefWidth="84.7999267578125" text="is Admin" />
+            <TableColumn fx:id="MailCol" prefWidth="157.60003662109375" text="Email" />
+            <TableColumn fx:id="phoneCol" prefWidth="133.5999755859375" text="Phone" />
+            <TableColumn fx:id="RoleCol" prefWidth="73.60003662109375" text="is Admin" />
+            <TableColumn fx:id="OptionsCol" prefWidth="128.79998779296875" text="Options" />
         </columns>
       </TableView>
       <JFXButton fx:id="RefreshBtn" layoutX="308.0" layoutY="561.0" onAction="#RefreshBtn_click" prefHeight="38.0" prefWidth="199.0" styleClass="SecBtn" text="Refresh">
