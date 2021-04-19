@@ -30,7 +30,7 @@ import model.utilisateur;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import java.awt.event.MouseEvent;
+
 import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;
