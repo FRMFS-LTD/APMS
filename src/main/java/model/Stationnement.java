@@ -40,6 +40,10 @@ public class Stationnement {
         this.typetarif = typetarif;
     }
 
+    public Stationnement() {
+        
+    }
+
     public int getId() {return id; }
 
     public Date getDateEntree() {return dateEntree;}
