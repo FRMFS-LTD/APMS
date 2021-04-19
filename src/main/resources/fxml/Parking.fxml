@@ -10,7 +10,7 @@
 
 <!--
   ~ Copyright (c) 2021.
-  ~ programmed by Rachid Boufous.
+  ~ programmed by Fadoua Abdoulmoulah.
   ~ for FRMFS-ltd organisation
   ~
   -->
@@ -27,7 +27,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="AddUserGui" layoutX="45.0" layoutY="562.0" onAction="#AddUserGui_click" prefHeight="38.0" prefWidth="199.0" styleClass="primBtn" text="Add">
+      <JFXButton fx:id="AddInfoParking" layoutX="45.0" layoutY="562.0" onAction="#AddNewParking_click" prefHeight="38.0" prefWidth="199.0" styleClass="primBtn" text="Add">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
