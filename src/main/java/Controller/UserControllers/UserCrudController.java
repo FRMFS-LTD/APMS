@@ -187,27 +187,8 @@ public class UserCrudController implements Initializable {
                         {
                             utilisateur user = UsersTable.getSelectionModel().getSelectedItem();
 
-                            FXMLLoader loader = new FXMLLoader ();
-                            loader.setLocation(getClass().getResource("/fxml/addUser.fxml"));
-                            try {
-                                loader.load();
-                            } catch (IOException ex) {
-                                Logger.getLogger(AddUserController.class.getName()).log(Level.SEVERE, null, ex);
-                            }
+                            LoadUserIntoUpdateForm(user);
 
-                            AddUserController addUserController = loader.getController();
-                            addUserController.setUpdate(true);
-                            addUserController.initTextFieldForUpdate(user.getId_user(),
-                                    user.getNom(),user.getPrenom(),user.getCin(),
-                                    user.getTel(),user.getMail(),user.getUsername(),user.getPassword(),user.getIs_admin()
-
-                                    );
-
-                            Parent parent = loader.getRoot();
-                            Stage stage = new Stage();
-                            stage.setScene(new Scene(parent));
-                            stage.initStyle(StageStyle.UTILITY);
-                            stage.show();
                         });
 
 
@@ -215,6 +196,30 @@ public class UserCrudController implements Initializable {
 
                     }
 
+                }
+
+                private void LoadUserIntoUpdateForm(utilisateur user) {
+                    FXMLLoader loader = new FXMLLoader ();
+                    loader.setLocation(getClass().getResource("/fxml/addUser.fxml"));
+                    try {
+                        loader.load();
+                    } catch (IOException ex) {
+                        Logger.getLogger(AddUserController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                    AddUserController addUserController = loader.getController();
+                    addUserController.setUpdate(true);
+                    addUserController.initTextFieldForUpdate(user.getId_user(),
+                            user.getNom(), user.getPrenom(), user.getCin(),
+                            user.getTel(), user.getMail(), user.getUsername(), user.getPassword(), user.getIs_admin()
+
+                            );
+
+                    Parent parent = loader.getRoot();
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(parent));
+                    stage.initStyle(StageStyle.UTILITY);
+                    stage.show();
                 }
 
                 private void SetIconsToTabViewCell(FontAwesomeIconView DeleteIco, FontAwesomeIconView EditIco) {
@@ -248,7 +253,7 @@ public class UserCrudController implements Initializable {
     private void DeleteUserConfirmation() {
         // get the selected user to be deleted
         utilisateur user = UsersTable.getSelectionModel().getSelectedItem();
-        System.out.println(user.toString());
+
 
         // create an alert to make the user verify that he really want ot delete this item
         Dialog dialog = new Dialog(
@@ -260,7 +265,6 @@ public class UserCrudController implements Initializable {
         dialog.showAndWait();
 
         if (dialog.getResponse() == DialogResponse.YES) {
-            System.out.println("test delete");
             uService.delete(user.getId_user());
             refreshDataSet();
         }
