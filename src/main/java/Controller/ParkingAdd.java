@@ -50,6 +50,8 @@ public class ParkingAdd {
     void addNewParking_click(ActionEvent event) {
         parking park = newParking();
         PS.persist(park);
+
+        CloseForm();
     }
 
     private parking newParking(){
@@ -61,7 +63,6 @@ public class ParkingAdd {
 
         return park;
     }
-
 
 
 }

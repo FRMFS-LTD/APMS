@@ -72,10 +72,10 @@ public class Parking implements Initializable {
 
     private void DefineCol() {
 
-        AdrssCol.setCellValueFactory(new PropertyValueFactory<>("Adresse"));
-        VilleCol.setCellValueFactory(new PropertyValueFactory<>("Ville"));
-        NbPCol.setCellValueFactory(new PropertyValueFactory<>("Nombre de place"));
-        NbPLCol.setCellValueFactory(new PropertyValueFactory<>("Nombre de place libre"));
+        AdrssCol.setCellValueFactory(new PropertyValueFactory<>("address"));
+        VilleCol.setCellValueFactory(new PropertyValueFactory<>("ville"));
+        NbPCol.setCellValueFactory(new PropertyValueFactory<>("nbplace"));
+        NbPLCol.setCellValueFactory(new PropertyValueFactory<>("nbplacelibre"));
 
     }
 
