@@ -197,6 +197,8 @@ public class AddUserController implements Initializable {
 
             isAdminField.getItems().add(0, "False");
             isAdminField.getItems().add(1, "True");
+
+
     }
 
     @FXML
