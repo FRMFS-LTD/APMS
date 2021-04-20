@@ -39,13 +39,17 @@ public class MainWindowController {
 
     public void HandleCLicks(ActionEvent actionEvent) {
         if (actionEvent.getSource() == UsersCrudBtn) {
-            try {
+            SlideViewToMainWindow("/fxml/UserCrud.fxml");
+        }
+    }
 
-                pnlPackages = FXMLLoader.load(getClass().getResource("/fxml/UserCrud.fxml"));
-                mainPane.getChildren().add(pnlPackages);
-                //p.setStyle("-fx-background-color : white");
-                pnlPackages.toFront();
-                System.out.println("hello");
+    private void SlideViewToMainWindow(String ViewPath) {
+        try {
+
+            pnlPackages = FXMLLoader.load(getClass().getResource(ViewPath));
+            mainPane.getChildren().add(pnlPackages);
+            //p.setStyle("-fx-background-color : white");
+            pnlPackages.toFront();
 
 
 
@@ -53,6 +57,7 @@ public class MainWindowController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
+
+
     }
 }
