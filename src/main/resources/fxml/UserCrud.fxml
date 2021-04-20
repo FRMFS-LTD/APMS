@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
 <!--
   ~ Copyright (c) 2021.
@@ -16,7 +12,7 @@
   ~
   -->
 
-<AnchorPane prefHeight="620.0" prefWidth="1100.0" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserControllers.UserCrudController">
+<AnchorPane prefHeight="620.0" prefWidth="1100.0" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserControllers.UserCrudController">
    <children>
       <Label fx:id="titleLab" layoutX="74.0" layoutY="37.0" styleClass="title" text="User CRUD" />
       <JFXTextField fx:id="SearchTextField" labelFloat="true" layoutX="74.0" layoutY="96.0" prefHeight="26.0" prefWidth="268.0" promptText="search" styleClass="textField" />

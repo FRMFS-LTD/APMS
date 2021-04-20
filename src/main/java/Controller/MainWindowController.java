@@ -35,11 +35,17 @@ public class MainWindowController {
     @FXML
     private Pane pnlPackages;
 
-
+    @FXML
+    private JFXButton AbonnCrudBtn;
 
     public void HandleCLicks(ActionEvent actionEvent) {
         if (actionEvent.getSource() == UsersCrudBtn) {
             SlideViewToMainWindow("/fxml/UserCrud.fxml");
+
+        }
+        if (actionEvent.getSource() == AbonnCrudBtn) {
+            SlideViewToMainWindow("/fxml/AbonnementCrud.fxml");
+
         }
     }
 
@@ -52,12 +58,15 @@ public class MainWindowController {
             pnlPackages.toFront();
 
 
+            pnlPackages = FXMLLoader.load(getClass().getResource(ViewPath));
+            mainPane.getChildren().add(pnlPackages);
+            //p.setStyle("-fx-background-color : white");
+            pnlPackages.toFront();
 
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+
 }

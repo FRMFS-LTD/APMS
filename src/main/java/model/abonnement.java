@@ -17,22 +17,24 @@ public class abonnement {
         this.intitule = intitule;
         this.periode = periode;
         this.prix = prix;
+
     }
 
     public abonnement() {
 
     }
 
-    public int getId_abonnement() {
+    public  int getId() {
         return id;
     }
 
-    public void setId_abonnement(int id) {
-        this.id = id;
-    }
 
     public String getIntitule() {
         return intitule;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setIntitule(String intitule) {
