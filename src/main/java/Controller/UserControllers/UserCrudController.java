@@ -10,7 +10,6 @@ package Controller.UserControllers;
 import Helpers.AppContext;
 
 import com.github.daytron.simpledialogfx.data.DialogResponse;
-import com.github.daytron.simpledialogfx.data.DialogStyle;
 import com.github.daytron.simpledialogfx.dialog.Dialog;
 import com.github.daytron.simpledialogfx.dialog.DialogType;
 
@@ -34,7 +33,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -145,7 +143,7 @@ public class UserCrudController implements Initializable {
     void AddUserGui_click(ActionEvent event) throws IOException {
 
         Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/AddUser.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/UserViews/AddUser.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         AppContext.UpdateStage(primaryStage, root, scene);
@@ -208,7 +206,7 @@ public class UserCrudController implements Initializable {
 
                 private void LoadUserIntoUpdateForm(utilisateur user) {
                     FXMLLoader loader = new FXMLLoader ();
-                    loader.setLocation(getClass().getResource("/fxml/addUser.fxml"));
+                    loader.setLocation(getClass().getResource("/fxml/UserViews/addUser.fxml"));
                     try {
                         loader.load();
                     } catch (IOException ex) {

@@ -16,7 +16,7 @@
   ~
   -->
 
-<AnchorPane prefHeight="620.0" prefWidth="1100.0" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserControllers.UserCrudController">
+<AnchorPane prefHeight="620.0" prefWidth="1100.0" styleClass="Container" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserControllers.UserCrudController">
    <children>
       <Label fx:id="titleLab" layoutX="74.0" layoutY="37.0" styleClass="title" text="User CRUD" />
       <JFXTextField fx:id="SearchTextField" labelFloat="true" layoutX="74.0" layoutY="96.0" prefHeight="26.0" prefWidth="268.0" promptText="search" styleClass="textField" />
@@ -24,11 +24,11 @@
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/UserIco/icons8_create_64px_1.png" />
+                  <Image url="@../../assets/UserIco/icons8_create_64px_1.png" />
                </image>
             </ImageView>
          </graphic></JFXButton>
-      <TableView fx:id="UsersTable" layoutX="74.0" layoutY="145.0" prefHeight="394.0" prefWidth="968.0" stylesheets="@../css/style.css">
+      <TableView fx:id="UsersTable" layoutX="74.0" layoutY="145.0" prefHeight="394.0" prefWidth="968.0" stylesheets="@../../css/style.css">
         <columns>
           <TableColumn fx:id="idCol" prefWidth="55.0" text="User Id" />
             <TableColumn fx:id="firstNameCOl" prefWidth="100.0" text="First Name" />
@@ -45,7 +45,7 @@
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/UserIco/icons8_refresh_64px.png" />
+                  <Image url="@../../assets/UserIco/icons8_refresh_64px.png" />
                </image>
             </ImageView>
          </graphic>

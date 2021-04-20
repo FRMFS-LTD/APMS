@@ -11,8 +11,6 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
@@ -39,7 +37,7 @@ public class MainWindowController {
 
     public void HandleCLicks(ActionEvent actionEvent) {
         if (actionEvent.getSource() == UsersCrudBtn) {
-            SlideViewToMainWindow("/fxml/UserCrud.fxml");
+            SlideViewToMainWindow("/fxml/UserViews/UserCrud.fxml");
         }
     }
 

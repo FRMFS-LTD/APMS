@@ -8,6 +8,8 @@
 package Controller.UserControllers;
 
 
+import com.github.daytron.simpledialogfx.dialog.Dialog;
+import com.github.daytron.simpledialogfx.dialog.DialogType;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
@@ -22,12 +24,18 @@ import javafx.stage.Stage;
 import model.utilisateur;
 
 
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+import java.sql.SQLDataException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
 import javafx.scene.control.Label;
+import org.hibernate.Hibernate;
+import org.hibernate.HibernateException;
+import org.hibernate.exception.ConstraintViolationException;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
@@ -114,6 +122,7 @@ public class AddUserController implements Initializable {
 
 
     private void CloseForm(){
+
         Stage stage = (Stage) Cancel.getScene().getWindow();
         stage.close();
     }
@@ -123,23 +132,46 @@ public class AddUserController implements Initializable {
     @FXML
     void addNewUser_click(ActionEvent event) {
 
+    try{
+        if (this.update == false) {
 
-            if (this.update == false) {
-
-                utilisateur user = new utilisateur();
-                utilisateur new_user = createOrupdateNewUser(user);
+            utilisateur user = new utilisateur();
+            utilisateur new_user = createOrupdateNewUser(user);
+            if(GeneralExeption()){
                 us.persist(new_user);
-
-            } else {
-
-                utilisateur userE = us.findById(userid);
-                utilisateur userRe = createOrupdateNewUser(userE);
-                us.update(userRe);
-
+                CloseForm();
             }
 
 
-            CloseForm();
+        } else {
+
+            utilisateur userE = us.findById(userid);
+            utilisateur userRe = createOrupdateNewUser(userE);
+            if(GeneralExeption()){
+                us.update(userRe);
+                CloseForm();
+            }
+
+
+        }
+
+    }
+    catch (HibernateException E ){
+        Dialog dialog = new Dialog(
+                DialogType.ERROR,
+                "DATABASE ERROR",
+                E.getMessage());
+        dialog.showAndWait();
+    }
+    catch (Exception E){
+        Dialog dialog = new Dialog(
+                DialogType.ERROR,
+                E.getCause().toString(),
+                E.getMessage());
+        dialog.showAndWait();
+    }
+
+
     }
 
     private utilisateur createOrupdateNewUser(utilisateur user) {
@@ -314,6 +346,51 @@ public class AddUserController implements Initializable {
 
 
 
+    public boolean GeneralExeption(){
+
+        GlobalError.setTextFill(Color.web("#E53935", 0.8));
+
+        if(firstNameField.getText().isEmpty() || firstNameField.getText().length()<3){
+
+            return SetErrorMessage("validate firstName field to conditions");
+
+        }
+        else if (LastNameField.getText().isEmpty() || LastNameField.getText().length()<3){
+
+            return SetErrorMessage("validate LastName field to given Conditions");
+        }
+        else if(CinField.getText().isEmpty() || CinField.getText().length() < 4
+                || !(Pattern.matches("^\\w\\w\\d*$", CinField.getText()))){
+
+            return SetErrorMessage("validate Identity field to given Conditions");
+        }
+        else if(telField.getText().isEmpty() || telField.getText().length() < 10
+                || ! (Pattern.matches("^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$", telField.getText()))){
+
+            return SetErrorMessage("validate Phone field to given Conditions");
+        }
+        else if(MailField.getText().isEmpty() || MailField.getText().length() < 8 ||
+                ! (Pattern.matches("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$", MailField.getText()))){
+            return SetErrorMessage("validate Mail field to given Conditions");
+        }
+        else if(isAdminField.getValue() == null ){
+            return SetErrorMessage("please define user role");
+        }
+        else if(UserNameField.getText().isEmpty() || UserNameField.getText().length() < 8){
+            return SetErrorMessage("validate Mail field to given Conditions");
+        }
+        else if(pwdField.getText().isEmpty() || pwdField.getText().length() < 8){
+            return SetErrorMessage("validate Mail field to given Conditions");
+        }else{
+            return true;
+        }
+
+    }
+
+    private boolean SetErrorMessage(String s) {
+        GlobalError.setText(s);
+        return false;
+    }
 
 
 }

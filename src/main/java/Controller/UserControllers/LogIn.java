@@ -137,7 +137,7 @@ public class LogIn {
     @FXML
     void pwdResetButton_click(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/pwdReset.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/UserViews/pwdReset.fxml"));
         Scene scene =  pwdResetButton.getScene();
 
         root.translateYProperty().set(scene.getHeight());
