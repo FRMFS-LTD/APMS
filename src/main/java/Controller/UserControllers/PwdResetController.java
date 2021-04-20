@@ -23,7 +23,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.utilisateur;
 
@@ -38,7 +37,6 @@ import java.util.Properties;
 import java.util.Random;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class PwdResetController {
 
@@ -105,7 +103,7 @@ public class PwdResetController {
 
     public void Exit_onClick(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/LogIn.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/UserViews/LogIn.fxml"));
         Scene scene = ResetPwdBtn.getScene();
 
         root.translateYProperty().set(scene.getHeight());
