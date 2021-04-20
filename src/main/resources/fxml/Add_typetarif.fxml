@@ -16,7 +16,7 @@
   ~
   -->
 
-<AnchorPane prefHeight="249.0" prefWidth="609.0" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TypeTarif">
+<AnchorPane prefHeight="249.0" prefWidth="609.0" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TypeTarifAdd">
    <children>
       <HBox layoutX="56.0" layoutY="121.0" />
       <HBox layoutX="56.0" layoutY="185.0" />

@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2021.
- * programmed by Rachid Boufous.
+ * programmed by Fadoua Abdoulmoulah.
  * for FRMFS-ltd organisation
  *
  */
@@ -16,6 +16,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
@@ -31,7 +32,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
-public class Parking {
+public class Parking implements Initializable {
 
     ObservableList<parking> ParkList = FXCollections.observableArrayList();
     parkingService ParkServ = new parkingService();
@@ -104,7 +105,7 @@ public class Parking {
 
     @FXML
     void RefreshBtn_click(ActionEvent event) {
-
+              refreshDataSet();
     }
 
 }
