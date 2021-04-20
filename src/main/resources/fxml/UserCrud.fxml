@@ -19,7 +19,7 @@
 <AnchorPane prefHeight="620.0" prefWidth="1100.0" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserControllers.UserCrudController">
    <children>
       <Label fx:id="titleLab" layoutX="74.0" layoutY="37.0" styleClass="title" text="User CRUD" />
-      <JFXTextField labelFloat="true" layoutX="74.0" layoutY="96.0" prefHeight="26.0" prefWidth="268.0" promptText="search" styleClass="textField" />
+      <JFXTextField fx:id="SearchTextField" labelFloat="true" layoutX="74.0" layoutY="96.0" prefHeight="26.0" prefWidth="268.0" promptText="search" styleClass="textField" />
       <JFXButton fx:id="AddUserGui" layoutX="74.0" layoutY="562.0" onAction="#AddUserGui_click" prefHeight="38.0" prefWidth="199.0" styleClass="primBtn" text="Add">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">

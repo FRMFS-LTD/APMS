@@ -134,7 +134,7 @@ public class AddUserController implements Initializable {
                 us.update(userRe);
 
             }
-        
+
 
             CloseForm();
     }

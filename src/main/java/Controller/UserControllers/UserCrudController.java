@@ -16,11 +16,14 @@ import com.github.daytron.simpledialogfx.dialog.DialogType;
 
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import dao.Services.UserService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,6 +34,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -51,6 +55,9 @@ public class UserCrudController implements Initializable {
     @FXML
     private JFXButton AddUserGui;
 
+
+    @FXML
+    private JFXTextField SearchTextField;
 
     @FXML
     private TableView<utilisateur> UsersTable;
@@ -97,6 +104,7 @@ public class UserCrudController implements Initializable {
 
         LoadData();
         CreateIcons();
+        FilterSearch();
 
     }
 
@@ -268,6 +276,40 @@ public class UserCrudController implements Initializable {
             uService.delete(user.getId_user());
             refreshDataSet();
         }
+    }
+
+    
+
+    public void FilterSearch(){
+        FilteredList<utilisateur> filteredData = new FilteredList<>(UsersList, b -> true);
+        SearchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+
+            filteredData.setPredicate(
+                    utilisateur -> {
+                        if(newValue == null || newValue.isEmpty()){
+                            return  true;
+                        }
+                        // Compare first name and last name of every person with filter text.
+                        String lowerCaseFilter = newValue.toLowerCase();
+
+                        if (utilisateur.getNom().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+                            return true; // Filter matches first name.
+                        } else if (utilisateur.getPrenom().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                            return true; // Filter matches last name.
+                        }
+                        else if (String.valueOf(utilisateur.getCin()).indexOf(lowerCaseFilter)!=-1)
+                            return true;
+                        else
+                            return false; // Does not match.
+                    });
+        });
+
+                SortedList<utilisateur> sortedData = new SortedList<>(filteredData);
+
+
+                sortedData.comparatorProperty().bind(UsersTable.comparatorProperty());
+
+                UsersTable.setItems(sortedData);
     }
 
 }
