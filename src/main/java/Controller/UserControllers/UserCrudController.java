@@ -225,8 +225,11 @@ public class UserCrudController implements Initializable {
 
                     Parent parent = loader.getRoot();
                     Stage stage = new Stage();
-                    stage.setScene(new Scene(parent));
+                    Scene scene = new Scene(parent);
+                    stage.setScene(scene);
                     stage.initStyle(StageStyle.UTILITY);
+                    AppContext.UpdateStage(stage,parent,scene);
+                    AppContext.DragScene(stage,parent);
                     stage.show();
                 }
 

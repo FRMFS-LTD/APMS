@@ -116,18 +116,21 @@ public class LogIn {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainWindow.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        primaryStage.show();
 
         AppContext.UpdateStage(primaryStage,root,scene);
+        AppContext.DragScene(primaryStage,root);
 
-        Stage stage = (Stage) closeBtn.getScene().getWindow();
+        Stage stage = (Stage) passwordField.getScene().getWindow();
         AppContext.closeForm(stage);
+
+        primaryStage.show();
+
     }
 
     public void Exit_onClick(MouseEvent mouseEvent)  {
         Stage stage = (Stage) closeBtn.getScene().getWindow();
-        // do what you have to do
-        stage.close();
+
+        AppContext.closeForm(stage);
     }
 
 
