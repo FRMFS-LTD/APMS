@@ -30,7 +30,7 @@ public class ParkingAdd {
     private JFXTextField NBField;
 
     @FXML
-    private JFXButton addNewUser;
+    private JFXButton addNewParking;
 
     @FXML
     private JFXButton Cancel;
