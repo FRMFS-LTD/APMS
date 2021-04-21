@@ -12,7 +12,7 @@ package Helpers;/*
  *
  */
 
-import animatefx.animation.RotateInDownRight;
+import animatefx.animation.*;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -27,10 +27,9 @@ public class AppContext {
         //customize this scene
         scene.setFill(TRANSPARENT);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
-        scene.setFill(Color.TRANSPARENT);
         primaryStage.setOpacity(0.98);
         // animation using animateFX
-        new RotateInDownRight(root).play();
+        new Swing(root).play();
     }
 
     public static void DragScene(Stage primaryStage, Parent root) {

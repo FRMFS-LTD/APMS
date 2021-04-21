@@ -11,8 +11,6 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
@@ -39,19 +37,25 @@ public class MainWindowController {
 
     public void HandleCLicks(ActionEvent actionEvent) {
         if (actionEvent.getSource() == UsersCrudBtn) {
-            try {
+            SlideViewToMainWindow("/fxml/UserViews/UserCrud.fxml");
+        }
+    }
 
-                pnlPackages = FXMLLoader.load(getClass().getResource("/fxml/UserCrud.fxml"));
-                mainPane.getChildren().add(pnlPackages);
-                //p.setStyle("-fx-background-color : white");
-                pnlPackages.toFront();
-                System.out.println("hello");
+    private void SlideViewToMainWindow(String ViewPath) {
+        try {
+
+            pnlPackages = FXMLLoader.load(getClass().getResource(ViewPath));
+            mainPane.getChildren().add(pnlPackages);
+            //p.setStyle("-fx-background-color : white");
+            pnlPackages.toFront();
+
 
 
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
+
+
     }
 }

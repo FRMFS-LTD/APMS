@@ -19,17 +19,17 @@
 
 <StackPane fx:id="MainContainer" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserControllers.PwdResetController">
    <children>
-      <AnchorPane fx:id="win_pan" prefHeight="455.0" prefWidth="789.0" styleClass="Container" stylesheets="@../css/style.css">
+      <AnchorPane fx:id="win_pan" prefHeight="455.0" prefWidth="789.0" styleClass="Container" stylesheets="@../../css/style.css">
           <children>
               <ImageView fitHeight="121.0" fitWidth="125.0" layoutX="333.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="332.4" AnchorPane.rightAnchor="333.0" AnchorPane.topAnchor="26.0">
                   <image>
-                      <Image url="@../assets/flag.png" />
+                      <Image url="@../../assets/flag.png" />
                   </image>
               </ImageView>
       
-              <JFXTextField fx:id="emailResetField" alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" layoutX="150.0" layoutY="183.8" promptText="Email" styleClass="textField" stylesheets="@../css/style.css" unFocusColor="#828d9e" AnchorPane.bottomAnchor="245.6" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" />
-              <JFXTextField fx:id="CinResetField" alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" layoutX="150.0" layoutY="227.0" promptText="Cin" styleClass="textField" stylesheets="@../css/style.css" unFocusColor="#828d9e" AnchorPane.bottomAnchor="202.4" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" />
-              <JFXButton id="primBtn" fx:id="ResetPwdBtn" buttonType="RAISED" layoutX="150.0" layoutY="288.79206376147995" onAction="#ResetPwdBtn_click" styleClass="primBtn" stylesheets="@../css/style.css" text="Reset Password" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="140.60000000000002" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0">
+              <JFXTextField fx:id="emailResetField" alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" layoutX="150.0" layoutY="183.8" promptText="Email" styleClass="textField" stylesheets="@../../css/style.css" unFocusColor="#828d9e" AnchorPane.bottomAnchor="245.6" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" />
+              <JFXTextField fx:id="CinResetField" alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" layoutX="150.0" layoutY="227.0" promptText="Cin" styleClass="textField" stylesheets="@../../css/style.css" unFocusColor="#828d9e" AnchorPane.bottomAnchor="202.4" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" />
+              <JFXButton id="primBtn" fx:id="ResetPwdBtn" buttonType="RAISED" layoutX="150.0" layoutY="288.79206376147995" onAction="#ResetPwdBtn_click" styleClass="primBtn" stylesheets="@../../css/style.css" text="Reset Password" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="140.60000000000002" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0">
                   <cursor>
                       <Cursor fx:constant="HAND" />
                   </cursor>
