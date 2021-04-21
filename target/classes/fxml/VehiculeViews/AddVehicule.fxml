@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<!--
+  ~ Copyright (c) 2021.
+  ~ programmed by Rachid Boufous.
+  ~ for FRMFS-ltd organisation
+  ~
+  -->
+
+<AnchorPane prefHeight="384.0" prefWidth="602.0" style="-fx-border-color: white;" styleClass="Container" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.VehiculeControllers.AddVehiculeController">
+    <children>
+        <Label layoutX="38.0" layoutY="29.0" styleClass="title" text="Vehicule Details" />
+
+        <HBox alignment="TOP_CENTER" layoutX="38.0" layoutY="127.0" prefHeight="40.0">
+            <children>
+                <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../assets/VehiculeIco/icons8_car_32px.png" />
+                    </image>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </ImageView>
+                <JFXTextField fx:id="MatriculeField" labelFloat="true" onKeyPressed="#MatriculeField_TextChanged" prefHeight="26.0" prefWidth="498.0" promptText="Plat number" styleClass="textField" unFocusColor="#494949" />
+            </children>
+        </HBox>
+
+        <JFXButton fx:id="addNewUser" layoutX="47.0" layoutY="307.0" onAction="#addNewVehicule_click" prefHeight="26.0" prefWidth="218.0" styleClass="primBtn" text="Save Changes">
+            <graphic>
+                <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../assets/UserIco/icons8_save_64px.png" />
+                    </image>
+                </ImageView>
+            </graphic></JFXButton>
+        <JFXButton fx:id="Cancel" layoutX="329.0" layoutY="306.0" onAction="#Cancel_click" prefHeight="26.0" prefWidth="218.0" styleClass="SecBtn" stylesheets="@../../css/style.css" text="Cancel">
+            <graphic>
+                <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../assets/UserIco/icons8_rollback_64px_1.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </JFXButton>
+
+        <HBox layoutX="316.0" layoutY="208.0">
+            <children>
+                <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
+                    </image>
+                </ImageView>
+                <JFXComboBox fx:id="ClientComboBOx" focusColor="WHITE" prefHeight="26.0" prefWidth="218.0" promptText="Client" styleClass="comboBox" stylesheets="@../../css/style.css" />
+            </children>
+        </HBox>
+      <HBox layoutX="40.0" layoutY="208.0">
+         <children>
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
+               </image>
+            </ImageView>
+            <JFXComboBox fx:id="SubComboBox" focusColor="WHITE" prefHeight="26.0" prefWidth="218.0" promptText="Subcsription" styleClass="comboBox" stylesheets="@../../css/style.css" />
+         </children>
+      </HBox>
+      <Label fx:id="GlobalError" layoutX="37.0" layoutY="86.0" prefHeight="26.0" prefWidth="527.0" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="platNumberError" layoutX="67.0" layoutY="167.0" prefHeight="18.0" prefWidth="498.0" />
+      <Label fx:id="SubError" layoutX="67.0" layoutY="244.0" prefHeight="18.0" prefWidth="218.0" />
+      <Label fx:id="ClientError" layoutX="342.0" layoutY="244.0" prefHeight="18.0" prefWidth="218.0" />
+    </children>
+</AnchorPane>

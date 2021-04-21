@@ -62,13 +62,9 @@ public class client {
         this.cin = cin;
     }
 
+
     @Override
     public String toString() {
-        return "client{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", cin='" + cin + '\'' +
-                '}';
+        return this.nom + " " + this.prenom;
     }
 }

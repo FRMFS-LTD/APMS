@@ -7,17 +7,35 @@
 
 package Controller.VehiculeControllers;
 
+import Helpers.AppContext;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import dao.Services.VehiculeService;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import javafx.util.Callback;
+import model.Vehicule;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 
-
-public class VehiculeCrudController {
+public class VehiculeCrudController implements Initializable {
 
     @FXML
     private Label titleLab;
@@ -26,19 +44,19 @@ public class VehiculeCrudController {
     private JFXTextField SearchTextField;
 
     @FXML
-    private TableView<?> UsersTable;
+    private TableView<Vehicule> VehiculeTable;
 
     @FXML
-    private TableColumn<?, ?> VehiculeIdCol;
+    private TableColumn<Vehicule, Integer> VehiculeIdCol;
 
     @FXML
-    private TableColumn<?, ?> platNumberCol;
+    private TableColumn<Vehicule, Integer> platNumberCol;
 
     @FXML
-    private TableColumn<?, ?> subscriptionCol;
+    private TableColumn<Vehicule, String> subscriptionCol;
 
     @FXML
-    private TableColumn<?, ?> ClientCol;
+    private TableColumn<Vehicule, String> ClientCol;
 
     @FXML
     private JFXButton AddUserGui;
@@ -46,14 +64,76 @@ public class VehiculeCrudController {
     @FXML
     private JFXButton RefreshBtn;
 
-    @FXML
-    void AddVehiculeGui_click(ActionEvent event) {
+    ObservableList<Vehicule> VehiculesList = FXCollections.observableArrayList();
+    VehiculeService vService = new VehiculeService();
 
-    }
+
 
     @FXML
     void RefreshBtn_click(ActionEvent event) {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        LoadData();
+    }
+
+
+    public void LoadData(){
+
+        DefineCols();
+        refereshDataSet();
+    }
+
+    public void DefineCols(){
+        VehiculeIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        platNumberCol.setCellValueFactory(new PropertyValueFactory<>("matriucle"));
+        subscriptionCol.setCellValueFactory(new PropertyValueFactory<Vehicule, String>("client"));
+        ClientCol.setCellValueFactory(new PropertyValueFactory<Vehicule, String>("abonnement"));
+
+        // get the title of the subs
+        subscriptionCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Vehicule,String>, ObservableValue<String>>(){
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Vehicule, String> param) {
+                return new SimpleStringProperty(param.getValue().getAbonnement().getIntitule());
+            }
+        });
+
+        // get the title of the subs
+        ClientCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Vehicule, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Vehicule, String> param) {
+                return new SimpleStringProperty(param.getValue().getClient().getNom() +" " + param.getValue().getClient().getPrenom() );
+            }
+        });
+
+    }
+
+    public void refereshDataSet(){
+
+        VehiculesList.clear();
+
+        ArrayList<Vehicule> VList = (ArrayList<Vehicule>)  vService.findAll();
+
+        for (Vehicule v : VList){
+            VehiculesList.add(v);
+        }
+
+        VehiculeTable.setItems(VehiculesList);
+
+    }
+
+    @FXML
+    void AddVehiculeGui_click(ActionEvent event) throws IOException {
+
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/VehiculeViews/AddVehicule.fxml"));
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        AppContext.UpdateStage(primaryStage, root, scene);
+        AppContext.DragScene(primaryStage, root);
+
+        primaryStage.show();
+    }
 }

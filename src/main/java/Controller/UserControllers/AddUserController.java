@@ -105,7 +105,7 @@ public class AddUserController implements Initializable {
     private Label GlobalError;
 
 
-    ArrayList<Boolean> validationList = new ArrayList<Boolean>();
+
 
     private boolean update ;
     private int userid;
