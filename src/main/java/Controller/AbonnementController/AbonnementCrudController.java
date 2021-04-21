@@ -156,7 +156,7 @@ public class AbonnementCrudController implements Initializable {
 
                         DeleteIco.setOnMouseClicked((MouseEvent event) ->
                         {
-                            DeleteUserConfirmation();
+                            DeleteAbonnConfirmation();
                         });
 
                         // create the event handler for EditBtn
@@ -164,7 +164,7 @@ public class AbonnementCrudController implements Initializable {
                         {
                             abonnement abonn = AbonnementTable.getSelectionModel().getSelectedItem();
 
-                            LoadUserIntoUpdateForm(abonn);
+                            LoadAbonnIntoUpdateForm(abonn);
 
                         });
 
@@ -173,14 +173,14 @@ public class AbonnementCrudController implements Initializable {
                     }
                 }
 
-                private void LoadUserIntoUpdateForm(abonnement abonnement) {
+                private void LoadAbonnIntoUpdateForm(abonnement abonnement) {
 
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("/fxml/AddAbonnement.fxml"));
                     try {
                         loader.load();
                     } catch (IOException ex) {
-                        Logger.getLogger(AddUserController.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(AddAbonnController.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
                     AddAbonnController addAbonnController = loader.getController();
@@ -226,16 +226,16 @@ public class AbonnementCrudController implements Initializable {
 
     }
 
-    private void DeleteUserConfirmation() {
-        // get the selected user to be deleted
+    private void DeleteAbonnConfirmation() {
+
         abonnement ab = AbonnementTable.getSelectionModel().getSelectedItem();
 
 
-        // create an alert to make the user verify that he really want ot delete this item
+
      Dialog dialog = new Dialog(
 
                                    DialogType.CONFIRMATION,
-                                    "Delete User action",
+                                    "Delete Abonnement action",
                                     "Confirm Action",
                                     "Are you sure you want to delete " + ab.getIntitule() + " "  + "?");
 
@@ -260,7 +260,7 @@ public class AbonnementCrudController implements Initializable {
                         if(newValue == null || newValue.isEmpty()){
                             return  true;
                         }
-                        // Compare first name and last name of every person with filter text.
+
                         String lowerCaseFilter = newValue.toLowerCase();
 
                         if (abonnement.getIntitule().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {

@@ -56,5 +56,8 @@
                 </image>
             </ImageView>
          </graphic></JFXButton>
+      <Label fx:id="IntituleError" layoutX="110.0" layoutY="154.0" prefHeight="26.0" prefWidth="211.0" />
+      <Label fx:id="PrixError" layoutX="100.0" layoutY="237.0" prefHeight="26.0" prefWidth="217.0" />
+      <Label fx:id="PeriodeError" layoutX="104.0" layoutY="327.0" prefHeight="26.0" prefWidth="217.0" />
     </children>
 </AnchorPane>
