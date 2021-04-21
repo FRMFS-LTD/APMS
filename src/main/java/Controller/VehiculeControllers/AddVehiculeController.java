@@ -7,6 +7,7 @@
 
 package Controller.VehiculeControllers;
 
+import Helpers.AppContext;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
@@ -24,6 +25,8 @@ import javafx.scene.control.Label;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import model.Vehicule;
 import model.abonnement;
 import model.client;
@@ -32,6 +35,7 @@ import model.utilisateur;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class AddVehiculeController implements Initializable {
 
@@ -73,6 +77,18 @@ public class AddVehiculeController implements Initializable {
 
     }
 
+    @FXML
+    void addNewVehicule_click(ActionEvent event) {
+        if(GeneralException()){
+
+            AddOrUpdateVehicule();
+            CloseForm();
+        }
+
+
+
+    }
+
 
     public void fillComboBoxs(){
         fillClientComboBox();
@@ -106,27 +122,67 @@ public class AddVehiculeController implements Initializable {
 
     @FXML
     void Cancel_click(ActionEvent event) {
-
+        Stage stage = (Stage) Cancel.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
     void MatriculeField_TextChanged(KeyEvent event) {
+        if(!(Pattern.matches("[A-Z]{1,3}[A-Z]{1,2}[0-9]{1,4}",MatriculeField.getText()))){
+            platNumberError.setText("Invalid Plat Format (eg: AAAA1234)");
+            platNumberError.setTextFill(Color.web("#E53935", 0.8));
 
-    }
-
-    @FXML
-    void addNewVehicule_click(ActionEvent event) {
-        client cl = ClientComboBOx.getSelectionModel().getSelectedItem();
-        abonnement ab = SubComboBox.getSelectionModel().getSelectedItem();
-
-        if(cl != null && ab != null){
-            System.out.println(cl.getId());
-            System.out.println(ab.getId_abonnement());
         }else{
-            System.out.println("no item is selected");
+            platNumberError.setText("Validate Plat Number");
+            platNumberError.setTextFill(Color.web("#64DD17", 0.8));
+
         }
     }
 
 
+
+    private void AddOrUpdateVehicule() {
+        client cl = ClientComboBOx.getSelectionModel().getSelectedItem();
+        abonnement ab = SubComboBox.getSelectionModel().getSelectedItem();
+
+        Vehicule new_vehicule = new Vehicule();
+        new_vehicule.setMatriucle(MatriculeField.getText());
+        new_vehicule.setAbonnement(ab);
+        new_vehicule.setClient(cl);
+
+        vService.persist(new_vehicule);
+    }
+
+
+    public Boolean GeneralException(){
+        GlobalError.setTextFill(Color.web("#E53935", 0.8));
+
+        if(MatriculeField.getText().isEmpty()
+                || !(Pattern.matches("[A-Z]{1,3}[A-Z]{1,2}[0-9]{1,4}",MatriculeField.getText())))
+        {
+            return SetErrorMessage("Validate Plat Number Field");
+        }
+        else if(ClientComboBOx.getSelectionModel().getSelectedItem() == null
+                && SubComboBox.getSelectionModel().getSelectedItem() != null )
+        {
+            return SetErrorMessage("Can't associate a sub without associating a client");
+        }
+
+        else{
+            GlobalError.setText("");
+            return true;
+        }
+    }
+
+    private boolean SetErrorMessage(String s) {
+        GlobalError.setText(s);
+        return false;
+    }
+
+    private void CloseForm(){
+
+        Stage stage = (Stage) Cancel.getScene().getWindow();
+        stage.close();
+    }
 
 }

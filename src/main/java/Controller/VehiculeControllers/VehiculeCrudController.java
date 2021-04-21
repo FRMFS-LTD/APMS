@@ -71,7 +71,7 @@ public class VehiculeCrudController implements Initializable {
 
     @FXML
     void RefreshBtn_click(ActionEvent event) {
-
+        refereshDataSet();
     }
 
     @Override
@@ -96,7 +96,17 @@ public class VehiculeCrudController implements Initializable {
         subscriptionCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Vehicule,String>, ObservableValue<String>>(){
             @Override
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Vehicule, String> param) {
-                return new SimpleStringProperty(param.getValue().getAbonnement().getIntitule());
+
+                //check if the vehicule has an assoicated sub or client so we can show it up here
+                // if not we just show instead a message
+
+                if(param.getValue().getAbonnement() ==null){
+                    return new SimpleStringProperty("no subscription Associated");
+                }else{
+                    return new SimpleStringProperty(param.getValue().getAbonnement().getIntitule());
+                }
+
+
             }
         });
 
@@ -104,7 +114,12 @@ public class VehiculeCrudController implements Initializable {
         ClientCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Vehicule, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Vehicule, String> param) {
-                return new SimpleStringProperty(param.getValue().getClient().getNom() +" " + param.getValue().getClient().getPrenom() );
+                if (param.getValue().getClient() == null){
+                    return new SimpleStringProperty("No Client Associated");
+                }else{
+                    return new SimpleStringProperty(param.getValue().getClient().getNom() + " " + param.getValue().getClient().getPrenom() );
+                }
+
             }
         });
 

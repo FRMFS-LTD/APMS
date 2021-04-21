@@ -117,10 +117,6 @@ public class AddUserController implements Initializable {
 
 
 
-
-
-
-
     private void CloseForm(){
 
         Stage stage = (Stage) Cancel.getScene().getWindow();
