@@ -58,7 +58,7 @@ public class Parking implements Initializable {
     @FXML
     private TableColumn<parking, Integer> NbPLCol;
 
-    @Override
+
     public void initialize(URL url, ResourceBundle RsBdl){
 
         LoadData();
@@ -105,8 +105,7 @@ public class Parking implements Initializable {
 
     @FXML
     void RefreshBtn_click(ActionEvent event) {
-
-        refreshDataSet();
+              refreshDataSet();
     }
 
 }

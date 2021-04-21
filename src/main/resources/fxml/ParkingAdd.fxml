@@ -58,7 +58,7 @@
             <JFXTextField fx:id="NBField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Nombre de place" styleClass="textField" unFocusColor="#494949" />
          </children>
       </HBox>
-      <JFXButton fx:id="addNewUser" layoutX="62.0" layoutY="286.0" onAction="#addNewParking_click" prefHeight="26.0" prefWidth="218.0" styleClass="primBtn" text="Save Changes">
+      <JFXButton fx:id="addNewParking" layoutX="62.0" layoutY="286.0" onAction="#addNewParking_click" prefHeight="26.0" prefWidth="218.0" styleClass="primBtn" text="Save Changes">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>

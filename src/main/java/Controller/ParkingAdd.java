@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2021.
- * programmed by Rachid Boufous.
+ * programmed by Fadoua Abdoulmoulah.
  * for FRMFS-ltd organisation
  *
  */
@@ -30,7 +30,7 @@ public class ParkingAdd {
     private JFXTextField NBField;
 
     @FXML
-    private JFXButton addNewUser;
+    private JFXButton addNewParking;
 
     @FXML
     private JFXButton Cancel;
@@ -63,7 +63,6 @@ public class ParkingAdd {
 
         return park;
     }
-
 
 
 }
