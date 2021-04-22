@@ -105,7 +105,7 @@ public class AddUserController implements Initializable {
     private Label GlobalError;
 
 
-    ArrayList<Boolean> validationList = new ArrayList<Boolean>();
+
 
     private boolean update ;
     private int userid;
@@ -114,10 +114,6 @@ public class AddUserController implements Initializable {
     public void setUpdate(boolean b) {
         this.update = b;
     }
-
-
-
-
 
 
 
@@ -133,10 +129,12 @@ public class AddUserController implements Initializable {
     void addNewUser_click(ActionEvent event) {
 
     try{
-        if (this.update == false) {
+        if (!this.update) {
+
 
             utilisateur user = new utilisateur();
             utilisateur new_user = createOrupdateNewUser(user);
+
             if(GeneralExeption()){
                 us.persist(new_user);
                 CloseForm();
@@ -147,6 +145,7 @@ public class AddUserController implements Initializable {
 
             utilisateur userE = us.findById(userid);
             utilisateur userRe = createOrupdateNewUser(userE);
+
             if(GeneralExeption()){
                 us.update(userRe);
                 CloseForm();
@@ -184,11 +183,13 @@ public class AddUserController implements Initializable {
         user.setMail(MailField.getText());
         user.setUsername(UserNameField.getText());
         user.setPassword(pwdField.getText());
+
         if(isAdminField.getValue() == "True"){
             user.setIs_admin(TRUE);
         }else{
             user.setIs_admin(FALSE);
         }
+
         return user;
     }
 
@@ -197,6 +198,8 @@ public class AddUserController implements Initializable {
 
             isAdminField.getItems().add(0, "False");
             isAdminField.getItems().add(1, "True");
+
+
     }
 
     @FXML
