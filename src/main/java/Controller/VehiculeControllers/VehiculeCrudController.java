@@ -21,6 +21,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -98,6 +100,7 @@ public class VehiculeCrudController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         CreateIcons();
         LoadData();
+        FilterSearch();
     }
 
 
@@ -291,5 +294,36 @@ public class VehiculeCrudController implements Initializable {
             vService.delete(vehicle.getId());
             refereshDataSet();
         }
+    }
+
+
+    public void FilterSearch(){
+        FilteredList<Vehicule> filteredData = new FilteredList<>(VehiculesList, b -> true);
+        SearchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+
+            filteredData.setPredicate(
+                    Vehicule -> {
+                        if(newValue == null || newValue.isEmpty()){
+                            return  true;
+                        }
+                        // Compare first name and last name of every person with filter text.
+                        String lowerCaseFilter = newValue.toLowerCase();
+
+                        if (Vehicule.getMatriucle().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+                            return true; // Filter matches first name.
+                        } else if (Vehicule.getAbonnement().getIntitule().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                            return true; // Filter matches last name.
+                        }
+                        else
+                            return false; // Does not match.
+                    });
+        });
+
+        SortedList<Vehicule> sortedData = new SortedList<>(filteredData);
+
+
+        sortedData.comparatorProperty().bind(VehiculeTable.comparatorProperty());
+
+        VehiculeTable.setItems(sortedData);
     }
 }
