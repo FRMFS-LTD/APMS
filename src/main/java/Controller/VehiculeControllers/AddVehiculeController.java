@@ -8,6 +8,8 @@
 package Controller.VehiculeControllers;
 
 import Helpers.AppContext;
+import com.github.daytron.simpledialogfx.dialog.Dialog;
+import com.github.daytron.simpledialogfx.dialog.DialogType;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
@@ -31,6 +33,7 @@ import model.Vehicule;
 import model.abonnement;
 import model.client;
 import model.utilisateur;
+import org.hibernate.HibernateException;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -66,6 +69,9 @@ public class AddVehiculeController implements Initializable {
     @FXML
     private Label ClientError;
 
+    private boolean update;
+    private int VehicleId;
+
 
     VehiculeService vService = new VehiculeService();
     clientService cService = new clientService();
@@ -77,12 +83,49 @@ public class AddVehiculeController implements Initializable {
 
     }
 
+
+    public void setUpdate(boolean update) {
+        this.update = update;
+    }
+
     @FXML
     void addNewVehicule_click(ActionEvent event) {
-        if(GeneralException()){
 
-            AddOrUpdateVehicule();
-            CloseForm();
+        try{
+            if(!this.update){
+                if(GeneralException()){
+
+                    Vehicule new_veh = new Vehicule();
+                    Vehicule vAdd =  AddOrUpdateVehicule(new_veh);
+                    vService.persist(vAdd);
+                    CloseForm();
+                }
+
+
+            }else{
+
+                Vehicule v = vService.findById(VehicleId);
+                Vehicule Vupdate = AddOrUpdateVehicule(v);
+
+                if(GeneralException()){
+                    vService.update(Vupdate);
+                    CloseForm();
+                }
+
+            }
+        }catch (HibernateException E ){
+            Dialog dialog = new Dialog(
+                    DialogType.ERROR,
+                    "DATABASE ERROR",
+                    E.getMessage());
+            dialog.showAndWait();
+        }
+        catch (Exception E){
+            Dialog dialog = new Dialog(
+                    DialogType.ERROR,
+                    E.getCause().toString(),
+                    E.getMessage());
+            dialog.showAndWait();
         }
 
 
@@ -102,9 +145,8 @@ public class AddVehiculeController implements Initializable {
         ArrayList<abonnement> Listabonnement = new ArrayList<abonnement>();
         Listabonnement = (ArrayList<abonnement>) aService.findAll();
 
-        for(abonnement a: Listabonnement){
-            AList.add(a);
-        }
+        AList.addAll(Listabonnement);
+
         SubComboBox.setItems(AList);
     }
 
@@ -113,9 +155,8 @@ public class AddVehiculeController implements Initializable {
         ArrayList<client> listClient = new ArrayList<client>();
         listClient = (ArrayList<client>) cService.findAll();
 
-        for(client c : listClient){
-            cList.add(c);
-        }
+        cList.addAll(listClient);
+
         ClientComboBOx.setItems(cList);
     }
 
@@ -141,16 +182,17 @@ public class AddVehiculeController implements Initializable {
 
 
 
-    private void AddOrUpdateVehicule() {
+    private Vehicule AddOrUpdateVehicule(Vehicule new_vehicule ) {
+
         client cl = ClientComboBOx.getSelectionModel().getSelectedItem();
         abonnement ab = SubComboBox.getSelectionModel().getSelectedItem();
 
-        Vehicule new_vehicule = new Vehicule();
+
         new_vehicule.setMatriucle(MatriculeField.getText());
         new_vehicule.setAbonnement(ab);
         new_vehicule.setClient(cl);
 
-        vService.persist(new_vehicule);
+        return  new_vehicule;
     }
 
 
@@ -185,4 +227,13 @@ public class AddVehiculeController implements Initializable {
         stage.close();
     }
 
+
+    public void InitFieldsForUpdate(int id,String matricule, client cl,abonnement ab){
+
+        this.VehicleId = id;
+        MatriculeField.setText(matricule);
+        ClientComboBOx.getSelectionModel().select(cl.getId()-1);
+        SubComboBox.getSelectionModel().select(ab.getId_abonnement()-1);
+
+    }
 }

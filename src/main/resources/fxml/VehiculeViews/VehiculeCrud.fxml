@@ -27,7 +27,7 @@
             <TableColumn fx:id="platNumberCol" minWidth="0.0" prefWidth="188.79995727539062" text="Plate Number" />
             <TableColumn fx:id="subscriptionCol" minWidth="0.0" prefWidth="211.20004272460938" text="subscription" />
             <TableColumn fx:id="ClientCol" minWidth="0.0" prefWidth="236.79998779296875" text="Client" />
-            <TableColumn fx:id="ClientCol1" minWidth="0.0" prefWidth="186.40008544921875" text="Options" />
+            <TableColumn fx:id="OptionsCol" minWidth="0.0" prefWidth="186.40008544921875" text="Options" />
          </columns>
         </TableView>
 
