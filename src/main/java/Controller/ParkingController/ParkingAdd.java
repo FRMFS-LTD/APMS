@@ -7,6 +7,8 @@
 
 package Controller.ParkingController;
 
+import com.github.daytron.simpledialogfx.dialog.Dialog;
+import com.github.daytron.simpledialogfx.dialog.DialogType;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dao.Services.parkingService;
@@ -14,9 +16,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import model.parking;
+import org.hibernate.HibernateException;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class ParkingAdd {
    parkingService PS = new parkingService();
@@ -35,6 +36,8 @@ public class ParkingAdd {
     @FXML
     private JFXButton Cancel;
 
+    private int id_parking ;
+    private boolean TOF ;
     @FXML
     void Cancel_click(ActionEvent event) {
         CloseForm();
@@ -48,13 +51,42 @@ public class ParkingAdd {
 
     @FXML
     void addNewParking_click(ActionEvent event) {
-        parking park = newParking();
-        PS.persist(park);
 
-        CloseForm();
+        try{
+        if(!this.TOF) {
+            parking park = new parking();
+            parking new_park = newParking(park);
+
+            if (GeneralException()) {
+                PS.persist(park);
+                CloseForm();
+            }
+        }
+            else {
+                parking parkAd = PS.findById(id_parking);
+                parking parkDA = newParking(parkAd);
+
+
+                if(GeneralException()){
+                    PS.update(parkDA);
+                    CloseForm();
+                }
+            }
+
+        }
+
+        catch(HibernateException eh ){
+            Dialog dialog = new Dialog(
+                    DialogType.ERROR, "Database Error", eh.getMessage());
+            dialog.showAndWait();
+        }
+        catch( Exception e ){
+            Dialog dialog = new Dialog(DialogType.ERROR,e.getCause().toString(),e.getMessage());
+        }
+
     }
 
-    private parking newParking(){
+    private parking newParking(parking parkE){
         parking park = new parking();
 
         park.setVille(VillePField.getText());
