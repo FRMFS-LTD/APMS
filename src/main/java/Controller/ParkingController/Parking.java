@@ -43,6 +43,9 @@ public class Parking implements Initializable {
     private JFXButton AddInfoParking;
 
     @FXML
+    private TableColumn<parking, String> NomCol;
+
+    @FXML
     private TableView<parking> ParkingTable;
 
     @FXML
@@ -71,6 +74,7 @@ public class Parking implements Initializable {
 
     private void DefineCol() {
 
+        NomCol.setCellValueFactory(new PropertyValueFactory<>("NomParking"));
         AdrssCol.setCellValueFactory(new PropertyValueFactory<>("address"));
         VilleCol.setCellValueFactory(new PropertyValueFactory<>("ville"));
         NbPCol.setCellValueFactory(new PropertyValueFactory<>("nbplace"));

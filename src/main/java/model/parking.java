@@ -10,16 +10,26 @@ public class parking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int id_parking;
+    protected String NomParking;
 
     protected String address;
     protected int nbplace ;
     protected int nbplacelibre;
     protected String ville ;
 
+    public String getNomParking() {
+        return NomParking;
+    }
+
+    public void setNomParking(String nomParking) {
+        NomParking = nomParking;
+    }
+
     public parking(){
 
     }
-    public parking(String address, int nbplace, int nbplacelibre, String ville) {
+    public parking(String NomParking , String address, int nbplace, int nbplacelibre, String ville) {
+        this.NomParking = NomParking ;
         this.address = address;
         this.nbplace = nbplace;
         this.nbplacelibre = nbplacelibre;
