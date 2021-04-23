@@ -5,12 +5,11 @@
  *
  */
 
-package Controller;
+package Controller.ParkingController;
 
 import Helpers.AppContext;
 import com.jfoenix.controls.JFXButton;
 import dao.Services.parkingService;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -94,7 +93,7 @@ public class Parking implements Initializable {
 
         Stage prstg = new Stage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/ParkingAdd.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/ParkingView/ParkingAdd.fxml"));
         Scene scn = new Scene(root);
         prstg.setScene(scn);
         AppContext.UpdateStage(prstg, root, scn);

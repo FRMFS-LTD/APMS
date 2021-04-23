@@ -5,7 +5,7 @@
  *
  */
 
-package Controller;
+package Controller.TypetarifController;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;

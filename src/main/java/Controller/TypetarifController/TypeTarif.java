@@ -5,18 +5,16 @@
  *
  */
 
-package Controller;
+package Controller.TypetarifController;
 
 
 import Helpers.AppContext;
 import com.jfoenix.controls.JFXButton;
-import dao.Services.parkingService;
 import dao.Services.typetarifService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -26,7 +24,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import model.parking;
 import model.typetarif;
 
 import java.io.IOException;
@@ -85,7 +82,7 @@ public class TypeTarif implements Initializable {
 
         Stage TTstg = new Stage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Add_typetarif.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Typetarifview/Add_typetarif.fxml"));
         Scene scn = new Scene(root);
         TTstg.setScene(scn);
         AppContext.UpdateStage(TTstg, root, scn);

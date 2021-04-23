@@ -15,7 +15,7 @@
   ~
   -->
 
-<AnchorPane prefHeight="620.0" prefWidth="754.0" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TypeTarif">
+<AnchorPane prefHeight="620.0" prefWidth="754.0" styleClass="Container" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TypetarifController.TypeTarif">
    <children>
       <TableView fx:id="TypeTarfiTable" layoutX="48.0" layoutY="115.0" prefHeight="424.0" prefWidth="648.0">
         <columns>
@@ -28,7 +28,7 @@
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/UserIco/icons8_create_64px_1.png" />
+                  <Image url="@../../assets/UserIco/icons8_create_64px_1.png" />
                </image>
             </ImageView>
          </graphic>
@@ -37,7 +37,7 @@
          <graphic>
             <ImageView fx:id="refreshbtn" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/UserIco/icons8_refresh_64px.png" />
+                  <Image url="@../../assets/UserIco/icons8_refresh_64px.png" />
                </image>
             </ImageView>
          </graphic>

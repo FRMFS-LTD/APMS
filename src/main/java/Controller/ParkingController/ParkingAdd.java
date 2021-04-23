@@ -5,7 +5,7 @@
  *
  */
 
-package Controller;
+package Controller.ParkingController;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
