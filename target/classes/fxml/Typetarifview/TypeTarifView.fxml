@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
 <!--
   ~ Copyright (c) 2021.
@@ -15,20 +12,20 @@
   ~
   -->
 
-<AnchorPane prefHeight="620.0" prefWidth="754.0" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TypeTarif">
+<AnchorPane prefHeight="620.0" prefWidth="754.0" styleClass="Container" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TypetarifController.TypeTarif">
    <children>
       <TableView fx:id="TypeTarfiTable" layoutX="48.0" layoutY="115.0" prefHeight="424.0" prefWidth="648.0">
         <columns>
             <TableColumn fx:id="TypetarifCol" prefWidth="214.0" text="Type Tarif" />
             <TableColumn fx:id="PrixCol" prefWidth="224.0" text="Prix" />
-            <TableColumn fx:id="AdrssCol11" prefWidth="325.0" text="Options" />
+            <TableColumn fx:id="AdrssCol11" prefWidth="209.0" text="Options" />
         </columns>
       </TableView>
       <JFXButton fx:id="AddInfoTypetarif" layoutX="47.0" layoutY="555.0" onAction="#AddNewTypeTarif_click" prefHeight="38.0" prefWidth="203.0" styleClass="primBtn" text="Add">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/UserIco/icons8_create_64px_1.png" />
+                  <Image url="@../../assets/UserIco/icons8_create_64px_1.png" />
                </image>
             </ImageView>
          </graphic>
@@ -37,7 +34,7 @@
          <graphic>
             <ImageView fx:id="refreshbtn" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/UserIco/icons8_refresh_64px.png" />
+                  <Image url="@../../assets/UserIco/icons8_refresh_64px.png" />
                </image>
             </ImageView>
          </graphic>

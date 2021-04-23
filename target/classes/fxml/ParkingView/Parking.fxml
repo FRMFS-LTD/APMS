@@ -15,13 +15,13 @@
   ~
   -->
 
-<AnchorPane prefHeight="620.0" prefWidth="1000.0" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Parking">
+<AnchorPane prefHeight="620.0" prefWidth="1000.0" styleClass="Container" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ParkingController.Parking">
    <children>
       <JFXButton fx:id="RefreshBtn" layoutX="302.0" layoutY="561.0" onAction="#RefreshBtn_click" prefHeight="38.0" prefWidth="199.0" styleClass="SecBtn" text="Refresh">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/UserIco/icons8_refresh_64px.png" />
+                  <Image url="@../../assets/UserIco/icons8_refresh_64px.png" />
                </image>
             </ImageView>
          </graphic>
@@ -30,13 +30,13 @@
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/UserIco/icons8_create_64px_1.png" />
+                  <Image url="@../../assets/UserIco/icons8_create_64px_1.png" />
                </image>
             </ImageView>
          </graphic>
       </JFXButton>
       <Label layoutX="45.0" layoutY="37.0" styleClass="title" text="Parking Information" />
-      <TableView fx:id="ParkingTable" layoutX="45.0" layoutY="141.0" prefHeight="394.0" prefWidth="868.0" stylesheets="@../css/style.css">
+      <TableView fx:id="ParkingTable" layoutX="45.0" layoutY="141.0" prefHeight="394.0" prefWidth="868.0" stylesheets="@../../css/style.css">
          <columns>
             <TableColumn fx:id="AdrssCol" prefWidth="243.0" text="Adresse" />
             <TableColumn fx:id="VilleCol" prefWidth="171.0" text="Ville" />
