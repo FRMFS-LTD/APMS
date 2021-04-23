@@ -86,6 +86,11 @@ public class ParkingAdd {
 
     }
 
+    private boolean GeneralException() {
+        return false;
+    }
+
+
     private parking newParking(parking parkE){
         parking park = new parking();
 

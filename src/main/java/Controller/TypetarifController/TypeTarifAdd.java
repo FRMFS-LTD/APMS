@@ -84,6 +84,10 @@ public class TypeTarifAdd {
         }
     }
 
+    private boolean GeneralException() {
+        return false;
+    }
+
     private typetarif newTypetarif(typetarif tt) {
         typetarif TT = new typetarif();
         TT.setTypetarif(TTField.getText());
