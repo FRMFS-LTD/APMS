@@ -131,6 +131,7 @@ public class TypeTarif implements Initializable {
         TypeTarfiTable.setItems(TTList);
     }
 
+    @FXML
     void RefreshBtn_click(ActionEvent event) {
         refreshDataSet();
     }
