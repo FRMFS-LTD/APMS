@@ -1,8 +1,6 @@
 package model;
 
 
-import com.sun.istack.NotNull;
-
 import javax.persistence.*;
 
 @Entity

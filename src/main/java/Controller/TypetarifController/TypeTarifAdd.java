@@ -18,9 +18,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import model.parking;
 import model.typetarif;
 import org.hibernate.HibernateException;
+
+
+
 
 public class TypeTarifAdd {
     typetarifService TTS = new typetarifService();
@@ -42,6 +44,11 @@ public class TypeTarifAdd {
 
     private int pr;
     private boolean TOF;
+    private int typetarifid;
+
+    public void setUpdate(boolean b) {
+        this.TOF = b;
+    }
 
     private void CloseForm() {
         Stage stg = (Stage) Cancel.getScene().getWindow();
@@ -128,5 +135,14 @@ public class TypeTarifAdd {
         GlobalError.setText(s);
         return false;
     }
+
+
+    public void initTextFieldForUpdate(int id_typetarif, String  typetarif, float prix){
+        typetarifid = id_typetarif;
+        TTField.setText(typetarif);
+        PrixField.setText(String.valueOf(prix));
+
+    }
+
 
 }
