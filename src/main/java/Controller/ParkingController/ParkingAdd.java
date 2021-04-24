@@ -94,6 +94,7 @@ public class ParkingAdd {
     private parking newParking(parking parkE){
         parking park = new parking();
 
+        //park.getNomParking();
         park.setVille(VillePField.getText());
         park.setAddress(AdrssField.getText());
         park.setNbplace(Integer.parseInt(NBField.getText()));

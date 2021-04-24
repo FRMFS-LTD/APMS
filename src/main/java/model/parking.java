@@ -1,5 +1,7 @@
 package model;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,9 +12,12 @@ public class parking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int id_parking;
+
+    @NotNull
     protected String NomParking;
 
     protected String address;
+
     protected int nbplace ;
     protected int nbplacelibre;
     protected String ville ;
