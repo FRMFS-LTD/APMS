@@ -15,7 +15,10 @@ import dao.Services.parkingService;
 import dao.Services.typetarifService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import model.parking;
 import model.typetarif;
 import org.hibernate.HibernateException;
 
@@ -34,6 +37,9 @@ public class TypeTarifAdd {
     @FXML
     private JFXTextField PrixField;
 
+    @FXML
+    private Label GlobalError;
+
     private int pr;
     private boolean TOF;
 
@@ -48,7 +54,14 @@ public class TypeTarifAdd {
         CloseForm();
     }
 
+    private typetarif createOrupdateNewTT(typetarif TTN) {
 
+
+        TTN.setTypetarif(TTField.getText());
+        TTN.setPrix(Integer.parseInt(PrixField.getText()));
+
+        return TTN ;
+    }
 
     @FXML
     void addNewTypeTarif_click(ActionEvent event) {
@@ -85,8 +98,23 @@ public class TypeTarifAdd {
     }
 
     private boolean GeneralException() {
-        return false;
+        GlobalError.setTextFill(Color.web("#E53935", 0.8));
+
+        if(TTField.getText().isEmpty() || TTField.getText().length()<3){
+
+            return SetErrorMessage("validate rate type  field to conditions");
+
+        }
+        else if (PrixField.getText().isEmpty() || PrixField.getText().length()<3){
+
+            return SetErrorMessage("validate price field to given Conditions");
+
+        }else {
+            return true;
+        }
     }
+
+
 
     private typetarif newTypetarif(typetarif tt) {
         typetarif TT = new typetarif();
@@ -96,6 +124,9 @@ public class TypeTarifAdd {
         return TT;
 
     }
-
+    private boolean SetErrorMessage(String s) {
+        GlobalError.setText(s);
+        return false;
+    }
 
 }
