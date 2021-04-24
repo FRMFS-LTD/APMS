@@ -19,7 +19,7 @@
 <AnchorPane prefHeight="358.0" prefWidth="602.0" styleClass="Container" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ParkingController.ParkingAdd">
    <children>
       <Label layoutX="62.0" layoutY="46.0" styleClass="title" text="Create new parking" />
-      <HBox alignment="TOP_CENTER" layoutX="64.0" layoutY="142.0" prefHeight="40.0">
+      <HBox alignment="TOP_CENTER" layoutX="335.0" layoutY="139.0" prefHeight="40.0">
          <children>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -32,7 +32,7 @@
             <JFXTextField fx:id="VillePField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Ville de parking" styleClass="textField" unFocusColor="#494949" />
          </children>
       </HBox>
-      <HBox alignment="TOP_CENTER" layoutX="331.0" layoutY="142.0" prefHeight="40.0">
+      <HBox alignment="TOP_CENTER" layoutX="64.0" layoutY="210.0" prefHeight="40.0">
          <children>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -45,7 +45,7 @@
             <JFXTextField fx:id="AdrssField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Adresse du parking" styleClass="textField" unFocusColor="#494949" />
          </children>
       </HBox>
-      <HBox alignment="TOP_CENTER" layoutX="64.0" layoutY="207.0" prefHeight="40.0">
+      <HBox alignment="TOP_CENTER" layoutX="331.0" layoutY="210.0" prefHeight="40.0">
          <children>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -76,5 +76,19 @@
             </ImageView>
          </graphic>
       </JFXButton>
+      <Label fx:id="GlobalError" layoutX="42.0" layoutY="76.0" prefHeight="26.0" prefWidth="527.0" />
+      <HBox alignment="TOP_CENTER" layoutX="50.0" layoutY="139.0" prefHeight="40.0">
+         <children>
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/UserIco/icons8_name_64px_1.png" />
+               </image>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </ImageView>
+            <JFXTextField fx:id="NomField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Nom de parking" styleClass="textField" unFocusColor="#494949" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

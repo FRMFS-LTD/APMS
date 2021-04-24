@@ -22,13 +22,6 @@ public class parking {
     protected int nbplacelibre;
     protected String ville ;
 
-    public String getNomParking() {
-        return NomParking;
-    }
-
-    public void setNomParking(String nomParking) {
-        NomParking = nomParking;
-    }
 
     public parking(){
 
@@ -39,6 +32,13 @@ public class parking {
         this.nbplace = nbplace;
         this.nbplacelibre = nbplacelibre;
         this.ville = ville;
+    }
+    public String getNomParking() {
+        return NomParking;
+    }
+
+    public void setNomParking(String nomParking) {
+        NomParking = nomParking;
     }
 
     public int getId_parking() {
