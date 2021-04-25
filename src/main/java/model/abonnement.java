@@ -42,11 +42,6 @@ public class abonnement {
 
     @Override
     public String toString() {
-        return "abonnement{" +
-                "id_abonnement=" + id +
-                ", intitule='" + intitule + '\'' +
-                ", periode=" + periode +
-                ", prix=" + prix +
-                '}';
+        return intitule ;
     }
 }

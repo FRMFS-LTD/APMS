@@ -37,7 +37,7 @@ public class StationnementService {
     public void update(Stationnement entity){
         stationnementDao.openCurrentSessionWithTransaction();
         stationnementDao.update(entity);
-        stationnementDao.openCurrentSessionWithTransaction();
+        stationnementDao.closeCurrentSessionWithTransaction();
     }
 
     public void delete(int id){
@@ -50,7 +50,7 @@ public class StationnementService {
     public List<Stationnement> findAll(){
         stationnementDao.openCurrentSession();
         List<Stationnement> list_stationnement = stationnementDao.findAll();
-        stationnementDao.openCurrentSession();
+        stationnementDao.closeCurrentSession();
         return list_stationnement;
     }
 

@@ -76,9 +76,15 @@
                 </image>
             </ImageView>
          </graphic></JFXButton>
+<<<<<<< HEAD
       <Label fx:id="ErrorGlobale" layoutX="74.0" layoutY="74.0" prefHeight="26.0" prefWidth="356.0" />
       <Label fx:id="intituleErreur" layoutX="74.0" layoutY="162.0" prefHeight="26.0" prefWidth="272.0" />
       <Label fx:id="prixErreur" layoutX="74.0" layoutY="251.0" prefHeight="26.0" prefWidth="272.0" />
       <Label fx:id="periodeErreur" layoutX="74.0" layoutY="345.0" prefHeight="26.0" prefWidth="272.0" />
+=======
+      <Label fx:id="IntituleError" layoutX="110.0" layoutY="154.0" onInputMethodTextChanged="#IntituleField_TextChanged" prefHeight="26.0" prefWidth="211.0" />
+      <Label fx:id="PrixError" layoutX="100.0" layoutY="237.0" onInputMethodTextChanged="#PrixField_textChanged" prefHeight="26.0" prefWidth="217.0" />
+      <Label fx:id="PeriodeError" layoutX="104.0" layoutY="327.0" onInputMethodTextChanged="#PeriodeField_textChanged" prefHeight="26.0" prefWidth="217.0" />
+>>>>>>> e9cc70863d7c372d77b6ea9c1679a708a779e2c8
     </children>
 </AnchorPane>

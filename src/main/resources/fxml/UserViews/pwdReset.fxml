@@ -3,10 +3,12 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 
 <!--
@@ -15,7 +17,6 @@
   ~ for FRMFS-ltd organisation
   ~
   -->
-
 
 <StackPane fx:id="MainContainer" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserControllers.PwdResetController">
    <children>
@@ -26,10 +27,34 @@
                       <Image url="@../../assets/flag.png" />
                   </image>
               </ImageView>
-      
-              <JFXTextField fx:id="emailResetField" alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" layoutX="150.0" layoutY="183.8" promptText="Email" styleClass="textField" stylesheets="@../../css/style.css" unFocusColor="#828d9e" AnchorPane.bottomAnchor="245.6" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" />
-              <JFXTextField fx:id="CinResetField" alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" layoutX="150.0" layoutY="227.0" promptText="Cin" styleClass="textField" stylesheets="@../../css/style.css" unFocusColor="#828d9e" AnchorPane.bottomAnchor="202.4" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" />
-              <JFXButton id="primBtn" fx:id="ResetPwdBtn" buttonType="RAISED" layoutX="150.0" layoutY="288.79206376147995" onAction="#ResetPwdBtn_click" styleClass="primBtn" stylesheets="@../../css/style.css" text="Reset Password" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="140.60000000000002" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0">
+            <HBox layoutX="150.0" layoutY="184.0" AnchorPane.bottomAnchor="245.6" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0">
+               <children>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/UserIco/icons8_email_64px.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+            
+                    <JFXTextField fx:id="emailResetField" alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" prefHeight="26.0" prefWidth="463.0" promptText="Email" styleClass="textField" stylesheets="@../../css/style.css" unFocusColor="#828d9e" />
+               </children>
+            </HBox>
+            <HBox layoutX="150.0" layoutY="234.0" AnchorPane.bottomAnchor="190.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0">
+               <children>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/UserIco/icons8_contact_details_64px.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                    <JFXTextField fx:id="CinResetField" alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" prefHeight="26.0" prefWidth="463.0" promptText="Cin" styleClass="textField" stylesheets="@../../css/style.css" unFocusColor="#828d9e" />
+               </children>
+            </HBox>
+              <JFXButton id="primBtn" fx:id="ResetPwdBtn" buttonType="RAISED" layoutX="235.0" layoutY="312.0" onAction="#ResetPwdBtn_click" prefHeight="26.0" prefWidth="320.0" styleClass="primBtn" stylesheets="@../../css/style.css" text="Reset Password" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="105.59999999999997" AnchorPane.leftAnchor="235.0" AnchorPane.rightAnchor="235.0">
                   <cursor>
                       <Cursor fx:constant="HAND" />
                   </cursor>
