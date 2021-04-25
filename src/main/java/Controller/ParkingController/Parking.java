@@ -39,8 +39,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import model.parking;
-import model.typetarif;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
