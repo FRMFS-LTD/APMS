@@ -11,7 +11,6 @@ import com.github.daytron.simpledialogfx.dialog.Dialog;
 import com.github.daytron.simpledialogfx.dialog.DialogType;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import dao.Services.parkingService;
 import dao.Services.typetarifService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,7 +18,6 @@ import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.typetarif;
-import org.hibernate.HibernateException;
 
 
 
@@ -92,14 +90,7 @@ public class TypeTarifAdd {
                     CloseForm();
                 }
             }
-        } catch (HibernateException eh) {
-
-            Dialog dialog = new Dialog(
-                    DialogType.ERROR, "Database Error", eh.getMessage());
-            dialog.showAndWait();
-
-        }
-        catch( Exception e ){
+        } catch( Exception e ){
             Dialog dialog = new Dialog(DialogType.ERROR,e.getCause().toString(),e.getMessage());
         }
     }
