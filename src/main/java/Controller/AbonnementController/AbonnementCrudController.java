@@ -136,13 +136,15 @@ public class AbonnementCrudController implements Initializable {
 
     public void CreateIcons() {
 
-        Callback<TableColumn<abonnement, String>, TableCell<abonnement, String>> cellFactory = (TableColumn<abonnement, String> param) -> {
+        Callback <TableColumn <abonnement, String>, TableCell <abonnement, String>> cellFactory =
+                (TableColumn <abonnement, String> param) -> {
 
-            final TableCell<abonnement, String> cell = new TableCell<abonnement, String>() {
+            final TableCell <abonnement, String> cell = new TableCell<abonnement, String>() {
                 @Override
                 public void updateItem(String item, boolean empty) {
                     super.updateItem(item, empty);
                     //that cell created only on non-empty rows
+
                     if (empty) {
                         setGraphic(null);
                         setText(null);
@@ -150,7 +152,7 @@ public class AbonnementCrudController implements Initializable {
                     } else {
 
                         FontAwesomeIconView DeleteIco = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
-                        FontAwesomeIconView EditIco = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);
+                        FontAwesomeIconView EditIco = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE_ALT);
 
                         StyleIcons(DeleteIco, EditIco);
 
@@ -167,7 +169,6 @@ public class AbonnementCrudController implements Initializable {
                             LoadAbonnIntoUpdateForm(abonn);
 
                         });
-
 
                         SetIconsToTabViewCell(DeleteIco, EditIco);
                     }
@@ -209,7 +210,7 @@ public class AbonnementCrudController implements Initializable {
 
 
                 private void SetIconsToTabViewCell(FontAwesomeIconView DeleteIco, FontAwesomeIconView EditIco) {
-                    HBox managebtn = new HBox(EditIco, DeleteIco);
+                    HBox managebtn = new HBox(DeleteIco, EditIco);
                     managebtn.setStyle("-fx-alignment:center");
                     HBox.setMargin(DeleteIco, new Insets(2, 2, 0, 3));
                     HBox.setMargin(EditIco, new Insets(2, 3, 0, 2));
@@ -252,6 +253,7 @@ public class AbonnementCrudController implements Initializable {
 
 
     public void FilterSearch(){
+
         FilteredList<abonnement> filteredData = new FilteredList<>(AbonnementListe, b -> true);
         SearchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
 
