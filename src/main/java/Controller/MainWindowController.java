@@ -23,6 +23,9 @@ public class MainWindowController {
     private JFXButton UsersCrudBtn;
 
     @FXML
+    private JFXButton ClientCrudBtn ;
+
+    @FXML
     private StackPane mainPane;
 
     @FXML
@@ -39,6 +42,10 @@ public class MainWindowController {
         if (actionEvent.getSource() == UsersCrudBtn) {
             SlideViewToMainWindow("/fxml/UserViews/UserCrud.fxml");
         }
+        if (actionEvent.getSource() == ClientCrudBtn) {
+            SlideViewToMainWindow("/fxml/ClientCrud.fxml");
+        }
+
     }
 
     private void SlideViewToMainWindow(String ViewPath) {

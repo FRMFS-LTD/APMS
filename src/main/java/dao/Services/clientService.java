@@ -20,9 +20,10 @@ public class clientService {
         clientdao.update(Entity);
         clientdao.closeCurrentSessionWithTransaction();
     }
-    public void delete(client Entity){
+    public void delete(int id){
         clientdao.openCurrentSessionWithTransaction();
-        clientdao.delete(Entity);
+        client cl = clientdao.findById(id)  ;
+        clientdao.delete(cl);
         clientdao.closeCurrentSessionWithTransaction();
     }
     public client findById(int id){
