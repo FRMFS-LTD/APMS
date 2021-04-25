@@ -161,7 +161,7 @@ public class Parking implements Initializable {
                         {
                             parking park = parkingTable.getSelectionModel().getSelectedItem();
 
-                            LoadtypetariIntoUpdateForm(parking);
+                            LoadparkingIntoUpdateForm(parking);
 
                         });
 
@@ -182,9 +182,9 @@ public class Parking implements Initializable {
                         Logger.getLogger(TypeTarifAdd.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
-                    TypeTarifAdd TypeTarifAdd = loader.getController();
-                    TypeTarifAdd.setUpdate(true);
-                    TypeTarifAdd.initTextFieldForUpdate(TT.getId_typetarif(), TT.getTypetarif(), TT.getPrix());
+                    ParkingAdd ParkingAdd = loader.getController();
+                    ParkingAdd.setUpdate(true);
+                    ParkingAdd.initTextFieldForUpdate(park.getId_parking(), park.getNomParking(), park.getAddress(), park.getNbplace, park.getVille);
 
                     Parent parent = loader.getRoot();
                     Stage stage = new Stage();
@@ -224,26 +224,25 @@ public class Parking implements Initializable {
     }
 
     private void DeletetypetarifConfirmation() {
-        typetarif TT = TypeTarfiTable.getSelectionModel().getSelectedItem();
+        parking park = ParkingTable.getSelectionModel().getSelectedItem();
 
 
         Dialog dialog = new Dialog(
                 DialogType.CONFIRMATION,
-                "Delete User action",
+                "Delete Parking action",
                 "Confirm Action",
-                "Are you sure you want to delete " + TT.getTypetarif() + "?");
-
+                "Are you sure you want to delete " + park.getNomParking
         dialog.showAndWait();
 
         if (dialog.getResponse() == DialogResponse.YES) {
-            TTService.delete(TT.getId_typetarif());
+            parkingService.delete(park.getId_parking());
             refreshDataSet();
         }
     }
 
 
     public void FilterSearch(){
-        FilteredList<typetarif> filteredData = new FilteredList<>(typetarifsList, b -> true);
+        FilteredList<parking> filteredData = new FilteredList<>(parkingList, b -> true);
         SearchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
 
             filteredData.setPredicate(
@@ -253,20 +252,23 @@ public class Parking implements Initializable {
                         }
                         String lowerCaseFilter = newValue.toLowerCase();
 
-                        if (typetarif.getTypetarif().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+                        if (typetarif.getNomParking().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
                             return true;
                         }
 
+                        if (typetarif.getVille().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+                            return true;
+                        }
                         else
                             return false;
                     });
         });
 
-        SortedList<typetarif> sortedData = new SortedList<>(filteredData);
+        SortedList<parking> sortedData = new SortedList<>(filteredData);
 
 
-        sortedData.comparatorProperty().bind(TypeTarfiTable.comparatorProperty());
+        sortedData.comparatorProperty().bind(parkingTable.comparatorProperty());
 
-        TypeTarfiTable.setItems(sortedData);
+        TparkingTable.setItems(sortedData);
     }
 }
