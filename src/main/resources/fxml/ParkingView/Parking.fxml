@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -43,8 +44,9 @@
             <TableColumn fx:id="NbPLCol" minWidth="0.0" prefWidth="162.0" text="Nombre de place libre " />
             <TableColumn fx:id="AdrssCol" prefWidth="158.0" text="Adresse" />
             <TableColumn fx:id="VilleCol" prefWidth="154.0" text="Ville" />
-            <TableColumn fx:id="NbPLCol11" minWidth="0.0" prefWidth="164.0" text="Options" />
+            <TableColumn fx:id="OptionCol" minWidth="0.0" prefWidth="164.0" text="Options" />
          </columns>
       </TableView>
+      <JFXTextField fx:id="SearchTextField" labelFloat="true" layoutX="45.0" layoutY="100.0" prefHeight="26.0" prefWidth="268.0" promptText="search" styleClass="textField" />
    </children>
 </AnchorPane>

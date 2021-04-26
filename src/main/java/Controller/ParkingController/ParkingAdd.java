@@ -11,19 +11,13 @@ import com.github.daytron.simpledialogfx.dialog.Dialog;
 import com.github.daytron.simpledialogfx.dialog.DialogType;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import dao.Services.UserService;
 import dao.Services.parkingService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import model.parking;
-import model.utilisateur;
 import org.hibernate.HibernateException;
-
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
 
 
 public class ParkingAdd {
@@ -116,7 +110,7 @@ public class ParkingAdd {
     private parking newParking(parking parkE){
         parking park = new parking();
 
-        //park.getNomParking();
+        park.getNomParking(NomField.getText());
         park.setVille(VillePField.getText());
         park.setAddress(AdrssField.getText());
         park.setNbplace(Integer.parseInt(NBField.getText()));
@@ -130,16 +124,16 @@ public class ParkingAdd {
 
         if(NomField.getText().isEmpty() || NomField.getText().length()<3){
 
-            return SetErrorMessage("validate nom de parking field to conditions");
+            return SetErrorMessage("validate name of parking field to conditions");
 
         }
         else if (AdrssField.getText().isEmpty() || AdrssField.getText().length()<3){
 
-            return SetErrorMessage("validate Adress field to given Conditions");
+            return SetErrorMessage("validate Adrress field to given Conditions");
         }
         else if (NBField.getText().isEmpty() || NBField.getText().length()<3){
 
-            return SetErrorMessage("validate Nombre de place field to given Conditions");
+            return SetErrorMessage("validate Numbre of place field to given Conditions");
         }
 
         else if (VillePField.getText().isEmpty() || VillePField.getText().length()<3){
@@ -151,10 +145,21 @@ public class ParkingAdd {
     }
 
 
+    public void initTextFieldForUpdate(int id_parking, String  NomParking, String address, int nbplace, String ville){
+        int parkingid = id_parking;
+        NomField.setText(NomParking);
+        AdrssField.setText(address);
+        NBField.setText(String.valueOf(nbplace));
+        VillePField.setText(ville);
+
+    }
 
     private boolean SetErrorMessage(String s) {
         GlobalError.setText(s);
         return false;
     }
 
+    public void setUpdate(boolean b) {
+        this.TOF = b;
+    }
 }

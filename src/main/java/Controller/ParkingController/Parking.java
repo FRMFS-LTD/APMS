@@ -13,6 +13,7 @@ import com.github.daytron.simpledialogfx.data.DialogResponse;
 import com.github.daytron.simpledialogfx.dialog.Dialog;
 import com.github.daytron.simpledialogfx.dialog.DialogType;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import dao.Services.parkingService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -39,6 +40,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import model.parking;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -59,10 +61,11 @@ public class Parking implements Initializable {
     private JFXButton AddInfoParking;
 
     @FXML
-    private TableColumn<parking, String> NomCol;
+    private TableView<parking> ParkingTable;
 
     @FXML
-    private TableView<parking> ParkingTable;
+    private TableColumn<parking, String> NomCol;
+
 
     @FXML
     private TableColumn<parking, String> AdrssCol;
@@ -76,6 +79,13 @@ public class Parking implements Initializable {
     @FXML
     private TableColumn<parking, Integer> NbPLCol;
 
+    @FXML
+    private TableColumn<parking, String> OptionCol;
+
+
+    @FXML
+    private JFXTextField SearchTextField;
+
 
     public void initialize(URL url, ResourceBundle RsBdl){
 
@@ -84,7 +94,7 @@ public class Parking implements Initializable {
 
     private void LoadData() {
         DefineCol();
-
+        FilterSearch();
         refreshDataSet();
     }
 
@@ -157,7 +167,7 @@ public class Parking implements Initializable {
 
                         EditIco.setOnMouseClicked((MouseEvent EditEvent) ->
                         {
-                            parking park = parkingTable.getSelectionModel().getSelectedItem();
+                            parking park = ParkingTable.getSelectionModel().getSelectedItem();
 
                             LoadparkingIntoUpdateForm(parking);
 
@@ -240,7 +250,7 @@ public class Parking implements Initializable {
 
 
     public void FilterSearch(){
-        FilteredList<parking> filteredData = new FilteredList<>(parkingList, b -> true);
+        FilteredList<parking> filteredData = new FilteredList<>(ParkList, b -> true);
         SearchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
 
             filteredData.setPredicate(
@@ -265,8 +275,8 @@ public class Parking implements Initializable {
         SortedList<parking> sortedData = new SortedList<>(filteredData);
 
 
-        sortedData.comparatorProperty().bind(parkingTable.comparatorProperty());
+        sortedData.comparatorProperty().bind(ParkingTable.comparatorProperty());
 
-        TparkingTable.setItems(sortedData);
+        ParkingTable.setItems(sortedData);
     }
 }
