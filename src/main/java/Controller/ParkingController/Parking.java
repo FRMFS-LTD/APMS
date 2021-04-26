@@ -7,8 +7,6 @@
 
 package Controller.ParkingController;
 
-import Controller.TypetarifController.TypeTarifAdd;
-import model.parking;
 import Helpers.AppContext;
 import com.github.daytron.simpledialogfx.data.DialogResponse;
 import com.github.daytron.simpledialogfx.dialog.Dialog;
@@ -40,6 +38,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
+import model.parking;
 
 import java.io.IOException;
 import java.net.URL;
@@ -51,8 +50,6 @@ import java.util.logging.Logger;
 
 public class Parking implements Initializable {
 
-    ObservableList<parking> ParkList = FXCollections.observableArrayList();
-    parkingService ParkServ = new parkingService();
 
     @FXML
     private JFXButton RefreshBtn;
@@ -86,15 +83,19 @@ public class Parking implements Initializable {
     @FXML
     private JFXTextField SearchTextField;
 
+    ObservableList<parking> ParkList = FXCollections.observableArrayList();
+    parkingService ParkServ = new parkingService();
 
     public void initialize(URL url, ResourceBundle RsBdl){
 
         LoadData();
+        FilterSearch();
+        CreateIcons();
+
     }
 
     private void LoadData() {
         DefineCol();
-        FilterSearch();
         refreshDataSet();
     }
 
@@ -183,11 +184,11 @@ public class Parking implements Initializable {
 
                 private void LoadparkingIntoUpdateForm(parking park ) {
                     FXMLLoader loader = new FXMLLoader ();
-                    loader.setLocation(getClass().getResource("/fxml/Typetarifview/Add_typetarif.fxml"));
+                    loader.setLocation(getClass().getResource("/fxml/ParkingView/ParkingAdd.fxml"));
                     try {
                         loader.load();
                     } catch (IOException ex) {
-                        Logger.getLogger(TypeTarifAdd.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(ParkingAdd.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
                     ParkingAdd ParkingAdd = loader.getController();

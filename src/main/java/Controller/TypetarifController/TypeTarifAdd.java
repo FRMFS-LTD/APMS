@@ -91,7 +91,7 @@ public class TypeTarifAdd {
                 }
             }
         } catch( Exception e ){
-            Dialog dialog = new Dialog(DialogType.ERROR, e.getCause().toString(), e.getMessage());
+           Dialog dialog = new Dialog(DialogType.ERROR, e.getCause().toString(), e.getMessage());
         }
     }
 
