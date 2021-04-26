@@ -41,7 +41,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import model.typetarif;
-import model.utilisateur;
 
 import java.io.IOException;
 import java.net.URL;
@@ -83,9 +82,6 @@ public class TypeTarif implements Initializable {
 
     @FXML
     private ImageView refreshbtn;
-
-    ObservableList<typetarif> typetarifsList = FXCollections.observableArrayList();
-    typetarifService TTService = new typetarifService();
 
     public void initialize(URL url, ResourceBundle RsBdl) {
 
@@ -243,14 +239,14 @@ public class TypeTarif implements Initializable {
         dialog.showAndWait();
 
         if (dialog.getResponse() == DialogResponse.YES) {
-            TTService.delete(TT.getId_typetarif());
+            TTServ.delete(TT.getId_typetarif());
             refreshDataSet();
         }
     }
 
 
     public void FilterSearch(){
-        FilteredList<typetarif> filteredData = new FilteredList<>(typetarifsList, b -> true);
+        FilteredList<typetarif> filteredData = new FilteredList<>(TTList, b -> true);
         SearchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
 
             filteredData.setPredicate(

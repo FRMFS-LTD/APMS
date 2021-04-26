@@ -8,6 +8,7 @@
 package Controller.ParkingController;
 
 import Controller.TypetarifController.TypeTarifAdd;
+import model.parking;
 import Helpers.AppContext;
 import com.github.daytron.simpledialogfx.data.DialogResponse;
 import com.github.daytron.simpledialogfx.dialog.Dialog;
@@ -39,7 +40,6 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
-import model.parking;
 
 import java.io.IOException;
 import java.net.URL;
@@ -162,14 +162,14 @@ public class Parking implements Initializable {
 
                         DeleteIco.setOnMouseClicked((MouseEvent event) ->
                         {
-                            DeletetypetarifConfirmation();
+                            DeleteParkingConfirmation();
                         });
 
                         EditIco.setOnMouseClicked((MouseEvent EditEvent) ->
                         {
                             parking park = ParkingTable.getSelectionModel().getSelectedItem();
 
-                            LoadparkingIntoUpdateForm(parking);
+                            LoadparkingIntoUpdateForm(park);
 
                         });
 
@@ -192,7 +192,7 @@ public class Parking implements Initializable {
 
                     ParkingAdd ParkingAdd = loader.getController();
                     ParkingAdd.setUpdate(true);
-                    ParkingAdd.initTextFieldForUpdate(park.getId_parking(), park.getNomParking(), park.getAddress(), park.getNbplace, park.getVille);
+                    ParkingAdd.initTextFieldForUpdate(park.getId_parking(), park.getNomParking(), park.getAddress(), park.getNbplace(), park.getVille());
 
                     Parent parent = loader.getRoot();
                     Stage stage = new Stage();
@@ -231,7 +231,7 @@ public class Parking implements Initializable {
         OptionCol.setCellFactory(cellFactory);
     }
 
-    private void DeletetypetarifConfirmation() {
+    private void DeleteParkingConfirmation() {
         parking park = ParkingTable.getSelectionModel().getSelectedItem();
 
 
@@ -239,7 +239,7 @@ public class Parking implements Initializable {
                 DialogType.CONFIRMATION,
                 "Delete Parking action",
                 "Confirm Action",
-                "Are you sure you want to delete " + park.getNomParking
+                "Are you sure you want to delete " + park.getNomParking() +""+ "?");
         dialog.showAndWait();
 
         if (dialog.getResponse() == DialogResponse.YES) {

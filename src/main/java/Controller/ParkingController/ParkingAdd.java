@@ -17,11 +17,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import model.parking;
 import org.hibernate.HibernateException;
 
 
 public class ParkingAdd {
-   parkingService PS = new parkingService();
 
    @FXML
    private JFXTextField NomField;
@@ -45,7 +45,7 @@ public class ParkingAdd {
 
     private int id_parking ;
     private boolean TOF ;
-    parkingService us = new parkingService();
+    parkingService PS = new parkingService();
 
 
     @FXML
@@ -110,7 +110,7 @@ public class ParkingAdd {
     private parking newParking(parking parkE){
         parking park = new parking();
 
-        park.getNomParking(NomField.getText());
+        park.setNomParking(NomField.getText());
         park.setVille(VillePField.getText());
         park.setAddress(AdrssField.getText());
         park.setNbplace(Integer.parseInt(NBField.getText()));

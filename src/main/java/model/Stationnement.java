@@ -8,7 +8,6 @@
 package model;
 
 import com.sun.istack.NotNull;
-import net.bytebuddy.implementation.bind.MethodDelegationBinder;
 
 import javax.persistence.*;
 import java.util.Date;

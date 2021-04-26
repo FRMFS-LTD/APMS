@@ -44,6 +44,6 @@
          </graphic>
       </JFXButton>
       <Label layoutX="47.0" layoutY="28.0" styleClass="title" text="Les types de tarif" />
-      <JFXTextField fx:id="SearchTextField" labelFloat="true" layoutX="47.0" layoutY="90.0" prefHeight="26.0" prefWidth="268.0" promptText="search" styleClass="textField" />
+      <JFXTextField fx:id="SearchTextField" labelFloat="true" layoutX="57.0" layoutY="100.0" prefHeight="26.0" prefWidth="268.0" promptText="search" styleClass="textField" />
    </children>
 </AnchorPane>
