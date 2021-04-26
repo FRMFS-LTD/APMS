@@ -7,32 +7,26 @@
 
 package Controller.VehiculeControllers;
 
-import Helpers.AppContext;
 import com.github.daytron.simpledialogfx.dialog.Dialog;
 import com.github.daytron.simpledialogfx.dialog.DialogType;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dao.Services.AbonnementService;
-import dao.Services.UserService;
 import dao.Services.VehiculeService;
 import dao.Services.clientService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.input.InputMethodEvent;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.Vehicule;
 import model.abonnement;
 import model.client;
-import model.utilisateur;
 import org.hibernate.HibernateException;
 
 import java.net.URL;
@@ -233,7 +227,7 @@ public class AddVehiculeController implements Initializable {
         this.VehicleId = id;
         MatriculeField.setText(matricule);
         ClientComboBOx.getSelectionModel().select(cl.getId()-1);
-        SubComboBox.getSelectionModel().select(ab.getId_abonnement()-1);
+   //     SubComboBox.getSelectionModel().select(ab.getId_abonnement()-1);
 
     }
 }
