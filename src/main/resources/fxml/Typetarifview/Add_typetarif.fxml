@@ -43,11 +43,8 @@
          <children>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../assets/UserIco/icons8_name_64px_1.png" />
+                  <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
                </image>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
             </ImageView>
             <JFXTextField fx:id="TTField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Type de tarif" styleClass="textField" unFocusColor="#494949" />
          </children>
@@ -56,11 +53,8 @@
          <children>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../assets/UserIco/icons8_name_64px_1.png" />
+                  <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
                </image>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
             </ImageView>
             <JFXTextField fx:id="PrixField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Prix " styleClass="textField" unFocusColor="#494949" />
          </children>
