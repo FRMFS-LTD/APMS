@@ -43,7 +43,7 @@ public class ParkingAdd {
     @FXML
     private Label GlobalError;
 
-    private int id_parking ;
+    private int idp ;
     private boolean TOF ;
     parkingService PS = new parkingService();
 
@@ -85,7 +85,7 @@ public class ParkingAdd {
             }
         }
             else {
-                parking parkAd = PS.findById(id_parking);
+                parking parkAd = PS.findById(idp);
                 parking parkDA = newParking(parkAd);
 
 
@@ -108,14 +108,14 @@ public class ParkingAdd {
 
     }
     private parking newParking(parking parkE){
-        parking park = new parking();
 
-        park.setNomParking(NomField.getText());
-        park.setVille(VillePField.getText());
-        park.setAddress(AdrssField.getText());
-        park.setNbplace(Integer.parseInt(NBField.getText()));
 
-        return park;
+        parkE.setNomParking(NomField.getText());
+        parkE.setVille(VillePField.getText());
+        parkE.setAddress(AdrssField.getText());
+        parkE.setNbplace(Integer.parseInt(NBField.getText()));
+
+        return parkE;
     }
 
     private boolean GeneralException() {
@@ -131,7 +131,7 @@ public class ParkingAdd {
 
             return SetErrorMessage("validate Adrress field to given Conditions");
         }
-        else if (NBField.getText().isEmpty() || NBField.getText().length()<3){
+        else if (NBField.getText().isEmpty() ){
 
             return SetErrorMessage("validate Numbre of place field to given Conditions");
         }
@@ -145,8 +145,8 @@ public class ParkingAdd {
     }
 
 
-    public void initTextFieldForUpdate(int id_parking, String  NomParking, String address, int nbplace, String ville){
-        int parkingid = id_parking;
+    public void initTextFieldForUpdate(int id, String  NomParking, String address, int nbplace, String ville){
+        idp = id;
         NomField.setText(NomParking);
         AdrssField.setText(address);
         NBField.setText(String.valueOf(nbplace));

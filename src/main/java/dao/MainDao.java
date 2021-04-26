@@ -54,10 +54,10 @@ public class MainDao {
         configuration.addAnnotatedClass(model.utilisateur.class);
         configuration.addAnnotatedClass(model.typetarif.class);
         configuration.addAnnotatedClass(model.client.class);
-        configuration.addAnnotatedClass(model.parking.class);
         configuration.addAnnotatedClass(model.abonnement.class);
         configuration.addAnnotatedClass(model.Vehicule.class);
         configuration.addAnnotatedClass(model.Stationnement.class);
+        configuration.addAnnotatedClass(model.parking.class);
 
 
 

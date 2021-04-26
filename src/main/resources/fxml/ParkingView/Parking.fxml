@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
 <!--
   ~ Copyright (c) 2021.
@@ -16,9 +12,9 @@
   ~
   -->
 
-<AnchorPane prefHeight="620.0" prefWidth="1000.0" styleClass="Container" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ParkingController.Parking">
+<AnchorPane prefHeight="620.0" prefWidth="1000.0" styleClass="Container" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ParkingController.Parking">
    <children>
-      <JFXButton fx:id="RefreshBtn" layoutX="302.0" layoutY="561.0" onAction="#RefreshBtn_click" prefHeight="38.0" prefWidth="199.0" styleClass="SecBtn" text="Refresh">
+      <JFXButton fx:id="RefreshBtn" layoutX="282.0" layoutY="553.0" onAction="#RefreshBtn_click" prefHeight="38.0" prefWidth="199.0" styleClass="SecBtn" text="Refresh">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -27,7 +23,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="AddInfoParking" layoutX="45.0" layoutY="562.0" onAction="#AddNewParking_click" prefHeight="38.0" prefWidth="199.0" styleClass="primBtn" text="Add">
+      <JFXButton fx:id="AddInfoParking" layoutX="42.0" layoutY="554.0" onAction="#AddNewParking_click" prefHeight="38.0" prefWidth="199.0" styleClass="primBtn" text="Add">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -47,6 +43,6 @@
             <TableColumn fx:id="OptionCol" minWidth="0.0" prefWidth="164.0" text="Options" />
          </columns>
       </TableView>
-      <JFXTextField fx:id="SearchTextField" labelFloat="true" layoutX="45.0" layoutY="100.0" prefHeight="26.0" prefWidth="268.0" promptText="search" styleClass="textField" />
+      <JFXTextField fx:id="SearchTextField" labelFloat="true" layoutX="61.0" layoutY="97.0" prefHeight="26.0" prefWidth="268.0" promptText="search" styleClass="textField" />
    </children>
 </AnchorPane>
