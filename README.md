@@ -48,6 +48,7 @@ capable of:
   - controlling the gates system.
   - controlling the billing system.
 
+
 ### Conception
 - Class diagram (Diagramme de classes)<br>
   <img src="readMeAssets/diagramme class.png" alt="Logo" >
@@ -67,18 +68,21 @@ capable of:
 - logical data model (modèle logique des données / simplified)<br>
   <img src="readMeAssets/MLD.png" alt="Logo" >
 
+
 ### Built With
+* [Java SE - Downloads | Oracle Technology Network | Oracle](https://www.oracle.com/java/technologies/javase-downloads.html)
 * [JavaFX ](https://openjfx.io/)
 * [Maven](https://maven.apache.org/)
 * [JFoenix](http://www.jfoenix.com/)
+* [FontAwesomeFx](https://www.jensd.de/wordpress/?cat=25)
+* [AnimateFX](https://awesomeopensource.com/project/Typhon0/AnimateFX)
+* [MysqlConnector](https://mvnrepository.com/artifact/mysql/mysql-connector-java)
+* [Hibernate](https://hibernate.org)
+* [Log4j](https://logging.apache.org/log4j/2.x/)
+* [Javax.mail](https://mvnrepository.com/artifact/javax.mail/mail)
+* [SimpleDialogFX](https://github.com/Daytron/SimpleDialogFX)
 
 
 
-<!-- GETTING STARTED -->
-## Getting Started
-
-### Prerequisites
 
 
-* [Java SE - Downloads | Oracle Technology Network | Oracle](https://www.oracle.com/java/technologies/javase-downloads.html)
-*  [JFoenix](http://www.jfoenix.com/)

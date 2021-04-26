@@ -20,7 +20,6 @@ import java.util.List;
 
 
 
-
 public class VehiculeDao extends MainDao implements VehiculeDaoInterface<Vehicule, Id> {
 
     public VehiculeDao() {
