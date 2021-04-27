@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,44 +15,35 @@
   ~
   -->
 
-<AnchorPane prefHeight="358.0" prefWidth="602.0" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ParkingAdd">
+<AnchorPane prefHeight="358.0" prefWidth="602.0" styleClass="Container" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ParkingController.ParkingAdd">
    <children>
-      <Label layoutX="62.0" layoutY="46.0" styleClass="title" text="Create new parking" />
-      <HBox alignment="TOP_CENTER" layoutX="64.0" layoutY="142.0" prefHeight="40.0">
+      <Label layoutX="62.0" layoutY="46.0" styleClass="title" text="Modifier / Ajouter un parking" />
+      <HBox alignment="TOP_CENTER" layoutX="335.0" layoutY="139.0" prefHeight="40.0">
          <children>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/UserIco/icons8_name_64px_1.png" />
+                  <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
                </image>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
             </ImageView>
             <JFXTextField fx:id="VillePField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Ville de parking" styleClass="textField" unFocusColor="#494949" />
          </children>
       </HBox>
-      <HBox alignment="TOP_CENTER" layoutX="331.0" layoutY="142.0" prefHeight="40.0">
+      <HBox alignment="TOP_CENTER" layoutX="50.0" layoutY="210.0" prefHeight="40.0">
          <children>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/UserIco/icons8_name_64px_1.png" />
+                  <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
                </image>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
             </ImageView>
             <JFXTextField fx:id="AdrssField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Adresse du parking" styleClass="textField" unFocusColor="#494949" />
          </children>
       </HBox>
-      <HBox alignment="TOP_CENTER" layoutX="64.0" layoutY="207.0" prefHeight="40.0">
+      <HBox alignment="TOP_CENTER" layoutX="335.0" layoutY="210.0" prefHeight="40.0">
          <children>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/UserIco/icons8_name_64px_1.png" />
+                  <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
                </image>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
             </ImageView>
             <JFXTextField fx:id="NBField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Nombre de place" styleClass="textField" unFocusColor="#494949" />
          </children>
@@ -62,19 +52,30 @@
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/UserIco/icons8_save_64px.png" />
+                  <Image url="@../../assets/UserIco/icons8_save_64px.png" />
                </image>
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="Cancel" layoutX="335.0" layoutY="284.0" onAction="#Cancel_click" prefHeight="26.0" prefWidth="218.0" styleClass="SecBtn" stylesheets="@../css/style.css" text="Cancel">
+      <JFXButton fx:id="Cancel" layoutX="335.0" layoutY="284.0" onAction="#Cancel_click" prefHeight="26.0" prefWidth="218.0" styleClass="SecBtn" stylesheets="@../../css/style.css" text="Cancel">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/UserIco/icons8_rollback_64px_1.png" />
+                  <Image url="@../../assets/UserIco/icons8_rollback_64px_1.png" />
                </image>
             </ImageView>
          </graphic>
       </JFXButton>
+      <Label fx:id="GlobalError" layoutX="44.0" layoutY="100.0" prefHeight="26.0" prefWidth="527.0" />
+      <HBox alignment="TOP_CENTER" layoutX="50.0" layoutY="139.0" prefHeight="40.0">
+         <children>
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
+               </image>
+            </ImageView>
+            <JFXTextField fx:id="NomField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Nom de parking" styleClass="textField" unFocusColor="#494949" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
