@@ -7,6 +7,7 @@
 
 package Controller.TypetarifController;
 
+
 import com.github.daytron.simpledialogfx.dialog.Dialog;
 import com.github.daytron.simpledialogfx.dialog.DialogType;
 import com.jfoenix.controls.JFXButton;
@@ -18,12 +19,11 @@ import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.typetarif;
-
+import org.hibernate.HibernateException;
 
 
 
 public class TypeTarifAdd {
-    typetarifService TTS = new typetarifService();
 
     @FXML
     private JFXButton addNewTT;
@@ -40,7 +40,8 @@ public class TypeTarifAdd {
     @FXML
     private Label GlobalError;
 
-    private int pr;
+
+    typetarifService TTSS = new typetarifService();
     private boolean TOF;
     private int typetarifid;
 
@@ -59,51 +60,60 @@ public class TypeTarifAdd {
         CloseForm();
     }
 
-    private typetarif createOrupdateNewTT(typetarif TTN) {
+    private typetarif createOrupdateNewTT(typetarif TT) {
 
 
-        TTN.setTypetarif(TTField.getText());
-        TTN.setPrix(Integer.parseInt(PrixField.getText()));
+        TT.setTypetarif(TTField.getText());
+        TT.setPrix(Integer.parseInt(PrixField.getText()));
 
-        return TTN ;
+        return TT ;
     }
 
     @FXML
     void addNewTypeTarif_click(ActionEvent event) {
 
-        try{
+        try {
 
+            if (!this.TOF) {
+                typetarif TT = new typetarif();
+                typetarif newTT = newTypetarif(TT);
 
-            if(!this.TOF){
-                typetarif tp = new typetarif();
-                typetarif Tt = newTypetarif(tp);
-                if(GeneralException()){
-                    TTS.persist(tp);
+                if (GeneralException()) {
+                    TTSS.persist(newTT);
                     CloseForm();
                 }
-            }else {
-                typetarif TTAD = TTS.findById(pr);
-                typetarif TTDA = newTypetarif(TTAD);
+            } else {
+                typetarif TTAd = TTSS.findById(typetarifid);
+                typetarif TTDa = newTypetarif(TTAd);
 
-                if(GeneralException()){
-                    TTS.update(TTDA);
+                if (GeneralException()) {
+                    TTSS.update((TTDa));
                     CloseForm();
                 }
             }
-        } catch( Exception e ){
-           Dialog dialog = new Dialog(DialogType.ERROR, e.getCause().toString(), e.getMessage());
+        }
+        catch(HibernateException eh ){
+                Dialog dialog = new Dialog(
+                        DialogType.ERROR, "Database Error", eh.getMessage());
+                dialog.showAndWait();
+            }
+
+
+        catch( Exception e ) {
+            Dialog dialog = new Dialog(
+                    DialogType.ERROR, e.getCause().toString(), e.getMessage());
         }
     }
 
-    private boolean GeneralException() {
+        private boolean GeneralException() {
         GlobalError.setTextFill(Color.web("#E53935", 0.8));
 
-        if(TTField.getText().isEmpty() || TTField.getText().length()<3){
+        if(TTField.getText().isEmpty() || TTField.getText().length()<3 ){
 
             return SetErrorMessage("validate rate type  field to conditions");
 
         }
-        else if (PrixField.getText().isEmpty() || PrixField.getText().length()<3){
+        else if (PrixField.getText().isEmpty()){
 
             return SetErrorMessage("validate price field to given Conditions");
 
@@ -115,11 +125,11 @@ public class TypeTarifAdd {
 
 
     private typetarif newTypetarif(typetarif tt) {
-        typetarif TT = new typetarif();
-        TT.setTypetarif(TTField.getText());
-        TT.setPrix(Integer.parseInt(PrixField.getText()));
 
-        return TT;
+        tt.setTypetarif(TTField.getText());
+        tt.setPrix(Integer.parseInt(PrixField.getText()));
+
+        return tt;
 
     }
     private boolean SetErrorMessage(String s) {
@@ -128,8 +138,9 @@ public class TypeTarifAdd {
     }
 
 
-    public void initTextFieldForUpdate(int id_typetarif, String  typetarif, float prix){
-        typetarifid = id_typetarif;
+    public void initTextFieldForUpdate(int id, String  typetarif, float prix){
+        //typetarifid is the id that call it in the first of this class and it will be giving to point on in the findById
+        typetarifid = id;
         TTField.setText(typetarif);
         PrixField.setText(String.valueOf(prix));
 

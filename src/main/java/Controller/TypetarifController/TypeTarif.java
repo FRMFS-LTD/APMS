@@ -122,7 +122,7 @@ public class TypeTarif implements Initializable {
         ArrayList<typetarif> ATT = (ArrayList<typetarif>) TTServ.findAll();
 
         for (typetarif TT : ATT) {
-            TTList.add(TT);
+            TTList.addAll(ATT);
         }
         TypeTarfiTable.setItems(TTList);
     }

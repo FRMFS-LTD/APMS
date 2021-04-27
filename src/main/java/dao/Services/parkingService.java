@@ -37,7 +37,7 @@ public class parkingService {
         return parking;
     }
 
-    public static void delete(int id){
+    public void delete(int id){
         parkingDao.openCurrentSessionWithTransaction();
         parking parking = parkingDao.findById(id);
         parkingDao.delete(parking);

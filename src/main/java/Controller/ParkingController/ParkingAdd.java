@@ -80,7 +80,7 @@ public class ParkingAdd {
             parking new_park = newParking(park);
 
             if (GeneralException()) {
-                PS.persist(park);
+                PS.persist(new_park);
                 CloseForm();
             }
         }

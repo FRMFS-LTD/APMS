@@ -39,32 +39,27 @@
          </graphic>
       </JFXButton>
       <Label layoutX="39.0" layoutY="23.0" styleClass="title" text="Créer un nouveau type de tarif" />
-      <HBox alignment="TOP_CENTER" layoutX="39.0" layoutY="110.0" prefHeight="40.0">
+      <HBox alignment="TOP_CENTER" layoutX="39.0" layoutY="121.0" prefHeight="40.0">
          <children>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../assets/UserIco/icons8_name_64px_1.png" />
+                  <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
                </image>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
             </ImageView>
             <JFXTextField fx:id="TTField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Type de tarif" styleClass="textField" unFocusColor="#494949" />
          </children>
       </HBox>
-      <HBox alignment="TOP_CENTER" layoutX="339.0" layoutY="110.0" prefHeight="40.0">
+      <HBox alignment="TOP_CENTER" layoutX="339.0" layoutY="121.0" prefHeight="40.0">
          <children>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../assets/UserIco/icons8_name_64px_1.png" />
+                  <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
                </image>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
             </ImageView>
             <JFXTextField fx:id="PrixField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Prix " styleClass="textField" unFocusColor="#494949" />
          </children>
       </HBox>
+      <Label fx:id="GlobalError" layoutX="41.0" layoutY="85.0" prefHeight="26.0" prefWidth="527.0" />
    </children>
    <padding>
       <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />

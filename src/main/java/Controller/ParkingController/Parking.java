@@ -244,7 +244,7 @@ public class Parking implements Initializable {
         dialog.showAndWait();
 
         if (dialog.getResponse() == DialogResponse.YES) {
-            parkingService.delete(park.getId_parking());
+            ParkServ.delete(park.getId_parking());
             refreshDataSet();
         }
     }
@@ -255,17 +255,22 @@ public class Parking implements Initializable {
         SearchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
 
             filteredData.setPredicate(
-                    typetarif -> {
+                    parking -> {
                         if(newValue == null || newValue.isEmpty()){
                             return  true;
                         }
                         String lowerCaseFilter = newValue.toLowerCase();
 
-                        if (typetarif.getNomParking().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+                        if (parking.getNomParking().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
                             return true;
                         }
 
-                        if (typetarif.getVille().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+                        if (parking.getVille().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+                            return true;
+                        }
+
+
+                        if (parking.getAddress().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
                             return true;
                         }
                         else
