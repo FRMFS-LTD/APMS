@@ -113,9 +113,8 @@ public class Parking implements Initializable {
         ParkList.clear();
         ArrayList<parking> AP = (ArrayList<parking>) ParkServ.findAll();
 
-        for (parking park : AP){
-            ParkList.add(park);
-        }
+            ParkList.addAll(AP);
+
         ParkingTable.setItems(ParkList);
     }
 

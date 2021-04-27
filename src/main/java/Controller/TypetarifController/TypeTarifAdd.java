@@ -75,10 +75,10 @@ public class TypeTarifAdd {
         try {
 
             if (!this.TOF) {
-                typetarif TT = new typetarif();
-                typetarif newTT = newTypetarif(TT);
-
                 if (GeneralException()) {
+
+                    typetarif TT = new typetarif();
+                    typetarif newTT = newTypetarif(TT);
                     TTSS.persist(newTT);
                     CloseForm();
                 }

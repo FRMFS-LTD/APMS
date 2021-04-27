@@ -92,7 +92,6 @@ public class TypeTarif implements Initializable {
 
     private void LoadData() {
         DefineCol();
-
         refreshDataSet();
     }
 
@@ -120,10 +119,9 @@ public class TypeTarif implements Initializable {
     private void refreshDataSet() {
         TTList.clear();
         ArrayList<typetarif> ATT = (ArrayList<typetarif>) TTServ.findAll();
-
-        for (typetarif TT : ATT) {
+        
             TTList.addAll(ATT);
-        }
+
         TypeTarfiTable.setItems(TTList);
     }
 
