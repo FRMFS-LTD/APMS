@@ -9,9 +9,8 @@
         package model;
 
         import com.sun.istack.NotNull;
-        import model.*;
 
-        import javax.persistence.*;
+import javax.persistence.*;
 
 
         @Entity
@@ -90,11 +89,5 @@
 
         @Override
         public String toString() {
-        return "Vehicule{" +
-                "id=" + id +
-                ", matriucle='" + matriucle + '\'' +
-                ", client=" + client +
-                ", abonnement=" + abonnement +
-                '}';
-        }
+        return  matriucle; }
         }

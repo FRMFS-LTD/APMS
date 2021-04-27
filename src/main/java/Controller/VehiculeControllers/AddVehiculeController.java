@@ -233,7 +233,7 @@ public class AddVehiculeController implements Initializable {
         this.VehicleId = id;
         MatriculeField.setText(matricule);
         ClientComboBOx.getSelectionModel().select(cl.getId()-1);
-        SubComboBox.getSelectionModel().select(ab.getId_abonnement()-1);
+        SubComboBox.getSelectionModel().select(ab.getId()-1);
 
     }
 }

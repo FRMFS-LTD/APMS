@@ -105,7 +105,6 @@ public class VehiculeCrudController implements Initializable {
 
 
     public void LoadData(){
-
         DefineCols();
         refereshDataSet();
     }
@@ -113,8 +112,8 @@ public class VehiculeCrudController implements Initializable {
     public void DefineCols(){
         VehiculeIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         platNumberCol.setCellValueFactory(new PropertyValueFactory<>("matriucle"));
-        subscriptionCol.setCellValueFactory(new PropertyValueFactory<Vehicule, String>("client"));
-        ClientCol.setCellValueFactory(new PropertyValueFactory<Vehicule, String>("abonnement"));
+        subscriptionCol.setCellValueFactory(new PropertyValueFactory<Vehicule, String>("abonnement"));
+        ClientCol.setCellValueFactory(new PropertyValueFactory<Vehicule, String>("client"));
 
         // get the title of the subs
         subscriptionCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Vehicule,String>, ObservableValue<String>>(){
@@ -168,6 +167,7 @@ public class VehiculeCrudController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/VehiculeViews/AddVehicule.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
+
         AppContext.UpdateStage(primaryStage, root, scene);
         AppContext.DragScene(primaryStage, root);
 
@@ -277,14 +277,17 @@ public class VehiculeCrudController implements Initializable {
 
     }
     private void DeleteVehiculeConfirmation() {
+
+
         // get the selected user to be deleted
         Vehicule vehicle = VehiculeTable.getSelectionModel().getSelectedItem();
 
 
         // create an alert to make the user verify that he really want ot delete this item
+
         Dialog dialog = new Dialog(
                 DialogType.CONFIRMATION,
-                "Delete User action",
+                "Delete Vehicle action",
                 "Confirm Action",
                 "Do you want to delete this car with plat: \""+ vehicle.getMatriucle() +"\"?");
 
@@ -310,7 +313,7 @@ public class VehiculeCrudController implements Initializable {
                         String lowerCaseFilter = newValue.toLowerCase();
 
                         if (Vehicule.getMatriucle().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
-                            return true; // Filter matches first name.
+                            return true; // Filter matches Matricule.
                         } else if (Vehicule.getAbonnement().getIntitule().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                             return true; // Filter matches last name.
                         }
