@@ -13,45 +13,28 @@ public class abonnement {
     private  int periode ;
     private float prix ;
 
-    public abonnement( String intitule, int periode, float prix) {
+
+    public abonnement(String intitule, int periode, float prix) {
         this.intitule = intitule;
         this.periode = periode;
         this.prix = prix;
-
     }
 
     public abonnement() {
 
     }
 
-    public  int getId() {
-        return id;
-    }
+    public  int getId() { return id; }
 
+    public String getIntitule() { return intitule; }
 
-    public String getIntitule() {
-        return intitule;
-    }
+    public void setIntitule(String intitule) { this.intitule = intitule; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public int getPeriode() { return periode; }
 
-    public void setIntitule(String intitule) {
-        this.intitule = intitule;
-    }
+    public void setPeriode(int periode) { this.periode = periode; }
 
-    public int getPeriode() {
-        return periode;
-    }
-
-    public void setPeriode(int periode) {
-        this.periode = periode;
-    }
-
-    public float getPrix() {
-        return prix;
-    }
+    public float getPrix() { return prix; }
 
     public void setPrix(float prix) {
         this.prix = prix;
@@ -59,11 +42,6 @@ public class abonnement {
 
     @Override
     public String toString() {
-        return "abonnement{" +
-                "id_abonnement=" + id +
-                ", intitule='" + intitule + '\'' +
-                ", periode=" + periode +
-                ", prix=" + prix +
-                '}';
+        return intitule ;
     }
 }

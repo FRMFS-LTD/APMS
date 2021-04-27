@@ -1,5 +1,7 @@
 
 package Controller.ClientController;
+import com.github.daytron.simpledialogfx.dialog.Dialog;
+import com.github.daytron.simpledialogfx.dialog.DialogType;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dao.Services.clientService;
@@ -12,6 +14,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.client;
+import org.hibernate.HibernateException;
 
 
 import java.net.URL;
@@ -49,7 +52,7 @@ public class AddClientController implements Initializable {
     private Label cinError;
 
     private boolean update;
-    int clientid;
+     private int clientid;
 
     clientService cs = new clientService();
 
@@ -67,21 +70,36 @@ public class AddClientController implements Initializable {
     @FXML
     void AddNewClient_click(ActionEvent event) {
 
-        if (this.update == false) {
+      try {
+          if (this.update == false) {
 
-            client cli = new client();
-            client new_client = createOrUpdateNewClient(cli);
-            cs.persist(new_client);
+              client cli = new client();
+              client new_client = createOrUpdateNewClient(cli);
+              cs.persist(new_client);
+              CloseForm();
 
-        } else {
+          } else {
 
-            client cliE = cs.findById(clientid);
-            client cliRe = createOrUpdateNewClient(cliE);
-            cs.update(cliRe);
+              client cliE = cs.findById(clientid);
+              client cliRe = createOrUpdateNewClient(cliE);
+              cs.update(cliRe);
+              CloseForm();
+          }
 
-        }
-        CloseForm();
-
+      } catch (HibernateException Ex ){
+          Dialog dialog = new Dialog(
+                  DialogType.ERROR,
+                  "DATABASE ERROR",
+                  Ex.getMessage());
+          dialog.showAndWait();
+      }
+      catch (Exception e){
+          Dialog dialog = new Dialog(
+                  DialogType.ERROR,
+                  e.getCause().toString(),
+                  e.getMessage());
+          dialog.showAndWait();
+      }
 
     }
 
@@ -149,11 +167,6 @@ public class AddClientController implements Initializable {
 
     }
 
-
-    private void createOrUpdateNewClient() {
-    }
-
-
     public void initTextFieldForUpdate(int id, String prenom, String nom, String cin) {
         clientid = id;
         firstname.setText(prenom);
@@ -163,6 +176,7 @@ public class AddClientController implements Initializable {
 
     public boolean GeneralExeption() {
 
+        GlobalError.setTextFill(Color.web("#E53935",0.8));
 
         if (firstname.getText().isEmpty() || firstname.getText().length() < 3) {
 

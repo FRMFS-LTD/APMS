@@ -105,7 +105,7 @@ public class AddUserController implements Initializable {
     private Label GlobalError;
 
 
-    ArrayList<Boolean> validationList = new ArrayList<Boolean>();
+
 
     private boolean update;
     private int userid;
@@ -116,7 +116,9 @@ public class AddUserController implements Initializable {
     }
 
 
-    private void CloseForm() {
+
+
+    private void CloseForm(){
 
         Stage stage = (Stage) Cancel.getScene().getWindow();
         stage.close();
@@ -137,14 +139,17 @@ public class AddUserController implements Initializable {
                 }
 
 
+
             } else {
 
-                utilisateur userE = us.findById(userid);
-                utilisateur userRe = createOrupdateNewUser(userE);
-                if (GeneralExeption()) {
-                    us.update(userRe);
-                    CloseForm();
-                }
+
+            utilisateur userE = us.findById(userid);
+            utilisateur userRe = createOrupdateNewUser(userE);
+
+            if(GeneralExeption()){
+                us.update(userRe);
+                CloseForm();
+            }
 
 
             }
@@ -176,19 +181,26 @@ public class AddUserController implements Initializable {
         user.setMail(MailField.getText());
         user.setUsername(UserNameField.getText());
         user.setPassword(pwdField.getText());
-        if (isAdminField.getValue() == "True") {
+
+
+        if(isAdminField.getValue() == "True"){
+
             user.setIs_admin(TRUE);
         } else {
             user.setIs_admin(FALSE);
         }
+
         return user;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        isAdminField.getItems().add(0, "False");
-        isAdminField.getItems().add(1, "True");
+
+            isAdminField.getItems().add(0, "False");
+            isAdminField.getItems().add(1, "True");
+
+
     }
 
     @FXML

@@ -1,17 +1,10 @@
-/*
- * Copyright (c) 2021.
- * programmed by Rachid Boufous.
- * for FRMFS-ltd organisation
- *
- */
 
 package model;
 
 import com.sun.istack.NotNull;
-import net.bytebuddy.implementation.bind.MethodDelegationBinder;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 public class Stationnement {
@@ -20,8 +13,8 @@ public class Stationnement {
     private int id;
 
     @NotNull
-    private Date dateEntree;
-    private Date dateSortie;
+    private LocalDate dateEntree;
+    private LocalDate dateSortie;
 
     @ManyToOne
     private parking parking;
@@ -32,7 +25,7 @@ public class Stationnement {
     @ManyToOne
     private typetarif typetarif;
 
-    public Stationnement(Date dateEntree, Date dateSortie, parking parking, Vehicule vehicule, typetarif typetarif) {
+    public Stationnement(LocalDate dateEntree, LocalDate dateSortie, parking parking, Vehicule vehicule, typetarif typetarif) {
         this.dateEntree = dateEntree;
         this.dateSortie = dateSortie;
         this.parking = parking;
@@ -46,9 +39,9 @@ public class Stationnement {
 
     public int getId() {return id; }
 
-    public Date getDateEntree() {return dateEntree;}
+    public LocalDate getDateEntree() {return dateEntree;}
 
-    public Date getDateSortie() {return dateSortie;}
+    public LocalDate getDateSortie() {return dateSortie;}
 
     public parking getParking() {return parking;}
 
@@ -56,9 +49,9 @@ public class Stationnement {
 
     public typetarif getTypetarif() {return typetarif;}
 
-    public void setDateEntree(Date dateEntree) {this.dateEntree = dateEntree;}
+    public void setDateEntree(LocalDate dateEntree) {this.dateEntree = dateEntree;}
 
-    public void setDateSortie(Date dateSortie) {this.dateSortie = dateSortie; }
+    public void setDateSortie(LocalDate dateSortie) {this.dateSortie = dateSortie; }
 
     public void setParking(model.parking parking) {this.parking = parking;}
 

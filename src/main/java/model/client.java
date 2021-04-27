@@ -30,15 +30,10 @@ public class client {
     public client() {
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public int getId() {
         return id;
     }
-
-
 
     public String getNom() {
         return nom;
@@ -64,13 +59,9 @@ public class client {
         this.cin = cin;
     }
 
+
     @Override
     public String toString() {
-        return "client{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", cin='" + cin + '\'' +
-                '}';
+        return this.nom + " " + this.prenom;
     }
 }

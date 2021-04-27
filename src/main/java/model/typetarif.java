@@ -1,8 +1,6 @@
 package model;
 
 
-import com.sun.istack.NotNull;
-
 import javax.persistence.*;
 
 @Entity
@@ -49,10 +47,6 @@ public class typetarif {
 
     @Override
     public String toString() {
-        return "typetarif{" +
-                "id_typetarif=" + id_typetarif +
-                ", typetarif='" + typetarif + '\'' +
-                ", prix=" + prix +
-                '}';
+        return  String.valueOf(prix);
     }
 }

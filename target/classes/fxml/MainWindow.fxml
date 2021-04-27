@@ -50,7 +50,7 @@
                         <SepiaTone />
                      </effect>
                   </JFXButton>
-                  <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="144.0" layoutY="28.0" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
+                  <JFXButton fx:id="AbonnCrudBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="144.0" layoutY="28.0" onAction="#HandleCLicks" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
                      <graphic>
                         <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                            <image>

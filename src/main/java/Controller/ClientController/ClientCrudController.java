@@ -54,6 +54,7 @@ public class ClientCrudController implements Initializable {
 
         @FXML
         private JFXButton Refreshbutton;
+
     ObservableList<client> ClientsList = FXCollections.observableArrayList();
     clientService cservice  = new clientService();
 
@@ -108,6 +109,7 @@ public class ClientCrudController implements Initializable {
         ArrayList<client> cl = (ArrayList<client>) cservice.findAll();
 
         for (client c: cl) {
+
             ClientsList.add(c);
         }
         ClientTable.setItems(ClientsList);

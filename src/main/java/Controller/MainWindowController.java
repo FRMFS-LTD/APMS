@@ -20,6 +20,9 @@ public class MainWindowController {
 
 
     @FXML
+    private JFXButton AbonnCrudBtn ;
+
+    @FXML
     private JFXButton UsersCrudBtn;
 
     @FXML
@@ -41,6 +44,11 @@ public class MainWindowController {
     public void HandleCLicks(ActionEvent actionEvent) {
         if (actionEvent.getSource() == UsersCrudBtn) {
             SlideViewToMainWindow("/fxml/UserViews/UserCrud.fxml");
+
+        }
+
+        if (actionEvent.getSource() == AbonnCrudBtn) {
+            SlideViewToMainWindow("/fxml/AbonnementCrud.fxml");
         }
         if (actionEvent.getSource() == ClientCrudBtn) {
             SlideViewToMainWindow("/fxml/ClientCrud.fxml");

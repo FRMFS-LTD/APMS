@@ -43,7 +43,7 @@ public class VehiculeService {
     public void update(Vehicule entity){
         vehiculedao.openCurrentSessionWithTransaction();
         vehiculedao.update(entity);
-        vehiculedao.openCurrentSessionWithTransaction();
+        vehiculedao.closeCurrentSessionWithTransaction();
     }
 
     public void delete(int id){
@@ -56,7 +56,7 @@ public class VehiculeService {
     public List<Vehicule> findAll(){
         vehiculedao.openCurrentSession();
         List<Vehicule> list_vehicules = vehiculedao.findAll();
-        vehiculedao.openCurrentSession();
+        vehiculedao.closeCurrentSession();
         return list_vehicules;
     }
 
@@ -66,8 +66,6 @@ public class VehiculeService {
         vehiculedao.deleteAll();
         vehiculedao.closeCurrentSession();
     }
-
-
 
 
 

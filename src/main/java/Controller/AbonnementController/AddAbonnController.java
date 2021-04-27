@@ -1,5 +1,7 @@
 package Controller.AbonnementController;
 
+import com.github.daytron.simpledialogfx.dialog.Dialog;
+import com.github.daytron.simpledialogfx.dialog.DialogType;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dao.Services.AbonnementService;
@@ -11,6 +13,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.abonnement;
+import org.hibernate.HibernateException;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,17 +22,13 @@ import java.util.regex.Pattern;
 public class AddAbonnController implements Initializable {
 
     @FXML
-    private Label IntituleError;
+    private Label intituleErreur ;
 
     @FXML
-    private Label PrixError;
+    private Label prixErreur ;
 
     @FXML
-    private Label PeriodeError;
-
-
-    @FXML
-    private JFXTextField IdAbonnField;
+    private Label periodeErreur ;
 
     @FXML
     private JFXTextField IntituleField;
@@ -46,8 +45,13 @@ public class AddAbonnController implements Initializable {
     @FXML
     private JFXButton Cancel;
 
+    @FXML
+    private Label ErrorGlobale ;
+
     private boolean update ;
+
     private int Abonnid;
+
     AbonnementService as = new AbonnementService();
 
     public void setUpdate(boolean b) {
@@ -67,29 +71,48 @@ public class AddAbonnController implements Initializable {
     @FXML
     void addNewAbonn_click(ActionEvent event) {
 
+        try {
             if (this.update == false) {
 
                 abonnement abonn = new abonnement();
                 abonnement new_abonn = createOrUpdateNewAbonnement(abonn);
-                as.persist(new_abonn);
+                if(GeneralExeption()) {
+                    as.persist(new_abonn);
+                   CloseForm();
+                }
 
             } else {
 
                 abonnement AbonnE = as.findbyId(Abonnid);
                 abonnement AbonnRe = createOrUpdateNewAbonnement(AbonnE);
-                as.update(AbonnRe);
-
+                if(GeneralExeption()) {
+                    as.update(AbonnRe);
+                    CloseForm();
+                }
             }
-            CloseForm();
+
+
+        } catch (HibernateException H) {
+            Dialog dialog = new Dialog(
+                    DialogType.ERROR,
+                    "DATABASE ERROR",
+                    H.getMessage());
+            dialog.showAndWait();
+        } catch (Exception e) {
+            Dialog dialog = new Dialog(
+                    DialogType.ERROR,
+                    e.getCause().toString(),
+                    e.getMessage());
+            dialog.showAndWait();
         }
-
-
- public abonnement createOrUpdateNewAbonnement(abonnement  abonn){
+    }
+       private abonnement createOrUpdateNewAbonnement(abonnement  abonn){
 
 
         abonn.setIntitule(IntituleField.getText());
         abonn.setPrix(Float.parseFloat(PrixField.getText()));
         abonn.setPeriode(Integer.parseInt(PeriodeField.getText()));
+
 
      return abonn;
  }
@@ -98,62 +121,76 @@ public class AddAbonnController implements Initializable {
 
     }
 
-    @FXML
-    void IntituleField_TextChanged(KeyEvent event) {
+  @FXML
+  void intitule_TextChanged(KeyEvent event){
 
-        if( IntituleField.getText().length() < 10 )
-        {
-            IntituleField.setText("La taille d'intitule doit etre inferieur à 10");
-            IntituleError.setTextFill(Color.web("#E53935", 0.8));
-
-        }else{
-            IntituleError.setText("Intutule validé");
-            IntituleError.setTextFill(Color.web("#64DD17", 0.8));
-
+        if(IntituleField.getText().length() < 4){
+            intituleErreur.setText("l'untitule length must be greater than 4");
+            intituleErreur.setTextFill(Color.web("#E53935", 0.8));
         }
-
-    }
-
-    @FXML
-    void PrixField_textChanged(KeyEvent event) {
-
-
-        if( !(Pattern.matches("^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$", PrixField.getText())))
-        {
-            PrixError.setText("Le prix doit pas contient des lettres !");
-            PrixError.setTextFill(Color.web("#E53935", 0.8));
-
-        }else{
-            PrixError.setText("prix acceptable");
-            PrixError.setTextFill(Color.web("#64DD17", 0.8));
-
+        else {
+            intituleErreur.setText("Valid Intitule");
+            intituleErreur.setTextFill(Color.web("#64DD17",0.8));
         }
+}
 
-    }
+  @FXML
+   void prix_TextChanged(KeyEvent event){
 
-    @FXML
-    void PeriodeField_textChanged(KeyEvent event) {
-
-
-        if( !(Pattern.matches("^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$", PeriodeField.getText())) && PeriodeField.getText().length() < 3)
-        {
-            PeriodeField.setText("Le prix doit pas contient des lettres et il ne depase pas 2 chiffre !");
-            PrixError.setTextFill(Color.web("#E53935", 0.8));
-
-        }else{
-            PeriodeError.setText("Periode acceptable");
-            PeriodeError.setTextFill(Color.web("#64DD17", 0.8));
-
+        if(PrixField.getText().length() < 2){
+            prixErreur.setText("Prix length must be greater than 2");
+            prixErreur.setTextFill(Color.web("#E53935",0.8));
         }
+        else{
+            prixErreur.setText("Valid Prix");
+            prixErreur.setTextFill(Color.web("#64DD17",0.8));
+        }
+}
 
-    }
+@FXML
+  void periode_TextChanged (KeyEvent event){
+
+        if(PeriodeField.getText().length() < 2){
+            periodeErreur.setText("Periode length wust be greater than 2");
+            periodeErreur.setTextFill(Color.web("#E53935",0.8));
+        }
+        else{
+            periodeErreur.setText("Valid Period");
+            periodeErreur.setTextFill(Color.web("#64DD17",0.8));
+        }
+}
 
     public void initTextFieldForUpdate(int id,String intitule,float prix,int periode){
+
         Abonnid = id;
         IntituleField.setText(intitule);
         PrixField.setText((String.valueOf(prix)));
         PeriodeField.setText(String.valueOf(periode));
 
     }
+    public boolean GeneralExeption(){
 
+        ErrorGlobale.setTextFill(Color.web("#E53935", 0.8));
+
+        if (IntituleField.getText().isEmpty() || IntituleField.getText().length() < 4){
+
+            return SetErrorMessage("valider le champ Intitule dans les conditions donné") ;
+        }
+       else if (PrixField.getText().isEmpty() || PrixField.getText().length() < 2){
+
+            return SetErrorMessage("valider le champ Prix dans les conditions donné");
+        }
+        else if (PeriodeField.getText().isEmpty() || PeriodeField.getText().length() < 2){
+
+            return SetErrorMessage("valider le champ Periode dans les conditions donné");
+        }
+        else {
+            return true ;
+        }
+
+    }
+    private boolean SetErrorMessage(String s) {
+        ErrorGlobale.setText(s);
+        return false;
+    }
 }
