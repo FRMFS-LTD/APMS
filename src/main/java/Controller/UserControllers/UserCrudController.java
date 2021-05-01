@@ -98,32 +98,20 @@ public class UserCrudController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
         LoadData();
         CreateIcons();
         FilterSearch();
-
     }
 
     public void LoadData() {
-
-
-
         DefineCols();
-
         refreshDataSet();
     }
 
-    private void refreshDataSet() {
-
+    public void refreshDataSet() {
         UsersList.clear();
-
         ArrayList<utilisateur> e = (ArrayList<utilisateur>) uService.findAll();
-
-        for (utilisateur u : e){
-            UsersList.add(u);
-        }
+        UsersList.addAll(e);
         UsersTable.setItems(UsersList);
     }
 
@@ -156,7 +144,6 @@ public class UserCrudController implements Initializable {
     @FXML
     void RefreshBtn_click(ActionEvent event) {
         refreshDataSet();
-
     }
 
    public void CreateIcons(){
@@ -183,6 +170,7 @@ public class UserCrudController implements Initializable {
 
                         // create the event handler for each btn
                         // create the event handler for DeleteBtn
+
                         DeleteIco.setOnMouseClicked((MouseEvent event)->
                         {
                             DeleteUserConfirmation();
@@ -218,7 +206,6 @@ public class UserCrudController implements Initializable {
                     addUserController.initTextFieldForUpdate(user.getId_user(),
                             user.getNom(), user.getPrenom(), user.getCin(),
                             user.getTel(), user.getMail(), user.getUsername(), user.getPassword(), user.getIs_admin()
-
                             );
 
                     Parent parent = loader.getRoot();
