@@ -8,6 +8,7 @@
 package Controller.UserControllers;
 
 
+import Helpers.AppContext;
 import com.github.daytron.simpledialogfx.dialog.Dialog;
 import com.github.daytron.simpledialogfx.dialog.DialogType;
 import com.jfoenix.controls.JFXButton;
@@ -135,6 +136,7 @@ public class AddUserController implements Initializable {
 
             if(GeneralExeption()){
                 us.persist(new_user);
+                AppContext.infoDialog("Create User","New User has been added");
                 CloseForm();
             }
 
@@ -145,6 +147,7 @@ public class AddUserController implements Initializable {
 
             if(GeneralExeption()){
                 us.update(userRe);
+                AppContext.infoDialog("Update User","Updating user with id: "+userRe.getId_user()+" has been added");
                 CloseForm();
             }
         }
@@ -380,7 +383,7 @@ public class AddUserController implements Initializable {
         return false;
     }
 
-    
+
 
 }
 
