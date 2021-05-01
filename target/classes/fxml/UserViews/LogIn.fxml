@@ -4,10 +4,12 @@
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 
 <!--
@@ -21,7 +23,7 @@
    <children>
       <AnchorPane fx:id="win_pan" prefHeight="455.0" prefWidth="789.0" styleClass="Container" stylesheets="@../../css/style.css">
          <children>
-            <JFXButton fx:id="pwdResetButton" layoutX="150.0" layoutY="346.0" onAction="#pwdResetButton_click" text="Forgot your password ?" textFill="#828e9f" AnchorPane.bottomAnchor="83.39999999999998" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0">
+            <JFXButton fx:id="pwdResetButton" layoutX="242.0" layoutY="351.0" onAction="#pwdResetButton_click" prefHeight="26.0" prefWidth="306.0" text="Forgot your password ?" textFill="#828e9f" AnchorPane.bottomAnchor="77.80000000000001" AnchorPane.leftAnchor="242.0" AnchorPane.rightAnchor="242.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -31,11 +33,35 @@
                   <Image url="@../../assets/flag.png" />
                </image>
             </ImageView>
+            <HBox layoutX="150.0" layoutY="174.0" AnchorPane.bottomAnchor="255.6" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0">
+               <children>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/UserIco/icons8_user_64px.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+            
+                  <JFXTextField fx:id="usernameField" alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" prefHeight="26.0" prefWidth="462.0" promptText="UserName" styleClass="textField" stylesheets="@../../css/style.css" unFocusColor="#828d9e" />
+               </children>
+            </HBox>
+            <HBox layoutX="150.0" layoutY="226.0" AnchorPane.bottomAnchor="203.60000000000002" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0">
+               <children>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/UserIco/icons8_password_64px.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <JFXPasswordField fx:id="passwordField" focusColor="WHITE" labelFloat="true" prefHeight="26.0" prefWidth="465.0" promptText="Password" styleClass="textField" stylesheets="@../../css/style.css" unFocusColor="#828e9f" />
+               </children>
+            </HBox>
       
-            <JFXTextField fx:id="usernameField" alignment="TOP_LEFT" focusColor="WHITE" labelFloat="true" layoutX="150.0" layoutY="175.8" promptText="UserName" styleClass="textField" stylesheets="@../../css/style.css" unFocusColor="#828d9e" AnchorPane.bottomAnchor="253.6" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" />
-            <JFXPasswordField fx:id="passwordField" focusColor="WHITE" labelFloat="true" layoutX="150.0" layoutY="225.79999999999998" promptText="Password" styleClass="textField" stylesheets="@../../css/style.css" unFocusColor="#828e9f" AnchorPane.bottomAnchor="203.60000000000002" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" />
-      
-            <JFXButton id="primBtn" fx:id="loginBtn" buttonType="RAISED" layoutX="150.0" layoutY="288.79999999999995" onAction="#loginClick" styleClass="primBtn" stylesheets="@../../css/style.css" text="LogIn" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="140.60000000000002" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0">
+            <JFXButton id="primBtn" fx:id="loginBtn" buttonType="RAISED" layoutX="229.0" layoutY="300.0" onAction="#loginClick" prefHeight="26.0" prefWidth="332.0" styleClass="primBtn" stylesheets="@../../css/style.css" text="LogIn" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="116.80000000000001" AnchorPane.leftAnchor="229.0" AnchorPane.rightAnchor="229.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

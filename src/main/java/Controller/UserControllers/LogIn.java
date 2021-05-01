@@ -69,7 +69,6 @@ public class LogIn {
     @FXML
     public void loginClick(ActionEvent event) throws Exception {
         setControllerVal();
-
     }
 
     public void setControllerVal() throws Exception {
