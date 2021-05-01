@@ -17,6 +17,7 @@ import com.jfoenix.controls.JFXTextField;
 import dao.Services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
@@ -25,12 +26,15 @@ import javafx.stage.Stage;
 import model.utilisateur;
 
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 import javafx.scene.control.Label;
@@ -382,6 +386,7 @@ public class AddUserController implements Initializable {
         GlobalError.setText(s);
         return false;
     }
+
 
 
 

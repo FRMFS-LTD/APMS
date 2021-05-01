@@ -108,7 +108,7 @@ public class UserCrudController implements Initializable {
         refreshDataSet();
     }
 
-    private void refreshDataSet() {
+    public void refreshDataSet() {
         UsersList.clear();
         ArrayList<utilisateur> e = (ArrayList<utilisateur>) uService.findAll();
         UsersList.addAll(e);
