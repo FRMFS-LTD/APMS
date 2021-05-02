@@ -14,9 +14,7 @@ public class AbonnementDao extends MainDao implements AbonnementDaoInterface<abo
     }
 
     @Override
-    public void persist(abonnement entite) {
-        getCurrentSession().save(entite);
-    }
+    public void persist(abonnement entite) { getCurrentSession().save(entite); }
 
     @Override
     public void update(abonnement entite) {
