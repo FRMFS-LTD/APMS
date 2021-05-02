@@ -12,6 +12,7 @@ import junit.framework.TestCase;
 public class abonnementTest extends TestCase {
 
 abonnement abonne = new abonnement("DOM",12, 2.5F);
+
     public void testGetIntitule() {
     String expected = "DOM";
     String actuel = abonne.getIntitule() ;

@@ -7,12 +7,17 @@
 
 package dao.Services;
 
+import dao.AbonnementDao;
 import junit.framework.TestCase;
 import model.abonnement;
 
-public class AbonnementServiceTest extends TestCase {
-     AbonnementService as = new AbonnementService() ;
+
+public class AbonnementServiceTest extends  TestCase {
+
+    AbonnementService as = new AbonnementService() ;
+
     public void testFindbyId() {
+
         abonnement abonne = as.findbyId(1) ;
 
         assertEquals("autmazert",abonne.getIntitule());
