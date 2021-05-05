@@ -32,3 +32,15 @@
     -fx-background-color:  #fafad2;
     -fx-stroke: #daa520;
 }
+
+.titleChart{
+    -fx-text-fill: #b0aeae;
+    -fx-font-size: 20px;
+
+    -fx-border-style: hidden hidden hidden solid;
+    -fx-border-width: 5;
+    -fx-border-color: #60DAB2;
+
+
+    -fx-padding: 0 0 0 20
+}
