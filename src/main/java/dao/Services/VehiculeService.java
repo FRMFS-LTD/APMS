@@ -67,6 +67,27 @@ public class VehiculeService {
         vehiculedao.closeCurrentSession();
     }
 
+    public int AvVehiculeNumber(){
+        vehiculedao.openCurrentSession();
+        int count = vehiculedao.AvVehiculeNumber();
+        vehiculedao.closeCurrentSession();
+        return count;
+    }
+
+    public int SubVehiculeNumber() {
+        vehiculedao.openCurrentSession();
+        int count = vehiculedao.SubVehiculeNumber();
+        vehiculedao.closeCurrentSession();
+        return count;
+    }
+
+    public int UnSubVehiculeNumber(){
+        vehiculedao.openCurrentSession();
+        int count = vehiculedao.UnSubVehiculeNumber();
+        vehiculedao.closeCurrentSession();
+        return count;
+    }
+
 
 
 }

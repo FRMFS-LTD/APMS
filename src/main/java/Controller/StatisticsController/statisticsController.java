@@ -6,6 +6,7 @@
  */
 package Controller.StatisticsController;
 
+import dao.Services.VehiculeService;
 import dao.Services.parkingService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,6 +33,7 @@ public class statisticsController implements Initializable {
     private PieChart CustomersPie;
 
     parkingService ps = new parkingService();
+    VehiculeService vs = new VehiculeService();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -40,12 +42,19 @@ public class statisticsController implements Initializable {
 
     private void loadData(){
         ObservableList<PieChart.Data> chart = FXCollections.observableArrayList();
-        chart.add(new PieChart.Data("Subscribed Vehicule:",150));
-        chart.add(new PieChart.Data("UnSubscribed Vehicule:",350));
+        chart.add(new PieChart.Data(
+                "Subscribed Vehicule:"+vs.SubVehiculeNumber(),
+                vs.SubVehiculeNumber())
+        );
+        chart.add(new PieChart.Data(
+                "UnSubscribed Vehicule:"+vs.UnSubVehiculeNumber(),
+                vs.UnSubVehiculeNumber())
+        );
         CustomersPie.setData(chart);
 
         setParkingNumber();
         setAvplaces();
+        setVehiculesNumber();
 
     }
 
@@ -58,6 +67,11 @@ public class statisticsController implements Initializable {
         int count  = ps.AvPlaceNumber();
 
         AvplaceN.setText(String.valueOf(count));
+    }
+
+    public void setVehiculesNumber(){
+        int count = vs.AvVehiculeNumber();
+        VehiculesN.setText(String.valueOf(count));
     }
 
 

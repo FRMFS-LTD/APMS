@@ -86,11 +86,11 @@ public class MainWindowController {
             ViewPath = "/fxml/ClientViews/ClientCrud.fxml";
         }
 
-        /*
+
         if(actionEvent.getSource() == statsBtn){
-            ViewPath = "/fxml/Typetarifview/TypeTarifView.fxml.fxml";
+            ViewPath = "/fxml/StatisticsView/MainStatistics.fxml";
         }
-         */
+
 
         if(actionEvent.getSource() == parkinBtn){
             ViewPath = "/fxml/ParkingView/Parking.fxml";
