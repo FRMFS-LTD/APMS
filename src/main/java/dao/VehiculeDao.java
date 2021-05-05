@@ -12,6 +12,7 @@ package dao;
 import dao.interfaces.VehiculeDaoInterface;
 import model.Vehicule;
 import model.utilisateur;
+import org.hibernate.query.Query;
 import org.jboss.jandex.Main;
 
 import javax.persistence.Id;
@@ -61,6 +62,27 @@ public class VehiculeDao extends MainDao implements VehiculeDaoInterface<Vehicul
         for (Vehicule entity : entityList) {
             delete(entity);
         }
+    }
+
+    public int AvVehiculeNumber(){
+        Query query = getCurrentSession().createQuery("SELECT count(*) FROM Vehicule");
+
+        int Result = Integer.parseInt(query.getSingleResult().toString());
+        return Result;
+    }
+
+    public int SubVehiculeNumber(){
+        Query query = getCurrentSession().createSQLQuery("SELECT count(*) FROM vehicule where abonnement_id is not null");
+
+        int Result = Integer.parseInt(query.getSingleResult().toString());
+        return Result;
+    }
+
+    public int UnSubVehiculeNumber(){
+        Query query = getCurrentSession().createSQLQuery("SELECT count(*) FROM vehicule where abonnement_id is null");
+
+        int Result = Integer.parseInt(query.getSingleResult().toString());
+        return Result;
     }
 
 

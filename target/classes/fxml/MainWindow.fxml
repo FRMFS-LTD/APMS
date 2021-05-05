@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.effect.SepiaTone?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
 <!--
   ~ Copyright (c) 2021.
@@ -16,13 +22,13 @@
   ~
   -->
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" styleClass="Container" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainWindowController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" styleClass="Container" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainWindowController">
    <children>
       <BorderPane prefHeight="576.0" prefWidth="1050.0" styleClass="Container" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <bottom>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1340.0" styleClass="bottomPane" BorderPane.alignment="CENTER">
                <children>
-                  <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="617.0" layoutY="28.0" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text="Statistics" textFill="#797979">
+                  <JFXButton fx:id="statsBtn" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="617.0" layoutY="28.0" onAction="#HandleCLicks" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text="Statistics" textFill="#797979">
                      <graphic>
                         <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" styleClass="navBtn">
                            <image>
@@ -31,7 +37,7 @@
                         </ImageView>
                      </graphic>
                      <tooltip>
-                        <Tooltip autoHide="true" contentDisplay="RIGHT" graphicTextGap="5.0" opacity="0.91" style="-fx-background-color: red;" styleClass="toolTip" text="Statistics" textAlignment="CENTER" wrapText="true">
+                        <Tooltip autoHide="true" contentDisplay="RIGHT" graphicTextGap="5.0" opacity="0.91" styleClass="toolTip" text="Statistics" textAlignment="CENTER" wrapText="true">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -75,7 +81,7 @@
                         <SepiaTone />
                      </effect>
                   </JFXButton>
-                  <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="219.0" layoutY="28.0" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
+                  <JFXButton fx:id="typeTarifBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="219.0" layoutY="28.0" onAction="#HandleCLicks" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
                      <graphic>
                         <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -100,7 +106,7 @@
                         <SepiaTone />
                      </effect>
                   </JFXButton>
-                  <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="293.0" layoutY="28.0" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
+                  <JFXButton fx:id="parkinBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="293.0" layoutY="28.0" onAction="#HandleCLicks" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
                      <graphic>
                         <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -125,7 +131,7 @@
                         <SepiaTone />
                      </effect>
                   </JFXButton>
-                  <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="400.0" layoutY="28.0" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
+                  <JFXButton fx:id="HomeBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="400.0" layoutY="28.0" onAction="#HandleCLicks" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
                      <graphic>
                         <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -153,7 +159,7 @@
                         <SepiaTone />
                      </effect>
                   </JFXButton>
-                  <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="724.0" layoutY="28.0" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
+                  <JFXButton fx:id="CarsBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="724.0" layoutY="28.0" onAction="#HandleCLicks" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
                      <graphic>
                         <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -178,7 +184,7 @@
                         <SepiaTone />
                      </effect>
                   </JFXButton>
-                  <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="798.0" layoutY="28.0" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
+                  <JFXButton fx:id="CustomersBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="798.0" layoutY="28.0" onAction="#HandleCLicks" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
                      <graphic>
                         <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -228,7 +234,7 @@
                         <SepiaTone />
                      </effect>
                   </JFXButton>
-                  <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="872.0" layoutY="28.0" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
+                  <JFXButton fx:id="parkingLots" alignment="CENTER" contentDisplay="CENTER" layoutX="872.0" layoutY="28.0" onAction="#HandleCLicks" prefHeight="64.0" prefWidth="64.0" styleClass="navBtn" stylesheets="@../css/dashboard.css" text=" " textAlignment="CENTER">
                      <graphic>
                         <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -259,12 +265,21 @@
          <top>
             <HBox alignment="TOP_RIGHT" prefHeight="33.0" prefWidth="1050.0" BorderPane.alignment="CENTER">
                <children>
+                  <FontAwesomeIconView fx:id="closeBtn" fill="#e74856" glyphName="CLOSE" layoutX="500.0" layoutY="50.0" onMouseClicked="#Exit_onClick" size="30" AnchorPane.rightAnchor="10.285714149475098" AnchorPane.topAnchor="5.857143402099609">
+                     <HBox.margin>
+                        <Insets right="7.0" top="2.0" />
+                     </HBox.margin></FontAwesomeIconView>
                   <StackPane style="-fx-border-radius: 50;" styleClass="Container" />
-               </children></HBox>
+               </children>
+            </HBox>
          </top>
          <center>
-            <StackPane fx:id="mainPane" prefHeight="800.0" prefWidth="1200.0" BorderPane.alignment="CENTER" />
+            <StackPane fx:id="mainPane" prefHeight="800.0" prefWidth="1400.0" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </children>
+   <stylesheets>
+      <URL value="@../css/dashboard.css" />
+      <URL value="@../css/style.css" />
+   </stylesheets>
 </AnchorPane>

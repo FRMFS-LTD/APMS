@@ -8,8 +8,11 @@ package dao;
  */
 import dao.interfaces.parkingDaoInterface;
 import model.parking;
+import model.utilisateur;
+import org.hibernate.query.Query;
 
 import javax.persistence.Id;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -42,5 +45,18 @@ public class parkingDao extends MainDao implements parkingDaoInterface<parking, 
              delete(park);
          }
      }
+
+     public int findParkingCount(){
+         return findAll().size();
+     }
+
+     public int AvPlaceNumber(){
+         Query query = getCurrentSession().createQuery("SELECT sum(nbplace) FROM parking");
+
+         int Result = Integer.parseInt(query.getSingleResult().toString());
+         return Result;
+     }
+
+
 
 }

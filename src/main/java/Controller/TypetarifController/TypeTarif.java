@@ -41,6 +41,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import model.typetarif;
+import org.hibernate.HibernateException;
+import org.hibernate.exception.ConstraintViolationException;
 
 import java.io.IOException;
 import java.net.URL;
@@ -225,20 +227,44 @@ public class TypeTarif implements Initializable {
     }
 
     private void DeletetypetarifConfirmation() {
-        typetarif TT = TypeTarfiTable.getSelectionModel().getSelectedItem();
+
+        try {
 
 
-        Dialog dialog = new Dialog(
-                DialogType.CONFIRMATION,
-                "Delete User action",
-                "Confirm Action",
-                "Are you sure you want to delete " + TT.getTypetarif() + "?");
+            typetarif TT = TypeTarfiTable.getSelectionModel().getSelectedItem();
 
-        dialog.showAndWait();
 
-        if (dialog.getResponse() == DialogResponse.YES) {
-            TTServ.delete(TT.getId_typetarif());
-            refreshDataSet();
+            Dialog dialog = new Dialog(
+                    DialogType.CONFIRMATION,
+                    "Delete User action",
+                    "Confirm Action",
+                    "Are you sure you want to delete " + TT.getTypetarif() + "?");
+
+            dialog.showAndWait();
+
+            if (dialog.getResponse() == DialogResponse.YES) {
+                TTServ.delete(TT.getId_typetarif());
+                refreshDataSet();
+            }
+        }
+        catch (ConstraintViolationException e) {
+            Dialog dialog = new Dialog(
+                    DialogType.ERROR,
+                    e.getCause().toString(),
+                    e.getMessage());
+            dialog.showAndWait();
+        } catch (HibernateException E) {
+            Dialog dialog = new Dialog(
+                    DialogType.ERROR,
+                    "DATABASE ERROR",
+                    E.getMessage());
+            dialog.showAndWait();
+        } catch (Exception E) {
+            Dialog dialog = new Dialog(
+                    DialogType.ERROR,
+                    E.getCause().toString(),
+                    E.getMessage());
+            dialog.showAndWait();
         }
     }
 

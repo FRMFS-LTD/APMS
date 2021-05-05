@@ -39,6 +39,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import model.parking;
+import org.hibernate.HibernateException;
+import org.hibernate.exception.ConstraintViolationException;
 
 import java.io.IOException;
 import java.net.URL;
@@ -232,21 +234,46 @@ public class Parking implements Initializable {
     }
 
     private void DeleteParkingConfirmation() {
-        parking park = ParkingTable.getSelectionModel().getSelectedItem();
+        try {
 
 
-        Dialog dialog = new Dialog(
-                DialogType.CONFIRMATION,
-                "Delete Parking action",
-                "Confirm Action",
-                "Are you sure you want to delete " + park.getNomParking() +""+ "?");
-        dialog.showAndWait();
+            parking park = ParkingTable.getSelectionModel().getSelectedItem();
 
-        if (dialog.getResponse() == DialogResponse.YES) {
-            ParkServ.delete(park.getId_parking());
-            refreshDataSet();
+
+            Dialog dialog = new Dialog(
+                    DialogType.CONFIRMATION,
+                    "Delete Parking action",
+                    "Confirm Action",
+                    "Are you sure you want to delete " + park.getNomParking() + "" + "?");
+            dialog.showAndWait();
+
+            if (dialog.getResponse() == DialogResponse.YES) {
+                ParkServ.delete(park.getId_parking());
+                refreshDataSet();
+
+            }
         }
+        catch (ConstraintViolationException e) {
+                Dialog dialog = new Dialog(
+                        DialogType.ERROR,
+                        e.getCause().toString(),
+                        e.getMessage());
+                dialog.showAndWait();
+            } catch (HibernateException E) {
+                Dialog dialog = new Dialog(
+                        DialogType.ERROR,
+                        "DATABASE ERROR",
+                        E.getMessage());
+                dialog.showAndWait();
+            } catch (Exception E) {
+                Dialog dialog = new Dialog(
+                        DialogType.ERROR,
+                        E.getCause().toString(),
+                        E.getMessage());
+                dialog.showAndWait();
+            }
     }
+
 
 
     public void FilterSearch(){
