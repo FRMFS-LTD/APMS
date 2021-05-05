@@ -5,10 +5,9 @@ package dao.Services;
  * for FRMFS-ltd organisation
  *
  */
-import dao.UserDao;
+
 import dao.typetarifDao;
 import model.typetarif;
-import model.utilisateur;
 
 import java.util.List;
 

@@ -200,7 +200,7 @@ public class PwdResetController {
             System.out.println("sending...");
             // Send message
             Transport.send(message);
-            System.out.println("Sent message successfully....");
+            System.out.println("message sent successfully....");
         } catch (MessagingException mex) {
             mex.printStackTrace();
         }

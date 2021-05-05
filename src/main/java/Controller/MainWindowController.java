@@ -45,7 +45,7 @@ public class MainWindowController {
         }
 
         if (actionEvent.getSource() == AbonnCrudBtn) {
-            SlideViewToMainWindow("/fxml/AbonnementCrud.fxml");
+            SlideViewToMainWindow("/fxml/AbonnementViews/AbonnementCrud.fxml");
         }
     }
 

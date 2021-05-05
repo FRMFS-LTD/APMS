@@ -12,6 +12,9 @@ package Controller.UserControllers;
 
 
 
+import com.github.daytron.simpledialogfx.data.DialogStyle;
+import com.github.daytron.simpledialogfx.dialog.Dialog;
+import com.github.daytron.simpledialogfx.dialog.DialogType;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -69,7 +72,6 @@ public class LogIn {
     @FXML
     public void loginClick(ActionEvent event) throws Exception {
         setControllerVal();
-
     }
 
     public void setControllerVal() throws Exception {
@@ -89,23 +91,23 @@ public class LogIn {
             }catch(IndexOutOfBoundsException e){
                 e.printStackTrace();
 
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("USER does not exist");
-                alert.setHeaderText("invalid Username or Password");
-                alert.setContentText("try again!!");
-
-                alert.showAndWait();
+                Dialog dialog = new Dialog(
+                        DialogType.WARNING,
+                        DialogStyle.UNDECORATED,
+                        "invalid Username or Password",
+                        "try again!!");
+                dialog.showAndWait();
             }
 
 
         }
         else{
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Empty Fields Error");
-            alert.setHeaderText("Username or Password are not supplied");
-            alert.setContentText("fill in the fields and try again!!");
-
-            alert.showAndWait();
+            Dialog dialog = new Dialog(
+                    DialogType.WARNING,
+                    DialogStyle.UNDECORATED,
+                    "Username or Password are not supplied",
+                    "fill in the fields and try again!!");
+            dialog.showAndWait();
         }
 
 

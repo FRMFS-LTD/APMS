@@ -8,6 +8,7 @@
 package Controller.UserControllers;
 
 
+import Helpers.AppContext;
 import com.github.daytron.simpledialogfx.dialog.Dialog;
 import com.github.daytron.simpledialogfx.dialog.DialogType;
 import com.jfoenix.controls.JFXButton;
@@ -16,6 +17,7 @@ import com.jfoenix.controls.JFXTextField;
 import dao.Services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
@@ -24,12 +26,15 @@ import javafx.stage.Stage;
 import model.utilisateur;
 
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 import javafx.scene.control.Label;
@@ -130,16 +135,14 @@ public class AddUserController implements Initializable {
 
     try{
         if (!this.update) {
-
-
             utilisateur user = new utilisateur();
             utilisateur new_user = createOrupdateNewUser(user);
 
             if(GeneralExeption()){
                 us.persist(new_user);
+                AppContext.infoDialog("Create User","New User has been added");
                 CloseForm();
             }
-
 
         } else {
 
@@ -148,12 +151,10 @@ public class AddUserController implements Initializable {
 
             if(GeneralExeption()){
                 us.update(userRe);
+                AppContext.infoDialog("Update User","Updating user with id: "+userRe.getId_user()+" has been added");
                 CloseForm();
             }
-
-
         }
-
     }
     catch (HibernateException E ){
         Dialog dialog = new Dialog(
@@ -169,13 +170,9 @@ public class AddUserController implements Initializable {
                 E.getMessage());
         dialog.showAndWait();
     }
-
-
     }
 
     private utilisateur createOrupdateNewUser(utilisateur user) {
-
-
         user.setNom(firstNameField.getText());
         user.setPrenom(LastNameField.getText());
         user.setCin(CinField.getText());
@@ -195,11 +192,8 @@ public class AddUserController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
             isAdminField.getItems().add(0, "False");
             isAdminField.getItems().add(1, "True");
-
-
     }
 
     @FXML
@@ -234,8 +228,6 @@ public class AddUserController implements Initializable {
 
     }
 
-
-
     @FXML
     void pwdField__textChanged(KeyEvent event) {
 
@@ -269,8 +261,6 @@ public class AddUserController implements Initializable {
         }
 
     }
-
-
 
     @FXML
     void LastNameField_TextChanged(KeyEvent event) {
@@ -380,11 +370,13 @@ public class AddUserController implements Initializable {
             return SetErrorMessage("please define user role");
         }
         else if(UserNameField.getText().isEmpty() || UserNameField.getText().length() < 8){
-            return SetErrorMessage("validate Mail field to given Conditions");
+            return SetErrorMessage("validate UserName field to given Conditions");
         }
         else if(pwdField.getText().isEmpty() || pwdField.getText().length() < 8){
-            return SetErrorMessage("validate Mail field to given Conditions");
+            return SetErrorMessage("validate password field to given Conditions");
         }else{
+            GlobalError.setTextFill(Color.web("#64DD17", 0.8));
+            GlobalError.setText("Ready to save");
             return true;
         }
 
@@ -394,6 +386,8 @@ public class AddUserController implements Initializable {
         GlobalError.setText(s);
         return false;
     }
+
+
 
 
 }

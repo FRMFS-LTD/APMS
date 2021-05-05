@@ -13,6 +13,9 @@ package Helpers;/*
  */
 
 import animatefx.animation.*;
+import com.github.daytron.simpledialogfx.data.DialogStyle;
+import com.github.daytron.simpledialogfx.dialog.Dialog;
+import com.github.daytron.simpledialogfx.dialog.DialogType;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -52,4 +55,12 @@ public class AppContext {
     }
 
 
+    public static void infoDialog(String Header,String Message){
+        Dialog dialog = new Dialog(
+                DialogType.INFORMATION,
+                DialogStyle.UNDECORATED,
+                Header,
+                Message);
+        dialog.showAndWait();
+    }
 }

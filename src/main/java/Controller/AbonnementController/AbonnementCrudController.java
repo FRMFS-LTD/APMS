@@ -7,10 +7,8 @@
 
 package Controller.AbonnementController;
 import com.github.daytron.simpledialogfx.data.DialogResponse;
-import com.github.daytron.simpledialogfx.data.DialogStyle;
 import com.github.daytron.simpledialogfx.dialog.Dialog;
 import com.github.daytron.simpledialogfx.dialog.DialogType;
-import Controller.UserControllers.AddUserController;
 import Helpers.AppContext;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -98,7 +96,7 @@ public class AbonnementCrudController implements Initializable {
     @FXML
     void AddAbonn_click (ActionEvent event) throws IOException{
         Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/AddAbonnement.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/AbonnementViews/AddAbonnement.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         AppContext.UpdateStage(primaryStage, root, scene);
@@ -177,7 +175,7 @@ public class AbonnementCrudController implements Initializable {
                 private void LoadAbonnIntoUpdateForm(abonnement abonnement) {
 
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/fxml/AddAbonnement.fxml"));
+                    loader.setLocation(getClass().getResource("/fxml/AbonnementViews/AddAbonnement.fxml"));
                     try {
                         loader.load();
                     } catch (IOException ex) {

@@ -1,66 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.*?>
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="472.0" style="-fx-border-color: white;" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AbonnementController.AddAbonnController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="520.0" style="-fx-border-color: white;" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AbonnementController.AddAbonnController">
     <children>
         <Label layoutX="41.0" layoutY="32.0" prefHeight="40.0" prefWidth="218.0" styleClass="title" text="Create Abonnement" />
-        <HBox layoutX="45.0" layoutY="117.0" prefHeight="38.0" prefWidth="303.0">
+        <HBox layoutX="80.0" layoutY="117.0" prefHeight="61.0" prefWidth="303.0">
             <children>
                
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
 
                     <image>
-                        <Image url="@../assets/AbonnementIco/icons8_subscription_64px_3.png" />
+                        <Image url="@../assets/AbonnementIco/icons8_subscription_64px.png" />
                     </image>
-               <HBox.margin>
-                  <Insets right="3.0" />
-               </HBox.margin>
                 </ImageView>
-                <JFXTextField fx:id="IntituleField" labelFloat="true" onKeyPressed="#intitule_TextChanged" prefHeight="40.0" prefWidth="272.0" promptText="Intitule" styleClass="textField" unFocusColor="#494949">
-               <font>
-                  <Font name="Arial" size="12.0" />
-               </font></JFXTextField>
+                <JFXTextField fx:id="IntituleField" prefHeight="26.0" prefWidth="217.0" promptText="Intitule" styleClass="textField" unFocusColor="#494949" />
             </children>
         </HBox>
-        <HBox layoutX="45.0" layoutY="208.0" prefHeight="38.0" prefWidth="303.0">
+        <HBox layoutX="74.0" layoutY="201.0" prefHeight="61.0" prefWidth="303.0">
             <children>
                 <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../assets/AbonnementIco/icons8_price_64px_3.png" />
+                    <Image url="@../assets/AbonnementIco/icons8_money_bag_64px_2.png" />
                 </image>
-               <HBox.margin>
-                  <Insets right="3.0" />
-               </HBox.margin>
                 </ImageView>
-                <JFXTextField fx:id="PrixField" labelFloat="true" onKeyPressed="#prix_TextChanged" prefHeight="40.0" prefWidth="272.0" promptText="Prix" styleClass="textField" unFocusColor="#494949">
-               <font>
-                  <Font name="Arial" size="12.0" />
-               </font></JFXTextField>
+                <JFXTextField fx:id="PrixField" prefHeight="26.0" prefWidth="217.0" promptText="Prix" styleClass="textField" unFocusColor="#494949" />
             </children>
         </HBox>
-        <HBox layoutX="48.0" layoutY="303.0" prefHeight="38.0" prefWidth="303.0">
+        <HBox layoutX="80.0" layoutY="295.0" prefHeight="61.0" prefWidth="303.0">
             <children>
                 <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../assets/AbonnementIco/icons8_date_span_64px_2.png" />
-                    </image>
-                    <HBox.margin>
-                        <Insets right="3.0" />
-                    </HBox.margin>
+                <image>
+                    <Image url="@../assets/AbonnementIco/icons8_date_span_64px.png" />
+                </image>
                 </ImageView>
-                <JFXTextField fx:id="PeriodeField" labelFloat="true" onKeyPressed="#periode_TextChanged" prefHeight="40.0" prefWidth="272.0" promptText="Periode" styleClass="textField" unFocusColor="#494949">
-               <font>
-                  <Font name="Arial" size="12.0" />
-               </font></JFXTextField>
+                <JFXTextField fx:id="PeriodeField" prefHeight="26.0" prefWidth="217.0" promptText="Periode" styleClass="textField" unFocusColor="#494949" />
             </children>
         </HBox>
-        <JFXButton fx:id="addNewAbonn" layoutX="47.0" layoutY="403.0" onAction="#addNewAbonn_click" prefHeight="38.0" prefWidth="182.0" styleClass="primBtn" text="Save Abonnement">
+        <JFXButton fx:id="addNewAbonn" layoutX="81.0" layoutY="395.0" onAction="#addNewAbonn_click" prefHeight="38.0" prefWidth="211.0" styleClass="primBtn" text="Save Abonnement">
          <graphic>
             <ImageView cache="true" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" styleClass="primBtn">
              <image>
@@ -68,17 +48,23 @@
              </image>
             </ImageView>
          </graphic></JFXButton>
-        <JFXButton fx:id="Cancel" layoutX="255.0" layoutY="403.0" onAction="#Cancel_click" prefHeight="38.0" prefWidth="182.0" styleClass="SecBtn" text="Cancel">
+        <JFXButton fx:id="Cancel" layoutX="311.0" layoutY="392.0" onAction="#Cancel_click" prefHeight="39.0" prefWidth="176.0" styleClass="SecBtn" text="Cancel">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../assets/AbonnementIco/icons8_rollback_64px.png" />
+                    <Image url="@../assets/AbonnementIco/icons8_cancel_subscription_64px.png" />
                 </image>
             </ImageView>
          </graphic></JFXButton>
+<<<<<<< HEAD
       <Label fx:id="ErrorGlobale" layoutX="74.0" layoutY="74.0" prefHeight="26.0" prefWidth="356.0" />
       <Label fx:id="intituleErreur" layoutX="74.0" layoutY="162.0" prefHeight="26.0" prefWidth="272.0" />
       <Label fx:id="prixErreur" layoutX="74.0" layoutY="251.0" prefHeight="26.0" prefWidth="272.0" />
       <Label fx:id="periodeErreur" layoutX="74.0" layoutY="345.0" prefHeight="26.0" prefWidth="272.0" />
+=======
+      <Label fx:id="IntituleError" layoutX="110.0" layoutY="154.0" onInputMethodTextChanged="#IntituleField_TextChanged" prefHeight="26.0" prefWidth="211.0" />
+      <Label fx:id="PrixError" layoutX="100.0" layoutY="237.0" onInputMethodTextChanged="#PrixField_textChanged" prefHeight="26.0" prefWidth="217.0" />
+      <Label fx:id="PeriodeError" layoutX="104.0" layoutY="327.0" onInputMethodTextChanged="#PeriodeField_textChanged" prefHeight="26.0" prefWidth="217.0" />
+>>>>>>> 7b3efe4ce639789dc36153e0c75d0c8d155d825f
     </children>
 </AnchorPane>

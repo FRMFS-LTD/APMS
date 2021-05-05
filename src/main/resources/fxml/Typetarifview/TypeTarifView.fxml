@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<!--
+  ~ Copyright (c) 2021.
+  ~ programmed by Fadoua Abdoulmoulah
+  ~ for FRMFS-ltd organisation
+  ~
+  -->
+
+<AnchorPane prefHeight="620.0" prefWidth="754.0" styleClass="Container" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TypetarifController.TypeTarif">
+   <children>
+      <TableView fx:id="TypeTarfiTable" layoutX="47.0" layoutY="143.0" prefHeight="396.0" prefWidth="649.0">
+        <columns>
+            <TableColumn fx:id="TypetarifCol" prefWidth="214.0" text="Type Tarif" />
+            <TableColumn fx:id="PrixCol" prefWidth="224.0" text="Prix" />
+            <TableColumn fx:id="OptionCol" prefWidth="209.0" text="Options" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="AddInfoTypetarif" layoutX="47.0" layoutY="559.0" onAction="#AddNewTypeTarif_click" prefHeight="38.0" prefWidth="203.0" styleClass="primBtn" text="Add">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/UserIco/icons8_create_64px_1.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="RefreshBtn" layoutX="284.0" layoutY="558.0" onAction="#RefreshBtn_click" prefHeight="38.0" prefWidth="199.0" styleClass="SecBtn" text="Refresh">
+         <graphic>
+            <ImageView fx:id="refreshbtn" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/UserIco/icons8_refresh_64px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Label layoutX="47.0" layoutY="28.0" styleClass="title" text="Les types de tarif" />
+      <JFXTextField fx:id="SearchTextField" labelFloat="true" layoutX="62.0" layoutY="92.0" prefHeight="26.0" prefWidth="268.0" promptText="search" styleClass="textField" />
+   </children>
+</AnchorPane>
