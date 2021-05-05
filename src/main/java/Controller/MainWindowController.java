@@ -7,12 +7,16 @@
 
 package Controller;
 
+import Helpers.AppContext;
 import com.jfoenix.controls.JFXButton;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -36,6 +40,9 @@ public class MainWindowController {
 
     @FXML
     private JFXButton CarsBtn;
+
+    @FXML
+    private FontAwesomeIconView closeBtn;
 
     @FXML
     private JFXButton CustomersBtn;
@@ -123,5 +130,11 @@ public class MainWindowController {
             }
 
 
+    }
+
+    public void Exit_onClick(MouseEvent mouseEvent)  {
+        Stage stage = (Stage) closeBtn.getScene().getWindow();
+
+        AppContext.closeForm(stage);
     }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Tooltip?>
@@ -263,8 +264,13 @@
          <top>
             <HBox alignment="TOP_RIGHT" prefHeight="33.0" prefWidth="1050.0" BorderPane.alignment="CENTER">
                <children>
+                  <FontAwesomeIconView fx:id="closeBtn" fill="#e74856" glyphName="CLOSE" layoutX="500.0" layoutY="50.0" onMouseClicked="#Exit_onClick" size="30" AnchorPane.rightAnchor="10.285714149475098" AnchorPane.topAnchor="5.857143402099609">
+                     <HBox.margin>
+                        <Insets right="7.0" top="2.0" />
+                     </HBox.margin></FontAwesomeIconView>
                   <StackPane style="-fx-border-radius: 50;" styleClass="Container" />
-               </children></HBox>
+               </children>
+            </HBox>
          </top>
          <center>
             <StackPane fx:id="mainPane" prefHeight="800.0" prefWidth="1200.0" BorderPane.alignment="CENTER" />
