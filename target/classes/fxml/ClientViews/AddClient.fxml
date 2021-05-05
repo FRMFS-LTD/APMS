@@ -4,7 +4,6 @@
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
@@ -12,7 +11,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="523.0" prefWidth="602.0" style="-fx-border-color: white;" styleClass="Container" stylesheets="@../../../../main/resources/css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ClientControllers.AddClientController">
+<AnchorPane prefHeight="523.0" prefWidth="602.0" style="-fx-border-color: white;" styleClass="Container" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ClientControllers.AddClientController">
     <children>
         <Label layoutX="38.0" layoutY="29.0" styleClass="title" text="Create new Client" />
         <JFXButton fx:id="AddNewClient" layoutX="56.0" layoutY="446.0" onAction="#AddNewClient_click" prefHeight="26.0" prefWidth="218.0" styleClass="primBtn" text="Save Changes">
