@@ -1,0 +1,34 @@
+/*
+ * Copyright (c) 2021.
+ * programmed by Rachid Boufous.
+ * for FRMFS-ltd organisation
+ *
+ */
+.chart{
+
+    -fx-pie-label-visible:true;
+    -fx-label-line-length:50;
+}
+
+.default-color0.chart-pie{
+    -fx-pie-color: #6C6BB4;
+}
+.default-color1.chart-pie{
+    -fx-pie-color: #069DA2;
+}
+
+
+/*change color of the pie chart label */
+.chart-pie-label-line {
+    -fx-stroke: #FFFFFF;
+    -fx-fill: #FFFFFF;
+}
+
+.chart-pie-label { /*this is what you need for labels*/
+    -fx-fill: #FFFFFF;
+    -fx-font-size: 1em;
+}
+.chart-legend {
+    -fx-background-color:  #fafad2;
+    -fx-stroke: #daa520;
+}

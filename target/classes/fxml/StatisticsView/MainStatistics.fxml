@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<!--
+  ~ Copyright (c) 2021.
+  ~ programmed by Rachid Boufous.
+  ~ for FRMFS-ltd organisation
+  ~
+  -->
+
+<AnchorPane prefHeight="620.0" prefWidth="1100.0" styleClass="Container" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StatisticsController.statisticsController">
+   <children>
+      <Label layoutX="74.0" layoutY="37.0" styleClass="title" stylesheets="@../../css/style.css" text="Statistics" />
+      <Label layoutX="74.0" layoutY="144.0" styleClass="title" stylesheets="@../../css/style.css" text="Active parkings N°:" />
+      <Label layoutX="70.0" layoutY="303.0" styleClass="title" stylesheets="@../../css/style.css" text="Total available places :" />
+      <Label layoutX="74.0" layoutY="442.0" styleClass="title" stylesheets="@../../css/style.css" text="Total Vehicles N°:" />
+      <Label fx:id="ActiveParkingsN" layoutX="93.0" layoutY="184.0" text="500" textFill="WHITE">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Label>
+      <Label fx:id="AvplaceN" layoutX="93.0" layoutY="343.0" text="500" textFill="WHITE">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Label>
+      <Label fx:id="VehiculesN" layoutX="93.0" layoutY="482.0" text="500" textFill="WHITE">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Label>
+      <Label layoutX="447.0" layoutY="144.0" styleClass="title" stylesheets="@../../css/style.css" text="Vehicles stats:" />
+      <PieChart fx:id="CustomersPie" layoutX="447.0" layoutY="207.0" prefHeight="359.0" prefWidth="591.0" style="-fx-text-fill: white;" />
+   </children>
+   <stylesheets>
+      <URL value="@../../css/style.css" />
+      <URL value="@../../css/baseStyle.css" />
+      <URL value="@../../css/chartStyle.css" />
+   </stylesheets>
+</AnchorPane>
