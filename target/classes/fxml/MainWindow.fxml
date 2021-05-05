@@ -37,7 +37,7 @@
                         </ImageView>
                      </graphic>
                      <tooltip>
-                        <Tooltip autoHide="true" contentDisplay="RIGHT" graphicTextGap="5.0" opacity="0.91" style="-fx-background-color: red;" styleClass="toolTip" text="Statistics" textAlignment="CENTER" wrapText="true">
+                        <Tooltip autoHide="true" contentDisplay="RIGHT" graphicTextGap="5.0" opacity="0.91" styleClass="toolTip" text="Statistics" textAlignment="CENTER" wrapText="true">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -274,7 +274,7 @@
             </HBox>
          </top>
          <center>
-            <StackPane fx:id="mainPane" prefHeight="800.0" prefWidth="1200.0" BorderPane.alignment="CENTER" />
+            <StackPane fx:id="mainPane" prefHeight="800.0" prefWidth="1400.0" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </children>
