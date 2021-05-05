@@ -10,6 +10,15 @@ public class parking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int id_parking;
+    private String NomParking;
+
+    public String getNomParking() {
+        return NomParking;
+    }
+
+    public void setNomParking(String nomParking) {
+        NomParking = nomParking;
+    }
 
     protected String address;
     protected int nbplace ;
