@@ -25,7 +25,7 @@
                   <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
                </image>
             </ImageView>
-            <JFXTextField fx:id="VillePField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Ville de parking" styleClass="textField" unFocusColor="#494949" />
+            <JFXTextField fx:id="VillePField" labelFloat="true" onKeyPressed="#VilleField_TextChanged" prefHeight="26.0" prefWidth="217.0" promptText="Ville de parking" styleClass="textField" unFocusColor="#494949" />
          </children>
       </HBox>
       <HBox alignment="TOP_CENTER" layoutX="50.0" layoutY="210.0" prefHeight="40.0">
@@ -35,7 +35,7 @@
                   <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
                </image>
             </ImageView>
-            <JFXTextField fx:id="AdrssField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Adresse du parking" styleClass="textField" unFocusColor="#494949" />
+            <JFXTextField fx:id="AdrssField" labelFloat="true" onKeyPressed="#AdrssField_TextChanged" prefHeight="26.0" prefWidth="217.0" promptText="Adresse du parking" styleClass="textField" unFocusColor="#494949" />
          </children>
       </HBox>
       <HBox alignment="TOP_CENTER" layoutX="335.0" layoutY="210.0" prefHeight="40.0">
@@ -45,7 +45,7 @@
                   <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
                </image>
             </ImageView>
-            <JFXTextField fx:id="NBField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Nombre de place" styleClass="textField" unFocusColor="#494949" />
+            <JFXTextField fx:id="NBField" labelFloat="true" onKeyPressed="#NbField_TextChanged" prefHeight="26.0" prefWidth="217.0" promptText="Nombre de place" styleClass="textField" unFocusColor="#494949" />
          </children>
       </HBox>
       <JFXButton fx:id="addNewParking" layoutX="62.0" layoutY="286.0" onAction="#addNewParking_click" prefHeight="26.0" prefWidth="218.0" styleClass="primBtn" text="Save Changes">
@@ -66,7 +66,6 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <Label fx:id="GlobalError" layoutX="44.0" layoutY="100.0" prefHeight="26.0" prefWidth="527.0" />
       <HBox alignment="TOP_CENTER" layoutX="50.0" layoutY="139.0" prefHeight="40.0">
          <children>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
@@ -74,8 +73,13 @@
                   <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
                </image>
             </ImageView>
-            <JFXTextField fx:id="NomField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Nom de parking" styleClass="textField" unFocusColor="#494949" />
+            <JFXTextField fx:id="NomField" labelFloat="true" onKeyPressed="#NomField_TextChanged" prefHeight="26.0" prefWidth="217.0" promptText="Nom de parking" styleClass="textField" unFocusColor="#494949" />
          </children>
       </HBox>
+      <Label fx:id="GlobalError" layoutX="44.0" layoutY="100.0" prefHeight="26.0" prefWidth="527.0" />
+      <Label fx:id="VilleError" layoutX="361.0" layoutY="166.0" prefHeight="26.0" prefWidth="217.0" />
+      <Label fx:id="NomError" layoutX="76.0" layoutY="169.0" prefHeight="26.0" prefWidth="217.0" />
+      <Label fx:id="AdrssError" layoutX="76.0" layoutY="238.0" prefHeight="26.0" prefWidth="217.0" />
+      <Label fx:id="NbError" layoutX="361.0" layoutY="238.0" prefHeight="26.0" prefWidth="217.0" />
    </children>
 </AnchorPane>

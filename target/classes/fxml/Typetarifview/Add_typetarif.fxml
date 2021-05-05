@@ -19,7 +19,7 @@
 <AnchorPane prefHeight="249.0" prefWidth="609.0" styleClass="Container" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TypetarifController.TypeTarifAdd">
    <children>
       <HBox layoutX="56.0" layoutY="121.0" />
-      <HBox layoutX="56.0" layoutY="185.0" prefHeight="0.0" prefWidth="0.0" />
+      <HBox layoutX="56.0" layoutY="185.0" />
       <JFXButton fx:id="addNewTT" layoutX="39.0" layoutY="193.0" onAction="#addNewTypeTarif_click" prefHeight="26.0" prefWidth="218.0" styleClass="primBtn" text="Save Changes">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
@@ -46,7 +46,7 @@
                   <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
                </image>
             </ImageView>
-            <JFXTextField fx:id="TTField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Type de tarif" styleClass="textField" unFocusColor="#494949" />
+            <JFXTextField fx:id="TTField" labelFloat="true" onKeyPressed="#TTField_TextChanged" prefHeight="26.0" prefWidth="217.0" promptText="Type de tarif" styleClass="textField" unFocusColor="#494949" />
          </children>
       </HBox>
       <HBox alignment="TOP_CENTER" layoutX="339.0" layoutY="121.0" prefHeight="40.0">
@@ -60,8 +60,8 @@
          </children>
       </HBox>
       <Label fx:id="GlobalError" layoutX="41.0" layoutY="85.0" prefHeight="26.0" prefWidth="527.0" />
-      <Label fx:id="TypeTarifError" layoutX="41.0" layoutY="159.0" prefHeight="26.0" prefWidth="243.0" />
-      <Label fx:id="PrixError" layoutX="339.0" layoutY="159.0" prefHeight="26.0" prefWidth="243.0" />
+      <Label fx:id="TTError" layoutX="64.0" layoutY="149.0" prefHeight="26.0" prefWidth="217.0" />
+      <Label fx:id="PrixError" layoutX="365.0" layoutY="149.0" prefHeight="26.0" prefWidth="217.0" />
    </children>
    <padding>
       <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />

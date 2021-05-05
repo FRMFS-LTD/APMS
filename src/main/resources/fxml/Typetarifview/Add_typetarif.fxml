@@ -46,7 +46,7 @@
                   <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
                </image>
             </ImageView>
-            <JFXTextField fx:id="TTField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Type de tarif" styleClass="textField" unFocusColor="#494949" />
+            <JFXTextField fx:id="TTField" labelFloat="true" onKeyPressed="#TTField_TextChanged" prefHeight="26.0" prefWidth="217.0" promptText="Type de tarif" styleClass="textField" unFocusColor="#494949" />
          </children>
       </HBox>
       <HBox alignment="TOP_CENTER" layoutX="339.0" layoutY="121.0" prefHeight="40.0">
@@ -56,10 +56,12 @@
                   <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
                </image>
             </ImageView>
-            <JFXTextField fx:id="PrixField" labelFloat="true" prefHeight="26.0" prefWidth="217.0" promptText="Prix " styleClass="textField" unFocusColor="#494949" />
+            <JFXTextField fx:id="PrixField" labelFloat="true" onKeyPressed="#PrixField_TextChanged" prefHeight="26.0" prefWidth="217.0" promptText="Prix " styleClass="textField" unFocusColor="#494949" />
          </children>
       </HBox>
       <Label fx:id="GlobalError" layoutX="41.0" layoutY="85.0" prefHeight="26.0" prefWidth="527.0" />
+      <Label fx:id="TTError" layoutX="64.0" layoutY="149.0" prefHeight="26.0" prefWidth="217.0" />
+      <Label fx:id="PrixError" layoutX="365.0" layoutY="149.0" prefHeight="26.0" prefWidth="217.0" />
    </children>
    <padding>
       <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />

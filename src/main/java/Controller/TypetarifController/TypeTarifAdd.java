@@ -16,11 +16,13 @@ import dao.Services.typetarifService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.typetarif;
 import org.hibernate.HibernateException;
 
+import java.util.regex.Pattern;
 
 
 public class TypeTarifAdd {
@@ -40,6 +42,11 @@ public class TypeTarifAdd {
     @FXML
     private Label GlobalError;
 
+    @FXML
+    private Label TTError;
+
+    @FXML
+    private Label PrixError;
 
     typetarifService TTSS = new typetarifService();
     private boolean TOF;
@@ -122,7 +129,31 @@ public class TypeTarifAdd {
         }
     }
 
+    @FXML
+    void TTField_TextChanged(KeyEvent event) {
+        if(TTField.getText().isEmpty()){
+            TTError.setText("Invalid name of price type (EX:Weekly..)");
+            TTError.setTextFill(Color.web("#E53935", 0.8));
 
+        }else{
+            TTError.setText("Valid name of price type");
+            TTError.setTextFill(Color.web("#64DD17", 0.8));
+
+        }
+    }
+
+    @FXML
+    void PrixField_TextChanged(KeyEvent event) {
+        if(!(Pattern.matches("[1-9]+",PrixField.getText()))){
+            PrixError.setText("Invalid price (EX:120..)");
+            PrixError.setTextFill(Color.web("#E53935", 0.8));
+
+        }else{
+            PrixError.setText("Valid Price");
+            PrixError.setTextFill(Color.web("#64DD17", 0.8));
+
+        }
+    }
 
     private typetarif newTypetarif(typetarif tt) {
 
