@@ -155,6 +155,12 @@ public class AddUserController implements Initializable {
                 CloseForm();
             }
         }
+    }catch (ConstraintViolationException e){
+        Dialog dialog = new Dialog(
+                DialogType.ERROR,
+                e.getCause().toString(),
+                e.getMessage());
+        dialog.showAndWait();
     }
     catch (HibernateException E ){
         Dialog dialog = new Dialog(

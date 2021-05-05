@@ -40,9 +40,13 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import model.utilisateur;
+import org.hibernate.HibernateException;
+import org.hibernate.exception.ConstraintViolationException;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLDataException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -146,23 +150,23 @@ public class UserCrudController implements Initializable {
         refreshDataSet();
     }
 
-   public void CreateIcons(){
+    public void CreateIcons() {
 
-        Callback<TableColumn<utilisateur,String>,TableCell<utilisateur,String>> cellFactory = (
-                TableColumn<utilisateur,String> param) ->{
+        Callback<TableColumn<utilisateur, String>, TableCell<utilisateur, String>> cellFactory = (
+                TableColumn<utilisateur, String> param) -> {
 
-            final TableCell<utilisateur,String> cell = new TableCell<utilisateur,String>(){
+            final TableCell<utilisateur, String> cell = new TableCell<utilisateur, String>() {
 
                 @Override
                 protected void updateItem(String item, boolean empty) {
                     super.updateItem(item, empty);
 
-                    if(empty){
+                    if (empty) {
                         setGraphic(null);
                         setText(null);
-                    }else{
+                    } else {
 
-                        FontAwesomeIconView  DeleteIco = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
+                        FontAwesomeIconView DeleteIco = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
                         FontAwesomeIconView EditIco = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE_ALT);
 
                         StyleIcons(DeleteIco, EditIco);
@@ -171,13 +175,13 @@ public class UserCrudController implements Initializable {
                         // create the event handler for each btn
                         // create the event handler for DeleteBtn
 
-                        DeleteIco.setOnMouseClicked((MouseEvent event)->
+                        DeleteIco.setOnMouseClicked((MouseEvent event) ->
                         {
                             DeleteUserConfirmation();
                         });
 
                         // create the event handler for EditBtn
-                        EditIco.setOnMouseClicked((MouseEvent EditEvent)->
+                        EditIco.setOnMouseClicked((MouseEvent EditEvent) ->
                         {
                             utilisateur user = UsersTable.getSelectionModel().getSelectedItem();
 
@@ -193,7 +197,7 @@ public class UserCrudController implements Initializable {
                 }
 
                 private void LoadUserIntoUpdateForm(utilisateur user) {
-                    FXMLLoader loader = new FXMLLoader ();
+                    FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("/fxml/UserViews/addUser.fxml"));
                     try {
                         loader.load();
@@ -206,15 +210,15 @@ public class UserCrudController implements Initializable {
                     addUserController.initTextFieldForUpdate(user.getId_user(),
                             user.getNom(), user.getPrenom(), user.getCin(),
                             user.getTel(), user.getMail(), user.getUsername(), user.getPassword(), user.getIs_admin()
-                            );
+                    );
 
                     Parent parent = loader.getRoot();
                     Stage stage = new Stage();
                     Scene scene = new Scene(parent);
                     stage.setScene(scene);
                     stage.initStyle(StageStyle.UTILITY);
-                    AppContext.UpdateStage(stage,parent,scene);
-                    AppContext.DragScene(stage,parent);
+                    AppContext.UpdateStage(stage, parent, scene);
+                    AppContext.DragScene(stage, parent);
                     stage.show();
                 }
 
@@ -242,62 +246,82 @@ public class UserCrudController implements Initializable {
 
             return cell;
         };
-       OptionsCol.setCellFactory(cellFactory);
+        OptionsCol.setCellFactory(cellFactory);
 
-       }
-
-    private void DeleteUserConfirmation() {
-        // get the selected user to be deleted
-        utilisateur user = UsersTable.getSelectionModel().getSelectedItem();
-
-
-        // create an alert to make the user verify that he really want ot delete this item
-        Dialog dialog = new Dialog(
-                DialogType.CONFIRMATION,
-                "Delete User action",
-                "Confirm Action",
-                "Are you sure you want to delete " + user.getNom() + " " + user.getPrenom() + "?");
-
-        dialog.showAndWait();
-
-        if (dialog.getResponse() == DialogResponse.YES) {
-            uService.delete(user.getId_user());
-            refreshDataSet();
-        }
     }
 
-    
+    private void DeleteUserConfirmation() {
+        try {
+            // get the selected user to be deleted
+            utilisateur user = UsersTable.getSelectionModel().getSelectedItem();
 
-    public void FilterSearch(){
+
+            // create an alert to make the user verify that he really want ot delete this item
+            Dialog dialog = new Dialog(
+                    DialogType.CONFIRMATION,
+                    "Delete User action",
+                    "Confirm Action",
+                    "Are you sure you want to delete " + user.getNom() + " " + user.getPrenom() + "?");
+
+            dialog.showAndWait();
+
+            if (dialog.getResponse() == DialogResponse.YES) {
+                uService.delete(user.getId_user());
+                refreshDataSet();
+            }
+        } catch (ConstraintViolationException e) {
+            Dialog dialog = new Dialog(
+                    DialogType.ERROR,
+                    e.getCause().toString(),
+                    e.getMessage());
+            dialog.showAndWait();
+        } catch (HibernateException E) {
+            Dialog dialog = new Dialog(
+                    DialogType.ERROR,
+                    "DATABASE ERROR",
+                    E.getMessage());
+            dialog.showAndWait();
+        } catch (Exception E) {
+            Dialog dialog = new Dialog(
+                    DialogType.ERROR,
+                    E.getCause().toString(),
+                    E.getMessage());
+            dialog.showAndWait();
+        }
+
+
+    }
+
+
+    public void FilterSearch() {
         FilteredList<utilisateur> filteredData = new FilteredList<>(UsersList, b -> true);
         SearchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
 
             filteredData.setPredicate(
                     utilisateur -> {
-                        if(newValue == null || newValue.isEmpty()){
-                            return  true;
+                        if (newValue == null || newValue.isEmpty()) {
+                            return true;
                         }
                         // Compare first name and last name of every person with filter text.
                         String lowerCaseFilter = newValue.toLowerCase();
 
-                        if (utilisateur.getNom().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+                        if (utilisateur.getNom().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                             return true; // Filter matches first name.
                         } else if (utilisateur.getPrenom().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                             return true; // Filter matches last name.
-                        }
-                        else if (String.valueOf(utilisateur.getCin()).indexOf(lowerCaseFilter)!=-1)
+                        } else if (String.valueOf(utilisateur.getCin()).indexOf(lowerCaseFilter) != -1)
                             return true;
                         else
                             return false; // Does not match.
                     });
         });
 
-                SortedList<utilisateur> sortedData = new SortedList<>(filteredData);
+        SortedList<utilisateur> sortedData = new SortedList<>(filteredData);
 
 
-                sortedData.comparatorProperty().bind(UsersTable.comparatorProperty());
+        sortedData.comparatorProperty().bind(UsersTable.comparatorProperty());
 
-                UsersTable.setItems(sortedData);
+        UsersTable.setItems(sortedData);
     }
 
 }
