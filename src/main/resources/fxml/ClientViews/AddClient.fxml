@@ -4,7 +4,6 @@
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
