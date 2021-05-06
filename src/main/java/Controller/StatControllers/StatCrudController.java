@@ -145,7 +145,7 @@ public class StatCrudController implements Initializable {
                 if (param.getValue().getParking() == null){
                     return new SimpleStringProperty("Aucun Parking associée");
                 }else{
-                    return new SimpleStringProperty(param.getValue().getParking().getVille());
+                    return new SimpleStringProperty(param.getValue().getParking().getNomParking());
                 }
 
             }});
@@ -219,6 +219,7 @@ public class StatCrudController implements Initializable {
 
                     AddStatController addStatController = loader.getController();
                     addStatController.setUpdate(true);
+
 
                    addStatController.InitFieldsForUpdate(
                            stationnement.getId(),
