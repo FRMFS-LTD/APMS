@@ -19,4 +19,8 @@ public interface parkingDaoInterface <P, P1>{
     public List<P> findAll();
 
     public void deleteAll();
+
+    public int findParkingCount();
+
+    public int AvPlaceNumber();
 }

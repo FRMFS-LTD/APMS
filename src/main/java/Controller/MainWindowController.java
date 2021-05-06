@@ -7,12 +7,16 @@
 
 package Controller;
 
+import Helpers.AppContext;
 import com.jfoenix.controls.JFXButton;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -20,13 +24,38 @@ public class MainWindowController {
 
 
     @FXML
-    private JFXButton AbonnCrudBtn ;
+    private JFXButton statsBtn;
+
+    @FXML
+    private JFXButton AbonnCrudBtn;
+
+    @FXML
+    private JFXButton typeTarifBtn;
+
+    @FXML
+    private JFXButton parkinBtn;
+
+    @FXML
+    private JFXButton HomeBtn;
+
+    @FXML
+    private JFXButton CarsBtn;
+
+    @FXML
+    private FontAwesomeIconView closeBtn;
+
+    @FXML
+    private JFXButton CustomersBtn;
 
     @FXML
     private JFXButton UsersCrudBtn;
 
     @FXML
+    private JFXButton parkingLots;
+
+    @FXML
     private StackPane mainPane;
+
 
     @FXML
     void UsersCrudBtn_Click(ActionEvent event) {
@@ -39,14 +68,52 @@ public class MainWindowController {
 
 
     public void HandleCLicks(ActionEvent actionEvent) {
+        String ViewPath = "";
         if (actionEvent.getSource() == UsersCrudBtn) {
-            SlideViewToMainWindow("/fxml/UserViews/UserCrud.fxml");
+            ViewPath = "/fxml/UserViews/UserCrud.fxml";
 
         }
 
         if (actionEvent.getSource() == AbonnCrudBtn) {
+
             SlideViewToMainWindow("/fxml/AbonnementViews/AbonnementCrud.fxml");
+
         }
+
+       if(actionEvent.getSource() == typeTarifBtn){
+           ViewPath = "/fxml/Typetarifview/TypeTarifView.fxml";
+       }
+
+        if(actionEvent.getSource() == CustomersBtn){
+            ViewPath = "/fxml/ClientViews/ClientCrud.fxml";
+        }
+
+
+        if(actionEvent.getSource() == statsBtn){
+            ViewPath = "/fxml/StatisticsView/MainStatistics.fxml";
+        }
+
+
+        if(actionEvent.getSource() == parkinBtn){
+            ViewPath = "/fxml/ParkingView/Parking.fxml";
+        }
+
+
+                /*
+        if(actionEvent.getSource() == HomeBtn){
+            //ViewPath = /fxml/ParkingView/Parking.fxml";
+        }
+
+                 */
+
+        if(actionEvent.getSource() == CarsBtn){
+            ViewPath = "/fxml/VehiculeViews/VehiculeCrud.fxml";
+        }
+
+        if(actionEvent.getSource() == parkingLots){
+            ViewPath = "/fxml/StatViews/stationnement.fxml";
+        }
+        SlideViewToMainWindow(ViewPath);
     }
 
     private void SlideViewToMainWindow(String ViewPath) {
@@ -65,5 +132,11 @@ public class MainWindowController {
             }
 
 
+    }
+
+    public void Exit_onClick(MouseEvent mouseEvent)  {
+        Stage stage = (Stage) closeBtn.getScene().getWindow();
+
+        AppContext.closeForm(stage);
     }
 }

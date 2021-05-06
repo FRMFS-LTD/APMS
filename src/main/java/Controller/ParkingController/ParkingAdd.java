@@ -21,6 +21,8 @@ import javafx.stage.Stage;
 import model.parking;
 import org.hibernate.HibernateException;
 
+import java.util.regex.Pattern;
+
 
 public class ParkingAdd {
 
@@ -57,6 +59,17 @@ public class ParkingAdd {
     @FXML
     private Label GlobalError;
 
+    @FXML
+    private Label VilleError;
+
+    @FXML
+    private Label NomError;
+
+    @FXML
+    private Label AdrssError;
+
+    @FXML
+    private Label NbError;
     private int idp ;
     private boolean TOF ;
     parkingService PS = new parkingService();
@@ -199,17 +212,71 @@ public class ParkingAdd {
         }
         else if (NBField.getText().isEmpty() || NBField.getText().length()<0 ){
 
-            return SetErrorMessage("validate Numbre of place field to given Conditions");
+            return SetErrorMessage("validate Number of place field to given Conditions");
         }
 
         else if (VillePField.getText().isEmpty() || VillePField.getText().length()<3){
 
-            return SetErrorMessage("validate ville field to given Conditions");
+            return SetErrorMessage("validate city field to given Conditions");
         }else {
             return true;
         }
     }
 
+
+    @FXML
+    void NomField_TextChanged(KeyEvent event) {
+        if(NomField.getText().isEmpty()){
+            NomError.setText("Invalid Name (EX:AZER..)");
+            NomError.setTextFill(Color.web("#E53935", 0.8));
+
+        }else{
+            NomError.setText("Valid name");
+            NomError.setTextFill(Color.web("#64DD17", 0.8));
+
+        }
+    }
+
+    @FXML
+    void VilleField_TextChanged(KeyEvent event) {
+        if(VillePField.getText().isEmpty()){
+            VilleError.setText("Invalid city (EX:Tanger..)");
+            VilleError.setTextFill(Color.web("#E53935", 0.8));
+
+        }else{
+            VilleError.setText("Valid city");
+            VilleError.setTextFill(Color.web("#64DD17", 0.8));
+
+        }
+    }
+
+
+    @FXML
+    void AdrssField_TextChanged(KeyEvent event) {
+        if(AdrssField.getText().isEmpty() ){
+            AdrssError.setText("invalid Adress (EX:Massira..)");
+            AdrssError.setTextFill(Color.web("#E53935", 0.8));
+
+        }else{
+            AdrssError.setText("valid adress");
+            AdrssError.setTextFill(Color.web("#64DD17", 0.8));
+
+        }
+    }
+
+
+    @FXML
+    void NbField_TextChanged(KeyEvent event) {
+        if(!(Pattern.matches("[1-9]+",NBField.getText()))){
+            NbError.setText("Invalid number of place (EX:50..)");
+            NbError.setTextFill(Color.web("#E53935", 0.8));
+
+        }else{
+            NbError.setText("Valid number of place");
+            NbError.setTextFill(Color.web("#64DD17", 0.8));
+
+        }
+    }
 
     public void initTextFieldForUpdate(int id, String  NomParking, String address, int nbplace, String ville){
         idp = id;

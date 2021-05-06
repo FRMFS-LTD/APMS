@@ -1,15 +1,14 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
+
 
 @Entity
 public class parking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected int id_parking;
+    private int id_parking;
     private String NomParking;
 
     public String getNomParking() {

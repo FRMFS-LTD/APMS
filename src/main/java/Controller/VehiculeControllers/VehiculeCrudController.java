@@ -44,6 +44,8 @@ import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import model.Vehicule;
 import model.utilisateur;
+import org.hibernate.HibernateException;
+import org.hibernate.exception.ConstraintViolationException;
 
 import java.io.IOException;
 import java.net.URL;
@@ -278,24 +280,46 @@ public class VehiculeCrudController implements Initializable {
     }
     private void DeleteVehiculeConfirmation() {
 
-
-        // get the selected user to be deleted
-        Vehicule vehicle = VehiculeTable.getSelectionModel().getSelectedItem();
+        try {
 
 
-        // create an alert to make the user verify that he really want ot delete this item
+            // get the selected user to be deleted
+            Vehicule vehicle = VehiculeTable.getSelectionModel().getSelectedItem();
 
-        Dialog dialog = new Dialog(
-                DialogType.CONFIRMATION,
-                "Delete Vehicle action",
-                "Confirm Action",
-                "Do you want to delete this car with plat: \""+ vehicle.getMatriucle() +"\"?");
 
-        dialog.showAndWait();
+            // create an alert to make the user verify that he really want ot delete this item
 
-        if (dialog.getResponse() == DialogResponse.YES) {
-            vService.delete(vehicle.getId());
-            refereshDataSet();
+            Dialog dialog = new Dialog(
+                    DialogType.CONFIRMATION,
+                    "Delete Vehicle action",
+                    "Confirm Action",
+                    "Do you want to delete this car with plat: \"" + vehicle.getMatriucle() + "\"?");
+
+            dialog.showAndWait();
+
+            if (dialog.getResponse() == DialogResponse.YES) {
+                vService.delete(vehicle.getId());
+                refereshDataSet();
+            }
+        }
+        catch (ConstraintViolationException e) {
+            Dialog dialog = new Dialog(
+                    DialogType.ERROR,
+                    e.getCause().toString(),
+                    e.getMessage());
+            dialog.showAndWait();
+        } catch (HibernateException E) {
+            Dialog dialog = new Dialog(
+                    DialogType.ERROR,
+                    "DATABASE ERROR",
+                    E.getMessage());
+            dialog.showAndWait();
+        } catch (Exception E) {
+            Dialog dialog = new Dialog(
+                    DialogType.ERROR,
+                    E.getCause().toString(),
+                    E.getMessage());
+            dialog.showAndWait();
         }
     }
 

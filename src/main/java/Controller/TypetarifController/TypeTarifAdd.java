@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 import model.typetarif;
 import org.hibernate.HibernateException;
 
+import java.util.regex.Pattern;
 
 
 public class TypeTarifAdd {
@@ -42,10 +43,13 @@ public class TypeTarifAdd {
     private Label GlobalError;
 
     @FXML
+
      private Label TypeErreur  ;
+
 
     @FXML
      private Label PrixTErreur ;
+
     typetarifService TTSS = new typetarifService();
     private boolean TOF;
     private int typetarifid;
@@ -152,7 +156,31 @@ public class TypeTarifAdd {
         }
     }
 
+    @FXML
+    void TTField_TextChanged(KeyEvent event) {
+        if(TTField.getText().isEmpty()){
+            TypeErreur.setText("Invalid name of price type (EX:Weekly..)");
+            TypeErreur.setTextFill(Color.web("#E53935", 0.8));
 
+        }else{
+            TypeErreur.setText("Valid name of price type");
+            TypeErreur.setTextFill(Color.web("#64DD17", 0.8));
+
+        }
+    }
+
+    @FXML
+    void PrixField_TextChanged(KeyEvent event) {
+        if(!(Pattern.matches("[1-9]+",PrixField.getText()))){
+            PrixTErreur.setText("Invalid price (EX:120..)");
+            PrixTErreur.setTextFill(Color.web("#E53935", 0.8));
+
+        }else{
+            PrixTErreur.setText("Valid Price");
+            PrixTErreur.setTextFill(Color.web("#64DD17", 0.8));
+
+        }
+    }
 
     private typetarif newTypetarif(typetarif tt) {
 

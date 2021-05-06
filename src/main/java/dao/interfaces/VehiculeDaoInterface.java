@@ -26,4 +26,10 @@ public interface VehiculeDaoInterface<T, T1> {
     public List<Vehicule> findAll();
 
     public void deleteAll();
+
+    public int AvVehiculeNumber();
+
+    public int SubVehiculeNumber();
+
+    public int UnSubVehiculeNumber();
 }

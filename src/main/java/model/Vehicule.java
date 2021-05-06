@@ -6,88 +6,89 @@
  *
  */
 
-        package model;
+package model;
 
-        import com.sun.istack.NotNull;
+import com.sun.istack.NotNull;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
 
 
-        @Entity
-        public class Vehicule  {
+@Entity
+public class Vehicule {
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-        @NotNull
-        @Column(unique = true, nullable = false)
-        private String matriucle;
-
-
+    @NotNull
+    @Column(unique = true, nullable = false)
+    private String matriucle;
 
 
-
-        @ManyToOne
-        private client client;
-
-
-
-        @ManyToOne
-        private abonnement abonnement;
+    @ManyToOne
+    @Cascade(CascadeType.REMOVE)
+    private client client;
 
 
-        public Vehicule() {
-        }
+    @ManyToOne
+    @Cascade(CascadeType.REMOVE)
+    private abonnement abonnement;
 
 
-        public Vehicule(String matriucle) {
+    public Vehicule() {
+    }
+
+
+    public Vehicule(String matriucle) {
         this.matriucle = matriucle;
-        }
+    }
 
-        public Vehicule(String matriucle, client client , abonnement abonnement) {
+    public Vehicule(String matriucle, client client, abonnement abonnement) {
         this.matriucle = matriucle;
 
         this.client = client;
 
         this.abonnement = abonnement;
 
-        }
+    }
 
-        public int getId() {
+    public int getId() {
         return id;
-        }
+    }
 
-        public void setId(int id) {
+    public void setId(int id) {
         this.id = id;
-        }
+    }
 
-        public String getMatriucle() {
+    public String getMatriucle() {
         return matriucle;
-        }
+    }
 
-        public void setMatriucle(String matriucle) {
+    public void setMatriucle(String matriucle) {
         this.matriucle = matriucle;
-        }
+    }
 
-        public client getClient() {
+    public client getClient() {
         return client;
-        }
+    }
 
-        public void setClient(client client) {
+    public void setClient(client client) {
         this.client = client;
-        }
+    }
 
-        public abonnement getAbonnement() {
+    public abonnement getAbonnement() {
         return abonnement;
-        }
+    }
 
-        public void setAbonnement(abonnement abonnement) {
+    public void setAbonnement(abonnement abonnement) {
         this.abonnement = abonnement;
-        }
+    }
 
 
-        @Override
-        public String toString() {
-        return  matriucle; }
-        }
+    @Override
+    public String toString() {
+        return matriucle;
+    }
+}

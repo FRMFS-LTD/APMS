@@ -90,7 +90,9 @@ public class ClientCrudController implements Initializable {
 
 
         Stage primaryStage = new Stage();
+
         Parent root= FXMLLoader.load(getClass().getResource("/fxml/ClientViews/AddClienT.fxml"));
+
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         AppContext.UpdateStage(primaryStage, root, scene);

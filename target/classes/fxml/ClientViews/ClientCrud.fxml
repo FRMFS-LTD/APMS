@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
+<<<<<<< HEAD
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1000.0" styleClass="Container" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ClientControllers.ClientCrudController">
+=======
+<AnchorPane prefHeight="620.0" prefWidth="1100.0" styleClass="Container" stylesheets="@../../../../main/resources/css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ClientControllers.ClientCrudController">
+>>>>>>> origin
     <children>
-        <Label layoutX="74.0" layoutY="37.0" styleClass="title" text="Client CRUD" />
+        <Label layoutX="74.0" layoutY="37.0" styleClass="title" text="Customers informations" />
         <JFXTextField fx:id="SearchTextField" labelFloat="true" layoutX="74.0" layoutY="96.0" prefHeight="26.0" prefWidth="268.0" promptText="search" styleClass="textField" />
         <JFXButton fx:id="AddClient" layoutX="74.0" layoutY="562.0" onAction="#AddClient_click" prefHeight="38.0" prefWidth="199.0" styleClass="primBtn" text="Add">
             <graphic>
@@ -18,22 +26,26 @@
                 </ImageView>
             </graphic>
         </JFXButton>
-        <JFXButton fx:id="Refreshbutton" layoutX="308.0" layoutY="561.0" onAction="#Refreshbutton_click" prefHeight="38.0" prefWidth="199.0" styleClass="SecBtn" text="Refresh">
+        <JFXButton fx:id="Refreshbutton" layoutX="308.0" layoutY="562.0" onAction="#Refreshbutton_click" prefHeight="38.0" prefWidth="199.0" styleClass="SecBtn" text="Refresh">
             <graphic>
                 <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../assets/ClientIco/icons8_cancel_64px_2.png" />
+                        <Image url="@../../assets/UserIco/icons8_refresh_64px.png" />
                     </image>
                 </ImageView>
             </graphic>
         </JFXButton>
+<<<<<<< HEAD
         <TableView fx:id="ClientTable" layoutX="71.0" layoutY="141.0" prefHeight="394.0" prefWidth="898.0" stylesheets="@../../css/style.css">
+=======
+        <TableView fx:id="ClientTable" layoutX="74.0" layoutY="145.0" prefHeight="394.0" prefWidth="898.0" stylesheets="@../../css/style.css">
+>>>>>>> origin
             <columns>
                 <TableColumn fx:id="idCol" prefWidth="168.0" text="Client Id" />
                 <TableColumn fx:id="firstcol" prefWidth="168.0" text="First Name" />
                 <TableColumn fx:id="lastcol" prefWidth="168.0" text="Last Name" />
                 <TableColumn fx:id="cincol" prefWidth="168.0" text="CIN" />
-                <TableColumn fx:id="namecol" prefWidth="168.0" text="Name" />
+                <TableColumn fx:id="namecol" prefWidth="223.2000732421875" text="Name" />
             </columns>
         </TableView>
     </children>

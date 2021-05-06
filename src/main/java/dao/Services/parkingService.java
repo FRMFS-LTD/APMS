@@ -62,6 +62,21 @@ public class parkingService {
         parkingDao.closeCurrentSessionWithTransaction();
 
     }
+
+
+    public int findParkingCount(){
+        parkingDao.openCurrentSession();
+        int count = parkingDao.findParkingCount();
+        parkingDao.closeCurrentSession();
+        return count;
+    }
+
+    public int AvPlaceNumber(){
+        parkingDao.openCurrentSessionWithTransaction();
+        int count = parkingDao.AvPlaceNumber();
+        parkingDao.closeCurrentSessionWithTransaction();
+        return count;
+    }
     public parkingDao parkingDao(){
         return parkingDao;
     }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -7,6 +8,18 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane prefHeight="480.0" prefWidth="472.0" style="-fx-border-color: white;" styleClass="Container" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ClientControllers.AddClientController">
+=======
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="523.0" prefWidth="602.0" style="-fx-border-color: white;" styleClass="Container" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ClientControllers.AddClientController">
+>>>>>>> origin
     <children>
         <Label layoutX="38.0" layoutY="29.0" styleClass="title" text="Create new Client" />
         <JFXButton fx:id="AddNewClient" layoutX="48.0" layoutY="384.0" onAction="#AddNewClient_click" prefHeight="38.0" prefWidth="186.0" styleClass="primBtn" text="Save Changes">
@@ -51,7 +64,11 @@
                         <Insets right="3.0" />
                     </HBox.margin>
                 </ImageView>
+<<<<<<< HEAD
                 <JFXTextField fx:id="lastname" onKeyPressed="#lastname_TextChanged" prefHeight="25.0" prefWidth="251.0" promptText="Last Name" />
+=======
+                <JFXTextField fx:id="lastname" onKeyPressed="#lastname_TextChanged" prefHeight="18.0" prefWidth="218.0" promptText="Last Name" styleClass="textField" />
+>>>>>>> origin
             </children>
         </HBox>
         <Label fx:id="lastnameError" layoutX="65.0" layoutY="243.0" prefHeight="18.0" prefWidth="218.0" />
@@ -65,7 +82,11 @@
                         <Insets right="3.0" />
                     </HBox.margin>
                 </ImageView>
+<<<<<<< HEAD
                 <JFXTextField fx:id="cinclient" onKeyPressed="#cinclient_TextChanged" prefHeight="25.0" prefWidth="251.0" promptText="CIN" />
+=======
+                <JFXTextField fx:id="cinclient" onKeyPressed="#cinclient_TextChanged" prefHeight="18.0" prefWidth="218.0" promptText="CIN" styleClass="textField" />
+>>>>>>> origin
             </children>
         </HBox>
         <Label fx:id="cinError" layoutX="62.0" layoutY="334.0" prefHeight="18.0" prefWidth="218.0" />
