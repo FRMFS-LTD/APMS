@@ -218,6 +218,7 @@ public class AddStatController implements Initializable {
         this.StationnementId = id;
         dtpEntree.setValue(dEntree);
         dtpSortie.setValue(dSortie);
+        System.out.println(veh.getMatriucle() + " " + veh.getId());
         cmbIdveh.getSelectionModel().select(veh.getId()-1);
         cmbIdpark.getSelectionModel().select(park.getId_parking()-1);
         cmbIdtarif.getSelectionModel().select(tarif.getId_typetarif()-1);

@@ -34,7 +34,7 @@
             <JFXComboBox fx:id="cmbIdtarif" prefHeight="25.0" prefWidth="282.0" promptText="Sélectionner un tarif" />
          </children>
       </HBox>
-      <HBox layoutX="43.0" layoutY="288.0" prefHeight="40.0">
+      <HBox layoutX="404.0" layoutY="286.0" prefHeight="40.0">
          <children>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -54,7 +54,7 @@
             <JFXComboBox fx:id="cmbIdveh" prefHeight="25.0" prefWidth="280.0" promptText="Séléctionner une matricule" />
          </children>
       </HBox>
-      <HBox layoutX="394.0" layoutY="286.0" prefHeight="40.0">
+      <HBox layoutX="51.0" layoutY="286.0" prefHeight="40.0">
          <children>
             <ImageView fitHeight="28.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
