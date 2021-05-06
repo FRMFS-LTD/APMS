@@ -87,13 +87,13 @@ public class TypeTarifAdd {
                 if (GeneralException()) {
 
                     typetarif TT = new typetarif();
-                    typetarif newTT = newTypetarif(TT);
+                    typetarif newTT = createOrupdateNewTT(TT);
                     TTSS.persist(newTT);
                     CloseForm();
                 }
             } else {
                 typetarif TTAd = TTSS.findById(typetarifid);
-                typetarif TTDa = newTypetarif(TTAd);
+                typetarif TTDa = createOrupdateNewTT(TTAd);
 
                 if (GeneralException()) {
                     TTSS.update((TTDa));
@@ -111,6 +111,7 @@ public class TypeTarifAdd {
         catch( Exception e ) {
             Dialog dialog = new Dialog(
                     DialogType.ERROR, e.getCause().toString(), e.getMessage());
+            dialog.showAndWait();
         }
     }
 
@@ -156,31 +157,6 @@ public class TypeTarifAdd {
         }
     }
 
-    @FXML
-    void TTField_TextChanged(KeyEvent event) {
-        if(TTField.getText().isEmpty()){
-            TypeErreur.setText("Invalid name of price type (EX:Weekly..)");
-            TypeErreur.setTextFill(Color.web("#E53935", 0.8));
-
-        }else{
-            TypeErreur.setText("Valid name of price type");
-            TypeErreur.setTextFill(Color.web("#64DD17", 0.8));
-
-        }
-    }
-
-    @FXML
-    void PrixField_TextChanged(KeyEvent event) {
-        if(!(Pattern.matches("[1-9]+",PrixField.getText()))){
-            PrixTErreur.setText("Invalid price (EX:120..)");
-            PrixTErreur.setTextFill(Color.web("#E53935", 0.8));
-
-        }else{
-            PrixTErreur.setText("Valid Price");
-            PrixTErreur.setTextFill(Color.web("#64DD17", 0.8));
-
-        }
-    }
 
     private typetarif newTypetarif(typetarif tt) {
 
