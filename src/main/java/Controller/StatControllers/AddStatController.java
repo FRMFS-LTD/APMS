@@ -181,20 +181,20 @@ public class AddStatController implements Initializable {
                 && cmbIdpark.getSelectionModel().getSelectedItem() != null
                 && cmbIdtarif.getSelectionModel().getSelectedItem() != null )
         {
-            return SetErrorMessage("il faut selectionner une immatriculation");
+            return SetErrorMessage("Please select A vehicle first");
         }
 
         else if(cmbIdveh.getSelectionModel().getSelectedItem() != null
                 && cmbIdpark.getSelectionModel().getSelectedItem() == null
                 && cmbIdtarif.getSelectionModel().getSelectedItem() != null )
         {
-            return SetErrorMessage("il faut selectionner un parking");
+            return SetErrorMessage("please Specify Parking");
         }
         else if(cmbIdveh.getSelectionModel().getSelectedItem() != null
                 && cmbIdpark.getSelectionModel().getSelectedItem() != null
                 && cmbIdtarif.getSelectionModel().getSelectedItem() == null )
         {
-            return SetErrorMessage("il faut selectionner un tarif");
+            return SetErrorMessage("please specify price type");
         }
         else{
             GlobalError.setText("");

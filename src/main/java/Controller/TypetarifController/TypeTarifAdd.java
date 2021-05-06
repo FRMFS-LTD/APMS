@@ -117,7 +117,7 @@ public class TypeTarifAdd {
 
         if(TTField.getText().isEmpty() || TTField.getText().length()<3 ){
 
-            return SetErrorMessage("validate rate type  field to conditions");
+            return SetErrorMessage("validate price type field to given conditions");
 
         }
         else if (PrixField.getText().isEmpty()){
@@ -132,11 +132,11 @@ public class TypeTarifAdd {
     @FXML
     void TTField_TextChanged(KeyEvent event) {
         if(TTField.getText().isEmpty()){
-            TTError.setText("Invalid name of price type (EX:Weekly..)");
+            TTError.setText("Invalid price type (EX:Weekly..)");
             TTError.setTextFill(Color.web("#E53935", 0.8));
 
         }else{
-            TTError.setText("Valid name of price type");
+            TTError.setText("Valid price type");
             TTError.setTextFill(Color.web("#64DD17", 0.8));
 
         }

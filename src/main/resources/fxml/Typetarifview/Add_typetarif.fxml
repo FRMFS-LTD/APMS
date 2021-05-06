@@ -38,7 +38,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <Label layoutX="39.0" layoutY="23.0" styleClass="title" text="Créer un nouveau type de tarif" />
+      <Label layoutX="39.0" layoutY="23.0" styleClass="title" text="Price Types Details" />
       <HBox alignment="TOP_CENTER" layoutX="39.0" layoutY="121.0" prefHeight="40.0">
          <children>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">

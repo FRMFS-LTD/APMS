@@ -10,15 +10,6 @@ public class parking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_parking;
     private String NomParking;
-
-    public String getNomParking() {
-        return NomParking;
-    }
-
-    public void setNomParking(String nomParking) {
-        NomParking = nomParking;
-    }
-
     protected String address;
     protected int nbplace ;
     protected int nbplacelibre;
@@ -74,7 +65,15 @@ public class parking {
         this.ville = ville;
     }
 
+    public String getNomParking() {
+        return NomParking;
+    }
+
+    public void setNomParking(String nomParking) {
+        NomParking = nomParking;
+    }
+
     @Override
     public String toString() {
-        return  ville; }
+        return  NomParking; }
 }

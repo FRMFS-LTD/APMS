@@ -280,7 +280,7 @@ public class StatCrudController implements Initializable {
                     DialogType.CONFIRMATION,
                     "Delete User action",
                     "Confirm Action",
-                    "Do you want to delete this stationnemnt with N°: \"" + stationnement.getId() + "\"?");
+                    "Do you want to delete this parking lot with N°: \"" + stationnement.getId() + "\"?");
 
             dialog.showAndWait();
 
