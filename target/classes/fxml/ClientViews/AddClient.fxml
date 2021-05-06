@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?xml version="1.0" encoding="UTF-8"?>
-
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="523.0" prefWidth="602.0" style="-fx-border-color: white;" styleClass="Container" stylesheets="@../../../../main/resources/css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ClientControllers.AddClientController">
+<AnchorPane prefHeight="480.0" prefWidth="472.0" style="-fx-border-color: white;" styleClass="Container" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ClientControllers.AddClientController">
     <children>
         <Label layoutX="38.0" layoutY="29.0" styleClass="title" text="Create new Client" />
-        <JFXButton fx:id="AddNewClient" layoutX="56.0" layoutY="446.0" onAction="#AddNewClient_click" prefHeight="26.0" prefWidth="218.0" styleClass="primBtn" text="Save Changes">
+        <JFXButton fx:id="AddNewClient" layoutX="48.0" layoutY="384.0" onAction="#AddNewClient_click" prefHeight="38.0" prefWidth="186.0" styleClass="primBtn" text="Save Changes">
             <graphic>
                 <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -24,7 +18,7 @@
                 </ImageView>
             </graphic>
         </JFXButton>
-        <JFXButton fx:id="Cancel" layoutX="332.0" layoutY="446.0" onAction="#cancel_click" prefHeight="26.0" prefWidth="218.0" styleClass="SecBtn" stylesheets="@../../css/style.css" text="Cancel">
+        <JFXButton fx:id="Cancel" layoutX="251.0" layoutY="384.0" onAction="#cancel_click" prefHeight="40.0" prefWidth="186.0" styleClass="SecBtn" stylesheets="@../../css/style.css" text="Cancel">
             <graphic>
                 <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -33,7 +27,7 @@
                 </ImageView>
             </graphic>
         </JFXButton>
-        <HBox layoutX="141.0" layoutY="128.0" prefHeight="40.0" prefWidth="294.0">
+        <HBox layoutX="36.0" layoutY="113.0" prefHeight="40.0" prefWidth="294.0">
             <children>
                 <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -43,11 +37,11 @@
                         <Insets right="3.0" />
                     </HBox.margin>
                 </ImageView>
-                <JFXTextField fx:id="firstname" onKeyPressed="#firstname_TextChanged" prefHeight="18.0" prefWidth="218.0" promptText="First Name" styleClass="textField" />
+                <JFXTextField fx:id="firstname" onKeyPressed="#firstname_TextChanged" prefHeight="25.0" prefWidth="250.0" promptText="First Name" styleClass="textField" />
             </children>
         </HBox>
-        <Label fx:id="firstnameError" layoutX="165.0" layoutY="167.0" prefHeight="18.0" prefWidth="218.0" />
-        <HBox layoutX="141.0" layoutY="212.0" prefHeight="26.0" prefWidth="294.0">
+        <Label fx:id="firstnameError" layoutX="61.0" layoutY="149.0" prefHeight="18.0" prefWidth="218.0" />
+        <HBox layoutX="39.0" layoutY="207.0" prefHeight="26.0" prefWidth="294.0">
             <children>
                 <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -57,11 +51,11 @@
                         <Insets right="3.0" />
                     </HBox.margin>
                 </ImageView>
-                <JFXTextField fx:id="lastname" onKeyPressed="#lastname_TextChanged" prefHeight="18.0" prefWidth="218.0" promptText="Last Name" />
+                <JFXTextField fx:id="lastname" onKeyPressed="#lastname_TextChanged" prefHeight="25.0" prefWidth="251.0" promptText="Last Name" />
             </children>
         </HBox>
-        <Label fx:id="lastnameError" layoutX="168.0" layoutY="256.0" prefHeight="18.0" prefWidth="218.0" />
-        <HBox layoutX="142.0" layoutY="304.0" prefHeight="38.0" prefWidth="294.0">
+        <Label fx:id="lastnameError" layoutX="65.0" layoutY="243.0" prefHeight="18.0" prefWidth="218.0" />
+        <HBox layoutX="37.0" layoutY="296.0" prefHeight="38.0" prefWidth="294.0">
             <children>
                 <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -71,10 +65,10 @@
                         <Insets right="3.0" />
                     </HBox.margin>
                 </ImageView>
-                <JFXTextField fx:id="cinclient" onKeyPressed="#cinclient_TextChanged" prefHeight="18.0" prefWidth="218.0" promptText="CIN" />
+                <JFXTextField fx:id="cinclient" onKeyPressed="#cinclient_TextChanged" prefHeight="25.0" prefWidth="251.0" promptText="CIN" />
             </children>
         </HBox>
-        <Label fx:id="cinError" layoutX="168.0" layoutY="342.0" prefHeight="18.0" prefWidth="218.0" />
-        <Label fx:id="GlobalError" layoutX="52.0" layoutY="86.0" prefHeight="26.0" prefWidth="527.0" />
+        <Label fx:id="cinError" layoutX="62.0" layoutY="334.0" prefHeight="18.0" prefWidth="218.0" />
+        <Label fx:id="GlobalError" layoutX="52.0" layoutY="86.0" prefHeight="26.0" prefWidth="327.0" />
     </children>
 </AnchorPane>

@@ -15,6 +15,7 @@ import dao.Services.parkingService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.parking;
@@ -33,6 +34,19 @@ public class ParkingAdd {
 
     @FXML
     private JFXTextField NBField;
+
+    @FXML
+    private Label NomErreur ;
+
+    @FXML
+    private Label VilleErreur ;
+
+    @FXML
+    private Label AdressErreur ;
+
+    @FXML
+    private Label NbrErreur ;
+
 
     @FXML
     private JFXButton addNewParking;
@@ -118,6 +132,58 @@ public class ParkingAdd {
         return parkE;
     }
 
+    @FXML
+    void NomField_TextChanged(KeyEvent event){
+
+        if(NomField.getText().length() < 3){
+            NomErreur.setText("the Name length must be greater than 3");
+            NomErreur.setTextFill(Color.web("#E53935",0.8));
+        }
+        else{
+            NomErreur.setText("Valid Name");
+            NomErreur.setTextFill(Color.web("#64DD17",0.8));
+        }
+    }
+
+    @FXML
+    void VilleField_TextChanged(KeyEvent event){
+
+        if(VillePField.getText().length() < 3){
+            VilleErreur.setText(" The City length must be greater than 3");
+            VilleErreur.setTextFill(Color.web("#E53935",0.8));
+        }
+        else{
+            VilleErreur.setText("Valid City");
+            VilleErreur.setTextFill(Color.web("#64DD17",0.8));
+        }
+    }
+
+    @FXML
+    void AdressField_TextChanged(KeyEvent event){
+
+        if(AdrssField.getText().length() < 3){
+            AdressErreur.setText("Adress length must be greater than 3");
+            AdressErreur.setTextFill(Color.web("#E53935",0.8));
+        }
+        else{
+            AdressErreur.setText("Valid Adress");
+            AdressErreur.setTextFill(Color.web("#64DD17",0.8));
+        }
+    }
+
+    @FXML
+    void NbrField_TextChanged(KeyEvent event){
+
+        if(NBField.getText().length() < 0 ){
+            NbrErreur.setText("Number length must be greater than 0");
+            NbrErreur.setTextFill(Color.web("#E53935",0.8));
+        }
+        else{
+            NbrErreur.setText("Valid Number");
+            NbrErreur.setTextFill(Color.web("#64DD17",0.8));
+        }
+    }
+
     private boolean GeneralException() {
 
         GlobalError.setTextFill(Color.web("#E53935", 0.8));
@@ -131,7 +197,7 @@ public class ParkingAdd {
 
             return SetErrorMessage("validate Adrress field to given Conditions");
         }
-        else if (NBField.getText().isEmpty() ){
+        else if (NBField.getText().isEmpty() || NBField.getText().length()<0 ){
 
             return SetErrorMessage("validate Numbre of place field to given Conditions");
         }

@@ -25,7 +25,6 @@ import java.util.regex.Pattern;
 
 public class AddClientController implements Initializable {
 
-
     @FXML
     private JFXButton AddNewClient;
 
@@ -53,6 +52,7 @@ public class AddClientController implements Initializable {
     private Label cinError;
 
     private boolean update;
+
     private int clientid;
 
     clientService cs = new clientService();
@@ -76,15 +76,18 @@ public class AddClientController implements Initializable {
 
                 client cli = new client();
                 client new_client = createOrUpdateNewClient(cli);
-                cs.persist(new_client);
-                CloseForm();
-
+                if(GeneralExeption()) {
+                    cs.persist(new_client);
+                    CloseForm();
+                }
             } else {
 
                 client cliE = cs.findById(clientid);
                 client cliRe = createOrUpdateNewClient(cliE);
-                cs.update(cliRe);
-                CloseForm();
+                if (GeneralExeption()) {
+                    cs.update(cliRe);
+                    CloseForm();
+                }
             }
 
         } catch (HibernateException Ex ){
@@ -157,7 +160,6 @@ public class AddClientController implements Initializable {
             lastnameError.setTextFill(Color.web("#64DD17", 0.8));
 
         }
-
 
     }
 

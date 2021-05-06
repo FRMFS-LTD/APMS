@@ -91,6 +91,7 @@ public class AddStatController implements Initializable {
 
                     Stationnement new_stat = new Stationnement();
                     Stationnement StatAdd =  AddOrUpdateStationnement(new_stat);
+
                     StatService.persist(StatAdd);
                     CloseForm();
                 }
@@ -122,7 +123,8 @@ public class AddStatController implements Initializable {
             dialog.showAndWait();
         }
     }
-    public void fillComboBoxs(){
+
+      public void fillComboBoxs(){
         fillcmbIdpark();
         fillcmbIdveh();
         fillcmbIdtarif();

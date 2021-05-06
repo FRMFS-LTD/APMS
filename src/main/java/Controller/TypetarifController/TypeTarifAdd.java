@@ -16,6 +16,7 @@ import dao.Services.typetarifService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.typetarif;
@@ -40,7 +41,11 @@ public class TypeTarifAdd {
     @FXML
     private Label GlobalError;
 
+    @FXML
+     private Label TypeErreur  ;
 
+    @FXML
+     private Label PrixTErreur ;
     typetarifService TTSS = new typetarifService();
     private boolean TOF;
     private int typetarifid;
@@ -105,6 +110,31 @@ public class TypeTarifAdd {
         }
     }
 
+    @FXML
+    void TypeTField_TextChanged(KeyEvent event){
+        if(TTField.getText().length() < 3 ){
+            TypeErreur.setText("Type length must be greater than 3");
+            TypeErreur.setTextFill(Color.web("#E53935",0.8));
+        }
+        else{
+            TypeErreur.setText("Valid Type");
+            TypeErreur.setTextFill(Color.web("#64DD17",0.8));
+        }
+    }
+
+    @FXML
+    void PrixTField_TextChanged(KeyEvent event){
+        if(PrixField.getText().length() < 0 ){
+
+            PrixTErreur.setText("Prix length must be greater than 0");
+            PrixTErreur.setTextFill(Color.web("#E53935",0.8));
+        }
+        else{
+            PrixTErreur.setText("Valid Prix");
+            PrixTErreur.setTextFill(Color.web("#64DD17",0.8));
+        }
+    }
+
         private boolean GeneralException() {
         GlobalError.setTextFill(Color.web("#E53935", 0.8));
 
@@ -113,7 +143,7 @@ public class TypeTarifAdd {
             return SetErrorMessage("validate rate type  field to conditions");
 
         }
-        else if (PrixField.getText().isEmpty()){
+        else if (PrixField.getText().isEmpty() || PrixField.getText().length()<0){
 
             return SetErrorMessage("validate price field to given Conditions");
 

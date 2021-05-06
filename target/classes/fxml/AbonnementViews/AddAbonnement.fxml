@@ -7,7 +7,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="472.0" style="-fx-border-color: white;" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AbonnementController.AddAbonnController">
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="472.0" style="-fx-border-color: white;" styleClass="Container" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AbonnementController.AddAbonnController">
     <children>
         <Label layoutX="41.0" layoutY="32.0" prefHeight="40.0" prefWidth="218.0" styleClass="title" text="Create Abonnement" />
         <HBox layoutX="45.0" layoutY="117.0" prefHeight="38.0" prefWidth="303.0">
@@ -16,7 +18,7 @@
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
 
                     <image>
-                        <Image url="@../assets/AbonnementIco/icons8_subscription_64px_3.png" />
+                        <Image url="@../../assets/AbonnementIco/icons8_subscription_64px_3.png" />
                     </image>
                <HBox.margin>
                   <Insets right="3.0" />
@@ -32,7 +34,7 @@
             <children>
                 <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../assets/AbonnementIco/icons8_price_64px_3.png" />
+                    <Image url="@../../assets/AbonnementIco/icons8_price_64px_3.png" />
                 </image>
                <HBox.margin>
                   <Insets right="3.0" />
@@ -48,7 +50,7 @@
             <children>
                 <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../assets/AbonnementIco/icons8_date_span_64px_2.png" />
+                        <Image url="@../../assets/AbonnementIco/icons8_date_span_64px_2.png" />
                     </image>
                     <HBox.margin>
                         <Insets right="3.0" />
@@ -64,7 +66,7 @@
          <graphic>
             <ImageView cache="true" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" styleClass="primBtn">
              <image>
-                 <Image url="@../assets/AbonnementIco/icons8_save_64px.png" />
+                 <Image url="@../../assets/AbonnementIco/icons8_save_64px.png" />
              </image>
             </ImageView>
          </graphic></JFXButton>
@@ -72,25 +74,13 @@
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../assets/AbonnementIco/icons8_rollback_64px.png" />
+                    <Image url="@../../assets/AbonnementIco/icons8_rollback_64px.png" />
                 </image>
             </ImageView>
          </graphic></JFXButton>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> e4c5a4782daf72630dc1c9191707675bdaf9a343
       <Label fx:id="ErrorGlobale" layoutX="74.0" layoutY="74.0" prefHeight="26.0" prefWidth="356.0" />
       <Label fx:id="intituleErreur" layoutX="74.0" layoutY="162.0" prefHeight="26.0" prefWidth="272.0" />
       <Label fx:id="prixErreur" layoutX="74.0" layoutY="251.0" prefHeight="26.0" prefWidth="272.0" />
       <Label fx:id="periodeErreur" layoutX="74.0" layoutY="345.0" prefHeight="26.0" prefWidth="272.0" />
-<<<<<<< HEAD
-=======
-      <Label fx:id="IntituleError" layoutX="110.0" layoutY="154.0" onInputMethodTextChanged="#IntituleField_TextChanged" prefHeight="26.0" prefWidth="211.0" />
-      <Label fx:id="PrixError" layoutX="100.0" layoutY="237.0" onInputMethodTextChanged="#PrixField_textChanged" prefHeight="26.0" prefWidth="217.0" />
-      <Label fx:id="PeriodeError" layoutX="104.0" layoutY="327.0" onInputMethodTextChanged="#PeriodeField_textChanged" prefHeight="26.0" prefWidth="217.0" />
->>>>>>> 7b3efe4ce639789dc36153e0c75d0c8d155d825f
-=======
->>>>>>> e4c5a4782daf72630dc1c9191707675bdaf9a343
     </children>
 </AnchorPane>

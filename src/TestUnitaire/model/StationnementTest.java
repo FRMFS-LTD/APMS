@@ -9,7 +9,9 @@ package model;
 
 import junit.framework.TestCase;
 import org.junit.Test;
-import java.util.Date;
+
+import java.time.LocalDate;
+
 
 public class StationnementTest extends TestCase {
 
@@ -18,8 +20,8 @@ public class StationnementTest extends TestCase {
     abonnement abonne = new abonnement("DOM",12, 2.5F);
     Vehicule v = new Vehicule("25457",cl , abonne);
     typetarif tp = new typetarif("tout",123.5F);
-    Date DateEntree = new Date(2021, 8, 30);
-    Date DateSortie = new Date(2021, 8, 31);
+    LocalDate DateSortie = LocalDate.of(2021,05,16) ;
+     LocalDate DateEntree = LocalDate.of(2021,05, 15) ;
     Stationnement st = new Stationnement(DateEntree,DateSortie,pk,v,tp);
 
     @Test

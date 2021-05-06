@@ -34,10 +34,6 @@ public class client {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getNom() {
         return nom;
     }
@@ -61,7 +57,6 @@ public class client {
     public void setCin(String cin) {
         this.cin = cin;
     }
-
 
     @Override
     public String toString() {

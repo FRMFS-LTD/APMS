@@ -7,7 +7,7 @@
 
 package dao.Services;
 
-import dao.clientDao;
+
 import junit.framework.TestCase;
 import model.client;
 
