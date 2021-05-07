@@ -1,5 +1,5 @@
 package model;
-
+//cette tache fait par :Razzouk Fatima Zohra
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -7,10 +7,10 @@ import javax.persistence.*;
 @Entity
 
 public class client {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
+    @Id // pour spécifier la clé primaire dans la table
+    @GeneratedValue(strategy = GenerationType.IDENTITY ) // id is auto Incremante c'est pourquoi nous utilisons une valeur générée
     private int id;
-
+    // tous les champs ci-dessous ne peuvent pas accepter les valeurs nulles @NotNull
     @NotNull
     private String nom;
 

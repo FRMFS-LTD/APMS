@@ -1,3 +1,4 @@
+//cette tache fait par :Razzouk Fatima Zohra
 
 
 package Controller.ClientControllers;
@@ -50,6 +51,7 @@ import java.util.logging.Logger;
 
 
 public class ClientCrudController implements Initializable {
+    // gérer le mécanisme de crud sur la table des clients
     @FXML
     private JFXTextField SearchTextField;
 
@@ -88,6 +90,7 @@ public class ClientCrudController implements Initializable {
     @FXML
     void AddClient_click(ActionEvent event) throws IOException {
 
+        // ouvre le formulaire d'ajout le client
 
         Stage primaryStage = new Stage();
         Parent root= FXMLLoader.load(getClass().getResource("/fxml/ClientViews/AddClient.fxml"));
@@ -108,6 +111,7 @@ public class ClientCrudController implements Initializable {
     }
 
     private void refreshDataSet() {
+        // récupère les données de la base de données et les charge dans la liste
         ClientsList.clear();
 
         ArrayList<client> cl = (ArrayList<client>) cservice.findAll();
@@ -200,6 +204,10 @@ public class ClientCrudController implements Initializable {
                 }
 
                 private void LoadClientIntoUpdateForm(client cli) {
+
+                    // formulaire de client d'ajout / de mise à jour
+
+                    // lorsque le client clique sur la mise à jour sur la vue de la table, nous devons charger le courant sélectionné
                     FXMLLoader loader = new FXMLLoader ();
                     loader.setLocation(getClass().getResource("/fxml/AddClient.fxml"));
                     try {
@@ -253,9 +261,10 @@ public class ClientCrudController implements Initializable {
     }
 
     private void DeleteClientConfirmation() {
+        // faire la suppression de client  sélectionné
         client cli = ClientTable.getSelectionModel().getSelectedItem();
 
-
+// crée une alerte pour que le client vérifie qu'il souhaite vraiment supprimer cet élément
         Dialog dialog = new Dialog(
                 DialogType.CONFIRMATION,
                 "Delete Client action",
