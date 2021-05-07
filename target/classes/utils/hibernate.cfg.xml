@@ -4,6 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
 
+  <!-- offline database-->
   <session-factory>
     <property name="connection.url">jdbc:mysql://localhost:3306/parking_db</property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
@@ -19,5 +20,19 @@
 
 
   </session-factory>
+
+  <!--oneline database-->
+  <!-- 
+<session-factory>
+    <property name="connection.url">jdbc:mysql://remotemysql.com:3306/nZXG3ajglr</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="connection.username">nZXG3ajglr</property>
+    <property name="connection.password">8qowjF0omo</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="show_sql">true</property>
+   <property name="hibernate.generate_statistics">true</property>
+</session-factory>
+
+-->
 
 </hibernate-configuration>

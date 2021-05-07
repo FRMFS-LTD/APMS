@@ -145,31 +145,6 @@ public class ParkingAdd {
         return parkE;
     }
 
-    @FXML
-    void NomField_TextChanged(KeyEvent event){
-
-        if(NomField.getText().length() < 3){
-            NomErreur.setText("the Name length must be greater than 3");
-            NomErreur.setTextFill(Color.web("#E53935",0.8));
-        }
-        else{
-            NomErreur.setText("Valid Name");
-            NomErreur.setTextFill(Color.web("#64DD17",0.8));
-        }
-    }
-
-    @FXML
-    void VilleField_TextChanged(KeyEvent event){
-
-        if(VillePField.getText().length() < 3){
-            VilleErreur.setText(" The City length must be greater than 3");
-            VilleErreur.setTextFill(Color.web("#E53935",0.8));
-        }
-        else{
-            VilleErreur.setText("Valid City");
-            VilleErreur.setTextFill(Color.web("#64DD17",0.8));
-        }
-    }
 
     @FXML
     void AdressField_TextChanged(KeyEvent event){
