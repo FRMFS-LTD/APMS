@@ -1,5 +1,9 @@
 
+//cette tache fait par :Razzouk Fatima Zohra
+
+
 package Controller.ClientControllers;
+
 
 import com.github.daytron.simpledialogfx.dialog.Dialog;
 import com.github.daytron.simpledialogfx.dialog.DialogType;
@@ -24,6 +28,7 @@ import java.util.regex.Pattern;
 
 
 public class AddClientController implements Initializable {
+    //cette classe permet le mécanisme de création de client
 
 
     @FXML
@@ -105,6 +110,7 @@ public class AddClientController implements Initializable {
     }
 
     private client createOrUpdateNewClient(client cli) {
+        //creation d'un nouveau client
         cli.setNom(lastname.getText());
         cli.setPrenom(firstname.getText());
         cli.setCin(cinclient.getText());
@@ -169,6 +175,7 @@ public class AddClientController implements Initializable {
     }
 
     public void initTextFieldForUpdate(int id, String prenom, String nom, String cin) {
+        // cela chargera le client cliqué pour la mise à jour à partir de l'interface client crud
         clientid = id;
         firstname.setText(prenom);
         lastname.setText(nom);
@@ -176,6 +183,7 @@ public class AddClientController implements Initializable {
     }
 
     public boolean GeneralExeption() {
+        // interdire le client d'ajouter des données aléatoires
 
         GlobalError.setTextFill(Color.web("#E53935",0.8));
 
@@ -198,6 +206,7 @@ public class AddClientController implements Initializable {
 
 
     private boolean SetErrorMessage(String s) {
+        // définit l'erreur pour le message d'erreur global
         GlobalError.setText(s);
         return false;
     } }
