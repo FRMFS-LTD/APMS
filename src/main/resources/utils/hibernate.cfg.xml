@@ -22,7 +22,7 @@
   </session-factory>
 
   <!--oneline database-->
-  <!-- 
+  <!--
 <session-factory>
     <property name="connection.url">jdbc:mysql://remotemysql.com:3306/nZXG3ajglr</property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>

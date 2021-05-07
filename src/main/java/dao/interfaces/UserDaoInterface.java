@@ -16,7 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface UserDaoInterface<T, T1> {
-
+    // this inerface is represent an abstraction class for
+    // all the functions and models related(user, userDAO)
+    
     public void persist(T entity);
 
     public void update(T entity);
