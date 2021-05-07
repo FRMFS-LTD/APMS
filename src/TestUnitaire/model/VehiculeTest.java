@@ -11,16 +11,22 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 public class VehiculeTest extends TestCase {
-    client cl = new client("Adaoui","Samia","T12345");
-    abonnement abonne = new abonnement("DOM",12, 2.5F);
-    Vehicule v = new Vehicule("25457",cl , abonne);
+    //classe pour tester les methodes du classe vehicule
+
+    client cl = new client("Adaoui","Samia","T12345");//constructeur du classe client
+
+    abonnement abonne = new abonnement("DOM",12, 2.5F);//constructeur du classe abonnement
+
+    Vehicule v = new Vehicule("25457",cl , abonne);//constructeur du classe vehicule
+
     @Test
     public void testGetMatriucle() {
     assertEquals("25457", v.getMatriucle());
 }
+
     @Test
     public void testGetClient() {
-        assertEquals(cl , v.getClient());
+        assertEquals(cl , v.getClient()); //tester l'egalité entre expected et actuel
 
     }
 

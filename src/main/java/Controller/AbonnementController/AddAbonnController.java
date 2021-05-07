@@ -20,6 +20,7 @@ import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
 public class AddAbonnController implements Initializable {
+// Classe pour ajouter une nouvelle abonnement
 
     @FXML
     private Label intituleErreur ;
@@ -40,7 +41,7 @@ public class AddAbonnController implements Initializable {
     private JFXTextField PeriodeField;
 
     @FXML
-    private JFXButton addNewAbonn;
+    private JFXButton addNewAbonn; //button cliquable d'ajout
 
     @FXML
     private JFXButton Cancel;
@@ -48,7 +49,7 @@ public class AddAbonnController implements Initializable {
     @FXML
     private Label ErrorGlobale ;
 
-    private boolean update ;
+    private boolean update ; //pour distinguer l'utilisation de ce formulaire pour modifier ou créer
 
     private int Abonnid;
 
@@ -64,7 +65,7 @@ public class AddAbonnController implements Initializable {
         CloseForm();
     }
 
-    private void CloseForm() {
+    private void CloseForm() { //appeler la fonction de formulaire de fermeture
         Stage stage = (Stage) Cancel.getScene().getWindow();
         stage.close();
     }
@@ -107,7 +108,7 @@ public class AddAbonnController implements Initializable {
         }
     }
        private abonnement createOrUpdateNewAbonnement(abonnement  abonn){
-
+           //creer une nouvelle abonnement
 
         abonn.setIntitule(IntituleField.getText());
         abonn.setPrix(Float.parseFloat(PrixField.getText()));
@@ -122,7 +123,7 @@ public class AddAbonnController implements Initializable {
     }
 
   @FXML
-  void intitule_TextChanged(KeyEvent event){
+  void intitule_TextChanged(KeyEvent event){ //verification de la taille d'intitule abonnement par la methode length
 
         if(IntituleField.getText().length() < 4){
             intituleErreur.setText("l'untitule length must be greater than 4");
@@ -161,6 +162,7 @@ public class AddAbonnController implements Initializable {
 }
 
     public void initTextFieldForUpdate(int id,String intitule,float prix,int periode){
+//cela chargera l'utilisateur cliqué pour la mise à jour à partir de l'interface Abonnement crud
 
         Abonnid = id;
         IntituleField.setText(intitule);
@@ -169,6 +171,7 @@ public class AddAbonnController implements Initializable {
 
     }
     public boolean GeneralExeption(){
+//empêcher l'utilisateur de l'application d'ajouter des données aléatoires
 
         ErrorGlobale.setTextFill(Color.web("#E53935", 0.8));
 
@@ -190,6 +193,7 @@ public class AddAbonnController implements Initializable {
 
     }
     private boolean SetErrorMessage(String s) {
+        //set erreur pour la fonction de l'erreur globale
         ErrorGlobale.setText(s);
         return false;
     }

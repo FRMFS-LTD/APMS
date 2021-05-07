@@ -10,8 +10,10 @@ package model;
 import junit.framework.TestCase;
 
 public class parkingTest extends TestCase {
+    //classe pour tester les methodes du classe Parking
 
     parking pk = new parking("walfa" , 30 , 12  ,"Casa") ;
+    //constructeur du classe parking
 
     public void testGetAddress() {
         String expected = "walfa";
@@ -22,7 +24,7 @@ public class parkingTest extends TestCase {
     public void testGetNbplace() {
         int expected = 30;
         int actuel = pk.getNbplace();
-        assertEquals(expected,actuel);
+        assertEquals(expected,actuel);//tester l'egalité entre expected et actuel
     }
 
     public void testGetNbplacelibre() {
