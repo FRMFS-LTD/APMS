@@ -14,15 +14,31 @@ import java.time.LocalDate;
 
 
 public class StationnementTest extends TestCase {
+    //classe pour tester les methodes du classe Stationnement
 
     parking pk = new parking("walfa" , 30 , 12  ,"Casa") ;
+    //constructeur du classe Parking
+
     client cl = new client("Adaoui","Samia","T12345");
+    //constructeur du classe Client
+
     abonnement abonne = new abonnement("DOM",12, 2.5F);
+    //constructeur du classe abonnement
+
     Vehicule v = new Vehicule("25457",cl , abonne);
+    //constructeur du classe Vehicule
+
     typetarif tp = new typetarif("tout",123.5F);
+    //constructeur du classe typeTarif
+
     LocalDate DateSortie = LocalDate.of(2021,05,16) ;
+
+
      LocalDate DateEntree = LocalDate.of(2021,05, 15) ;
+
+
     Stationnement st = new Stationnement(DateEntree,DateSortie,pk,v,tp);
+    //constructeur du classe Stationnement
 
     @Test
     public void testGetDateEntree() {
@@ -35,7 +51,7 @@ public class StationnementTest extends TestCase {
 
     public void testGetParking() {
         assertEquals(pk , st.getParking());
-    }
+    }//tester l'egalité entre expected et actuel
 
     public void testGetVehicule() {
         assertEquals(v , st.getVehicule());

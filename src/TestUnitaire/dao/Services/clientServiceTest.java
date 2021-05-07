@@ -12,12 +12,13 @@ import junit.framework.TestCase;
 import model.client;
 
 public class clientServiceTest extends TestCase {
-
+    //classe pour tester les methodes de Client service
     clientService cs = new clientService() ;
 
     public void testFindById() {
+        //tester la methode findbyId sur la base de données
         client cl = cs.findById(7);
-        assertEquals("hgg",cl.getNom());
+        assertEquals("hgg",cl.getNom());//tester l'egalite entre le nom donné et le UserName sur La base de donnes
     }
 
 }

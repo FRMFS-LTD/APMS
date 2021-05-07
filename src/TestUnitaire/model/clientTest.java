@@ -10,13 +10,15 @@ package model;
 import junit.framework.TestCase;
 
 public class clientTest extends TestCase {
+    //classe pour tester les methodes du classe Client
 
     client cl = new client("Adaoui","Samia","T12345");
+    //constructeur du classe Client
 
     public void testGetNom() {
         String expected = "Adaoui";
         String actuel = cl.getNom() ;
-        assertEquals(expected,actuel);
+        assertEquals(expected,actuel);//tester l'egalité entre expected et actuel
     }
 
     public void testGetPrenom() {

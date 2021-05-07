@@ -50,6 +50,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class AbonnementCrudController implements Initializable {
+     //classe pour la gestion d'abonnement
 
     @FXML
     private JFXButton AddAbonn;
@@ -78,13 +79,13 @@ public class AbonnementCrudController implements Initializable {
     @FXML
     private TableColumn<abonnement, String> editCol;
 
-
+      //tenir la liste des abonnement
     ObservableList<abonnement> AbonnementListe = FXCollections.observableArrayList();
     AbonnementService abonnementliste = new AbonnementService();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        //au moment du chargement du formulaire
         LoadData();
         CreateIcons();
         FilterSearch();
@@ -98,6 +99,7 @@ public class AbonnementCrudController implements Initializable {
 
     @FXML
     void AddAbonn_click(ActionEvent event) throws IOException {
+        //affichage du formulaire abonnement
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/AbonnementViews/AddAbonnement.fxml"));
         Scene scene = new Scene(root);
@@ -115,6 +117,7 @@ public class AbonnementCrudController implements Initializable {
     }
 
     private void refreshDataSet() {
+        //obtenir des données de la base de données et les charger sur la liste
         AbonnementListe.clear();
         ArrayList<abonnement> abonn = (ArrayList<abonnement>) abonnementliste.findAll();
         for (abonnement a : abonn) {
@@ -126,7 +129,7 @@ public class AbonnementCrudController implements Initializable {
 
 
     private void DefineCols() {
-
+          //carte entre la vue de table et le modèle Abonnement
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         intituleCol.setCellValueFactory(new PropertyValueFactory<>("intitule"));
         prixCol.setCellValueFactory(new PropertyValueFactory<>("prix"));
@@ -135,7 +138,7 @@ public class AbonnementCrudController implements Initializable {
     }
 
     public void CreateIcons() {
-
+       //creer les icones de modifier et supprimer sur la table d'abonnement
         Callback<TableColumn<abonnement, String>, TableCell<abonnement, String>> cellFactory =
                 (TableColumn<abonnement, String> param) -> {
 
@@ -175,7 +178,7 @@ public class AbonnementCrudController implements Initializable {
                         }
 
                         private void LoadAbonnIntoUpdateForm(abonnement abonnement) {
-
+                      //charge la formolaire  fxml d'ajout
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("/fxml/AbonnementViews/AddAbonnement.fxml"));
                     try {
@@ -184,7 +187,7 @@ public class AbonnementCrudController implements Initializable {
                         Logger.getLogger(AddAbonnController.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
-
+                            //accès au responsable du traitement associé du formulaire
                             AddAbonnController addAbonnController = loader.getController();
                             addAbonnController.setUpdate(true);
                             addAbonnController.initTextFieldForUpdate(abonnement.getId(), abonnement.getIntitule(), abonnement.getPrix(), abonnement.getPeriode());
@@ -199,6 +202,7 @@ public class AbonnementCrudController implements Initializable {
                         }
 
                         private void StyleIcons(FontAwesomeIconView DeleteIco, FontAwesomeIconView EditIco) {
+                            //donner un style pour les icones
                             DeleteIco.setGlyphSize(26);
                             DeleteIco.setFill(Color.rgb(251, 62, 56));
                             DeleteIco.setCursor(Cursor.HAND);
@@ -211,6 +215,7 @@ public class AbonnementCrudController implements Initializable {
 
 
                         private void SetIconsToTabViewCell(FontAwesomeIconView DeleteIco, FontAwesomeIconView EditIco) {
+                            //inserer les icones sur la colone du table
                             HBox managebtn = new HBox(DeleteIco, EditIco);
                             managebtn.setStyle("-fx-alignment:center");
                             HBox.setMargin(DeleteIco, new Insets(2, 2, 0, 3));
@@ -229,7 +234,7 @@ public class AbonnementCrudController implements Initializable {
     }
 
     private void DeleteAbonnConfirmation() {
-
+          //supprimer une abonnement
         try {
 
 
@@ -273,7 +278,7 @@ public class AbonnementCrudController implements Initializable {
 
 
     public void FilterSearch() {
-
+    //rechercher une abonnement
         FilteredList<abonnement> filteredData = new FilteredList<>(AbonnementListe, b -> true);
         SearchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
 

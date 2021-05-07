@@ -18,7 +18,8 @@ public class VehiculeServiceTest extends TestCase {
 
    @Test
     public void testFindById() {
-    Vehicule v = vs.findById(1);
-    assertEquals("" , v.getMatriucle());
+       //tester la methode findbyId sur la base de données
+    Vehicule v = vs.findById(11);
+    assertEquals("AAAA7894" , v.getMatriucle());//tester l'egalité entre expected et actuel
     }
 }
