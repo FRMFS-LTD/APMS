@@ -208,7 +208,7 @@ public class ParkingAdd {
         }
         else if (AdrssField.getText().isEmpty() || AdrssField.getText().length()<3){
 
-            return SetErrorMessage("validate Adrress field to given Conditions");
+            return SetErrorMessage("validate Address field to given Conditions");
         }
         else if (NBField.getText().isEmpty() || NBField.getText().length()<0 ){
 

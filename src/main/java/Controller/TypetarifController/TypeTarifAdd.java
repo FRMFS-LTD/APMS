@@ -145,7 +145,7 @@ public class TypeTarifAdd {
 
         if(TTField.getText().isEmpty() || TTField.getText().length()<3 ){
 
-            return SetErrorMessage("validate rate type  field to conditions");
+            return SetErrorMessage("validate price type field to given conditions");
 
         }
         else if (PrixField.getText().isEmpty() || PrixField.getText().length()<0){
@@ -157,6 +157,34 @@ public class TypeTarifAdd {
         }
     }
 
+<<<<<<< HEAD
+=======
+    @FXML
+    void TTField_TextChanged(KeyEvent event) {
+        if(TTField.getText().isEmpty()){
+            TTError.setText("Invalid price type (EX:Weekly..)");
+            TTError.setTextFill(Color.web("#E53935", 0.8));
+
+        }else{
+            TTError.setText("Valid price type");
+            TTError.setTextFill(Color.web("#64DD17", 0.8));
+
+        }
+    }
+
+    @FXML
+    void PrixField_TextChanged(KeyEvent event) {
+        if(!(Pattern.matches("[1-9]+",PrixField.getText()))){
+            PrixError.setText("Invalid price (EX:120..)");
+            PrixError.setTextFill(Color.web("#E53935", 0.8));
+
+        }else{
+            PrixError.setText("Valid Price");
+            PrixError.setTextFill(Color.web("#64DD17", 0.8));
+
+        }
+    }
+>>>>>>> 312ba82616733ab678b608b6a8a9ca1b3f5d39f3
 
     private typetarif newTypetarif(typetarif tt) {
 

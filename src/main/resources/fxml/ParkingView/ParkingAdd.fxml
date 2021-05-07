@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="358.0" prefWidth="602.0" styleClass="Container" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ParkingController.ParkingAdd">
    <children>
-      <Label layoutX="62.0" layoutY="46.0" styleClass="title" text="Modifier / Ajouter un parking" />
+      <Label layoutX="62.0" layoutY="46.0" styleClass="title" text="Parking Details" />
       <HBox alignment="TOP_CENTER" layoutX="335.0" layoutY="139.0" prefHeight="40.0">
          <children>
             <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
@@ -22,7 +22,7 @@
                   <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
                </image>
             </ImageView>
-            <JFXTextField fx:id="VillePField" labelFloat="true" onKeyPressed="#VilleField_TextChanged" prefHeight="26.0" prefWidth="217.0" promptText="Ville de parking" styleClass="textField" unFocusColor="#494949" />
+            <JFXTextField fx:id="VillePField" labelFloat="true" onKeyPressed="#VilleField_TextChanged" prefHeight="26.0" prefWidth="217.0" promptText="city" styleClass="textField" unFocusColor="#494949" />
          </children>
       </HBox>
       <HBox alignment="TOP_CENTER" layoutX="50.0" layoutY="210.0" prefHeight="40.0">
@@ -32,9 +32,13 @@
                   <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
                </image>
             </ImageView>
+<<<<<<< HEAD
 
             <JFXTextField fx:id="AdrssField" labelFloat="true" onKeyPressed="#AdressField_TextChanged" prefHeight="26.0" prefWidth="217.0" promptText="Adresse du parking" styleClass="textField" unFocusColor="#494949" />
 
+=======
+            <JFXTextField fx:id="AdrssField" labelFloat="true" onKeyPressed="#AdrssField_TextChanged" prefHeight="26.0" prefWidth="217.0" promptText="Address" styleClass="textField" unFocusColor="#494949" />
+>>>>>>> 312ba82616733ab678b608b6a8a9ca1b3f5d39f3
          </children>
       </HBox>
       <HBox alignment="TOP_CENTER" layoutX="335.0" layoutY="210.0" prefHeight="40.0">
@@ -44,9 +48,13 @@
                   <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
                </image>
             </ImageView>
+<<<<<<< HEAD
 
             <JFXTextField fx:id="NBField" labelFloat="true" onKeyPressed="#NbrField_TextChanged" prefHeight="26.0" prefWidth="217.0" promptText="Nombre de place" styleClass="textField" unFocusColor="#494949" />
 
+=======
+            <JFXTextField fx:id="NBField" labelFloat="true" onKeyPressed="#NbField_TextChanged" prefHeight="26.0" prefWidth="217.0" promptText="Available Places" styleClass="textField" unFocusColor="#494949" />
+>>>>>>> 312ba82616733ab678b608b6a8a9ca1b3f5d39f3
          </children>
       </HBox>
       <JFXButton fx:id="addNewParking" layoutX="62.0" layoutY="286.0" onAction="#addNewParking_click" prefHeight="26.0" prefWidth="218.0" styleClass="primBtn" text="Save Changes">
@@ -74,7 +82,7 @@
                   <Image url="@../../assets/VehiculeIco/icons8_subscription_32px.png" />
                </image>
             </ImageView>
-            <JFXTextField fx:id="NomField" labelFloat="true" onKeyPressed="#NomField_TextChanged" prefHeight="26.0" prefWidth="217.0" promptText="Nom de parking" styleClass="textField" unFocusColor="#494949" />
+            <JFXTextField fx:id="NomField" labelFloat="true" onKeyPressed="#NomField_TextChanged" prefHeight="26.0" prefWidth="217.0" promptText="Parking name" styleClass="textField" unFocusColor="#494949" />
          </children>
       </HBox>
 

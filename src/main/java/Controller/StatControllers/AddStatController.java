@@ -183,20 +183,20 @@ public class AddStatController implements Initializable {
                 && cmbIdpark.getSelectionModel().getSelectedItem() != null
                 && cmbIdtarif.getSelectionModel().getSelectedItem() != null )
         {
-            return SetErrorMessage("il faut selectionner une immatriculation");
+            return SetErrorMessage("Please select A vehicle first");
         }
 
         else if(cmbIdveh.getSelectionModel().getSelectedItem() != null
                 && cmbIdpark.getSelectionModel().getSelectedItem() == null
                 && cmbIdtarif.getSelectionModel().getSelectedItem() != null )
         {
-            return SetErrorMessage("il faut selectionner un parking");
+            return SetErrorMessage("please Specify Parking");
         }
         else if(cmbIdveh.getSelectionModel().getSelectedItem() != null
                 && cmbIdpark.getSelectionModel().getSelectedItem() != null
                 && cmbIdtarif.getSelectionModel().getSelectedItem() == null )
         {
-            return SetErrorMessage("il faut selectionner un tarif");
+            return SetErrorMessage("please specify price type");
         }
         else{
             GlobalError.setText("");
@@ -220,6 +220,7 @@ public class AddStatController implements Initializable {
         this.StationnementId = id;
         dtpEntree.setValue(dEntree);
         dtpSortie.setValue(dSortie);
+        System.out.println(veh.getMatriucle() + " " + veh.getId());
         cmbIdveh.getSelectionModel().select(veh.getId()-1);
         cmbIdpark.getSelectionModel().select(park.getId_parking()-1);
         cmbIdtarif.getSelectionModel().select(tarif.getId_typetarif()-1);

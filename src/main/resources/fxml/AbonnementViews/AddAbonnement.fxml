@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
+<<<<<<< HEAD:src/main/resources/fxml/AbonnementViews/AddAbonnement.fxml
 
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="472.0" style="-fx-border-color: white;" styleClass="Container" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AbonnementController.AddAbonnController">
+=======
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="472.0" style="-fx-border-color: white;" styleClass="Container" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AbonnementController.AddAbonnController">
+>>>>>>> 312ba82616733ab678b608b6a8a9ca1b3f5d39f3:src/main/resources/fxml/AddAbonnement.fxml
     <children>
-        <Label layoutX="41.0" layoutY="32.0" prefHeight="40.0" prefWidth="218.0" styleClass="title" text="Create Abonnement" />
+        <Label layoutX="41.0" layoutY="32.0" prefHeight="40.0" prefWidth="218.0" styleClass="title" text="Subscription Details" />
         <HBox layoutX="45.0" layoutY="117.0" prefHeight="38.0" prefWidth="303.0">
             <children>
                
@@ -24,7 +31,7 @@
                   <Insets right="3.0" />
                </HBox.margin>
                 </ImageView>
-                <JFXTextField fx:id="IntituleField" labelFloat="true" onKeyPressed="#intitule_TextChanged" prefHeight="40.0" prefWidth="272.0" promptText="Intitule" styleClass="textField" unFocusColor="#494949">
+                <JFXTextField fx:id="IntituleField" labelFloat="true" onKeyPressed="#intitule_TextChanged" prefHeight="40.0" prefWidth="272.0" promptText="title" styleClass="textField" unFocusColor="#494949">
                <font>
                   <Font name="Arial" size="12.0" />
                </font></JFXTextField>
@@ -40,7 +47,7 @@
                   <Insets right="3.0" />
                </HBox.margin>
                 </ImageView>
-                <JFXTextField fx:id="PrixField" labelFloat="true" onKeyPressed="#prix_TextChanged" prefHeight="40.0" prefWidth="272.0" promptText="Prix" styleClass="textField" unFocusColor="#494949">
+                <JFXTextField fx:id="PrixField" labelFloat="true" onKeyPressed="#prix_TextChanged" prefHeight="40.0" prefWidth="272.0" promptText="price" styleClass="textField" unFocusColor="#494949">
                <font>
                   <Font name="Arial" size="12.0" />
                </font></JFXTextField>
@@ -56,13 +63,13 @@
                         <Insets right="3.0" />
                     </HBox.margin>
                 </ImageView>
-                <JFXTextField fx:id="PeriodeField" labelFloat="true" onKeyPressed="#periode_TextChanged" prefHeight="40.0" prefWidth="272.0" promptText="Periode" styleClass="textField" unFocusColor="#494949">
+                <JFXTextField fx:id="PeriodeField" labelFloat="true" onKeyPressed="#periode_TextChanged" prefHeight="40.0" prefWidth="272.0" promptText="Period" styleClass="textField" unFocusColor="#494949">
                <font>
                   <Font name="Arial" size="12.0" />
                </font></JFXTextField>
             </children>
         </HBox>
-        <JFXButton fx:id="addNewAbonn" layoutX="47.0" layoutY="403.0" onAction="#addNewAbonn_click" prefHeight="38.0" prefWidth="182.0" styleClass="primBtn" text="Save Abonnement">
+        <JFXButton fx:id="addNewAbonn" layoutX="47.0" layoutY="403.0" onAction="#addNewAbonn_click" prefHeight="38.0" prefWidth="182.0" styleClass="primBtn" text="Save changes">
          <graphic>
             <ImageView cache="true" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" styleClass="primBtn">
              <image>

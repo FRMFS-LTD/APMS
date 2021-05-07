@@ -137,12 +137,12 @@ public class AddAbonnController implements Initializable {
   @FXML
    void prix_TextChanged(KeyEvent event){
 
-        if(PrixField.getText().length() < 2){
-            prixErreur.setText("Prix length must be greater than 2");
+        if(PrixField.getText().length() != 0 && PrixField.getText().length() > 1 ){
+            prixErreur.setText("Price can't null");
             prixErreur.setTextFill(Color.web("#E53935",0.8));
         }
         else{
-            prixErreur.setText("Valid Prix");
+            prixErreur.setText("Valid price");
             prixErreur.setTextFill(Color.web("#64DD17",0.8));
         }
 }
@@ -150,8 +150,8 @@ public class AddAbonnController implements Initializable {
 @FXML
   void periode_TextChanged (KeyEvent event){
 
-        if(PeriodeField.getText().length() < 2){
-            periodeErreur.setText("Periode length wust be greater than 2");
+        if(PrixField.getText().length() != 0 && PrixField.getText().length() > 1){
+            periodeErreur.setText("Period can't be null");
             periodeErreur.setTextFill(Color.web("#E53935",0.8));
         }
         else{
@@ -174,15 +174,15 @@ public class AddAbonnController implements Initializable {
 
         if (IntituleField.getText().isEmpty() || IntituleField.getText().length() < 4){
 
-            return SetErrorMessage("valider le champ Intitule dans les conditions donné") ;
+            return SetErrorMessage("validate Title Field to given conditions") ;
         }
        else if (PrixField.getText().isEmpty() || PrixField.getText().length() < 2){
 
-            return SetErrorMessage("valider le champ Prix dans les conditions donné");
+            return SetErrorMessage("validate price field to given Conditions");
         }
         else if (PeriodeField.getText().isEmpty() || PeriodeField.getText().length() < 2){
 
-            return SetErrorMessage("valider le champ Periode dans les conditions donné");
+            return SetErrorMessage("validate Period field to given Conditions");
         }
         else {
             return true ;

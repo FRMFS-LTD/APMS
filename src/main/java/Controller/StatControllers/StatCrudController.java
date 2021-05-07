@@ -145,7 +145,7 @@ public class StatCrudController implements Initializable {
                 if (param.getValue().getParking() == null){
                     return new SimpleStringProperty("Aucun Parking associée");
                 }else{
-                    return new SimpleStringProperty(param.getValue().getParking().getVille());
+                    return new SimpleStringProperty(param.getValue().getParking().getNomParking());
                 }
 
             }});
@@ -220,6 +220,7 @@ public class StatCrudController implements Initializable {
                     AddStatController addStatController = loader.getController();
                     addStatController.setUpdate(true);
 
+
                    addStatController.InitFieldsForUpdate(
                            stationnement.getId(),
                            stationnement.getDateEntree(),
@@ -280,7 +281,7 @@ public class StatCrudController implements Initializable {
                     DialogType.CONFIRMATION,
                     "Delete User action",
                     "Confirm Action",
-                    "Do you want to delete this stationnemnt with N°: \"" + stationnement.getId() + "\"?");
+                    "Do you want to delete this parking lot with N°: \"" + stationnement.getId() + "\"?");
 
             dialog.showAndWait();
 
