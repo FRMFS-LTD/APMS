@@ -13,15 +13,15 @@ import model.utilisateur;
 import org.junit.Test;
 
 public class UserServiceTest extends TestCase {
-
+    //classe pour tester les methodes de Utilisateur service
     UserService us = new UserService() ;
    @Test
-    public void testFindById() {
+    public void testFindById() { //tester la methode findbyId sur la base de données
         utilisateur u = us.findById(1) ;
-        assertEquals("Rachid" , u.getNom());
+        assertEquals("Rachid" , u.getNom());//tester l'egalite entre le nom donné et Le nom sur La base de donnes
     }
     @Test
-    public void testGetUserByEmail() {
+    public void testGetUserByEmail() { //tester la methode findbyEmail sur la base de données
         utilisateur u = us.getUserByEmail("rachidboufous32@gmail.com", "ub9746000") ;
         assertEquals("legion11" , u.getUsername());
     }
