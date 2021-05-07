@@ -53,7 +53,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class UserCrudController implements Initializable {
-
+    // handle crud mechanism on users table
     @FXML
     private JFXButton AddUserGui;
 
@@ -96,12 +96,13 @@ public class UserCrudController implements Initializable {
     @FXML
     private JFXButton RefreshBtn;
 
-
+    // hold the list of users
     ObservableList<utilisateur> UsersList = FXCollections.observableArrayList();
     UserService uService = new UserService();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // on the moment of loading the form
         LoadData();
         CreateIcons();
         FilterSearch();
@@ -113,6 +114,7 @@ public class UserCrudController implements Initializable {
     }
 
     public void refreshDataSet() {
+        // get data from database and load it to list
         UsersList.clear();
         ArrayList<utilisateur> e = (ArrayList<utilisateur>) uService.findAll();
         UsersList.addAll(e);
@@ -120,6 +122,7 @@ public class UserCrudController implements Initializable {
     }
 
     private void DefineCols() {
+        // map between the table view and the user model
         idCol.setCellValueFactory(new PropertyValueFactory<>("id_user"));
         firstNameCOl.setCellValueFactory(new PropertyValueFactory<>("nom"));
         LastNameCol.setCellValueFactory(new PropertyValueFactory<>("prenom"));
@@ -134,6 +137,7 @@ public class UserCrudController implements Initializable {
     @FXML
     void AddUserGui_click(ActionEvent event) throws IOException {
 
+        // open the add user form
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/UserViews/AddUser.fxml"));
         Scene scene = new Scene(root);
@@ -151,7 +155,7 @@ public class UserCrudController implements Initializable {
     }
 
     public void CreateIcons() {
-
+        // this will allow us to create icons on the table view
         Callback<TableColumn<utilisateur, String>, TableCell<utilisateur, String>> cellFactory = (
                 TableColumn<utilisateur, String> param) -> {
 
@@ -165,7 +169,7 @@ public class UserCrudController implements Initializable {
                         setGraphic(null);
                         setText(null);
                     } else {
-
+                        // declare a new icons for update and delete inside the table view
                         FontAwesomeIconView DeleteIco = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
                         FontAwesomeIconView EditIco = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE_ALT);
 
@@ -197,6 +201,10 @@ public class UserCrudController implements Initializable {
                 }
 
                 private void LoadUserIntoUpdateForm(utilisateur user) {
+                    // when the user click update on table view, we need to load the current selected
+                    // user to the add/update form
+
+                    //load the fxml of the form
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("/fxml/UserViews/addUser.fxml"));
                     try {
@@ -205,13 +213,15 @@ public class UserCrudController implements Initializable {
                         Logger.getLogger(AddUserController.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
+                    // access to the related controller of the form
+                    // to init the field for update with the cureent selected user
                     AddUserController addUserController = loader.getController();
                     addUserController.setUpdate(true);
                     addUserController.initTextFieldForUpdate(user.getId_user(),
                             user.getNom(), user.getPrenom(), user.getCin(),
                             user.getTel(), user.getMail(), user.getUsername(), user.getPassword(), user.getIs_admin()
                     );
-
+                    // finally load the form filled with user to update info
                     Parent parent = loader.getRoot();
                     Stage stage = new Stage();
                     Scene scene = new Scene(parent);
@@ -223,6 +233,7 @@ public class UserCrudController implements Initializable {
                 }
 
                 private void SetIconsToTabViewCell(FontAwesomeIconView DeleteIco, FontAwesomeIconView EditIco) {
+                    // insert the create icons to table view
                     HBox managebtn = new HBox(DeleteIco, EditIco);
                     managebtn.setStyle("-fx-alignment:center");
 
@@ -232,6 +243,8 @@ public class UserCrudController implements Initializable {
                     setGraphic(managebtn);
                 }
 
+
+                // define the color,size and cursor type for update and delete
                 private void StyleIcons(FontAwesomeIconView DeleteIco, FontAwesomeIconView EditIco) {
                     DeleteIco.setGlyphSize(26);
                     DeleteIco.setFill(Color.rgb(251, 62, 56));

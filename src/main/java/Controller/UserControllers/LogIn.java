@@ -43,6 +43,7 @@ import model.utilisateur;
 import Helpers.AppContext;
 
 public class LogIn {
+    // log in mechanism
 
     @FXML
     private StackPane MainContainer;
@@ -75,6 +76,7 @@ public class LogIn {
     }
 
     public void setControllerVal() throws Exception {
+        // used to log the user on by username and password
         userName = usernameField.getText();
         password = passwordField.getText();
 
@@ -96,6 +98,7 @@ public class LogIn {
                         DialogStyle.UNDECORATED,
                         "invalid Username or Password",
                         "try again!!");
+                // throw an error if the list length is zero: no user has been found
                 dialog.showAndWait();
             }
 
@@ -114,14 +117,18 @@ public class LogIn {
     }
 
     private void StartMainWindow() throws  Exception {
+        // in case of a success log in start the main dash board
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainWindow.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
 
+        // start the main form
         AppContext.UpdateStage(primaryStage,root,scene);
         AppContext.DragScene(primaryStage,root);
 
+
+        // close the log in form
         Stage stage = (Stage) passwordField.getScene().getWindow();
         AppContext.closeForm(stage);
 
@@ -139,9 +146,12 @@ public class LogIn {
     @FXML
     void pwdResetButton_click(ActionEvent event) throws IOException {
 
+        // this will be used to redirect the user to reset password form
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/UserViews/pwdReset.fxml"));
         Scene scene =  pwdResetButton.getScene();
 
+
+        // this will allow us to load the reset form via nice animation
         root.translateYProperty().set(scene.getHeight());
         MainContainer.getChildren().add(root);
 

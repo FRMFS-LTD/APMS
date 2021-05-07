@@ -16,8 +16,8 @@ public class Main extends Application {
         Scene scene = new Scene(root);
 
         primaryStage.setScene(scene);
-        AppContext.UpdateStage(primaryStage, root, scene);
-        AppContext.DragScene(primaryStage,root);
+        AppContext.UpdateStage(primaryStage, root, scene); // round the corners of the start form
+        AppContext.DragScene(primaryStage,root); // implement drag func to start form
 
         primaryStage.show();
     }

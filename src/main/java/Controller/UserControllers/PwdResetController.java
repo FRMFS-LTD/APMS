@@ -63,6 +63,7 @@ public class PwdResetController {
 
     @FXML
     void ResetPwdBtn_click(ActionEvent event) {
+        // check for user existance in database so we can reset his password
         String mail = emailResetField.getText();
         String cin = CinResetField.getText();
 
@@ -70,8 +71,9 @@ public class PwdResetController {
 
             try {
 
-                String newPwd = String.valueOf(generatePassword(12));
+                String newPwd = String.valueOf(generatePassword(12)); // generate a 12 length stron password
                 utilisateur user = getVerifiedUserMail(newPwd,mail,cin);
+                // get the user to update pwd along with updating pwd
                 SendMail(user,newPwd);
 
             }catch (IndexOutOfBoundsException e){
@@ -103,6 +105,7 @@ public class PwdResetController {
 
     public void Exit_onClick(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
 
+        // fall back to log in form via nice animation
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/UserViews/LogIn.fxml"));
         Scene scene = ResetPwdBtn.getScene();
 
@@ -135,6 +138,8 @@ public class PwdResetController {
         us.update(verifieduser);
 
         return verifieduser;
+
+        // get the user of the inserted main and cin so we can reset his mdp
     }
 
 
@@ -207,6 +212,7 @@ public class PwdResetController {
     }
 
     private static char[] generatePassword(int length) {
+        // generate a strong password
         String capitalCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
         String specialCharacters = "!@#$";
@@ -227,6 +233,7 @@ public class PwdResetController {
     }
 
     public String GetCurrentTimeForamtted(){
+        // get the current time of the reset password action
         Date date = new Date();
         Timestamp timestamp2 = new Timestamp(date.getTime());
 

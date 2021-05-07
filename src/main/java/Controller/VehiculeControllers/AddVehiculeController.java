@@ -229,7 +229,7 @@ public class AddVehiculeController implements Initializable {
 
 
     public void InitFieldsForUpdate(int id,String matricule, client cl,abonnement ab){
-
+        // fill the combo boxes for update
         this.VehicleId = id;
         MatriculeField.setText(matricule);
         ClientComboBOx.getSelectionModel().select(cl.getId()-1);

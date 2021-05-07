@@ -47,7 +47,7 @@ import static java.lang.Boolean.TRUE;
 
 
 public class AddUserController implements Initializable {
-
+    /* this class will module the creating user mechanism*/
     @FXML
     private Label titleLab;
 
@@ -112,7 +112,7 @@ public class AddUserController implements Initializable {
 
 
 
-    private boolean update ;
+    private boolean update ; // to distinguish the use of this form for update or create
     private int userid;
     UserService us = new UserService();
 
@@ -124,7 +124,7 @@ public class AddUserController implements Initializable {
 
     private void CloseForm(){
 
-        Stage stage = (Stage) Cancel.getScene().getWindow();
+        Stage stage = (Stage) Cancel.getScene().getWindow();// call close form functions
         stage.close();
     }
 
@@ -132,7 +132,7 @@ public class AddUserController implements Initializable {
 
     @FXML
     void addNewUser_click(ActionEvent event) {
-
+        /*this func will update or add a new user based on update boolean*/
     try{
         if (!this.update) {
             utilisateur user = new utilisateur();
@@ -141,6 +141,7 @@ public class AddUserController implements Initializable {
             if(GeneralExeption()){
                 us.persist(new_user);
                 AppContext.infoDialog("Create User","New User has been added");
+                // show a success message on user Creation
                 CloseForm();
             }
 
@@ -152,6 +153,7 @@ public class AddUserController implements Initializable {
             if(GeneralExeption()){
                 us.update(userRe);
                 AppContext.infoDialog("Update User","Updating user with id: "+userRe.getId_user()+" has been added");
+                // show a success message on user update
                 CloseForm();
             }
         }
@@ -179,6 +181,7 @@ public class AddUserController implements Initializable {
     }
 
     private utilisateur createOrupdateNewUser(utilisateur user) {
+        // create a new user
         user.setNom(firstNameField.getText());
         user.setPrenom(LastNameField.getText());
         user.setCin(CinField.getText());
@@ -198,10 +201,12 @@ public class AddUserController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+            // fill role combobox
             isAdminField.getItems().add(0, "False");
             isAdminField.getItems().add(1, "True");
     }
 
+    // error/success messages on each field text changed
     @FXML
     void CinField_textChanged(KeyEvent event) {
 
@@ -220,7 +225,7 @@ public class AddUserController implements Initializable {
 
     @FXML
     void MailField_textChanged(KeyEvent event) {
-
+        // regex to verify email
         boolean flag;
         if(!(Pattern.matches("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$", MailField.getText()))){
             MailError.setText("Incorrect Mail Format (eg: example@mail.com)");
@@ -254,7 +259,7 @@ public class AddUserController implements Initializable {
     @FXML
     void telField_textChanged(KeyEvent event) {
 
-
+        // get the phone number verified using a regex
         if( !(Pattern.matches("^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$", telField.getText())))
         {
             PhoneError.setText("Invalid phone Format (eg: +212 611111111)");
@@ -321,7 +326,7 @@ public class AddUserController implements Initializable {
 
 
     }
-
+    // this will load the clicked user for update from the user crud interface
     public void initTextFieldForUpdate(int id,String firstname,String lastName,String cin,String tel,
                                        String mail,String Userame,String password,boolean is_admin){
         userid = id;
@@ -339,6 +344,7 @@ public class AddUserController implements Initializable {
 
     @FXML
     void Cancel_click(ActionEvent event) {
+        // cancel the operation of adding or updating a user
         CloseForm();
     }
 
@@ -346,7 +352,7 @@ public class AddUserController implements Initializable {
 
 
     public boolean GeneralExeption(){
-
+        // prevent the user of the application from adding randomdata
         GlobalError.setTextFill(Color.web("#E53935", 0.8));
 
         if(firstNameField.getText().isEmpty() || firstNameField.getText().length()<3){
@@ -389,6 +395,7 @@ public class AddUserController implements Initializable {
     }
 
     private boolean SetErrorMessage(String s) {
+        // set the error for the global error message
         GlobalError.setText(s);
         return false;
     }
